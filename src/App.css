@@ -1,8 +1,18 @@
+.Main {
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .Title {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); /* Centering it perfectly in the viewport */
-  width: 100vw;
-  background-color: rgba(255, 0, 0, 0.2);
+  width: 100.05%;
+  height: auto;
+  margin: auto;
+  box-sizing: border-box;
 }
