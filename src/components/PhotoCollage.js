@@ -1,6 +1,9 @@
 import React from 'react';
 import './PhotoCollage.css';
 import { ReactComponent as Title} from '../assets/hawkchild_diy.svg';
+import VerticalColumns from './VerticalColumns';
+import HorizontalRow from './HorizontalRow';
+// Image imports
 import posterEC from '../assets/collage/2023_EvianChrist/poster.jpg';
 import gifEC from '../assets/collage/2023_EvianChrist/josh.gif';
 import posterSky from '../assets/collage/2023_SkyH1-Woesum/poster.jpeg';
@@ -10,22 +13,13 @@ import posterMarkyB from '../assets/collage/2023_MarkyB-Seretide/poster.jpeg';
 import sooaxka from '../assets/collage/2023_MarkyB-Seretide/sooaxka.png';
 
 function Collage() {
-    const mediaList = [
+    const firstColumnList = [
         {
-	    column: 'left',
 	    url: posterEC,
             customStyles: {
             }
         },
         {
-	    column: 'right',
-            url: gifEC,
-            customStyles: {
-		marginLeft: 'calc(1% * 25)',
-            }
-        },
-        {
-	    column: 'left',
             url: gifSkyDj,
             customStyles: {
 		paddingTop: 'calc(1% * 30)',
@@ -33,62 +27,57 @@ function Collage() {
             }
         },
         {
-	    column: 'right',
-            url: posterSky,
-            customStyles: {
-		paddingTop: 'calc(1% * 10)',
-            }
-        },
-        {
-	    column: 'left',
             url: gifSkyCrowd,
             customStyles: {
 		marginTop: 'calc(1% * -30)',
 		marginRight: 'calc(1% * 50)',
+		width: '50%',
+            }
+        }
+    ];
+   
+    const secondColumnList = [
+        {
+            url: gifEC,
+            customStyles: {
+		marginLeft: 'calc(1% * 25)',
             }
         },
         {
-	    column: 'right',
+            url: posterSky,
+            customStyles: {
+		paddingTop: 'calc(1% * 10)',
+            }
+        }
+    ];
+
+    const rowMediaList = [
+        {
             url: posterMarkyB,
             customStyles: {
-		position: 'absolute',
-		paddingTop: 'calc(260%)',
-		marginLeft: 'calc(-50%)',
             }
         },
         {
-	    column: 'right',
             url: sooaxka,
             customStyles: {
-		width: '50%',
-		paddingTop: 'calc(50%)',
-		marginLeft: 'calc(50%)',
+		alignSelf: 'center',
             }
         }
     ];
 
     return (
         <div className="collage-container">
-            <div className="column">
-                {mediaList.filter(media => media.column === 'left').map((media, index) => (
-                    <img
-                        key={index}
-                        src={media.url}
-                        alt="collage media"
-                        style={media.customStyles}
-                    />
-                ))}
-            </div>
-            <div className="column">
-                {mediaList.filter(media => media.column === 'right').map((media, index) => (
-                    <img
-                        key={index}
-                        src={media.url}
-                        alt="collage media"
-                        style={media.customStyles}
-                    />
-                ))}
-            </div>
+            <VerticalColumns 
+                leftMediaList={firstColumnList}
+                rightMediaList={secondColumnList}
+            />
+            <HorizontalRow
+	    	mediaList={rowMediaList}
+	    	containerStyles={{
+		justifyContent: "flex-end",
+		// ...any other custom styles you'd like to apply
+	    }}
+	    />
         </div>
     );
 }

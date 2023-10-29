@@ -1,28 +1,40 @@
 .collage-container {
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-  padding: 90px;
-  box-sizing: border-box;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px;
+}
+
+.vertical-columns-container, .horizontal-row-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.vertical-columns-container {
+    justify-content: space-between;
+}
+
+.horizontal-row-container {
+    flex-direction: row;
+}
+
+.horizontal-row-container::before {
+    content: '';
+    flex: 1;
 }
 
 .column {
-  position: relative;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background-color: rgba(255, 0, 0, 0.2);
+    flex: 1; 
+    flex-direction: column;
+    background-color: rgba(255, 0, 0, 0.2);
 }
 
-/* Add general styles for the images if needed */
-.column img {
-  max-width: 100%;
-  transition: all 0.3s ease;
+img {
+    max-width: 100%;  /* Ensures image does not grow larger than the container */
+    height: auto;     /* Maintains aspect ratio */
 }
 
