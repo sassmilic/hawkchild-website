@@ -1,4 +1,4 @@
-.Main {
+.main {
     margin: 0;
     padding: 0;
     border: none;
@@ -6,7 +6,11 @@
     box-sizing: border-box;
 }
 
-.Title {
+.background {
+    filter: url(#pixelate);
+}
+
+.title {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -16,4 +20,5 @@
   margin: auto;
   box-sizing: border-box;
   z-index: 100; /* always on top */
+  /* background-color: blue; */
 }
