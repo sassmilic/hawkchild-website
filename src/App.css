@@ -15,10 +15,14 @@
 }
 
 .background2 {
+  background-color: white;
   filter: url(#invert-colors);
-  mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/40713/xray-machine.png');
-  mask-size: 300px;
+  mask-image: url('./assets/hawkchild_diy.svg'); 
   mask-repeat: no-repeat;
+  mask-size: 100% auto;
+  transition: mask-position 0.1s ease, -webkit-mask-position 0.1s ease;
+  /*
+  */
 }
 
 .title {
@@ -32,6 +36,4 @@
   box-sizing: border-box;
   z-index: 100; /* always on top */
   /* background-color: blue; */
-
-
 }
