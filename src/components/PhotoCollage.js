@@ -57,13 +57,11 @@ function Collage() {
         {
             url: posterMarkyB,
             customStyles: {
-                width: '50%',
             }
         },
         {
             url: sooaxka,
             customStyles: {
-		alignSelf: 'center',
             }
         }
     ];
@@ -77,7 +75,6 @@ function Collage() {
             <HorizontalRow
                 mediaList={rowMediaList}
                 containerStyles={{
-                    justifyContent: "flex-end",
                 }}
 	        />
         </div>
