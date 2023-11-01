@@ -6,8 +6,19 @@
     box-sizing: border-box;
 }
 
-.background {
-    filter: url(#pixelate);
+.background, .background2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* ... other styles ... */
+}
+
+.background2 {
+  filter: url(#invert-colors);
+  mask-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/40713/xray-machine.png');
+  mask-size: 300px;
+  mask-repeat: no-repeat;
 }
 
 .title {
@@ -21,4 +32,6 @@
   box-sizing: border-box;
   z-index: 100; /* always on top */
   /* background-color: blue; */
+
+
 }
