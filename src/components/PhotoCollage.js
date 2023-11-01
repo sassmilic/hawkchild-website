@@ -15,23 +15,24 @@ import sooaxka from '../assets/collage/2023_MarkyB-Seretide/sooaxka.png';
 function Collage() {
     const firstColumnList = [
         {
-	    url: posterEC,
+	        url: posterEC,
             customStyles: {
             }
         },
         {
             url: gifSkyDj,
             customStyles: {
-		paddingTop: 'calc(1% * 30)',
-		marginLeft: 'calc(1% * 25)',
+		        paddingTop: 'calc(25%)',
+                width: '75%',
+                alignSelf: 'flex-start',
+		        paddingLeft: 'calc(25%)',
             }
         },
         {
             url: gifSkyCrowd,
             customStyles: {
-		marginTop: 'calc(1% * -30)',
-		marginRight: 'calc(1% * 50)',
-		width: '50%',
+                marginTop: 'calc(-30%)',
+                width: '50%',
             }
         }
     ];
@@ -40,7 +41,8 @@ function Collage() {
         {
             url: gifEC,
             customStyles: {
-		marginLeft: 'calc(1% * 25)',
+                width: '75%',
+		        marginLeft: 'calc(25%)',
             }
         },
         {
@@ -55,6 +57,7 @@ function Collage() {
         {
             url: posterMarkyB,
             customStyles: {
+                width: '50%',
             }
         },
         {
@@ -72,12 +75,11 @@ function Collage() {
                 rightMediaList={secondColumnList}
             />
             <HorizontalRow
-	    	mediaList={rowMediaList}
-	    	containerStyles={{
-		justifyContent: "flex-end",
-		// ...any other custom styles you'd like to apply
-	    }}
-	    />
+                mediaList={rowMediaList}
+                containerStyles={{
+                    justifyContent: "flex-end",
+                }}
+	        />
         </div>
     );
 }

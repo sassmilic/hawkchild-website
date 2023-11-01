@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 100px;
+    gap: 15px;
 }
 
 .vertical-columns-container, .horizontal-row-container {
@@ -20,17 +21,13 @@
 
 .horizontal-row-container {
     flex-direction: row;
-}
-
-.horizontal-row-container::before {
-    content: '';
-    flex: 1;
+    background-color: rgba(255, 0, 0, 0.2); 
 }
 
 .column {
     flex: 1; 
     flex-direction: column;
-    /* background-color: rgba(255, 0, 0, 0.2); */
+    background-color: rgba(255, 0, 0, 0.2); 
 }
 
 img {
