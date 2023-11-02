@@ -12,7 +12,7 @@ import gifSkyCrowd from '../assets/collage/2023_SkyH1-Woesum/crowd.gif';
 import posterMarkyB from '../assets/collage/2023_MarkyB-Seretide/poster.jpeg';
 import sooaxka from '../assets/collage/2023_MarkyB-Seretide/sooaxka.png';
 
-function Collage({ customStyling = {} }) {
+function Collage(props) {
     const firstColumnList = [
         {
 	        url: posterEC,
@@ -68,7 +68,7 @@ function Collage({ customStyling = {} }) {
     ];
 
     return (
-        <div className="collage-container">
+        <div className="collage-container" id={props.id} style={props.style}>
             <EmptyScreen percentage={50} />
             <VerticalColumns 
                 leftMediaList={firstColumnList}

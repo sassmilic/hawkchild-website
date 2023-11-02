@@ -1,17 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
+import './reset.css';
 import './App.css';
 import EmptyScreen from './components/EmptyScreen';
 import { ReactComponent as TitleSVG } from './assets/hawkchild_diy.svg'
 import PhotoCollage from './components/PhotoCollage';
-import PixelateFilter from './components/PixelateFilter';
-import InvertFilter from './components/InvertFilter';
+import InvertAndPixelizeFilter from './components/InvertAndPixelizeFilter';
 
 function App() {
-   
-    const svgRef = useRef(null); // for measuring dimensions of title
-    const [maskPosition, setMaskPosition] = useState({ x: 0, y: 0 });
   
     const titleAspectRatio = 90.41 / 1094.483; // hardcoded from SVG file
+    const [maskPosition, setMaskPosition] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
         const adjustMaskPosition = () => {
@@ -28,7 +26,6 @@ function App() {
         window.addEventListener('scroll', adjustMaskPosition);
         window.addEventListener('resize', adjustMaskPosition);
 
-        // Clean up event listeners on component unmount
         return () => {
             window.removeEventListener('scroll', adjustMaskPosition);
             window.removeEventListener('resize', adjustMaskPosition);
@@ -37,24 +34,17 @@ function App() {
 
 
     return (
-	<div className="main">
-        // `TitleSVG` is rendered off-screen in order to get dimensions.
-        <TitleSVG style={{ position: 'absolute', top: '-9999px' }} ref={svgRef} />
-	    <PixelateFilter />
-	    <InvertFilter />
-        /*
-	    <div className="background">
-            <EmptyScreen percentage={50} />
-            <PhotoCollage />
-            <EmptyScreen percentage={100} />
-	    </div>
-        */
-	    <div className="background2" style={{ maskPosition: `${maskPosition.x} ${maskPosition.y}`, WebkitMaskPosition: `${maskPosition.x} ${maskPosition.y}` }}>
-            <EmptyScreen percentage={50} />
-            <PhotoCollage />
-            <EmptyScreen percentage={100} />
-	    </div>
-	</div>
+        <>
+        <PhotoCollage id="foreground"/>
+        <InvertAndPixelizeFilter />
+        <PhotoCollage
+            id="background"
+            style={{
+                maskPosition: `${maskPosition.x} ${maskPosition.y}`,
+                WebkitMaskPosition: `${maskPosition.x} ${maskPosition.y}`
+            }}
+            />
+        </>
     );
 }
 
