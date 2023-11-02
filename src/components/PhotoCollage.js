@@ -1,6 +1,6 @@
 import React from 'react';
 import './PhotoCollage.css';
-import { ReactComponent as Title} from '../assets/hawkchild_diy.svg';
+import EmptyScreen from './EmptyScreen';
 import VerticalColumns from './VerticalColumns';
 import HorizontalRow from './HorizontalRow';
 // Image imports
@@ -12,7 +12,7 @@ import gifSkyCrowd from '../assets/collage/2023_SkyH1-Woesum/crowd.gif';
 import posterMarkyB from '../assets/collage/2023_MarkyB-Seretide/poster.jpeg';
 import sooaxka from '../assets/collage/2023_MarkyB-Seretide/sooaxka.png';
 
-function Collage() {
+function Collage({ customStyling = {} }) {
     const firstColumnList = [
         {
 	        url: posterEC,
@@ -48,7 +48,7 @@ function Collage() {
         {
             url: posterSky,
             customStyles: {
-		paddingTop: 'calc(1% * 10)',
+		        paddingTop: 'calc(1% * 10)',
             }
         }
     ];
@@ -57,6 +57,7 @@ function Collage() {
         {
             url: posterMarkyB,
             customStyles: {
+                flex: '2'
             }
         },
         {
@@ -68,6 +69,7 @@ function Collage() {
 
     return (
         <div className="collage-container">
+            <EmptyScreen percentage={50} />
             <VerticalColumns 
                 leftMediaList={firstColumnList}
                 rightMediaList={secondColumnList}
@@ -75,8 +77,11 @@ function Collage() {
             <HorizontalRow
                 mediaList={rowMediaList}
                 containerStyles={{
+                    marginTop: 'calc(-10%)'
                 }}
+                invisibleCount={1}
 	        />
+            <EmptyScreen percentage={100} />
         </div>
     );
 }

@@ -7,7 +7,6 @@ import './EmptyScreen.css';
 function EmptyScreen({ percentage }) {
     const style = {
         height: `${percentage}vh`,
-        backgroundColor: '#fff',
     };
 
     return <div className="empty-screen" style={style}></div>;

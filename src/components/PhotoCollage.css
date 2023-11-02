@@ -19,26 +19,25 @@
 .horizontal-row-container {
     max-width: 100%;
     flex-direction: column;
-    background-color: rgba(255, 0, 0, 0.2); 
+    /* background-color: rgba(255, 0, 0, 0.2); */
 }
 
 .column {
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 0, 0, 0.2); 
+    /* background-color: rgba(255, 0, 0, 0.2); */
 }
 
 .row {
     max-width: 100%;
     display: flex;
+    align-items: center;
     gap: 15px;
-    background-color: rgba(255, 0, 0, 0.2); 
+    /* background-color: rgba(255, 0, 0, 0.2); */
 }
 
 .row img {
-    flex-grow: 1;   /* Allows the item to grow and take available space */
-    flex-shrink: 1; /* Allows the item to shrink if necessary */
-    flex-basis: auto; /* Default value, can be adjusted based on your needs */
+    flex: 1 1 0;
     overflow: hidden;
 }
 
@@ -47,3 +46,8 @@
     height: auto;     /* Maintains aspect ratio */
 }
 
+.invisible-element {
+    opacity: 0;               /* Make it transparent */
+    pointer-events: none;     /* Make it non-interactable */
+    flex: 1;                  /* Make it take up an equal amount of space as the images */
+}
