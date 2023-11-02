@@ -23,8 +23,7 @@ function Collage(props) {
             url: gifSkyDj,
             customStyles: {
 		        paddingTop: 'calc(25%)',
-                width: '75%',
-                alignSelf: 'flex-start',
+                alignSelf: 'flex-end',
 		        paddingLeft: 'calc(25%)',
             }
         },
@@ -69,6 +68,7 @@ function Collage(props) {
 
     return (
         <div className="collage-container" id={props.id} style={props.style}>
+            <div id="empty-screen-1" />
             <EmptyScreen percentage={50} />
             <VerticalColumns 
                 leftMediaList={firstColumnList}
