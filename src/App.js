@@ -10,6 +10,19 @@ function App() {
     const titleAspectRatio = 88 / 679.665; // hardcoded from SVG file
     const [maskPosition, setMaskPosition] = useState({ x: 0, y: 0 });
 
+    // Define a debounce function
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
     useEffect(() => {
         const adjustMaskPosition = () => {
             const viewportWidth = window.innerWidth;
@@ -20,20 +33,27 @@ function App() {
             setMaskPosition({ x: 0, y: centerY});
         };
 
+        // Debounce the adjustMaskPosition function
+        const debouncedAdjustMaskPosition = debounce(adjustMaskPosition, 50);
+
         adjustMaskPosition(); 
 
-        window.addEventListener('scroll', adjustMaskPosition);
-        window.addEventListener('resize', adjustMaskPosition);
+        // Add event listeners using the debounced function
+        window.addEventListener('scroll', debouncedAdjustMaskPosition);
+        window.addEventListener('resize', debouncedAdjustMaskPosition);
 
         return () => {
-            window.removeEventListener('scroll', adjustMaskPosition);
-            window.removeEventListener('resize', adjustMaskPosition);
+            // Remove the event listeners using the debounced function
+            window.removeEventListener('scroll', debouncedAdjustMaskPosition);
+            window.removeEventListener('resize', debouncedAdjustMaskPosition);
         };
     }, []);
 
-
     return (
         <>
+        <div className="title-svg">
+            <img src="/hawkchild_diy.svg" />
+        </div>
         <PhotoCollage id="foreground"/>
         <InvertAndPixelizeFilter />
         <PhotoCollage

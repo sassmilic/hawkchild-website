@@ -11,11 +11,21 @@ html {
     background-color: rgba(255, 0, 0, 0.2);
 }
 
+.title-svg img {
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    mix-blend-mode: difference;
+}
+
 #background {
+  background-color: white;
+  /*
   background-color: white;
   filter: url(#InvertAndPixelize);
   mask-image: url('./assets/hawkchild_diy.svg'); 
   mask-repeat: no-repeat;
   mask-size: 100% auto;
+  */
 }
 
