@@ -1,18 +1,10 @@
-html {
-}
-
-.main {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    border: none;
-    box-sizing: border-box;
-    background-color: rgba(255, 0, 0, 0.2);
+:root {
+  --title-aspect-ratio: 0.129;
 }
 
 .title-svg img {
     position: fixed;
+    top: calc(50vh - var(--title-aspect-ratio) / 2 * 100vw);
     width: 100%;
     z-index: 99;
     mix-blend-mode: difference;
