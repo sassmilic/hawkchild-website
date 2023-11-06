@@ -3,6 +3,7 @@ import './reset.css';
 import './App.css';
 import PhotoCollage from './components/PhotoCollage';
 import HawkchildText from './assets/hawkchild_diy.svg';
+import Logo from './assets/logo.jpeg';
 
 function App() {
   
@@ -13,6 +14,9 @@ function App() {
                 <img src={HawkchildText} alt="HAWKCHILD   DIY"/>
             </div>
             <PhotoCollage />
+            <footer className="footer">
+                <img src={Logo} alt="Logo" className="footer-logo"/>
+            </footer>
         </div>
         </>
     );
