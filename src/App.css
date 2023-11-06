@@ -4,7 +4,7 @@
 
 
 .main {
-  min-height: 100vh;
+    overflow-y:auto;
   background-color: white;
 }
 
@@ -20,16 +20,9 @@
 
 .title-svg img {
   width: 100%;
-    mix-blend-mode: difference;
+  mix-blend-mode: difference;
 }
 
 .background {
-  background-color: white;
-  /*
-  filter: url(#InvertAndPixelize);
-  mask-image: url('./assets/hawkchild_diy.svg'); 
-  mask-repeat: no-repeat;
-  mask-size: 100% auto;
-  */
 }
 
