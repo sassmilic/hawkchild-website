@@ -1,5 +1,5 @@
 :root {
-  --title-aspect-ratio: 0.16;
+  --title-aspect-ratio: 0.13;
   --margin-as-ratio-of-width: 0.05534736966;
   --gap-as-ratio-of-width: 0.00882352941;
 }
@@ -26,6 +26,36 @@
 
 .background {
 }
+
+.navbar {
+    position: fixed;
+    margin-left: calc(100% * var(--margin-as-ratio-of-width));
+    width: calc(50% - 100% * var(--margin-as-ratio-of-width));
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: flex-start; 
+    justify-content: space-between; /* Center items horizontally */
+    flex-direction: row; /* Stack buttons vertically */
+}
+
+.navbar button {
+    width: calc(100% * 0.34);
+    margin: 10px 0; /* Space out the buttons */
+    padding: 10px 20px; /* Padding for the buttons */
+    background-color: white; /* Button background color */
+    border: none;
+    font-family: 'Inconsolata', monospace;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.navbar button:hover {
+    background-color: none; /* Button hover effect */
+    color: #8ebcf2;
+    text-decoration: underline;
+}
+
 
 .footer {
     width: 100%;

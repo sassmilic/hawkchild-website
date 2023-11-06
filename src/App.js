@@ -9,6 +9,11 @@ function App() {
   
     return (
         <>
+        <nav className="navbar">
+            <button>contact</button>
+            <button>events</button>
+            <button>$hstkkytkky</button>
+        </nav>
         <div className="main">
             <div className="title-svg">
                 <img src={HawkchildText} alt="HAWKCHILD   DIY"/>
