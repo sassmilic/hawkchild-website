@@ -2,18 +2,30 @@
   --title-aspect-ratio: 0.129;
 }
 
-.title-svg img {
+
+.main {
+  min-height: 100vh;
+  background-color: white;
+}
+
+.title-svg {
+    display: block; /* Remove inline behavior */
     position: fixed;
     top: calc(50vh - var(--title-aspect-ratio) / 2 * 100vw);
+    left: 0;
     width: 100%;
     z-index: 99;
     mix-blend-mode: difference;
 }
 
-#background {
+.title-svg img {
+  width: 100%;
+    mix-blend-mode: difference;
+}
+
+.background {
   background-color: white;
   /*
-  background-color: white;
   filter: url(#InvertAndPixelize);
   mask-image: url('./assets/hawkchild_diy.svg'); 
   mask-repeat: no-repeat;
