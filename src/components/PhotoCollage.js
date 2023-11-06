@@ -6,6 +6,7 @@ import HorizontalRow from './HorizontalRow';
 // Image imports
 import posterEC from '../assets/collage/2023_EvianChrist/poster.jpg';
 import gifEC from '../assets/collage/2023_EvianChrist/josh.gif';
+import passportEC from '../assets/collage/2023_EvianChrist/josh_passport.jpg';
 import posterSky from '../assets/collage/2023_SkyH1-Woesum/poster.jpeg';
 import gifSkyDj from '../assets/collage/2023_SkyH1-Woesum/dj.gif';
 import gifSkyCrowd from '../assets/collage/2023_SkyH1-Woesum/crowd.gif';
@@ -22,7 +23,8 @@ function Collage(props) {
         {
             url: gifSkyDj,
             customStyles: {
-		        paddingTop: 'calc(25%)',
+		        //paddingTop: 'calc(25%)',
+		        paddingTop: '15px',
                 alignSelf: 'flex-end',
 		        paddingLeft: 'calc(25%)',
             }
@@ -45,9 +47,16 @@ function Collage(props) {
             }
         },
         {
+            url: passportEC,
+            customStyles: {
+		        marginTop: 'calc(-25%)',
+                width: '75%',
+            }
+        },
+        {
             url: posterSky,
             customStyles: {
-		        paddingTop: 'calc(1% * 10)',
+		        paddingTop: '15px',
             }
         }
     ];
@@ -77,7 +86,6 @@ function Collage(props) {
             <HorizontalRow
                 mediaList={rowMediaList}
                 containerStyles={{
-                    marginTop: 'calc(-10%)'
                 }}
                 invisibleCount={1}
 	        />
