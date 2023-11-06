@@ -1,10 +1,11 @@
 :root {
-  --title-aspect-ratio: 0.129;
+  --title-aspect-ratio: 0.16;
+  --margin-as-ratio-of-width: 0.05534736966;
+  --gap-as-ratio-of-width: 0.00882352941;
 }
 
 
 .main {
-    overflow-y:auto;
   background-color: white;
 }
 

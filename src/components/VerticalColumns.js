@@ -4,6 +4,7 @@ export default function VerticalColumns({ leftMediaList, rightMediaList }) {
             <div className="column">
                 {leftMediaList.map((media, index) => (
                     <img
+                        loading="lazy"
                         key={index}
                         src={media.url}
                         alt="collage media"
@@ -14,6 +15,7 @@ export default function VerticalColumns({ leftMediaList, rightMediaList }) {
             <div className="column">
                 {rightMediaList.map((media, index) => (
                     <img
+                        loading="lazy"
                         key={index}
                         src={media.url}
                         alt="collage media"

@@ -9,6 +9,7 @@ export default function HorizontalRow({ mediaList, containerStyles = {}, invisib
                 {/* Existing mediaList mapping */}
                 {mediaList.map((media, index) => (
                     <img
+                        loading="lazy"
                         key={index}
                         src={media.url}
                         alt="collage media"

@@ -1,19 +1,19 @@
 .collage-container {
     top: 0;
     left: 0;
+    margin-left: calc(100% * var(--margin-as-ratio-of-width));
+    margin-right: calc(100% * var(--margin-as-ratio-of-width));
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 15px;
+    gap: calc(100% * var(--gap-as-ratio-of-width));
 }
 
 .vertical-columns-container, .horizontal-row-container {
     display: flex;
     justify-content: space-between;
-    gap: 15px;
-    margin-left: 90px;
-    margin-right: 90px;
+    gap: calc(100% * var(--gap-as-ratio-of-width));
     /* background-color: rgba(255, 0, 0, 0.2); */
 }
 
