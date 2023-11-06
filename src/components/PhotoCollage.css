@@ -29,6 +29,7 @@
 .column {
     display: flex;
     flex-direction: column;
+    gap: calc(100% * var(--gap-as-ratio-of-width));
     /* background-color: rgba(255, 0, 0, 0.2); */
 }
 
@@ -36,6 +37,7 @@
     max-width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
     /* background-color: rgba(255, 0, 0, 0.2); */
 }

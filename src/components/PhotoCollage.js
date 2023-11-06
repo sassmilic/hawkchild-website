@@ -12,6 +12,12 @@ import gifSkyDj from '../assets/collage/2023_SkyH1-Woesum/dj.gif';
 import gifSkyCrowd from '../assets/collage/2023_SkyH1-Woesum/crowd.gif';
 import posterMarkyB from '../assets/collage/2023_MarkyB-Seretide/poster.jpeg';
 import sooaxka from '../assets/collage/2023_MarkyB-Seretide/sooaxka.png';
+import posterDark0Femi from '../assets/collage/2022_Dark0-Femi/poster.jpeg';
+import hashimDark0 from '../assets/collage/2022_Dark0-Femi/hashim_and_dark0.png';
+import gifEcDj from '../assets/collage/2022_Dark0-Femi/josh_dj.gif';
+import gifDark0Dj1 from '../assets/collage/2022_Dark0-Femi/crowd_dark0_pink.gif';
+import gifDark0Dj2 from '../assets/collage/2022_Dark0-Femi/dark0_dj.gif';
+
 
 function Collage(props) {
     const firstColumnList = [
@@ -23,9 +29,7 @@ function Collage(props) {
         {
             url: gifSkyDj,
             customStyles: {
-		        //paddingTop: 'calc(25%)',
-		        paddingTop: '15px',
-                alignSelf: 'flex-end',
+		        paddingTop: 'calc(2%)',
 		        paddingLeft: 'calc(25%)',
             }
         },
@@ -33,7 +37,7 @@ function Collage(props) {
             url: gifSkyCrowd,
             customStyles: {
                 marginTop: 'calc(-30%)',
-                width: '50%',
+                width: '75%',
             }
         }
     ];
@@ -42,8 +46,8 @@ function Collage(props) {
         {
             url: gifEC,
             customStyles: {
-                width: '75%',
-		        marginLeft: 'calc(25%)',
+                //width: '75%',
+		        //marginLeft: 'calc(25%)',
             }
         },
         {
@@ -51,25 +55,58 @@ function Collage(props) {
             customStyles: {
 		        marginTop: 'calc(-25%)',
                 width: '75%',
+                alignSelf: 'center'
             }
         },
         {
             url: posterSky,
             customStyles: {
-		        paddingTop: '15px',
+		        paddingTop: 'calc(2%)',
             }
         }
     ];
 
-    const rowMediaList = [
+    const rowMediaList1 = [
         {
             url: posterMarkyB,
             customStyles: {
-                flex: '2'
+                flex: '3',
+		        marginTop: 'calc(2%)',
             }
         },
         {
             url: sooaxka,
+            customStyles: {
+            }
+        }
+    ];
+
+    const rowMediaList2 = [
+        {
+            url: posterDark0Femi,
+            customStyles: {
+            }
+        },
+        {
+            url: hashimDark0,
+            customStyles: {
+            }
+        }
+    ];
+
+    const rowMediaList3 = [
+        {
+            url: gifEcDj,
+            customStyles: {
+            }
+        },
+        {
+            url: gifDark0Dj1,
+            customStyles: {
+            }
+        },
+        {
+            url: gifDark0Dj2,
             customStyles: {
             }
         }
@@ -84,10 +121,22 @@ function Collage(props) {
                 rightMediaList={secondColumnList}
             />
             <HorizontalRow
-                mediaList={rowMediaList}
+                mediaList={rowMediaList1}
                 containerStyles={{
                 }}
                 invisibleCount={1}
+	        />
+            <HorizontalRow
+                mediaList={rowMediaList2}
+                containerStyles={{
+                    marginTop: 'calc(10%)'
+                }}
+	        />
+            <HorizontalRow
+                mediaList={rowMediaList3}
+                containerStyles={{
+                    marginTop: 'calc(10%)'
+                }}
 	        />
             <EmptyScreen percentage={100} />
         </div>
