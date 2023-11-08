@@ -4,6 +4,13 @@
   --gap-as-ratio-of-width: 0.00882352941;
 }
 
+@font-face {
+  font-family: 'Helvetica-Light';
+  src: local('Helvetica-Light'),
+       url('./fonts/helvetica-light/HelveticaLt.ttf') format('ttf');
+  font-weight: 300;
+  font-style: normal;
+}
 
 .main {
   background-color: white;
