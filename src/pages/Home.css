@@ -64,7 +64,7 @@
 .navbar button {
     padding: 0  !important;
     margin-bottom: 0.3em;
-    height: 1.1em; /* to "cut" the element right at bottom of text */
+    height: 1.2em; /* to "cut" the element right at bottom of text */
     background-color: white;
     border: none;
 
