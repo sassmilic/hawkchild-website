@@ -75,7 +75,7 @@
     background-color: white;
     border: none;
 
-    font-family: "Helvetica-Light", sans-serif;
+    font-family: "Helvetica-Light", Helvetica, Arial, sans-serif;
     font-size: 1.3em;
     letter-spacing: 0.05rem;
 }
