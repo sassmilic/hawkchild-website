@@ -11,15 +11,15 @@ function App() {
         <>
         <nav className="navbar">
             <div className="left">
-                <button>ABOUT</button>
+                <button>about</button>
                 <div className="empty"></div>
-                <button>EVENTS</button>
+                <button>events</button>
                 <div className="empty"></div>
-                <button>$HSTKKYTKKY</button>
+                <button>$hstkkytkky</button>
             </div>
             <div className="right">
                 <div className="empty"></div>
-                <button>CONTACT</button>
+                <button>contact</button>
             </div>
         </nav>
         <div className="main">
