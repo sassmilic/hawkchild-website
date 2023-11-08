@@ -4,14 +4,6 @@
   --gap-as-ratio-of-width: 0.00882352941;
 }
 
-@font-face {
-  font-family: 'Helvetica-Light';
-  src: local('Helvetica-Light'),
-       url('./fonts/helvetica-light/HelveticaLt.ttf') format('ttf');
-  font-weight: 300;
-  font-style: normal;
-}
-
 .main {
   background-color: white;
 }
@@ -45,30 +37,31 @@
     display: flex;
     align-items: flex-start; 
     justify-content: space-between; /* Center items horizontally */
-    flex-direction: row; /* Stack buttons vertically */
+    flex-direction: row; /* Stack left vertically */
     gap: calc(100% * var(--gap-as-ratio-of-width));
 
     background-color: white;
 }
 
-.navbar div {
+.navbar .left, .right {
     height: 100%;
     width: 50%;
-}
-
-.navbar .buttons {
     display: flex;
     justify-content: space-between;
 }
 
+.navbar .right .empty{
+  width: 100%;
+}
 
-.navbar  .empty {
+.navbar .left,.right .empty {
     height: 1.4em;
     margin: 0;
     border-bottom: 1px solid;
 }
 
-.navbar .buttons button {
+
+.navbar button {
     padding: 0  !important;
     margin-bottom: 0.3em;
     height: 1.1em; /* to "cut" the element right at bottom of text */
@@ -81,7 +74,7 @@
     letter-spacing: 0.05rem;
 }
 
-.buttons button:hover {
+.navbar button:hover {
     cursor: crosshair;
     color: #63fe8c;
     text-decoration: line-through 1px;
