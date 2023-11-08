@@ -10,9 +10,14 @@ function App() {
     return (
         <>
         <nav className="navbar">
-            <button>contact</button>
-            <button>events</button>
-            <button>$hstkkytkky</button>
+            <div className="buttons">
+                <button>CONTACT</button>
+                <div className="empty"></div>
+                <button>EVENTS</button>
+                <div className="empty"></div>
+                <button>$HSTKKYTKKY</button>
+            </div>
+            <div className="empty"></div>
         </nav>
         <div className="main">
             <div className="title-svg">

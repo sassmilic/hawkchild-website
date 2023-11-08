@@ -30,32 +30,53 @@
 .navbar {
     position: fixed;
     margin-left: calc(100% * var(--margin-as-ratio-of-width));
-    width: calc(50% - 100% * var(--margin-as-ratio-of-width));
+    margin-bottom: -1px;
+    width: calc(100% - 100% * 2 * var(--margin-as-ratio-of-width));
     top: 0;
     left: 0;
+
     display: flex;
     align-items: flex-start; 
     justify-content: space-between; /* Center items horizontally */
     flex-direction: row; /* Stack buttons vertically */
+    gap: calc(100% * var(--gap-as-ratio-of-width));
+
+    background-color: white;
 }
 
-.navbar button {
-    width: calc(100% * 0.34);
-    margin: calc(100% * 2 * var(--gap-as-ratio-of-width)) 0;
-    padding: 10px 20px; /* Padding for the buttons */
-    background-color: white; /* Button background color */
+.navbar div {
+    height: 100%;
+    width: 50%;
+}
+
+.navbar .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.navbar  .empty {
+    height: 1.4em;
+    margin: 0;
+    border-bottom: 1px solid;
+}
+
+.navbar .buttons button {
+    padding: 0  !important;
+    margin-bottom: 0.3em;
+    height: 1.1em; /* to "cut" the element right at bottom of text */
+    background-color: white;
     border: none;
-    font-family: 'Inconsolata', monospace;
-    font-size: 18px;
-    cursor: pointer;
+
+    font-family: "Helvetica-Light";
+    font-size: 1.3em;
+    letter-spacing: 0.05rem;
 }
 
-.navbar button:hover {
-    background-color: none; /* Button hover effect */
-    color: #8ebcf2;
+.buttons button:hover {
+    cursor: crosshair;
     text-decoration: underline;
 }
-
 
 .footer {
     width: 100%;
