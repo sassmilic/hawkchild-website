@@ -1,9 +1,3 @@
-:root {
-  --title-aspect-ratio: 0.16;
-  --margin-as-ratio-of-width: 0.05534736966;
-  --gap-as-ratio-of-width: 0.00882352941;
-}
-
 .main {
   background-color: white;
 }
@@ -11,7 +5,7 @@
 .title-svg {
     display: block; /* Remove inline behavior */
     position: fixed;
-    top: calc(50vh - var(--title-aspect-ratio) * 100%);
+    top: calc(50vh - var(--vertical-midpoint-as-ratio-of-width) * 100vw);
     left: 0;
     width: 100%;
     z-index: 99;

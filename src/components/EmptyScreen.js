@@ -8,7 +8,6 @@ function EmptyScreen({ percentage }) {
     const style = {
         height: `${percentage}vh`,
     };
-
     return <div className="empty-screen" style={style}></div>;
 }
 
