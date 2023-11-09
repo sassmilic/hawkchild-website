@@ -1,49 +1,27 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
-import ContactPage from './pages/Contact';
 import './reset.css';
 import './App.css';
-import PhotoCollage from './components/PhotoCollage';
-import HawkchildText from './assets/hawkchild_diy.svg';
-import Logo from './assets/logo.jpeg';
 import Home from './pages/Home';
-
-
-function NavBar() {
-    const navigate = useNavigate();
-
-    return (
-        <nav className="navbar">
-            <div className="left">
-                <button>about</button>
-                <div className="empty"></div>
-                <button>events</button>
-                <div className="empty"></div>
-                <button>$hstkkytkky</button>
-            </div>
-            <div className="right">
-                <div className="empty"></div>
-                <button onClick={() => navigate('/contact')}>
-                    contact
-                </button>
-            </div>
-        </nav>
-    );
-}
-
+import ContactPage from './pages/Contact';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 function App() {
-    
-    
-    return (
-        <Router>
-          <NavBar />
+  return (
+    <Router>
+      <div className="site-container"> {/* Wrapper for flex */}
+        <NavBar />
+        <div className="content-wrap"> {/* Content wrapper */}
           <Routes>
-            <Route exact path='/' exact element={<Home />} />
+            <Route path='/' element={<Home />} />
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
-        </Router>
-    );
+        </div>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
 export default App;

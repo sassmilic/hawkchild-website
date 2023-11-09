@@ -1,96 +1,20 @@
 :root {
   --title-aspect-ratio: 0.16;
+  --height-as-ratio-of-width: 0.141;
   --margin-as-ratio-of-width: 0.05534736966;
   --gap-as-ratio-of-width: 0.00882352941;
+  --letter-width-as-ratio-of-width: 0.112;
 }
 
-.main {
-  background-color: white;
+.site-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Use 100% of the viewport height */
 }
 
-.title-svg {
-    display: block; /* Remove inline behavior */
-    position: fixed;
-    top: calc(50vh - var(--title-aspect-ratio) * 100%);
-    left: 0;
-    width: 100%;
-    z-index: 99;
-    mix-blend-mode: difference;
+.content-wrap {
+  flex: 1; /* Takes up all available space pushing the footer down */
+  min-height: calc(100vw * var(--height-as-ratio-of-width)); /* Must at least fit the title svg */
+  overflow-y: auto;
 }
 
-.title-svg img {
-  width: 100%;
-  mix-blend-mode: difference;
-}
-
-.background {
-}
-
-.navbar {
-    position: fixed;
-    margin-left: calc(100% * var(--margin-as-ratio-of-width));
-    margin-bottom: -1px;
-    width: calc(100% - 100% * 2 * var(--margin-as-ratio-of-width));
-    top: 0;
-    left: 0;
-
-    display: flex;
-    align-items: flex-start; 
-    justify-content: space-between; /* Center items horizontally */
-    flex-direction: row; /* Stack left vertically */
-    gap: calc(100% * var(--gap-as-ratio-of-width));
-
-    background-color: white;
-}
-
-.navbar .left, .right {
-    height: 100%;
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.navbar .right .empty{
-  width: 100%;
-}
-
-.navbar .left,.right .empty {
-    height: 1.4em;
-    margin: 0;
-    border-bottom: 1px solid;
-}
-
-
-.navbar button {
-    padding: 0  !important;
-    margin-bottom: 0.3em;
-    height: 1.1em; /* to "cut" the element right at bottom of text */
-    background-color: white;
-    border: none;
-
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: 300;
-    font-size: 1.25em;
-    letter-spacing: 0.05rem;
-}
-
-.navbar button:hover {
-    cursor: crosshair;
-    color: #63fe8c;
-    text-decoration: line-through 1px;
-    text-decoration-color: black;
-}
-
-.footer {
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-}
-
-.footer-logo {
-    max-width: 150px; 
-    height: auto; 
-}
