@@ -20,8 +20,7 @@ function Collage(props) {
 
     const images = importAll(require.context('./../assets/collage', false, /\.(png|jpe?g|gif)$/));
 
-    // Usage
-    // <img src={images['doggy']} />
+    console.log(images);
 
 
     const firstColumnList = [
@@ -54,14 +53,12 @@ function Collage(props) {
         {
             url: images['p02'],
             customStyles: {
-		        marginTop: 'calc(-25%)',
                 width: '50%',
             }
         },
         {
             url: images['p03'],
             customStyles: {
-		        paddingTop: 'calc(27.25%)',
             }
         }
     ];
