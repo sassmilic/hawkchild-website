@@ -1,3 +1,5 @@
+import Image from './Image';
+
 export default function HorizontalRow({ mediaList, containerStyles = {}, invisibleCount = 0 }) {
     return (
         <div className="horizontal-row-container" style={containerStyles}>
@@ -8,13 +10,12 @@ export default function HorizontalRow({ mediaList, containerStyles = {}, invisib
                 ))}
                 {/* Existing mediaList mapping */}
                 {mediaList.map((media, index) => (
-                    <img
-                        loading="lazy"
-                        key={index}
-                        src={media.url}
-                        alt="collage media"
-                        style={media.customStyles}
-                    />
+                    <div style={media.customStyles}>
+                        <Image
+                            key={index}
+                            src={media.url}
+                        />
+                    </div>
                 ))}
             </div>
         </div>

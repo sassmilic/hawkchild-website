@@ -3,38 +3,43 @@ import './PhotoCollage.css';
 import EmptyScreen from './EmptyScreen';
 import VerticalColumns from './VerticalColumns';
 import HorizontalRow from './HorizontalRow';
-// Image imports
-import posterEC from '../assets/collage/2023_EvianChrist/poster.jpg';
-import gifEC from '../assets/collage/2023_EvianChrist/josh.gif';
-import passportEC from '../assets/collage/2023_EvianChrist/josh_passport.jpg';
-import posterSky from '../assets/collage/2023_SkyH1-Woesum/poster.jpeg';
-import gifSkyDj from '../assets/collage/2023_SkyH1-Woesum/dj.gif';
-import gifSkyCrowd from '../assets/collage/2023_SkyH1-Woesum/crowd.gif';
-import posterMarkyB from '../assets/collage/2023_MarkyB-Seretide/poster.jpeg';
-import sooaxka from '../assets/collage/2023_MarkyB-Seretide/sooaxka.png';
-import posterDark0Femi from '../assets/collage/2022_Dark0-Femi/poster.jpeg';
-import hashimDark0 from '../assets/collage/2022_Dark0-Femi/hashim_and_dark0.png';
-import gifEcDj from '../assets/collage/2022_Dark0-Femi/josh_dj.gif';
-import gifDark0Dj1 from '../assets/collage/2022_Dark0-Femi/crowd_dark0_pink.gif';
 import gifDark0Dj2 from '../assets/collage/2022_Dark0-Femi/dark0_dj.gif';
 
 
 function Collage(props) {
+
+    // Import all images
+    function importAll(r) {
+      let images = {};
+      r.keys().forEach((item) => {
+        // Remove './' and file extension from the key
+        const key = item.replace('./', '').replace(/\.\w+$/, '');
+        images[key] = r(item);
+      });
+      return images;
+    }
+
+    const images = importAll(require.context('./../assets/collage', false, /\.(png|jpe?g|gif)$/));
+
+    // Usage
+    // <img src={images['doggy']} />
+
+
     const firstColumnList = [
         {
-	        url: posterEC,
+	        url: images['p01'],
             customStyles: {
             }
         },
         {
-            url: gifSkyDj,
+            url: images['g03'],
             customStyles: {
 		        paddingTop: 'calc(2%)',
 		        paddingLeft: 'calc(25%)',
             }
         },
         {
-            url: gifSkyCrowd,
+            url: images['g02'],
             customStyles: {
                 marginTop: 'calc(-30%)',
                 width: '75%',
@@ -44,14 +49,14 @@ function Collage(props) {
    
     const secondColumnList = [
         {
-            url: gifEC,
+            url: images['g01'],
             customStyles: {
                 //width: '75%',
 		        //marginLeft: 'calc(25%)',
             }
         },
         {
-            url: passportEC,
+            url: images['p02'],
             customStyles: {
 		        marginTop: 'calc(-25%)',
                 width: '75%',
@@ -59,7 +64,7 @@ function Collage(props) {
             }
         },
         {
-            url: posterSky,
+            url: images['p03'],
             customStyles: {
 		        paddingTop: 'calc(2%)',
             }
@@ -68,14 +73,13 @@ function Collage(props) {
 
     const rowMediaList1 = [
         {
-            url: posterMarkyB,
+            url: images['p04'],
             customStyles: {
-                flex: '3',
-		        marginTop: 'calc(2%)',
+                flex: '2',
             }
         },
         {
-            url: sooaxka,
+            url: images['p05'],
             customStyles: {
             }
         }
@@ -83,12 +87,12 @@ function Collage(props) {
 
     const rowMediaList2 = [
         {
-            url: posterDark0Femi,
+            url: images['p07'],
             customStyles: {
             }
         },
         {
-            url: hashimDark0,
+            url: images['p06'],
             customStyles: {
             }
         }
@@ -96,17 +100,17 @@ function Collage(props) {
 
     const rowMediaList3 = [
         {
-            url: gifEcDj,
+            url: images['g04'],
             customStyles: {
             }
         },
         {
-            url: gifDark0Dj1,
+            url: images['g05'],
             customStyles: {
             }
         },
         {
-            url: gifDark0Dj2,
+            url: images['g06'],
             customStyles: {
             }
         }
@@ -123,6 +127,7 @@ function Collage(props) {
             <HorizontalRow
                 mediaList={rowMediaList1}
                 containerStyles={{
+                    marginTop: 'calc(3%)'
                 }}
                 invisibleCount={1}
 	        />

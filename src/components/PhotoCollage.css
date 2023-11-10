@@ -42,15 +42,23 @@
     /* background-color: rgba(255, 0, 0, 0.2); */
 }
 
-.row img {
+.row div {
     flex: 1 1 0;
-    overflow: hidden;
 }
 
-.column img {
+.row div img {
+    width: 100%;
+}
+
+.column div {
     max-width: 100%;  /* Ensures image does not grow larger than the container */
     height: auto;     /* Maintains aspect ratio */
 }
+
+.column div img {
+    width: 100%;
+}
+
 
 .invisible-element {
     opacity: 0;               /* Make it transparent */
