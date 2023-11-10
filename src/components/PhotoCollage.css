@@ -65,7 +65,3 @@
     pointer-events: none;     /* Make it non-interactable */
     flex: 1;                  /* Make it take up an equal amount of space as the images */
 }
-
-#empty-screen-1 {
-    /*margin-top: calc(100vw * 35/680);*/
-}

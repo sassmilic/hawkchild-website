@@ -3,7 +3,6 @@ import './PhotoCollage.css';
 import EmptyScreen from './EmptyScreen';
 import VerticalColumns from './VerticalColumns';
 import HorizontalRow from './HorizontalRow';
-import gifDark0Dj2 from '../assets/collage/2022_Dark0-Femi/dark0_dj.gif';
 
 
 function Collage(props) {
