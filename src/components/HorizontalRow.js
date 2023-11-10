@@ -10,9 +10,10 @@ export default function HorizontalRow({ mediaList, containerStyles = {}, invisib
                 ))}
                 {/* Existing mediaList mapping */}
                 {mediaList.map((media, index) => (
-                    <div style={media.customStyles}>
+                    <div
+                        key={index}
+                        style={media.customStyles}>
                         <Image
-                            key={index}
                             src={media.url}
                         />
                     </div>

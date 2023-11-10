@@ -33,15 +33,13 @@ function Collage(props) {
         {
             url: images['g03'],
             customStyles: {
-		        paddingTop: 'calc(2%)',
 		        paddingLeft: 'calc(25%)',
             }
         },
         {
             url: images['g02'],
             customStyles: {
-                marginTop: 'calc(-30%)',
-                width: '75%',
+                paddingRight: '50%',
             }
         }
     ];
@@ -50,22 +48,20 @@ function Collage(props) {
         {
             url: images['g01'],
             customStyles: {
-                //width: '75%',
-		        //marginLeft: 'calc(25%)',
+                width: '100%',
             }
         },
         {
             url: images['p02'],
             customStyles: {
 		        marginTop: 'calc(-25%)',
-                width: '75%',
-                alignSelf: 'center'
+                width: '50%',
             }
         },
         {
             url: images['p03'],
             customStyles: {
-		        paddingTop: 'calc(2%)',
+		        paddingTop: 'calc(27.25%)',
             }
         }
     ];
@@ -126,7 +122,7 @@ function Collage(props) {
             <HorizontalRow
                 mediaList={rowMediaList1}
                 containerStyles={{
-                    marginTop: 'calc(3%)'
+                    marginTop: 'calc(15%)'
                 }}
                 invisibleCount={1}
 	        />
