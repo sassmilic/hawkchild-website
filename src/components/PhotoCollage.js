@@ -108,6 +108,19 @@ function Collage(props) {
         }
     ];
 
+    const rowMediaList4 = [
+        {
+            url: images['p21'],
+            customStyles: {
+            }
+        },
+        {
+            url: images['g09'],
+            customStyles: {
+            }
+        },
+    ];
+
     return (
         <div className="collage-container" id={props.id} style={props.style}>
             <div id="empty-screen-1" />
@@ -133,6 +146,12 @@ function Collage(props) {
                 mediaList={rowMediaList3}
                 containerStyles={{
                     marginTop: 'calc(10%)'
+                }}
+	        />
+            <HorizontalRow
+                mediaList={rowMediaList4}
+                containerStyles={{
+                    marginTop: 'calc(16%)'
                 }}
 	        />
             <EmptyScreen percentage={100} />
