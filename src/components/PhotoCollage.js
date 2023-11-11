@@ -1,11 +1,11 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import './PhotoCollage.css';
 import EmptyScreen from './EmptyScreen';
 import VerticalColumns from './VerticalColumns';
 import HorizontalRow from './HorizontalRow';
 
 
-function Collage(props) {
+function Collage({ onLoadComplete }) {
 
     // Import all images
     function importAll(r) {
@@ -19,8 +19,23 @@ function Collage(props) {
     }
 
     const images = importAll(require.context('./../assets/collage', false, /\.(png|jpe?g|gif)$/));
+    //const totalImages = Object.keys(images).length;
+    const totalImages = 15; // TODO: CHANGE !!!
+    const [loadedImages, setLoadedImages] = useState(0);
 
-    console.log(images);
+    const handleImageLoad = () => {
+        console.log("Calling `handleImageLoad`...");
+        setLoadedImages(prev => prev + 1);
+    };
+
+    useEffect(() => {
+        console.log("HERE");
+        console.log("loadedImage count: ", loadedImages);
+        console.log("total image count:", totalImages);
+        if (loadedImages === totalImages) {
+            onLoadComplete();
+        }
+    }, [loadedImages]);
 
 
     const firstColumnList = [
@@ -122,15 +137,17 @@ function Collage(props) {
     ];
 
     return (
-        <div className="collage-container" id={props.id} style={props.style}>
+        <div className="collage-container">
             <div id="empty-screen-1" />
             <EmptyScreen percentage={50} />
             <VerticalColumns 
                 leftMediaList={firstColumnList}
                 rightMediaList={secondColumnList}
+                onImageLoad={handleImageLoad}
             />
             <HorizontalRow
                 mediaList={rowMediaList1}
+                onImageLoad={handleImageLoad}
                 containerStyles={{
                     marginTop: 'calc(15%)'
                 }}
@@ -138,18 +155,21 @@ function Collage(props) {
 	        />
             <HorizontalRow
                 mediaList={rowMediaList2}
+                onImageLoad={handleImageLoad}
                 containerStyles={{
                     marginTop: 'calc(10%)'
                 }}
 	        />
             <HorizontalRow
                 mediaList={rowMediaList3}
+                onImageLoad={handleImageLoad}
                 containerStyles={{
                     marginTop: 'calc(10%)'
                 }}
 	        />
             <HorizontalRow
                 mediaList={rowMediaList4}
+                onImageLoad={handleImageLoad}
                 containerStyles={{
                     marginTop: 'calc(16%)'
                 }}

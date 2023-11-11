@@ -2,6 +2,10 @@
   background-color: white;
 }
 
+.hidden { 
+  display: none;
+}
+
 .title-svg {
     display: block; /* Remove inline behavior */
     position: fixed;

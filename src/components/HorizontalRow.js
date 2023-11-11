@@ -1,6 +1,4 @@
-import Image from './Image';
-
-export default function HorizontalRow({ mediaList, containerStyles = {}, invisibleCount = 0 }) {
+export default function HorizontalRow({ mediaList, onImageLoad, containerStyles = {}, invisibleCount = 0 }) {
     return (
         <div className="horizontal-row-container" style={containerStyles}>
             <div className="row">
@@ -13,9 +11,7 @@ export default function HorizontalRow({ mediaList, containerStyles = {}, invisib
                     <div
                         key={index}
                         style={media.customStyles}>
-                        <Image
-                            src={media.url}
-                        />
+                        <img src={media.url} onLoad={onImageLoad}/>
                     </div>
                 ))}
             </div>
