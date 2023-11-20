@@ -7,7 +7,7 @@ footer {
     align-items: center;
     z-index: 0;
     background-color: black;
-    transition: height 0.3s ease, margin-top 0.5s ease; 
+    transition: height 0.3s ease, margin-top 0.3s ease; 
     overflow: hidden;
 }
 
@@ -15,7 +15,7 @@ footer img {
     width: calc(100% * var(--letter-width-as-ratio-of-width));
     height: auto;
     color: #ffffff;
-    transition: width 0.5s ease;
+    transition: width 0.3s ease;
 }
 
 footer:hover {
@@ -24,5 +24,5 @@ footer:hover {
 
 footer:hover img {
     width: calc(200% * var(--letter-width-as-ratio-of-width)); /* Double the width on hover */
-    transition: width 0.5s ease;
+    transition: width 0.3s ease;
 }
