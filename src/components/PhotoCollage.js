@@ -1,11 +1,12 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import './PhotoCollage.css';
 import EmptyScreen from './EmptyScreen';
 import VerticalColumns from './VerticalColumns';
+import SingleColumn from './SingleColumn';
 import HorizontalRow from './HorizontalRow';
 
 
-function Collage(props) {
+function Collage({ onLoadComplete }) {
 
     // Import all images
     function importAll(r) {
@@ -19,8 +20,23 @@ function Collage(props) {
     }
 
     const images = importAll(require.context('./../assets/collage', false, /\.(png|jpe?g|gif)$/));
+    //const totalImages = Object.keys(images).length;
+    const totalImages = 31; // TODO: CHANGE !!!
+    const [loadedImages, setLoadedImages] = useState(0);
 
-    console.log(images);
+    const handleImageLoad = () => {
+        console.log("Calling `handleImageLoad`...");
+        setLoadedImages(prev => prev + 1);
+    };
+
+    useEffect(() => {
+        console.log("HERE");
+        console.log("loadedImage count: ", loadedImages);
+        console.log("total image count:", totalImages);
+        if (loadedImages === totalImages) {
+            onLoadComplete();
+        }
+    }, [loadedImages]);
 
 
     const firstColumnList = [
@@ -32,13 +48,6 @@ function Collage(props) {
         {
             url: images['g03'],
             customStyles: {
-		        paddingLeft: 'calc(25%)',
-            }
-        },
-        {
-            url: images['g02'],
-            customStyles: {
-                paddingRight: '50%',
             }
         }
     ];
@@ -121,37 +130,244 @@ function Collage(props) {
         },
     ];
 
+    const rowMediaList5 = [
+        {
+            url: images['g11'],
+            customStyles: {
+            }
+        },
+        {
+            url: images['g12'],
+            customStyles: {
+            }
+        },
+    ];
+
+    const rowMediaList6 = [
+        {
+            url: images['p19'],
+            customStyles: {
+            }
+        }
+    ];
+
+    const rowMediaList7 = [
+        {
+            url: images['g16'],
+            customStyles: {
+            }
+        },
+        {
+            url: images['p24'],
+            customStyles: {
+            }
+        },
+    ];
+
+    const rowMediaList8 = [
+        {
+            url: images['p18'],
+            customStyles: {
+            }
+        }
+    ];
+
+    const rowMediaList9 = [
+        {
+            url: images['p25'],
+            customStyles: {
+            }
+        }
+    ];
+
+    const rowMediaList10 = [
+        {
+            url: images['p28'],
+            customStyles: {
+            },
+        },
+        {
+            url: images['p27'],
+            customStyles: {
+            },
+        },
+        {
+            url: images['p29'],
+            customStyles: {
+            },
+        }
+    ];
+
+    const rowMediaList11 = [
+        {
+            url: images['p16'],
+            customStyles: {
+            }
+        }
+    ];
+
+    const firstColumnList2 = [
+        {
+	        url: images['p31-2'],
+            customStyles: {
+            }
+        },
+    ];
+   
+    const secondColumnList2 = [
+        {
+            url: images['p32-2'],
+            customStyles: {
+                marginTop: '-32%'
+            }
+        },
+    ];
+    
+    const columnMediaList = [
+        {
+            url: images['p33'],
+            customStyles: {
+                width: '50%'
+            }
+        },
+        {
+            url: images['g18'],
+            customStyles: {
+                width: '50%',
+                marginTop: '2%'
+            }
+        },
+        {
+            url: images['g19'],
+            customStyles: {
+                width: '50%',
+                marginTop: '2%'
+            }
+        }
+    ];
+
+    const rowMediaList12 = [
+        {
+            url: images['g23'],
+            customStyles: {
+            }
+        }
+    ];
+
+
+
     return (
-        <div className="collage-container" id={props.id} style={props.style}>
+        <div className="collage-container">
             <div id="empty-screen-1" />
             <EmptyScreen percentage={50} />
             <VerticalColumns 
                 leftMediaList={firstColumnList}
                 rightMediaList={secondColumnList}
+                onImageLoad={handleImageLoad}
             />
             <HorizontalRow
                 mediaList={rowMediaList1}
+                onImageLoad={handleImageLoad}
                 containerStyles={{
-                    marginTop: 'calc(15%)'
+                    marginTop: 'calc(18%)',
+                    alignItems: 'stretch'
                 }}
-                invisibleCount={1}
 	        />
             <HorizontalRow
                 mediaList={rowMediaList2}
+                onImageLoad={handleImageLoad}
                 containerStyles={{
-                    marginTop: 'calc(10%)'
+                    marginTop: 'calc(9%)'
                 }}
 	        />
             <HorizontalRow
                 mediaList={rowMediaList3}
+                onImageLoad={handleImageLoad}
                 containerStyles={{
                     marginTop: 'calc(10%)'
                 }}
 	        />
             <HorizontalRow
                 mediaList={rowMediaList4}
+                onImageLoad={handleImageLoad}
                 containerStyles={{
                     marginTop: 'calc(16%)'
+                }}
+	        />
+            <HorizontalRow
+                mediaList={rowMediaList5}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(2%)'
+                }}
+	        />
+            {/* Oli XL */}
+            <HorizontalRow
+                mediaList={rowMediaList6}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(16%)',
+                    marginRight: 'calc(25%)'
+                }}
+	        />
+            <HorizontalRow
+                mediaList={rowMediaList7}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(1%)'
+                }}
+	        />
+            {/* Casual Gabberz */}
+            <HorizontalRow
+                mediaList={rowMediaList8}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(33%)'
+                }}
+	        />
+            <HorizontalRow
+                mediaList={rowMediaList9}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(16%)',
+                    marginRight: 'calc(25%)'
+                }}
+	        />
+            <HorizontalRow
+                mediaList={rowMediaList10}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(16%)',
+                }}
+	        />
+            {/* Mechatok & Malibu */}
+            <HorizontalRow
+                mediaList={rowMediaList11}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(16%)',
+                    marginRight: 'calc(25%)'
+                }}
+	        />
+            <VerticalColumns 
+                leftMediaList={secondColumnList2}
+                rightMediaList={firstColumnList2}
+                onImageLoad={handleImageLoad}
+            />
+            {/* TP Decade */}
+            <SingleColumn
+                mediaList={columnMediaList}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(33%)',
+                }}
+	        />
+            {/* Nassim Taleb */}
+            <HorizontalRow
+                mediaList={rowMediaList12}
+                onImageLoad={handleImageLoad}
+                containerStyles={{
+                    marginTop: 'calc(16%)',
                 }}
 	        />
             <EmptyScreen percentage={100} />

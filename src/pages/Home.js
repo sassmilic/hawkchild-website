@@ -6,15 +6,21 @@ import HawkchildText from './../assets/hawkchild_diy.svg';
 import Logo from './../assets/logo.jpeg';
 
 function Home() {
+    const [isLoading, setLoading] = useState(true);
+
+    const handleLoadComplete = () => {
+        setLoading(false);
+    };
 
     return (
         <>
-        <div className="main">
-            <div className="title-svg">
-                <img src={HawkchildText} alt="HAWKCHILD   DIY"/>
+            {isLoading && <div className="loading">Loading...</div>}
+            <div className={`main ${isLoading ? 'hidden' : ''}`}>
+                <div className="title-svg">
+                    <img src={HawkchildText} alt="HAWKCHILD DIY"/>
+                </div>
+                <PhotoCollage onLoadComplete={handleLoadComplete} />
             </div>
-            <PhotoCollage />
-        </div>
         </>
     );
 }

@@ -1,9 +1,7 @@
-import Image from './Image';
-
-export default function HorizontalRow({ mediaList, containerStyles = {}, invisibleCount = 0 }) {
+export default function HorizontalRow({ mediaList, onImageLoad, containerStyles = {}, rowStyles= {}, invisibleCount = 0 }) {
     return (
         <div className="horizontal-row-container" style={containerStyles}>
-            <div className="row">
+            <div className="row" style={rowStyles}>
                 {/* Render invisible elements */}
                 {Array.from({ length: invisibleCount }).map((_, index) => (
                     <div key={`invisible-${index}`} className="invisible-element"></div>
@@ -13,9 +11,7 @@ export default function HorizontalRow({ mediaList, containerStyles = {}, invisib
                     <div
                         key={index}
                         style={media.customStyles}>
-                        <Image
-                            src={media.url}
-                        />
+                        <img src={media.url} onLoad={onImageLoad}/>
                     </div>
                 ))}
             </div>

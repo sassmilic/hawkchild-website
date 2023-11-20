@@ -1,6 +1,4 @@
-import Image from './Image';
-
-export default function VerticalColumns({ leftMediaList, rightMediaList }) {
+export default function VerticalColumns({ leftMediaList, rightMediaList, onImageLoad }) {
     return (
         <div className="vertical-columns-container">
             <div className="column">
@@ -9,7 +7,7 @@ export default function VerticalColumns({ leftMediaList, rightMediaList }) {
                         key={index}
                         style={media.customStyles}
                         >
-                        <Image src={media.url} />
+                        <img src={media.url} onLoad={onImageLoad} />
                     </div>
                 ))}
             </div>
@@ -19,7 +17,7 @@ export default function VerticalColumns({ leftMediaList, rightMediaList }) {
                         key={index}
                         style={media.customStyles}
                         >
-                        <Image src={media.url} />
+                        <img src={media.url} onLoad={onImageLoad} />
                     </div>
                 ))}
             </div>
