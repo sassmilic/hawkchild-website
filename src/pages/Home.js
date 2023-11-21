@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import '../reset.css';
 import './Home.css';
-import PhotoCollage from './../components/PhotoCollage2';
+import PhotoCollage from './../components/PhotoCollage';
 import HawkchildText from './../assets/hawkchild_diy.svg';
 import Logo from './../assets/logo.jpeg';
 

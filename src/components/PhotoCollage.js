@@ -1,9 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import './PhotoCollage.css';
 import EmptyScreen from './EmptyScreen';
-import VerticalColumns from './VerticalColumns';
-import SingleColumn from './SingleColumn';
-import HorizontalRow from './HorizontalRow';
 
 
 function Collage({ onLoadComplete }) {
@@ -21,7 +18,7 @@ function Collage({ onLoadComplete }) {
 
     const images = importAll(require.context('./../assets/collage', false, /\.(png|jpe?g|gif)$/));
     //const totalImages = Object.keys(images).length;
-    const totalImages = 31; // TODO: CHANGE !!!
+    const totalImages = 0; // TODO: CHANGE !!!
     const [loadedImages, setLoadedImages] = useState(0);
 
     const handleImageLoad = () => {
@@ -38,340 +35,335 @@ function Collage({ onLoadComplete }) {
         }
     }, [loadedImages]);
 
-
-    const firstColumnList = [
-        {
-	        url: images['p01'],
-            customStyles: {
-            }
-        },
-        {
-            url: images['g03'],
-            customStyles: {
-            }
-        }
-    ];
-   
-    const secondColumnList = [
-        {
-            url: images['g01'],
-            customStyles: {
-                width: '100%',
-            }
-        },
-        {
-            url: images['p02'],
-            customStyles: {
-                width: '50%',
-            }
-        },
-        {
-            url: images['p03'],
-            customStyles: {
-            }
-        }
-    ];
-
-    const rowMediaList1 = [
-        {
-            url: images['p04'],
-            customStyles: {
-                flex: '2',
-            }
-        },
-        {
-            url: images['p05'],
-            customStyles: {
-            }
-        }
-    ];
-
-    const rowMediaList2 = [
-        {
-            url: images['p07'],
-            customStyles: {
-            }
-        },
-        {
-            url: images['p06'],
-            customStyles: {
-            }
-        }
-    ];
-
-    const rowMediaList3 = [
-        {
-            url: images['g04'],
-            customStyles: {
-            }
-        },
-        {
-            url: images['g05'],
-            customStyles: {
-            }
-        },
-        {
-            url: images['g06'],
-            customStyles: {
-            }
-        }
-    ];
-
-    const rowMediaList4 = [
-        {
-            url: images['p21'],
-            customStyles: {
-            }
-        },
-        {
-            url: images['g09'],
-            customStyles: {
-            }
-        },
-    ];
-
-    const rowMediaList5 = [
-        {
-            url: images['g11'],
-            customStyles: {
-            }
-        },
-        {
-            url: images['g12'],
-            customStyles: {
-            }
-        },
-    ];
-
-    const rowMediaList6 = [
-        {
-            url: images['p19'],
-            customStyles: {
-            }
-        }
-    ];
-
-    const rowMediaList7 = [
-        {
-            url: images['g16'],
-            customStyles: {
-            }
-        },
-        {
-            url: images['p24'],
-            customStyles: {
-            }
-        },
-    ];
-
-    const rowMediaList8 = [
-        {
-            url: images['p18'],
-            customStyles: {
-            }
-        }
-    ];
-
-    const rowMediaList9 = [
-        {
-            url: images['p25'],
-            customStyles: {
-            }
-        }
-    ];
-
-    const rowMediaList10 = [
-        {
-            url: images['p28'],
-            customStyles: {
-            },
-        },
-        {
-            url: images['p27'],
-            customStyles: {
-            },
-        },
-        {
-            url: images['p29'],
-            customStyles: {
-            },
-        }
-    ];
-
-    const rowMediaList11 = [
-        {
-            url: images['p16'],
-            customStyles: {
-            }
-        }
-    ];
-
-    const firstColumnList2 = [
-        {
-	        url: images['p31-2'],
-            customStyles: {
-            }
-        },
-    ];
-   
-    const secondColumnList2 = [
-        {
-            url: images['p32-2'],
-            customStyles: {
-                marginTop: '-32%'
-            }
-        },
-    ];
-    
-    const columnMediaList = [
-        {
-            url: images['p33'],
-            customStyles: {
-                width: '50%'
-            }
-        },
-        {
-            url: images['g18'],
-            customStyles: {
-                width: '50%',
-                marginTop: '2%'
-            }
-        },
-        {
-            url: images['g19'],
-            customStyles: {
-                width: '50%',
-                marginTop: '2%'
-            }
-        }
-    ];
-
-    const rowMediaList12 = [
-        {
-            url: images['g23'],
-            customStyles: {
-            }
-        }
-    ];
-
-
-
     return (
-        <div className="collage-container">
-            <div id="empty-screen-1" />
-            <EmptyScreen percentage={50} />
-            <VerticalColumns 
-                leftMediaList={firstColumnList}
-                rightMediaList={secondColumnList}
-                onImageLoad={handleImageLoad}
+        <>
+        <EmptyScreen percentage={50} />
+        <div className="collage-container" >
+            <div className="columns">
+                <div className="column">
+                    <img
+                        src={images['p01']}
+                        alt="Evian Christ Poster"
+                        onLoad={handleImageLoad}
+                    />
+                    <img
+                        src={images['g03']}
+                        alt="Woesum + Sky H1 Crowd"
+                        onLoad={handleImageLoad}
+                    />
+                </div>
+                <div className="column">
+                    <img
+                        src={images['g01']}
+                        alt="Evian Christ Finger"
+                        onLoad={handleImageLoad}
+                    />
+                    <img
+                        src={images['p02']}
+                        alt="Evian Christ Passport"
+                        style={{
+                            width: '50%'
+                        }}
+                        onLoad={handleImageLoad}
+                    />
+                    <img
+                        src={images['p03']}
+                        alt="Woesum + Sky H1 Poster"
+                        onLoad={handleImageLoad}
+                    />
+                </div>
+            </div>
+            <div className="row">
+                <div className="invisible-element"></div>
+                <img
+                    src={images['p04']}
+                    alt="Marky B + Seretide Poster"
+                    style={{
+                        flex: '2'
+                    }}
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['p05']}
+                    alt="Sooaxka"
+                    style={{
+                    }}
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <div className="row">
+                <img
+                    src={images['p06']}
+                    alt="Hashim + Dark0"
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['p07']}
+                    alt="Dark0 + Femi Poster"
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <div className="row">
+                <img
+                    src={images['g04']}
+                    alt="Evian Christ DJ"
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['g05']}
+                    alt="Pink Crowd"
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['g06']}
+                    alt="Dark0 DJ"
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <div className="columns">
+                <div className="column">
+                    <img
+                        src={images['p21']}
+                        alt="Clouds + Affxwrks Poster"
+                        onLoad={handleImageLoad}
+                    />
+                    <img
+                        src={images['g11']}
+                        alt="Clouds + Affxwrks Crowd 1"
+                        onLoad={handleImageLoad}
+                    />
+                </div>
+                <div className="column">
+                    <img
+                        src={images['g12']}
+                        alt="Clouds + Affxwrks Crowd 2"
+                        onLoad={handleImageLoad}
+                    />
+                    <img
+                        src={images['g09']}
+                        alt="Clouds + Affxwrks gif"
+                        onLoad={handleImageLoad}
+                    />
+                </div>
+            </div>
+            <div className="row">
+                <img
+                    src={images['p19']}
+                    alt="Oli XL + Doss Poster"
+                    style={{
+                        marginRight: "25%"
+                    }}
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <div className="row" style={{marginTop: "-14%"}}>
+                <img
+                    src={images['g16']}
+                    alt="Oli XL DJ"
+                    style={{
+                    }}
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['p24']}
+                    alt="Oli XL + Doss Crowd"
+                    style={{
+                    }}
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <img
+                src={images['p26']}
+                alt="Casual Gabberz Poster"
+                style={{
+                    marginTop: '17%'
+                }}
+                onLoad={handleImageLoad}
             />
-            <HorizontalRow
-                mediaList={rowMediaList1}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(18%)',
-                    alignItems: 'stretch'
+            <img
+                src={images['p25']}
+                alt="Casual Gabberz Pic"
+                style={{
+                    marginRight: '25%'
                 }}
-	        />
-            <HorizontalRow
-                mediaList={rowMediaList2}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(9%)'
-                }}
-	        />
-            <HorizontalRow
-                mediaList={rowMediaList3}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(10%)'
-                }}
-	        />
-            <HorizontalRow
-                mediaList={rowMediaList4}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(16%)'
-                }}
-	        />
-            <HorizontalRow
-                mediaList={rowMediaList5}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(2%)'
-                }}
-	        />
-            {/* Oli XL */}
-            <HorizontalRow
-                mediaList={rowMediaList6}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(16%)',
-                    marginRight: 'calc(25%)'
-                }}
-	        />
-            <HorizontalRow
-                mediaList={rowMediaList7}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(1%)'
-                }}
-	        />
-            {/* Casual Gabberz */}
-            <HorizontalRow
-                mediaList={rowMediaList8}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(33%)'
-                }}
-	        />
-            <HorizontalRow
-                mediaList={rowMediaList9}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(16%)',
-                    marginRight: 'calc(25%)'
-                }}
-	        />
-            <HorizontalRow
-                mediaList={rowMediaList10}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(16%)',
-                }}
-	        />
-            {/* Mechatok & Malibu */}
-            <HorizontalRow
-                mediaList={rowMediaList11}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(16%)',
-                    marginRight: 'calc(25%)'
-                }}
-	        />
-            <VerticalColumns 
-                leftMediaList={secondColumnList2}
-                rightMediaList={firstColumnList2}
-                onImageLoad={handleImageLoad}
+                onLoad={handleImageLoad}
             />
-            {/* TP Decade */}
-            <SingleColumn
-                mediaList={columnMediaList}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(33%)',
+            <div className="row">
+                <img
+                    src={images['p28']}
+                    alt="Casual Gabberz DJ"
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['p27']}
+                    alt="Casual Gabberz Crowd"
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['p29']}
+                    alt="Casual Gabberz Backstage"
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <img
+                src={images['p30']}
+                alt="Mechatok + Malibu Poster"
+                style={{
+                    width: '40%',
+                    alignSelf: "center",
+                    marginBottom: "-50%",
+                    zIndex: "2"
                 }}
-	        />
-            {/* Nassim Taleb */}
-            <HorizontalRow
-                mediaList={rowMediaList12}
-                onImageLoad={handleImageLoad}
-                containerStyles={{
-                    marginTop: 'calc(16%)',
+                onLoad={handleImageLoad}
+            />
+            <div className="row" style={{gap: 0}}>
+                <img
+                    src={images['p32-2']}
+                    alt="Mechatok + Malibu Sightseeing"
+                    style={{
+                        alignSelf: "flex-start"
+                    }}
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['p31-2']}
+                    alt="Mechatok + Malibu DJ [Green]"
+                    style={{
+                        flex: 2
+                    }}
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <div className="column">
+                <img
+                    src={images['p33']}
+                    alt="Trance Party Decade Poster 1"
+                    style={{
+                        width: '49%',
+                        alignSelf: 'center'
+                    }}
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['g18']}
+                    alt="Trance Party Decade Crowd"
+                    style={{
+                        width: '49%',
+                        alignSelf: 'center'
+                    }}
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['g19']}
+                    alt="Trance Party Decade Poster gif"
+                    style={{
+                        width: '49%',
+                        alignSelf: 'center'
+                    }}
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <img
+                src={images['g23']}
+                alt="Nassim Taleb gif"
+                onLoad={handleImageLoad}
+            />
+            <img
+                src={images['p35']}
+                alt="Trance Party 6 Poster"
+                onLoad={handleImageLoad}
+            />
+            <div className="row">
+                <img
+                    src={images['p36']}
+                    alt="Trance Party 6 Poster 2"
+                    style={{
+                        marginLeft: '25%',
+                    }}
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['p38']}
+                    alt="Trance Party 6 Set Times"
+                    style={{
+                        marginRight: '25%',
+                    }}
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <img
+                src={images['g21']}
+                alt="Trance Party 6 Fire Engine gif"
+                onLoad={handleImageLoad}
+            />
+            <img
+                src={images['p37']}
+                alt="Trance Party 6 Fire Engine pic"
+                style={{
+                    marginTop: "-14%"
                 }}
-	        />
-            <EmptyScreen percentage={100} />
+                onLoad={handleImageLoad}
+            />
+            <img
+                src={images['g22']}
+                alt="Trance Party 6 Crowd"
+                style={{
+                    marginTop: "-14%"
+                }}
+                onLoad={handleImageLoad}
+            />
+            <img
+                src={images['p39']}
+                alt="Drain Gang Poster"
+                onLoad={handleImageLoad}
+            />
+            <img
+                src={images['p40']}
+                alt="Hashim + Drain Gang Poster"
+                style={{
+                    marginRight: '25%'
+                }}
+                onLoad={handleImageLoad}
+            />
+            <div className="row">
+                <img
+                    src={images['p46']}
+                    alt="Mssingno et al. Poster"
+                    onLoad={handleImageLoad}
+                />
+                <img
+                    src={images['p47']}
+                    alt="Kamixlo"
+                    onLoad={handleImageLoad}
+                />
+            </div>
+            <img
+                src={images['p45']}
+                alt="Yung Lean Crowd 1"
+                onLoad={handleImageLoad}
+            />
+            <img
+                src={images['p48']}
+                alt="Yung Lean Poster"
+                style={{
+                    width: "50%",
+                    alignSelf: "center"
+                }}
+                onLoad={handleImageLoad}
+            />
+            <img
+                src={images['p49']}
+                alt="Bladee"
+                onLoad={handleImageLoad}
+            />
+            <img
+                src={images['p44']}
+                alt="Yung Lean Crowd"
+                onLoad={handleImageLoad}
+            />
         </div>
+        <EmptyScreen percentage={100} />
+        </>
     );
 }
 
