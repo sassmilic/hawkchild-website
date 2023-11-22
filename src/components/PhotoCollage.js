@@ -1,35 +1,43 @@
-import { React, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PhotoCollage.css';
+import LoadingPage from './LoadingPage';
 import EmptyScreen from './EmptyScreen';
+
+// Import all images
+const imageFilenames = new Set([
+  'p01', 'g03', 'g01', 'p02', 'p03', 'p04',
+  'p05', 'p06', 'p07', 'g04', 'g05', 'g06',
+  'p21', 'g11', 'g12', 'g09', 'p19', 'g16',
+  'p24', 'p26', 'p25', 'p28', 'p29', 'p30',
+  'p32-2', 'p31-2', 'p33', 'g18', 'g19', 'g23',
+  'p35', 'p36', 'p38', 'g21', 'p37', 'g22',
+  'p39', 'p40', 'p46', 'p47', 'p45', 'p48',
+  'p48', 'p44', 'p49', 'p27'
+]);
+
+function importAll(r) {
+  let images = {};
+  r.keys().forEach((item) => {
+    const key = item.replace('./', '').replace(/\.\w+$/, '');
+    if (imageFilenames.has(key)) {
+        images[key] = r(item);
+    }
+  });
+  return images;
+}
+
+const images = importAll(require.context('./../assets/collage', false, /\.(png|jpe?g|gif)$/));
+const totalImages = Object.keys(images).length;
 
 
 function Collage({ onLoadComplete }) {
-
-    // Import all images
-    function importAll(r) {
-      let images = {};
-      r.keys().forEach((item) => {
-        // Remove './' and file extension from the key
-        const key = item.replace('./', '').replace(/\.\w+$/, '');
-        images[key] = r(item);
-      });
-      return images;
-    }
-
-    const images = importAll(require.context('./../assets/collage', false, /\.(png|jpe?g|gif)$/));
-    //const totalImages = Object.keys(images).length;
-    const totalImages = 0; // TODO: CHANGE !!!
     const [loadedImages, setLoadedImages] = useState(0);
 
     const handleImageLoad = () => {
-        console.log("Calling `handleImageLoad`...");
-        setLoadedImages(prev => prev + 1);
+        setLoadedImages((prev) => prev + 1);
     };
 
-    useEffect(() => {
-        console.log("HERE");
-        console.log("loadedImage count: ", loadedImages);
-        console.log("total image count:", totalImages);
+    React.useEffect(() => {
         if (loadedImages === totalImages) {
             onLoadComplete();
         }
