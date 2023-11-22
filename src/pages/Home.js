@@ -11,6 +11,7 @@ function Home() {
     const [loadingPercentage, setLoadingPercentage] = useState(0);
 
     const handleLoadComplete = () => {
+        //setLoading(true);
         setLoading(false);
     };
 
