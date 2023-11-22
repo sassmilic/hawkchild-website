@@ -30,7 +30,7 @@ const images = importAll(require.context('./../assets/collage', false, /\.(png|j
 const totalImages = Object.keys(images).length;
 
 
-function Collage({ onLoadComplete }) {
+function Collage({ onLoadComplete, onProgress }) {
     const [loadedImages, setLoadedImages] = useState(0);
 
     const handleImageLoad = () => {
@@ -38,9 +38,9 @@ function Collage({ onLoadComplete }) {
     };
 
     React.useEffect(() => {
-        if (loadedImages === totalImages) {
-            onLoadComplete();
-        }
+        const progress = (loadedImages / totalImages) * 100;
+        onProgress(progress);
+        if (loadedImages === totalImages) {onLoadComplete();}
     }, [loadedImages]);
 
     return (
