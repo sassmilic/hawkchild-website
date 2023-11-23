@@ -5,6 +5,7 @@
   --gap-as-ratio-of-width: 0.00882352941;
   --letter-width-as-ratio-of-width: 0.112;
   --letter-height-as-ratio-of-width: 0.1294;
+  --light-blue-accent: #b0d0ef;
 }
 
 body {

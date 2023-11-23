@@ -18,11 +18,14 @@ footer img {
     transition: width 0.3s ease;
 }
 
+/*
 footer:hover {
     margin-top: -100px;
 }
 
+
 footer:hover img {
-    width: calc(200% * var(--letter-width-as-ratio-of-width)); /* Double the width on hover */
+    width: calc(200% * var(--letter-width-as-ratio-of-width)); 
     transition: width 0.3s ease;
 }
+*/

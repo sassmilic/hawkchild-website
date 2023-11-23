@@ -6,6 +6,7 @@ let data = require('./../data/eventData.json');
 
 const Events = () => {
     const [sortConfig, setSortConfig] = useState({ key: 'date', direction: 'descending' });
+    const [showUpcoming, setShowUpcoming] = useState(true);
     const [tableData, setTableData] = useState([]);
 
     const sortData = (data, { key, direction }) => {
@@ -15,13 +16,19 @@ const Events = () => {
                  b[key].localeCompare(a[key]);
         });
     };
-
+    // Sort data initially when the component mounts
     useEffect(() => {
-        // Sort data initially when the component mounts
         const sortedData = sortData(data, sortConfig);
         setTableData(sortedData);
     }, []); 
 
+    useEffect(() => {
+        const filteredData = showUpcoming 
+            ? data.filter(event => event.upcoming === "true") 
+            : data.filter(event => event.upcoming !== "true");
+        const sortedData = sortData(filteredData, sortConfig);
+        setTableData(sortedData);
+    }, [showUpcoming, sortConfig]); 
 
     const onSort = (key) => {
         let direction = 'ascending';
@@ -35,6 +42,16 @@ const Events = () => {
 
     return (
         <div className="event-page-container">
+            <div className="buttons">
+                <button onClick={() => setShowUpcoming(true)}
+                    className={showUpcoming ? "button-selected" : ""}>
+                    {showUpcoming ? "«Upcoming Events»" : "Upcoming Events"}
+                </button>
+                <button onClick={() => setShowUpcoming(false)}
+                    className={!showUpcoming ? "button-selected" : ""}>
+                    {!showUpcoming ? "«Past Events»" : "Past Events"}
+                </button>
+            </div>
             <div className="spreadsheet-container">
                 <Table data={tableData} onSort={onSort} sortConfig={sortConfig} />
             </div>

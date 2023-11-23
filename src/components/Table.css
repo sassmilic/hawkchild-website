@@ -53,11 +53,11 @@ tbody tr:hover {
 }
 
 .sort-ascending::after {
-  content: '⭡'; /* Unicode for the up arrow */
+  content: '↑'; /* Unicode for the up arrow */
 }
 
 .sort-descending::after {
-  content: '⭣'; 
+  content: '↓'; 
 }
 
 
