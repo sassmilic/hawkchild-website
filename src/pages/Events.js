@@ -28,7 +28,6 @@ const Events = () => {
 
   return (
     <div className="spreadsheet-container">
-      <h2>Event Spreadsheet</h2>
       <Table data={tableData} onSort={onSort} sortConfig={sortConfig} />
     </div>
   );

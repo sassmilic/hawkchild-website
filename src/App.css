@@ -7,6 +7,10 @@
   --letter-height-as-ratio-of-width: 0.1294;
 }
 
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
 .site-container {
   display: flex;
   flex-direction: column;

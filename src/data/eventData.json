@@ -1,20 +1,80 @@
 [
   {
-    "event": "Event 1",
-    "artist": "Artist A",
-    "date": "2023-01-01",
-    "location": "Location X"
+    "event": "Hawkchild DIY: Evian Christ",
+    "artist": "Evian Christ",
+    "date": "2023-12-08",
+    "location": "Stereo"
   },
   {
-    "event": "Event 2",
-    "artist": "Artist B",
-    "date": "2023-02-15",
-    "location": "Location Y"
+    "event": "Hawkchild DIY: Marky B (Live) + SERETIDE",
+    "artist": "Marky B, SERETIDE",
+    "date": "2023-09-29",
+    "location": "Stereo"
   },
   {
-    "event": "Event 3",
-    "artist": "Artist C",
-    "date": "2023-02-10",
-    "location": "Location Z"
+    "event": "Hawkchild DIY: Woesum + Kamixlo",
+    "artist": "Kamixlo, Woesum",
+    "date": "2023-03-11",
+    "location": "Stereo"
+  },
+  {
+    "event": "Hawkchild DIY: Dark0 + Femi",
+    "artist": "Dark0, Femi",
+    "date": "2022-09-24",
+    "location": "Stereo"
+  },
+  {
+    "event": "Clouds / AFFXWRKS",
+    "artist": "Clouds, Tommy Holohan, Iyesha",
+    "date": "2022-09-16",
+    "location": "La Cheetah Club"
+  },
+  {
+    "event": "Hawkchild DIY: Doss + Oli XL",
+    "artist": "Doss, Oli XL",
+    "date": "2022-06-11",
+    "location": "Stereo"
+  },
+  {
+    "event": "Casual Gabberz & Clouds at Room 2",
+    "artist": "Casual Gabberz, Clouds",
+    "date": "2022-04-08",
+    "location": "Room 2 Glasgow"
+  },
+  {
+    "event": "Hawkchild DIY Pres: Dark0 & MM",
+    "artist": "Dark0, Hawkchild DIY, MM",
+    "date": "2017-02-24",
+    "location": "The Art School"
+  },
+  {
+    "event": "Hawkchild DIY & Hyperfunk present: A Grenfell Tower Benefit",
+    "artist": "Curls, Hawkchild DIY, Heidi Chiu, Sarra",
+    "date": "2017-07-14",
+    "location": "Stereo"
+  },
+  {
+    "event": "Hawkchild DIY presents: Clouds & Nassim Nicholas Taleb",
+    "artist": "Clouds, Koran & Aidan, Nassim Nicholas Taleb",
+    "date": "2018-02-23",
+    "location": "The Art School"
+  },
+  {
+    "event": "Trance Party 10: A Decade Of Euphoria",
+    "artist": "Evian Christ, Total Freedom, Yung Sherman, Yves Tumor",
+    "date": "2019-07-12",
+    "location": "SWG3"
+  },
+  {
+    "event": "Hawkchild DIY - Vandal - Schematic - Fundraiser for Royston Youth Action",
+    "artist": "AF444, DJ DDSix, Gavin Lawrie, Koran, Nyla, Harrison Sullivan",
+    "date": "2021-10-30",
+    "location": "Stereo"
+  },
+  {
+    "event": "Hawkchild DIY: Mechatok + Malibu",
+    "artist": "Malibu, Mechatok",
+    "date": "2022-03-05",
+    "location": "Stereo"
   }
 ]

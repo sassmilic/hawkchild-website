@@ -3,6 +3,7 @@
 table {
   width: 100%; 
   border-collapse: collapse; /* Collapse borders so that they don't double up */
+  font-family: 'Cutive Mono', monospace;
 }
 
 th, td {
@@ -19,6 +20,7 @@ th {
 
 thead th {
   background-color: #f2f2f2;
+  font-weight: normal;
   cursor: pointer; /* Changes cursor to indicate sortable columns */
 }
 
@@ -40,11 +42,11 @@ tbody tr:hover {
 }
 
 .sort-ascending::after {
-  content: '⤒'; /* Unicode for the up arrow */
+  content: '⭡'; /* Unicode for the up arrow */
 }
 
 .sort-descending::after {
-  content: '⤓'; /* Unicode for the down arrow */
+  content: '⭣'; /* Unicode for the down arrow */
 }
 
 

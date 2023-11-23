@@ -17,7 +17,7 @@ const Table = ({ data, onSort, sortConfig }) => {
                     Event
                     <span className={`sort-indicator ${getSortIndicator('event')}`}></span>
                 </th>
-                <th onClick={() => onSort('artist')}>Artist <span className={`sort-indicator ${getSortIndicator('artist')}`}></span></th>
+                <th onClick={() => onSort('artist')}>Artist(s) <span className={`sort-indicator ${getSortIndicator('artist')}`}></span></th>
                 <th onClick={() => onSort('date')}>Date <span className={`sort-indicator ${getSortIndicator('date')}`}></span></th>
                 <th onClick={() => onSort('location')}>Location <span className={`sort-indicator ${getSortIndicator('location')}`}></span></th>
             </tr>
