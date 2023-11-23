@@ -24,7 +24,7 @@ const Table = ({ data, onSort, sortConfig }) => {
         </thead>
         <tbody>
             {data.map((item, index) => (
-            <tr key={index}>
+            <tr key={index} onClick={() => {window.open(item.url, '_blank')}}>
                 <td>{item.event}</td>
                 <td>{item.artist}</td>
                 <td>{item.date}</td>

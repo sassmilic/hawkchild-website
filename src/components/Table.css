@@ -7,24 +7,36 @@ table {
 }
 
 th, td {
-  border: 1px solid black; 
+  min-width: 115px;
+  border: 1px solid black;
+  border-left: none;
   padding: 8px; 
   text-align: left; 
 }
 
 th {
-  position: relative; /* Add position relative to the header cells */
+  position: relative; 
   padding-right: 20px; /* Add padding to reserve space for the sort indicator */
+  border-top: none;
 }
 
+thead {
+  position: sticky;
+  margin-bottom: 50px;
+  top: 0; /* Adjust if your table header needs to be below some other fixed content */
+  z-index: 100; /* Ensures the header is above other content when scrolling */
+}
 
 thead th {
   background-color: #f2f2f2;
   font-weight: normal;
-  cursor: pointer; /* Changes cursor to indicate sortable columns */
+  cursor: crosshair;
 }
 
-/* Optional: Add hover effect to rows */
+tbody tr {
+  cursor: crosshair; 
+}
+
 tbody tr:hover {
   background-color: rgba(176,208,239, 0.2);
 }
@@ -38,7 +50,6 @@ tbody tr:hover {
   height: 1em; /* Ensure the line height is the same as the text */
   text-align: center;
   font-weight: normal;
-  pointer-events: none; /* Prevent the arrow from being clickable */
 }
 
 .sort-ascending::after {
@@ -46,7 +57,7 @@ tbody tr:hover {
 }
 
 .sort-descending::after {
-  content: '⭣'; /* Unicode for the down arrow */
+  content: '⭣'; 
 }
 
 
