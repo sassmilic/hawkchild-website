@@ -1,0 +1,9 @@
+.spreadsheet-container {
+  margin: 0 calc(100% * var(--margin-as-ratio-of-width));
+  margin-top: 25vh; /* TODO: change !! */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+

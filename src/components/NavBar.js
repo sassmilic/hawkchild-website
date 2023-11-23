@@ -10,7 +10,9 @@ function NavBar() {
             <div className="left">
                 <button>about</button>
                 <div className="empty"></div>
-                <button>events</button>
+                <button onClick={() => navigate('/events')}>
+                    events
+                </button>
                 <div className="empty"></div>
                 <button>$hstkkytkky</button>
             </div>

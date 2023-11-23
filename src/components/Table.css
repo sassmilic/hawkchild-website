@@ -1,0 +1,50 @@
+/* Add this CSS to your component's stylesheet (e.g., Table.css) */
+
+table {
+  width: 100%; 
+  border-collapse: collapse; /* Collapse borders so that they don't double up */
+}
+
+th, td {
+  border: 1px solid black; 
+  padding: 8px; 
+  text-align: left; 
+}
+
+th {
+  position: relative; /* Add position relative to the header cells */
+  padding-right: 20px; /* Add padding to reserve space for the sort indicator */
+}
+
+
+thead th {
+  background-color: #f2f2f2;
+  cursor: pointer; /* Changes cursor to indicate sortable columns */
+}
+
+/* Optional: Add hover effect to rows */
+tbody tr:hover {
+  background-color: rgba(176,208,239, 0.2);
+}
+
+.sort-indicator {
+  position: absolute;
+  right: 8px; /* Position the arrow 8px from the right edge of the header cell */
+  top: 40%;
+  transform: translateY(-50%); /* Center the arrow vertically */
+  width: 12px; /* Reserve space for the arrow */
+  height: 1em; /* Ensure the line height is the same as the text */
+  text-align: center;
+  font-weight: normal;
+  pointer-events: none; /* Prevent the arrow from being clickable */
+}
+
+.sort-ascending::after {
+  content: '⤒'; /* Unicode for the up arrow */
+}
+
+.sort-descending::after {
+  content: '⤓'; /* Unicode for the down arrow */
+}
+
+
