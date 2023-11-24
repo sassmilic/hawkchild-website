@@ -1,0 +1,12 @@
+.about-page-container {
+    margin: 5em calc(100% * var(--margin-as-ratio-of-width));
+    display: flex;
+    flex-direction: column;
+}
+
+.about-page-container h1 {
+  font-size: 2em;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-decoration: 1px underline;
+}

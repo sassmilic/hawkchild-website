@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react
 import './reset.css';
 import './App.css';
 import Home from './pages/Home';
+import AboutPage from './pages/About'
 import Events from './pages/Events';
 import ContactPage from './pages/Contact';
 import NavBar from './components/NavBar';
@@ -16,6 +17,7 @@ function App() {
         <div className="content-wrap"> {/* Content wrapper */}
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/about' element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/events" element={<Events />} />
           </Routes>
