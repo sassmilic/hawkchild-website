@@ -3,6 +3,10 @@ import './About.css';
 
 import EvianChristLogo from "./../assets/artist-logos/evian-christ.png";
 import Dark0Logo from "./../assets/artist-logos/dark0.jpeg";
+import YungLeanLogo from "./../assets/artist-logos/yung-lean.png";
+import MarkyBLogo from "./../assets/artist-logos/marky-b.png";
+import SeretideLogo from "./../assets/artist-logos/seretide.png";
+import WoesumLogo from "./../assets/artist-logos/woesum.jpeg";
 
 const AboutPage = () => {
     return (
@@ -16,8 +20,12 @@ const AboutPage = () => {
             <div className="strategic-partners-container">
                 <h1>Strategic Partners</h1>
                 <div className="logo-container">
-                    <img src={EvianChristLogo} alt="Evian Christ logo"/>
+                    <img id="evian-christ-logo" src={EvianChristLogo} alt="Evian Christ logo"/>
                     <img src={Dark0Logo} alt="Dark0 logo"/>
+                    <img id="yung-lean-logo" src={YungLeanLogo} alt="Yung Lean logo"/>
+                    <img id="marky-b-logo" src={MarkyBLogo} alt="Marky B logo"/>
+                    <img id="seretide-logo" src={SeretideLogo} alt="Seretide logo"/>
+                    <img id="woesum-logo" src={WoesumLogo} alt="Woesum logo"/>
                 </div>
             </div>
         </div>

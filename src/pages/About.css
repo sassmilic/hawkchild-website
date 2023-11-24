@@ -20,11 +20,34 @@
 }
 
 .logo-container {
-  margin-top: 2em;
+  margin-top: 1em;
   display: flex;
-  gap: 5em;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em 5em;
 }
 
 .logo-container img {
-  height: 3em;
+  width: 15em;
+  height: auto;
+}
+
+#evian-christ-logo {
+  height: 3.6em;
+}
+
+#yung-lean-logo {
+  height: 7.5em;
+  margin-top: 0em;
+}
+
+#marky-b-logo {
+  height: 2.75em;
+  margin-top: -0.25em;
+}
+
+#seretide-logo {
+  height: 2em;
+  margin-top: 0em;
 }
