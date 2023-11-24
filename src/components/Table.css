@@ -7,7 +7,6 @@ table {
 }
 
 th, td {
-  min-width: 115px;
   border: 1px solid black;
   border-left: none;
   padding: 8px; 
