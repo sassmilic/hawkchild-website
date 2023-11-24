@@ -20,6 +20,7 @@ body {
 
 .content-wrap {
   flex: 1; /* Takes up all available space pushing the footer down */
+  display: flex;
   min-height: calc(100vw * var(--height-as-ratio-of-width)); /* Must at least fit the title svg */
   overflow-y: auto;
 }
