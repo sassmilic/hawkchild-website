@@ -4,9 +4,27 @@
     flex-direction: column;
 }
 
+.about-page-text-wrap {
+    width: 100%;
+}
+
 .about-page-container h1 {
   font-size: 2em;
   font-weight: 400;
   text-transform: uppercase;
-  text-decoration: 1px underline;
+  /*text-decoration: 1px underline;*/
+}
+
+.strategic-partners-container {
+  margin-top: 3em;
+}
+
+.logo-container {
+  margin-top: 2em;
+  display: flex;
+  gap: 5em;
+}
+
+.logo-container img {
+  height: 3em;
 }
