@@ -26,6 +26,7 @@ body {
 }
 
 /* scrollbar stuff */
+
 /* For WebKit browsers */
 ::-webkit-scrollbar {
     width: 15px; /* width of the entire scrollbar */

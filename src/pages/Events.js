@@ -42,7 +42,6 @@ const Events = () => {
 
     return (
         <div className="event-page-container">
-            <div className="vertical-space"></div>
             <div className="buttons">
                 <button onClick={() => setShowUpcoming(true)}
                     className={showUpcoming ? "button-selected" : ""}>

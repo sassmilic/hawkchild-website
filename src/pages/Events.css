@@ -31,3 +31,10 @@
   border: 1px solid black; 
 }
 
+.spreadsheet-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.spreadsheet-container {
+  scrollbar-width: thin; /* "auto" or "thin" */
+}
