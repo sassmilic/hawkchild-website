@@ -45,11 +45,11 @@ const Events = () => {
             <div className="buttons">
                 <button onClick={() => setShowUpcoming(true)}
                     className={showUpcoming ? "button-selected" : ""}>
-                    {showUpcoming ? "«Upcoming Events»" : "Upcoming Events"}
+                    {showUpcoming ? "Upcoming Events" : "Upcoming Events"}
                 </button>
                 <button onClick={() => setShowUpcoming(false)}
                     className={!showUpcoming ? "button-selected" : ""}>
-                    {!showUpcoming ? "«Past Events»" : "Past Events"}
+                    {!showUpcoming ? "Past Events" : "Past Events"}
                 </button>
             </div>
             <div className="spreadsheet-container">

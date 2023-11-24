@@ -3,8 +3,8 @@
   margin: 0 calc(100% * var(--margin-as-ratio-of-width));
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
+  padding-top: 5em;
+  padding-bottom: 5em;
 }
 
 .buttons {
@@ -22,6 +22,7 @@
 
 .button-selected {
   font-weight: 400 !important;
+  text-decoration: 1px underline;
 }
 
 .spreadsheet-container {

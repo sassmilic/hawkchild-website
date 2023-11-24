@@ -9,7 +9,7 @@
 .title-svg {
     display: block; /* Remove inline behavior */
     position: fixed;
-    top: calc(50vh - var(--vertical-midpoint-as-ratio-of-width) * 100vw);
+    top: calc(50vh - 0.85*var(--vertical-midpoint-as-ratio-of-width) * 100vw);
     left: 0;
     width: 100%;
     z-index: 99;
