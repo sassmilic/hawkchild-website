@@ -5,17 +5,14 @@ footer {
     box-sizing: border-box;
     display: flex;
     gap: 5px;
-    z-index: 0;
     background-color: black;
     transition: height 0.3s ease, margin-top 0.3s ease; 
-    overflow: hidden;
 }
 
 footer img {
     width: calc(500% * var(--letter-width-as-ratio-of-width));
     height: auto;
     color: #ffffff;
-    transition: width 0.3s ease;
 }
 
 .footer-left {
@@ -30,12 +27,16 @@ footer img {
     font-family: Helvetica, Arial, sans-serif; 
     font-size: 1.3em;
     text-transform: uppercase;
-    text-decoration: none;
+    z-index: 100;
 }
 
 .nav-container {
   display: flex;
   flex-direction: column;
+}
+
+.nav-container a {
+  text-decoration: none;
 }
 
 .socials-container {
@@ -62,15 +63,3 @@ footer img {
   color: white;
 }
 
-
-/*
-footer:hover {
-    margin-top: -100px;
-}
-
-
-footer:hover img {
-    width: calc(200% * var(--letter-width-as-ratio-of-width)); 
-    transition: width 0.3s ease;
-}
-*/
