@@ -8,6 +8,10 @@
     width: 100%;
 }
 
+.about-page-text-wrap p {
+  margin-top: 1em;
+}
+
 .about-page-container h1 {
   font-size: 2em;
   font-weight: 400;
@@ -20,12 +24,11 @@
 }
 
 .logo-container {
-  margin-top: 1em;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 2em 5em;
+  gap: 1em 5em;
 }
 
 .logo-container img {

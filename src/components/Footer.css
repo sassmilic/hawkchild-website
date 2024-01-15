@@ -1,10 +1,10 @@
 footer {
     width: 100%;
-    padding: 10px;
+    height: calc(50vh - 7em);
+    padding: 40px;
     box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 5px;
     z-index: 0;
     background-color: black;
     transition: height 0.3s ease, margin-top 0.3s ease; 
@@ -12,11 +12,56 @@ footer {
 }
 
 footer img {
-    width: calc(100% * var(--letter-width-as-ratio-of-width));
+    width: calc(500% * var(--letter-width-as-ratio-of-width));
     height: auto;
     color: #ffffff;
     transition: width 0.3s ease;
 }
+
+.footer-left {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-left a {
+    color: white;
+    font-family: Helvetica, Arial, sans-serif; 
+    font-size: 1.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.socials-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-right {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 1.25em;
+}
+
+.footer-right a {
+    color: white;
+    font-family: Helvetica, Arial, sans-serif; 
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.footer-right p {
+  color: white;
+}
+
 
 /*
 footer:hover {
