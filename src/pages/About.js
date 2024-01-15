@@ -18,7 +18,7 @@ const AboutPage = () => {
                 </p>
             </div>
             <div className="strategic-partners-container">
-                <h1>Strategic Partners</h1>
+                <h1>Previous Guests</h1>
                 <div className="logo-container">
                     <img id="evian-christ-logo" src={EvianChristLogo} alt="Evian Christ logo"/>
                     <img src={Dark0Logo} alt="Dark0 logo"/>

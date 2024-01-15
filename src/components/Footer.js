@@ -13,13 +13,13 @@ function Footer() {
             <a href="/">Discord</a>
         </div>
         <div className="socials-container">
-            <a href="https://twitter.com/hawkchild" onClick={() => console.log('Twitter link clicked')}>Twitter↗</a>
+            <a href="https://twitter.com/hawkchild" target="_blank" rel="noopener noreferrer">Twitter/X↗</a>
             <a href="/">Instagram↗</a>
         </div>
       </div>
       <div className="footer-right">
         <a href="/">Back to top ↑</a>
-        <p>©2024</p>
+        <p>Designed & built by Saša Milić ©2024</p>
       </div>
     </footer>
   );
