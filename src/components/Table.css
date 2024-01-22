@@ -1,5 +1,3 @@
-/* Add this CSS to your component's stylesheet (e.g., Table.css) */
-
 table {
   width: 100%; 
   border-collapse: collapse; /* Collapse borders so that they don't double up */
@@ -14,16 +12,12 @@ th, td {
 }
 
 th {
-  position: relative; 
-  padding-right: 20px; /* Add padding to reserve space for the sort indicator */
   border-top: none;
 }
 
-thead {
-  position: sticky;
-  margin-bottom: 50px;
-  top: 0; /* Adjust if your table header needs to be below some other fixed content */
-  z-index: 100; /* Ensures the header is above other content when scrolling */
+.table-header-cell {
+    display: flex;
+    justify-content: space-between;
 }
 
 thead th {
@@ -40,19 +34,8 @@ tbody tr:hover {
   background-color: rgba(176,208,239, 0.2);
 }
 
-.sort-indicator {
-  position: absolute;
-  right: 8px; /* Position the arrow 8px from the right edge of the header cell */
-  top: 40%;
-  transform: translateY(-50%); /* Center the arrow vertically */
-  width: 12px; /* Reserve space for the arrow */
-  height: 1em; /* Ensure the line height is the same as the text */
-  text-align: center;
-  font-weight: normal;
-}
-
 .sort-ascending::after {
-  content: '↑'; /* Unicode for the up arrow */
+  content: '↑'; 
 }
 
 .sort-descending::after {

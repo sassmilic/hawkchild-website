@@ -14,28 +14,36 @@ const Table = ({ data, onSort, sortConfig }) => {
         <thead>
             <tr>
                 <th onClick={() => onSort('date')}>
-                    Date
-                    <span
-                        className={`sort-indicator ${getSortIndicator('date')}`}>
-                    </span>
+                    <div className="table-header-cell">
+                        Date
+                        <span
+                            className={`sort-indicator ${getSortIndicator('date')}`}>
+                        </span>
+                    </div>
                 </th>
                 <th onClick={() => onSort('event')}>
-                    Event
-                    <span
-                        className={`sort-indicator ${getSortIndicator('event')}`}>
-                    </span>
+                    <div className="table-header-cell">
+                        Event
+                        <span
+                            className={`sort-indicator ${getSortIndicator('event')}`}>
+                        </span>
+                    </div>
                 </th>
                 <th onClick={() => onSort('artist')}>
-                    Artist(s)
-                    <span
-                        className={`sort-indicator ${getSortIndicator('artist')}`}>
-                    </span>
+                    <div className="table-header-cell">
+                        Artist(s)
+                        <span
+                            className={`sort-indicator ${getSortIndicator('artist')}`}>
+                        </span>
+                    </div>
                 </th>
                 <th onClick={() => onSort('location')}>
-                    Location
-                    <span
-                        className={`sort-indicator ${getSortIndicator('location')}`}>
-                    </span>
+                    <div className="table-header-cell">
+                        Location
+                        <span
+                            className={`sort-indicator ${getSortIndicator('location')}`}>
+                        </span>
+                    </div>
                 </th>
             </tr>
         </thead>

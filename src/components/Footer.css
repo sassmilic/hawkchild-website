@@ -2,11 +2,25 @@ footer {
   width: 100%;
   height: calc(50vh - 7em);
   padding: 40px;
+  padding-bottom: 0px;
   box-sizing: border-box;
   display: flex;
-  gap: 5px;
+  flex-direction: column;
+  gap: 10px;
   background-color: black;
-  transition: height 0.3s ease, margin-top 0.3s ease; 
+}
+
+.footer-col1 {
+  display: flex;
+  gap: 10em;
+  background-color: black;
+}
+
+.footer-col2 {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 footer img {
@@ -54,16 +68,11 @@ a {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  font-size: 1.25em;
+  align-items: stretch;
 }
 
 .footer-right-bottom {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  font-size: 1.25em;
+  text-align: right;
 }
 
 .footer-right a {
@@ -74,18 +83,27 @@ a {
   text-decoration: none;
 }
 
-.footer-right p {
+.footer-col3 p {
   color: white;
+  text-align: right;
+  font-size: 1em;
   font-family: 'Cutive Mono', monospace;
 }
 
-.footer-right p a {
+.footer-col3 p a {
   color: white;
   font-family: 'Cutive Mono', monospace;
   text-decoration: underline;
+  text-decoration-style: dotted;
   text-decoration-thickness: 1px;
 }
 
+.logo-text {
+  width: 100%;       /* Makes the image take up the full width of its parent */
+  height: auto;      /* Maintains the aspect ratio of the image */
+  display: block;    /* Removes any extra space around the image */
+}
+
 #back-to-top {
-  margin-bottom: 1em;
+  color: white;
 }

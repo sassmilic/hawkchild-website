@@ -6,7 +6,7 @@ let data = require('./../data/eventData.json');
 
 const Events = () => {
     const [sortConfig, setSortConfig] = useState({ key: 'date', direction: 'descending' });
-    const [showUpcoming, setShowUpcoming] = useState(true);
+    const [showUpcoming, setShowUpcoming] = useState(data.some(event => event.upcoming === "true"));
     const [tableData, setTableData] = useState([]);
 
     const sortData = (data, { key, direction }) => {
