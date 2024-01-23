@@ -1,12 +1,42 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment-timezone';
+
+// Mapping of weather codes to Unicode symbols
+const weatherSymbols = {
+  'Thunderstorm': '⛈',
+  'Drizzle': '⛆',
+  'Rain': '⛆',
+  'Snow': '❄',
+  'Mist': '░',
+  'Smoke': '☁',
+  'Haze': '░',
+  'Dust': '☁',
+  'Fog': '░',
+  'Sand': '☁',
+  'Ash': '☁',
+  'Squall': '☁',
+  'Tornado': '☁',
+  'Clear': '☀',
+  'Clouds': '☁',
+};
 
 const GlasgowInfo = ({ width }) => {
+  const [currentTime, setCurrentTime] = useState(moment().tz('Europe/London'));
   const [weatherData, setWeatherData] = useState({
     date: '',
     time: '',
     temp: '',
-    description: ''
+    description: '',
+    mainWeather: '',
   });
+
+  useEffect(() => {
+    // Update the time every second
+    const timer = setInterval(() => {
+      setCurrentTime(moment().tz('Europe/London'));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +51,8 @@ const GlasgowInfo = ({ width }) => {
           date: dateTime.toLocaleDateString(),
           time: dateTime.toLocaleTimeString(),
           temp: data.temp,
-          description: data.description
+          description: data.description,
+          mainWeather: data.mainWeather,
         });
       } catch (error) {
         console.error('Failed to fetch weather data:', error);
@@ -31,6 +62,11 @@ const GlasgowInfo = ({ width }) => {
     fetchData();
   }, []);
 
+  // Get the symbol for the current weather condition
+  const weatherSymbol = weatherSymbols[weatherData.mainWeather] || '';
+  console.log(weatherData.mainWeather);
+  console.log(weatherSymbol);
+
   return (
     <div className="glasgow-info" style={{ width: width }}>
       <div className="location">
@@ -38,12 +74,12 @@ const GlasgowInfo = ({ width }) => {
         <p>⌖55.8642° N, 4.2518° W</p>
       </div>
       <div>
-        <p>{weatherData.date}</p>
-        <p>{weatherData.time}</p>
+        <p>{currentTime.format('DD MMM YYYY')}</p>
+        <p>{currentTime.format('hh:mm:ss A')}</p>
       </div>
       <div>
         <p>{weatherData.temp}</p>
-        <p>{weatherData.description}</p>
+        <p>{weatherSymbol} {weatherData.description}</p>
       </div>
     </div>
   );

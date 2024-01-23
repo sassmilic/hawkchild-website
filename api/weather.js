@@ -20,6 +20,7 @@ module.exports = async (req, res) => {
       return res.json(data);
     }
   }
+  console.log("data is not cached");
   // otherwise, make API call
   const apiKey = process.env.WEATHER_API_KEY;
   const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Glasgow,uk&appid=${apiKey}&units=metric`);
@@ -28,6 +29,7 @@ module.exports = async (req, res) => {
   const newData = {
     temp: `${data.main.temp} °C`,
     description: data.weather[0].description,
+    mainWeather: data.weather[0].main,
     time: currentTime
   };
 
