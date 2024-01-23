@@ -47,7 +47,8 @@ function FooterMain() {
         </a>
       </div>
       <div className="footer-col3">
-        <p>Designed & built by <a href="https://twitter.com/realSasaMilic">Saša Milić</a> ©2024</p>
+        <p id="copyright-year">©2024</p>
+        <p>Designed & built by <a href="https://twitter.com/realSasaMilic">Saša Milić</a></p>
       </div>
     </footer>
   );
