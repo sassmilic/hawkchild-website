@@ -1,27 +1,37 @@
-const fetch = require('node-fetch');
+require('dotenv').config();
 
-let cachedData;
-let lastApiCallTime;
+const fetch = require('node-fetch');
+const Redis = require('ioredis');
+
+const redis = new Redis(process.env.REDIS_URL); 
 
 module.exports = async (req, res) => {
   const TEN_MINUTES = 600000; // 10 minutes in milliseconds
   const currentTime = new Date().getTime();
+  const cacheKey = 'weatherData';
+  const cachedData = await redis.get(cacheKey);
 
-  if (cachedData && currentTime - lastApiCallTime < TEN_MINUTES) {
-    return res.json(cachedData);
+
+  let data;
+  if (cachedData) {
+    data = JSON.parse(cachedData);
+    if (cachedData && currentTime - data['time'] < TEN_MINUTES) {
+      console.log("data is cached");
+      return res.json(data);
+    }
   }
-
-  const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
+  // otherwise, make API call
+  const apiKey = process.env.WEATHER_API_KEY;
   const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Glasgow,uk&appid=${apiKey}&units=metric`);
-  const data = await response.json();
+  data = await response.json();
 
-  cachedData = {
+  const newData = {
     temp: `${data.main.temp} °C`,
     description: data.weather[0].description,
     time: currentTime
   };
-  lastApiCallTime = currentTime;
 
-  res.json(cachedData);
+  await redis.set(cacheKey, JSON.stringify(newData));
+  return res.json(newData);
 };
 
