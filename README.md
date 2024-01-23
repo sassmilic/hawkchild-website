@@ -7,9 +7,6 @@
 
 ### Footer
 
-- Optimize design for pages other than Home
-- Scrolling banner on the bottom
-
 ### Contact
 
 - Everything still needs to be done..
