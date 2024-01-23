@@ -7,8 +7,8 @@ import AboutPage from './pages/About'
 import Events from './pages/Events';
 import ContactPage from './pages/Contact';
 import NavBar from './components/NavBar';
-import Footer2 from './components/Footer2';
-//import FooterMain from './components/FooterMain';
+import Footer from './components/Footer';
+import FooterMain from './components/FooterMain';
 
 function App() {
   // RoutesWithFooter is a wrapper component that includes the routes and conditional rendering of the footer.
@@ -18,7 +18,7 @@ function App() {
 
     // Function to conditionally render the appropriate footer
     const renderFooter = () => {
-      return location.pathname === '/' ? <Footer2 /> : <Footer2 />;
+      return location.pathname === '/' ? <FooterMain /> : <Footer />;
     };
 
     return (

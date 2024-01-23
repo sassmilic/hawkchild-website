@@ -1,17 +1,18 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import Logo from './../assets/logo.jpeg';
 import LogoText from './../assets/hawkchild_diy.svg';
-import ScrollingBanner from './ScrollingBanner.js';
 
 function FooterMain() {
-  const logoRef = useRef(null);
+  const logoImgRef = useRef(null);
+  const logoTextRef = useRef(null);
   const footerRef = useRef(null);
  
   const handleResize = () => {
-    if (logoRef.current && footerRef.current) {
-      const logoHeight = logoRef.current.offsetHeight;
-      footerRef.current.style.minHeight = `calc(${logoHeight}px + 7em)`;
+    if (logoTextRef.current && footerRef.current) {
+      const logoHeight = logoTextRef.current.offsetHeight;
+      footerRef.current.style.minHeight = `calc(${logoHeight}px + 15em)`;
     }
   };
 
@@ -23,36 +24,57 @@ function FooterMain() {
 
   return (
     <footer ref={footerRef}>
-      <div className="footer-col1">
-          <div className="footer-left">
-            <img ref={logoRef} src={Logo} alt="HAWKCHILD___DIY" onLoad={handleResize}/>
+      <div className="row1">
+        <img className="logo-img" ref={logoImgRef} src={Logo} alt="HAWKCHILD___DIY" onLoad={handleResize}/>
+        <div className="links-container">
             <div className="nav-container">
                 <a href="/about">About</a>
                 <a href="/events">Events</a>
                 <a href="/community">Discord</a>
             </div>
             <div className="socials-container">
-                <p><a href="https://twitter.com/hawkchild" target="_blank" rel="noopener noreferrer">Twitter/X↗</a></p>
+                <a href="https://twitter.com/hawkchild" target="_blank" rel="noopener noreferrer">Twitter/X↗</a>
                 <a href="https://www.instagram.com/hawkchild.diy" target="_blank" rel="noopener noreferrer">Instagram↗</a>
             </div>
-          </div>
-          <div className="footer-right">
-            <div className="footer-right-top">
-            </div>
-          </div>
+        </div>
+        <div></div>
+        <img className="logo-text" ref={logoTextRef} src={LogoText} onLoad={handleResize} style={{"visibility": "hidden"}} />
       </div>
-      <div className="footer-col2">
-        <a id="back-to-top" href="#!" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+      <div className="row2">
+        <a id="back-button" href="#!" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           Back to top ↑
         </a>
       </div>
-      <div className="footer-col3">
-        <p id="copyright-year">©2024</p>
-        <p>Designed & built by <a href="https://twitter.com/realSasaMilic">Saša Milić</a></p>
+      <div className="row3">
+        <GlasgowInfo width="40px"/>
+        <div>
+            <p id="copyright-year">©2024</p>
+        </div>
+      </div>
+      <div className="row4">
+        <p>design & code by <a href="https://twitter.com/realSasaMilic">Saša Milić</a></p>
       </div>
     </footer>
   );
-}
+};
+
+const GlasgowInfo = ({ width }) => {
+  return (
+    <div className="glasgow-info">
+      <div className="location">
+        <p>Glasgow, Scotland</p>
+        <p>⌖55.8642° N, 4.2518° W</p>
+      </div>
+      <div>
+        <p>23 Jan 2024</p>
+        <p>08:18 AM</p>
+      </div>
+      <div>
+        <p>20 °C</p>
+        <p>Mostly cloudy</p>
+      </div>
+    </div>
+  );
+};
 
 export default FooterMain;
-

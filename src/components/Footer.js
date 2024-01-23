@@ -1,17 +1,19 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import Logo from './../assets/logo.jpeg';
 import LogoText from './../assets/hawkchild_diy.svg';
-import TomorrowWidget from './TomorrowWidget';
 
 function Footer() {
-  const logoRef = useRef(null);
+  const logoImgRef = useRef(null);
+  const [logoWidth, setLogoWidth] = useState('0px');
+
+  const logoTextRef = useRef(null);
   const footerRef = useRef(null);
  
   const handleResize = () => {
-    if (logoRef.current && footerRef.current) {
-      const logoHeight = logoRef.current.offsetHeight;
+    if (logoTextRef.current && footerRef.current) {
+      const logoHeight = logoTextRef.current.offsetHeight;
       footerRef.current.style.minHeight = `calc(${logoHeight}px + 15em)`;
     }
   };
@@ -22,11 +24,29 @@ function Footer() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const updateLogoWidth = () => {
+      if (logoImgRef.current) {
+        setLogoWidth(`${logoImgRef.current.offsetWidth}px`);
+      }
+    };
+    // Update width on image load
+    if (logoImgRef.current) {
+      updateLogoWidth();
+    }
+    // Update width on window resize
+    window.addEventListener('resize', updateLogoWidth);
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', updateLogoWidth);
+    };
+  }, []);
+
   return (
     <footer ref={footerRef}>
-      <div className="footer-col1">
-          <div className="footer-left">
-            <img ref={logoRef} src={Logo} alt="HAWKCHILD___DIY" onLoad={handleResize}/>
+      <div className="row1">
+        <img className="logo-img" ref={logoImgRef} src={Logo} alt="HAWKCHILD___DIY" onLoad={handleResize}/>
+        <div className="links-container">
             <div className="nav-container">
                 <a href="/about">About</a>
                 <a href="/events">Events</a>
@@ -36,31 +56,44 @@ function Footer() {
                 <p><a href="https://twitter.com/hawkchild" target="_blank" rel="noopener noreferrer">Twitter/X↗</a></p>
                 <a href="https://www.instagram.com/hawkchild.diy" target="_blank" rel="noopener noreferrer">Instagram↗</a>
             </div>
-          </div>
-          <div className="footer-right">
-            <div className="footer-right-top">
-                <img src={LogoText} className="logo-text"/>
-            </div>
-          </div>
+        </div>
+        <img className="logo-text" ref={logoTextRef} src={LogoText} onLoad={handleResize} />
       </div>
-      <div className="footer-col2">
-          <Link to="/" id="back-to-top">
+      <div className="row2">
+          <Link to="/" id="back-button">
             Back to home ←
           </Link>
       </div>
-      <div className="footer-col3">
-        <div>
-            <p>⌖55.8642° N, 4.2518° W<span id="span1">-------------------</span>08:34 AM</p>
-            <p>20 °C</p>
-        </div>
+      <div className="row3">
+        <GlasgowInfo width={logoWidth}/>
         <div>
             <p id="copyright-year">©2024</p>
-            <p>design&code by <a href="https://twitter.com/realSasaMilic">Saša Milić</a></p>
         </div>
+      </div>
+      <div className="row4">
+        <p>design & code by <a href="https://twitter.com/realSasaMilic">Saša Milić</a></p>
       </div>
     </footer>
   );
-}
+};
+
+const GlasgowInfo = ({ width }) => {
+  return (
+    <div className="glasgow-info" style={{ width: width }}>
+      <div className="location">
+        <p>Glasgow, Scotland</p>
+        <p>⌖55.8642° N, 4.2518° W</p>
+      </div>
+      <div>
+        <p>23 Jan 2024</p>
+        <p>08:18 AM</p>
+      </div>
+      <div>
+        <p>20 °C</p>
+        <p>Mostly cloudy</p>
+      </div>
+    </div>
+  );
+};
 
 export default Footer;
-
