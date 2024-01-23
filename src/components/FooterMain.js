@@ -1,11 +1,14 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import Logo from './../assets/logo.jpeg';
 import LogoText from './../assets/hawkchild_diy.svg';
+import GlasgowInfo from './GlasgowInfo';
 
-function FooterMain() {
+function Footer() {
   const logoImgRef = useRef(null);
+  const [logoWidth, setLogoWidth] = useState('0px');
+
   const logoTextRef = useRef(null);
   const footerRef = useRef(null);
  
@@ -22,6 +25,24 @@ function FooterMain() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    const updateLogoWidth = () => {
+      if (logoImgRef.current) {
+        setLogoWidth(`${logoImgRef.current.offsetWidth}px`);
+      }
+    };
+    // Update width on image load
+    if (logoImgRef.current) {
+      updateLogoWidth();
+    }
+    // Update width on window resize
+    window.addEventListener('resize', updateLogoWidth);
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', updateLogoWidth);
+    };
+  }, []);
+
   return (
     <footer ref={footerRef}>
       <div className="row1">
@@ -33,11 +54,10 @@ function FooterMain() {
                 <a href="/community">Discord</a>
             </div>
             <div className="socials-container">
-                <a href="https://twitter.com/hawkchild" target="_blank" rel="noopener noreferrer">Twitter/X↗</a>
+                <p><a href="https://twitter.com/hawkchild" target="_blank" rel="noopener noreferrer">Twitter/X↗</a></p>
                 <a href="https://www.instagram.com/hawkchild.diy" target="_blank" rel="noopener noreferrer">Instagram↗</a>
             </div>
         </div>
-        <div></div>
         <img className="logo-text" ref={logoTextRef} src={LogoText} onLoad={handleResize} style={{"visibility": "hidden"}} />
       </div>
       <div className="row2">
@@ -46,7 +66,7 @@ function FooterMain() {
         </a>
       </div>
       <div className="row3">
-        <GlasgowInfo width="40px"/>
+        <GlasgowInfo width={logoWidth}/>
         <div>
             <p id="copyright-year">©2024</p>
         </div>
@@ -58,23 +78,4 @@ function FooterMain() {
   );
 };
 
-const GlasgowInfo = ({ width }) => {
-  return (
-    <div className="glasgow-info">
-      <div className="location">
-        <p>Glasgow, Scotland</p>
-        <p>⌖55.8642° N, 4.2518° W</p>
-      </div>
-      <div>
-        <p>23 Jan 2024</p>
-        <p>08:18 AM</p>
-      </div>
-      <div>
-        <p>20 °C</p>
-        <p>Mostly cloudy</p>
-      </div>
-    </div>
-  );
-};
-
-export default FooterMain;
+export default Footer;

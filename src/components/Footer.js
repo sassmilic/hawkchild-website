@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 import Logo from './../assets/logo.jpeg';
 import LogoText from './../assets/hawkchild_diy.svg';
+import GlasgowInfo from './GlasgowInfo';
 
 function Footer() {
   const logoImgRef = useRef(null);
@@ -74,25 +75,6 @@ function Footer() {
         <p>design & code by <a href="https://twitter.com/realSasaMilic">Saša Milić</a></p>
       </div>
     </footer>
-  );
-};
-
-const GlasgowInfo = ({ width }) => {
-  return (
-    <div className="glasgow-info" style={{ width: width }}>
-      <div className="location">
-        <p>Glasgow, Scotland</p>
-        <p>⌖55.8642° N, 4.2518° W</p>
-      </div>
-      <div>
-        <p>23 Jan 2024</p>
-        <p>08:18 AM</p>
-      </div>
-      <div>
-        <p>20 °C</p>
-        <p>Mostly cloudy</p>
-      </div>
-    </div>
   );
 };
 
