@@ -43,7 +43,7 @@ function FooterMain() {
       </div>
       <div className="footer-col2">
         <a id="back-to-top" href="#!" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          Back to home ←
+          Back to top ↑
         </a>
       </div>
       <div className="footer-col3">
