@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import Logo from './../assets/logo.jpeg';
 import LogoText from './../assets/hawkchild_diy.svg';
@@ -43,9 +44,9 @@ function Footer() {
           </div>
       </div>
       <div className="footer-col2">
-        <a id="back-to-top" href="#!" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          Back to top ↑
-      </a>
+          <Link to="/" id="back-to-top">
+            Back to home ←
+          </Link>
       </div>
       <div className="footer-col3">
         <p>Designed & built by <a href="https://twitter.com/realSasaMilic">Saša Milić</a> ©2024</p>
