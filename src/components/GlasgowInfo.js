@@ -40,20 +40,44 @@ const GlasgowInfo = ({ width }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch('/api/weather'); // Adjust the URL to your API endpoint
-        const data = await response.json();
-        console.log('Raw response:', response);
+      const weatherDataKey = 'weatherData';
+      const cachedWeatherData = localStorage.getItem(weatherDataKey);
+      const now = new Date();
 
-        // Assuming the API returns date and time in a format that needs processing
-        const dateTime = new Date();
+      if (cachedWeatherData) {
+        const { date, data } = JSON.parse(cachedWeatherData);
+        const lastFetchedTime = new Date(date);
+        const fiveMinutes = 5 * 60 * 1000; // 5 minutes in milliseconds
+
+        if (now - lastFetchedTime < fiveMinutes) {
+          console.log('Loading weather data from local cache');
+          setWeatherData(data);
+          return;
+        } else {
+          console.log('Local cache is outdated, querying from API');
+        }
+      } else {
+        console.log('No local cache found, querying from API');
+      }
+
+      try {
+        const response = await fetch('/api/weather');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('Weather data queried from API');
+
         setWeatherData({
-          date: dateTime.toLocaleDateString(),
-          time: dateTime.toLocaleTimeString(),
+          date: now.toLocaleDateString(),
+          time: now.toLocaleTimeString(),
           temp: data.temp,
           description: data.description,
           mainWeather: data.mainWeather,
         });
+
+        // Cache the new data along with the current date and time
+        localStorage.setItem(weatherDataKey, JSON.stringify({ date: now, data: data }));
       } catch (error) {
         console.error('Failed to fetch weather data:', error);
       }
@@ -61,11 +85,6 @@ const GlasgowInfo = ({ width }) => {
 
     fetchData();
   }, []);
-
-  // Get the symbol for the current weather condition
-  const weatherSymbol = weatherSymbols[weatherData.mainWeather] || '';
-  console.log(weatherData.mainWeather);
-  console.log(weatherSymbol);
 
   return (
     <div className="glasgow-info" style={{ width: width }}>
