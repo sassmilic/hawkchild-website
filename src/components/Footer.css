@@ -78,18 +78,28 @@ a {
   text-align: center;
 }
 
+.row3 p {
+  text-align: right;
+  margin-top: -2em;
+  margin-right: 1.4%;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 0.9vw;
+}
+
+.row3 p a {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1px;
+  
+}
+
 .row4 {
   display: flex; 
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   margin-top: -1em;
   margin-right: 1.1%;
   padding: 0;
-}
-
-.row4 p {
-  color: white;
-  font-size: 1em;
   font-family: 'Cutive Mono', monospace;
 }
 
@@ -107,20 +117,6 @@ a {
 
 #copyright-year {
   font-size: 3.6vw;
-}
-
-.row3 p {
-  text-align: right;
-  margin-top: -2em;
-  margin-right: 1.4%;
-  font-family: 'Cutive Mono', monospace;
-  font-size: 0.9vw;
-}
-
-.row3 p a {
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-decoration-thickness: 1px;
-  
+  margin-bottom: -1.3vw;
 }
 
