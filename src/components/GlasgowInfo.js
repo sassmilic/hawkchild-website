@@ -79,7 +79,6 @@ const GlasgowInfo = ({ width }) => {
       </div>
       <div>
         <p>{weatherData.temp}</p>
-        <p>{weatherSymbol}</p>
         <p>{weatherData.description}</p>
       </div>
     </div>
