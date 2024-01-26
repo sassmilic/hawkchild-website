@@ -15,11 +15,12 @@
 }
 
 .join-button:hover {
+  text-decoration: none;
+  color: white;
   background: #2b2b2b;
 }
 
 .join-button:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transform: translateY(2px);
 }
 

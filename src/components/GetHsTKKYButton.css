@@ -1,0 +1,24 @@
+.get-hsTKKYTKKY-button {
+  width: 11em;
+  background: white;
+  border: none;
+  border-radius: 20px;
+  color: black;
+  font-size: 2em;
+  font-weight: 400;
+  padding: 20px 20px; /* Adjust padding to match the size of your button */
+  text-transform: uppercase;
+  -webkit-box-shadow: 0 0 15px 5px black;
+  -moz-box-shadow: 0 0 15px 5px black;
+  box-shadow: 0 0 15px 5px black;
+  cursor: pointer;
+  outline: none;
+}
+
+.get-hsTKKYTKKY-button:hover {
+  text-decoration: none;
+  -webkit-box-shadow: 0 0 15px 5px #b0d0ef;
+  -moz-box-shadow: 0 0 15px 5px #b0d0ef;
+  box-shadow: 0 0 15px 5px #b0d0ef;
+}
+

@@ -6,6 +6,12 @@
     margin-left: 23.7%;
 }
 
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .about-page-container p {
   color: black;
 }

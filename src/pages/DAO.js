@@ -1,12 +1,16 @@
 import React from 'react';
 import './DAO.css';
 import JoinButton from '../components/JoinButton.js';
+import GetHsTKKYButton from '../components/GetHsTKKYButton.js';
 
 const AboutPage = () => {
     return (
         <div className="about-page-container">
             <div className="about-page-text-wrap">
-                <h1>About</h1>
+                <div className="title-container">
+                    <h1>About</h1>
+                    <GetHsTKKYButton />
+                </div>
                 <p>
 The HAWKCHILD DAO is a new kind of social network. Home to many subcultures, the DAO exists as an ecosystem of symbiotic relationships, a decentralized creative studio, and a never-ending group chat. Most of all, it’s an evolving experiment.
 
