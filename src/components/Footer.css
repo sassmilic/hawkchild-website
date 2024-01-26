@@ -66,24 +66,28 @@ a {
   flex-direction: column;
 }
 
+.row2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #back-button {
   color: white;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  text-align: center;
 }
 
-.row2 {
-  display: flex; 
-  justify-content: center;
-}
-
-.row3 {
+.row4 {
   display: flex; 
   justify-content: space-between;
   align-items: center;
+  margin-top: -1em;
   margin-right: 1.1%;
+  padding: 0;
 }
 
-.row3 p {
+.row4 p {
   color: white;
   font-size: 1em;
   font-family: 'Cutive Mono', monospace;
@@ -105,14 +109,15 @@ a {
   font-size: 3.6vw;
 }
 
-.row4 {
+.row3 p {
   text-align: right;
+  margin-top: -2em;
   margin-right: 1.4%;
   font-family: 'Cutive Mono', monospace;
   font-size: 0.9vw;
 }
 
-.row4 a {
+.row3 p a {
   text-decoration: underline;
   text-decoration-style: dotted;
   text-decoration-thickness: 1px;
