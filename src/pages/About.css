@@ -12,16 +12,9 @@
   margin-top: 1em;
 }
 
-.about-page-container h1 {
-  font-size: 2em;
-  font-weight: 400;
-  text-transform: uppercase;
-  /*text-decoration: 1px underline;*/
-}
-
 .strategic-partners-container {
   margin-top: 3em;
-  width: 60%;
+  width: 100%;
 }
 
 .logo-container {
