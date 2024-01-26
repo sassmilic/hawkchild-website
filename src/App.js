@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import './reset.css';
 import './App.css';
 import Home from './pages/Home';
-import AboutPage from './pages/About'
+import AboutPage from './pages/About';
+import DAOPage from './pages/DAO';
 import Events from './pages/Events';
 import ContactPage from './pages/Contact';
 import NavBar from './components/NavBar';
@@ -27,6 +28,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<AboutPage />} />
+            <Route path='/DAO' element={<DAOPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/events" element={<Events />} />
           </Routes>

@@ -1,0 +1,73 @@
+.about-page-container {
+    /*margin: 5em calc(100% * var(--margin-as-ratio-of-width));*/
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: 23.7%;
+}
+
+.about-page-container p {
+  color: black;
+}
+
+.about-page-container br {
+  margin-bottom: 1em;
+}
+
+.about-page-text-wrap {
+    width: 100%;
+}
+
+.about-page-text-wrap p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.about-page-container h1 {
+  font-size: 5em;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.about-page-container h2 {
+  font-size: 3em;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.strategic-partners-container {
+  margin-top: 3em;
+  width: 60%;
+}
+
+.logo-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em 5em;
+}
+
+.logo-container img {
+  width: 15em;
+  height: auto;
+}
+
+#evian-christ-logo {
+  height: 3.6em;
+}
+
+#yung-lean-logo {
+  height: 7.5em;
+  margin-top: 0em;
+}
+
+#marky-b-logo {
+  height: 2.75em;
+  margin-top: -0.25em;
+}
+
+#seretide-logo {
+  height: 2em;
+  margin-top: 0em;
+}

@@ -16,7 +16,9 @@ function NavBar() {
                     events
                 </button>
                 <div className="empty"></div>
-                <button>$hstkkytkky</button>
+                <button onClick={() => navigate('/DAO')}>
+                    $hstkkytkky
+                </button>
             </div>
             <div className="right">
                 <div className="empty"></div>
