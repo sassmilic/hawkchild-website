@@ -1,12 +1,6 @@
 import React from 'react';
 import './DAO.css';
-
-import EvianChristLogo from "./../assets/artist-logos/evian-christ.png";
-import Dark0Logo from "./../assets/artist-logos/dark0.jpeg";
-import YungLeanLogo from "./../assets/artist-logos/yung-lean.png";
-import MarkyBLogo from "./../assets/artist-logos/marky-b.png";
-import SeretideLogo from "./../assets/artist-logos/seretide.png";
-import WoesumLogo from "./../assets/artist-logos/woesum.jpeg";
+import JoinButton from '../components/JoinButton.js';
 
 const AboutPage = () => {
     return (
@@ -35,6 +29,8 @@ Our aim is to be the social convening point for the individuals, squads, and ins
 We readily welcome new members. If you share our vision, we invite you to join us.
                 </p>
             </div>
+            <br/>
+        <JoinButton />
         </div>
     );
 };
