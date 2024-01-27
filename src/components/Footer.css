@@ -37,23 +37,21 @@ a {
 
 .links-container {
   display: flex;
-  gap: 2vw;
+  gap: 1.5vw;
+  margin-top: -7px;
 }
 
 .links-container a {
   font-family: Helvetica, Arial, sans-serif; 
   font-weight: 300;
-  font-size: 1.3em;
+  font-size: 1.7em;
   text-transform: uppercase;
   text-decoration-thickness: 1px;
-  color: white;
 }
 
 .links-container a:hover {
     cursor: crosshair;
     color: #b0d0ef;
-    text-decoration: line-through 1px;
-    text-decoration-color: black;
 }
 
 .nav-container {
