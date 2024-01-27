@@ -25,6 +25,12 @@ body {
   overflow-y: auto;
 }
 
+h2 {
+  font-size: 3em;
+  font-weight: 300;
+  font-style: italic;
+}
+
 /* scrollbar stuff */
 
 /* For WebKit browsers */

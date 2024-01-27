@@ -1,9 +1,25 @@
-.main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* This will make the parent div take the full height of the viewport */
+.contact-page-container {
+  width: 50%;        /* Set the width of the div */
+  margin: 5em calc(100% * var(--margin-as-ratio-of-width));
+  margin-left: 25%;
+  height: 100%;      /* Set the height of the div */
 }
 
+.contact-page-container h1 {
+  text-align: center;
+}
 
+.contact-page-text-wrap {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-image: url('../assets/pfp.jpeg'); /* Path to your image */
+  background-repeat: repeat;
+  background-color: rgba(255,255,255,0.8);
+  background-blend-mode: lighten;
+}
+
+.contact-page-text-wrap div {
+  display: flex;
+  justify-content: space-between;
+}
