@@ -15,7 +15,7 @@ function Footer() {
   const handleResize = () => {
     if (logoTextRef.current && footerRef.current) {
       const logoHeight = logoTextRef.current.offsetHeight;
-      footerRef.current.style.minHeight = `calc(${logoHeight}px + 14em)`;
+      footerRef.current.style.minHeight = `calc(${logoHeight}px + 0em)`;
     }
   };
 
@@ -65,6 +65,7 @@ function Footer() {
             Back to home ←
           </Link>
       </div>
+      {/*
       <div className="row3">
           <p>design & code<br/>by <a href="https://twitter.com/realSasaMilic">Saša Milić</a></p>
       </div>
@@ -74,6 +75,7 @@ function Footer() {
             <p id="copyright-year">©2024</p>
         </div>
       </div>
+      */}
     </footer>
   );
 };
