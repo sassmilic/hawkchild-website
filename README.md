@@ -5,15 +5,9 @@
 - optimize images/videos/gifs
 - make some images have higher z-index than "DIY" text
 
-### Footer
-
-### Contact
-
-- Everything still needs to be done..
-
 ### Discord
 
-- Everything still needs to be done..
+- Connect wallet & integrate uniswap plugin (similar to fwb site)
 
 ### Mobile
 
