@@ -44,9 +44,10 @@ function Collage({ onLoadComplete, onProgress }) {
     }, [loadedImages]);
 
     return (
-        <>
+        <div className="collage-container">
+        <div className="background"></div>
         <EmptyScreen percentage={50} />
-        <div className="collage-container" >
+        <div className="photo-container" >
             <div className="columns">
                 <div className="column">
                     <img
@@ -371,7 +372,7 @@ function Collage({ onLoadComplete, onProgress }) {
             />
         </div>
         <EmptyScreen percentage={100} />
-        </>
+        </div>
     );
 }
 
