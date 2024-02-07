@@ -2,6 +2,7 @@
     margin-left: calc(100vw * var(--margin-as-ratio-of-width));
     margin-right: calc(100vw * var(--margin-as-ratio-of-width));
     position: relative;
+    overflow: auto;
 }
 
 .background {
@@ -38,6 +39,8 @@
     flex-direction: column;
     justify-content: space-between;
     gap: calc(100vw * var(--letter-height-as-ratio-of-width));
+    perspective: 10px;
+    transform-style: preserve-3d;
 }
 
 .columns {

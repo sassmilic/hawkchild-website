@@ -6,6 +6,11 @@
   display: none;
 }
 
+.home-container {
+  width: 100%;
+  background-color: white;
+}
+
 .title-svg {
     display: block; /* Remove inline behavior */
     position: fixed;
@@ -19,4 +24,13 @@
 .title-svg img {
   width: 100%;
   mix-blend-mode: difference;
+}
+
+.layer1 {
+  margin-top: 27.5%;
+}
+
+.layer1 video {
+  width: 100%;
+  height: auto;
 }

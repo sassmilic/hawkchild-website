@@ -1,0 +1,36 @@
+.home-container {
+  width: 100%;
+  background-color: white;
+}
+
+.title-svg {
+    position: fixed;
+    top: calc(50vh - 0.85*var(--vertical-midpoint-as-ratio-of-width) * 100vw);
+    width: 100%;
+    z-index: 99;
+    mix-blend-mode: difference;
+}
+
+.title-svg img {
+  width: 100%;
+}
+
+.marquee {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  /* Add your marquee styles here */
+}
+
+.layers-container {
+    overflow-y: hidden;
+  margin-left: calc(100vw * var(--margin-as-ratio-of-width));
+  margin-right: calc(100vw * var(--margin-as-ratio-of-width));
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  gap: calc(100vw * var(--gap-as-ratio-of-width));
+  margin-top: 50px; /* Adjust this value to match the height of your marquee */
+}
+

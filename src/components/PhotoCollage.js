@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import LocomotiveScroll from 'locomotive-scroll';
 import './PhotoCollage.css';
+import './locomotive-scroll.css';
 import LoadingPage from './LoadingPage';
 import EmptyScreen from './EmptyScreen';
 
@@ -47,6 +49,14 @@ function Collage({ onLoadComplete, onProgress }) {
         <div className="collage-container">
         <div className="background"></div>
         <EmptyScreen percentage={50} />
+                    <img data-scroll data-scroll-speed="2" data-scroll-direction="horizontal"
+                        src={images['p02']}
+                        alt="Evian Christ Passport"
+                        style={{
+                            width: '50%',
+                        }}
+                        onLoad={handleImageLoad}
+                    />
         <div className="photo-container" >
             <div className="columns">
                 <div className="column">
@@ -67,11 +77,11 @@ function Collage({ onLoadComplete, onProgress }) {
                         alt="Evian Christ Finger"
                         onLoad={handleImageLoad}
                     />
-                    <img
+                    <img data-scroll data-scroll-speed="2" data-scroll-direction="horizontal"
                         src={images['p02']}
                         alt="Evian Christ Passport"
                         style={{
-                            width: '50%'
+                            width: '50%',
                         }}
                         onLoad={handleImageLoad}
                     />

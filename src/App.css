@@ -1,5 +1,6 @@
 :root {
   --title-aspect-ratio: 0.16;
+  --diy-ratio: 0.29;
   --vertical-midpoint-as-ratio-of-width: 0.141;
   --margin-as-ratio-of-width: 0.05534736966;
   --gap-as-ratio-of-width: 0.00882352941;
@@ -20,8 +21,8 @@ body {
 }
 
 .content-wrap {
-  flex: 1; /* Takes up all available space pushing the footer down */
-  display: flex;
+  width: 100%;
+  display: flex; 
   min-height: calc(100vw * var(--height-as-ratio-of-width)); /* Must at least fit the title svg */
   overflow-y: auto;
 }

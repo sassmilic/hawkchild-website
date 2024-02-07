@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './reset.css';
 import './App.css';
-import Home from './pages/Home';
+import Home from './pages/Home2';
 import AboutPage from './pages/About';
+import Collage from './pages/Collage';
 import DAOPage from './pages/DAO';
 import Events from './pages/Events';
 import ContactPage from './pages/Contact';
@@ -25,12 +26,25 @@ function App() {
     return (
       <>
         <div className="content-wrap">
+        <div style={{
+      width: '100%', // Full width
+      color: 'red', // Text color
+      fontWeight: 'bold', // Bold text
+      position: 'fixed', // Fixed positioning
+      top: 50, // Align to the top of the viewport
+      fontSize: "50px",
+      left: '35vw', // Align to the left of the viewport
+      zIndex: 1000, // Ensure it's above other content
+    }}>
+      UNDER CONSTRUCTION
+    </div>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/DAO' element={<DAOPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/collage" element={<Collage />} />
           </Routes>
         </div>
         {renderFooter()}
@@ -41,7 +55,7 @@ function App() {
   return (
     <Router>
       <div className="site-container">
-        <NavBar />
+      <NavBar />
         <RoutesWithFooter /> {/* Including the wrapper component with routes and footer */}
       </div>
     </Router>

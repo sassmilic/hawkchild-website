@@ -1,0 +1,23 @@
+.content-layer {
+  overflow: hidden;
+  /* Base styles for all layers */
+  height: 100%;
+  display: grid;
+  flex-direction: column;
+  gap: 100px;
+  transition: transform 0.3s ease-out;
+}
+
+.content-layer1 {
+  width: 43.7vw;
+}
+
+.content-layer2 {
+  width: 23vw;
+  translateY: -100%;
+}
+
+.content-layer3 {
+  width: 20vw;
+}
+
