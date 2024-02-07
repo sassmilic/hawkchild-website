@@ -29,7 +29,7 @@
   margin-right: calc(100vw * var(--margin-as-ratio-of-width));
   display: flex;
   flex-direction: row;
-  align-content: stretch;
+  align-items: flex-start;
   gap: calc(100vw * var(--gap-as-ratio-of-width));
   margin-top: 50px; /* Adjust this value to match the height of your marquee */
 }

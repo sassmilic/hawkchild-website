@@ -1,23 +1,33 @@
 .content-layer {
   overflow: hidden;
   /* Base styles for all layers */
-  height: 100%;
-  display: grid;
+  display: flex;
   flex-direction: column;
-  gap: 100px;
-  transition: transform 0.3s ease-out;
+  gap: 20px;
+}
+
+.content-layer img {
+  width: 100%;
+  height: auto;
 }
 
 .content-layer1 {
   width: 43.7vw;
+  gap: 50vh;
+  transition: transform 1s ease-out;
 }
 
 .content-layer2 {
-  width: 23vw;
+  margin-right: -10vw;
+  width: 28vw;
+  gap: 50vh;
   translateY: -100%;
+  z-index: 2;
+  mix-blend-mode: difference;
 }
 
 .content-layer3 {
-  width: 20vw;
+  width: 24.1vw;
+  gap: 30vh;
 }
 

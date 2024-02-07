@@ -15,10 +15,11 @@ function Home2() {
   return images;
 }
 
-    const images1 = importAll(require.context('../assets/collage/posters', false, /\.(png|jpe?g|svg)$/));
+    const images1 = importAll(require.context('../assets/collage/posters', false, /\.(png|jpe?g|svg|mp4)$/));
+    const images2 = importAll(require.context('../assets/collage/layer2', false, /\.(png|jpe?g|svg|mp4)$/));
+    const images3 = importAll(require.context('../assets/collage/videos', false, /\.(png|jpe?g|svg|mp4)$/));
 
-    console.log("HERE");
-console.log(images1);
+    console.log(images2);
 
   return (
     <div className="home-container">
@@ -34,9 +35,9 @@ console.log(images1);
         <Layer ref={layer2Ref} className="layer2-style" speed={1.0} images={imagesForLayer2} />
         <Layer ref={layer3Ref} className="layer3-style" speed={0.5} images={imagesForLayer3} opposite={true} />
         */}
-        <ContentLayer images={images1} ref={layer1Ref} className="content-layer1" speed={0.5} opposite={true} />
-        <ContentLayer images={images1} ref={layer2Ref} className="content-layer2" speed={2.0} />
-        <ContentLayer images={images1} ref={layer3Ref} className="content-layer3" speed={2.0} opposite={true} />
+        <ContentLayer images={images1} ref={layer1Ref} className="content-layer1" speed={0.1} opposite={true} />
+        <ContentLayer images={images2} ref={layer2Ref} className="content-layer2" speed={2} opposite={false}/>
+        <ContentLayer images={images3} ref={layer3Ref} className="content-layer3" speed={1.5} opposite={true} />
       </div>
     </div>
   );

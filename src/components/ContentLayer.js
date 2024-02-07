@@ -40,11 +40,20 @@ const ContentLayer = React.forwardRef(({ images, speed, className, opposite }, r
     };
   }, [speed, opposite]); // Depend on speed and opposite to re-calculate when they change
 
-  return (
+    return (
     <div ref={ref} className={`content-layer ${className}`}>
-      {Object.entries(images).map(([filename, imageObject], index) => (
-        <img key={index} src={imageObject} alt={filename} />
-      ))}
+      {Object.entries(images).map(([filename, imageObject], index) => {
+        // Check the file extension to determine if it's a video
+        const isVideo = filename.endsWith('.mp4');
+
+        return isVideo ? (
+          <video key={index} src={imageObject} alt={filename} loop autoPlay muted>
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <img key={index} src={imageObject} alt={filename} />
+        );
+      })}
     </div>
   );
 });
