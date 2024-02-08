@@ -12,14 +12,14 @@ const LogoMarquee = () => {
   return (
     <div className="marquee">
       <div className="logo-slide">
-        {/* Replace these with your actual logo images */}
         <img src={woesum} alt="React Logo 1" />
         <img src={seretide} alt="React Logo 2" />
         <img src={markyb} alt="React Logo 3" />
         <img src={yunglean} alt="React Logo 1" />
         <img src={evian} alt="React Logo 2" />
         <img src={dark0} alt="React Logo 3" />
-        {/* Replace these with your actual logo images */}
+      </div>
+      <div className="logo-slide">
         <img src={woesum} alt="React Logo 1" />
         <img src={seretide} alt="React Logo 2" />
         <img src={markyb} alt="React Logo 3" />
