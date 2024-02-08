@@ -24,19 +24,18 @@ function Home2() {
 
   return (
     <div className="home-container">
-      <LogoMarquee />
       <div className="title-svg">
         <img src={HawkchildText} alt="HAWKCHILD DIY"/>
       </div>
-      <div className="layers-container">
-        {/*
-        <Layer ref={layer1Ref} className="layer1-style" speed={0.5} images={imagesForLayer1} />
-        <Layer ref={layer2Ref} className="layer2-style" speed={1.0} images={imagesForLayer2} />
-        <Layer ref={layer3Ref} className="layer3-style" speed={0.5} images={imagesForLayer3} opposite={true} />
-        */}
-        <ContentLayer images={images1} ref={layer1Ref} className="content-layer1" speed={0.1} opposite={true} />
-        <ContentLayer images={images2} ref={layer2Ref} className="content-layer2" speed={2} opposite={false}/>
-        <ContentLayer images={images3} ref={layer3Ref} className="content-layer3" speed={1.5} opposite={true} />
+      <LogoMarquee />
+      <div className="content-container">
+          <div className="layers-container-1">
+            <ContentLayer images={images1} ref={layer1Ref} className="content-layer1" speed={0.5} opposite={true} />
+            <ContentLayer images={images2} ref={layer2Ref} className="content-layer2" speed={2} opposite={false}/>
+          </div>
+          <div className="layers-container-2">
+            <ContentLayer images={images3} ref={layer3Ref} className="content-layer3" speed={1.5} opposite={true} />
+          </div>
       </div>
     </div>
   );

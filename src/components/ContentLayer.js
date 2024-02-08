@@ -2,10 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import './ContentLayer.css';
 
 const ContentLayer = React.forwardRef(({ images, speed, className, opposite }, ref) => {
-  const requestID = useRef(null); // To hold the requestAnimationFrame ID
+  const requestID = useRef(null); 
 
   const onScroll = () => {
-    if (requestID.current) cancelAnimationFrame(requestID.current); // Cancel the previous animation frame request
+    if (!ref.current) return;
+    if (requestID.current) cancelAnimationFrame(requestID.current); 
 
     requestID.current = requestAnimationFrame(() => {
       const scrolled = window.scrollY;
@@ -36,24 +37,25 @@ const ContentLayer = React.forwardRef(({ images, speed, className, opposite }, r
     setPositionInitially();
     return () => {
       window.removeEventListener('scroll', onScroll);
-      if (requestID.current) cancelAnimationFrame(requestID.current); // Clean up the animation frame request
+      if (requestID.current) cancelAnimationFrame(requestID.current);
     };
-  }, [speed, opposite]); // Depend on speed and opposite to re-calculate when they change
+  }, []);
 
     return (
     <div ref={ref} className={`content-layer ${className}`}>
-      {Object.entries(images).map(([filename, imageObject], index) => {
-        // Check the file extension to determine if it's a video
-        const isVideo = filename.endsWith('.mp4');
-
-        return isVideo ? (
-          <video key={index} src={imageObject} alt={filename} loop autoPlay muted>
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <img key={index} src={imageObject} alt={filename} />
-        );
-      })}
+        {Object.entries(images)
+          .sort((a, b) => a[0].localeCompare(b[0], undefined, {numeric: true, sensitivity: 'base'}))
+          .map(([filename, imageObject], index) => {
+            const isVideo = filename.endsWith('.mp4');
+            return isVideo ? (
+              <video key={index} src={imageObject} alt={filename} loop autoPlay muted>
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img key={index} src={imageObject} alt={filename} />
+            );
+          })
+        }
     </div>
   );
 });

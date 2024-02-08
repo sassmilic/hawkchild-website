@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 import Logo from './../assets/logo.jpeg';
 import LogoText from './../assets/hawkchild_diy.svg';
-import GlasgowInfo from './GlasgowInfo';
 
 function Footer() {
   const logoImgRef = useRef(null);

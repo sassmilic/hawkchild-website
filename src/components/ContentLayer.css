@@ -1,34 +1,28 @@
 .content-layer {
+  width: 100%;
   overflow: hidden;
   /* Base styles for all layers */
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .content-layer img {
-  width: 100%;
   height: auto;
 }
 
 .content-layer1 {
-  width: 43.7vw;
-  gap: 50vh;
+  gap: 100vh;
   transition: transform 1s ease-out;
 }
 
 .content-layer2 {
-  margin-right: -50vw;
-  width: 50vw;
-  gap: 50vh;
-  translateY: -100%;
+  gap: 100vh;
+  /*translateY: -100%;*/
   z-index: 2;
   mix-blend-mode: difference;
 }
 
 .content-layer3 {
-  margin-left: 20vw;
-  width: 24.1vw;
-  gap: 30vh;
+  gap: 100vh;
 }
 
