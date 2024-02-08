@@ -18,7 +18,7 @@
     justify-content: space-between;
     gap: 2rem;
     min-width: 100%;
-    animation: 8s slide infinite linear;
+    animation: 10s slide infinite linear;
 }
 
 .logo-slide img {
