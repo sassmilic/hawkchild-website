@@ -5,7 +5,7 @@
     gap: 2rem;
     margin-top: 52.5vh;
     overflow: hidden;
-    padding: 7.9vh 0;
+    padding: 4.9vh 0;
     background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
@@ -47,7 +47,7 @@
 .logo-slide img {
   display: inline-block;
   height: 9vh;
-  margin: 0 50px;
+  padding: 0 50px;
   filter: invert(20%);
 }
 
@@ -59,3 +59,20 @@
     transform: translateX(calc(-100% - 2rem));
   }
 }
+
+.logo-slide .woesum-logo {
+  height: 13vh;
+}
+
+.logo-slide .yung-lean-logo {
+  height: 16vh;
+}
+
+.logo-slide .seretide-logo {
+  height: 5vh;
+}
+
+.logo-slide .marky-b-logo {
+  height: 6vh;
+}
+

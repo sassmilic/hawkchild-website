@@ -17,7 +17,7 @@
 
 .content-container {
   position: relative;
-  margin-top: 50px;
+  margin-top: 50vh;
   overflow-y: hidden;
   margin-left: calc(100vw * var(--margin-as-ratio-of-width));
   margin-right: calc(100vw * var(--margin-as-ratio-of-width));

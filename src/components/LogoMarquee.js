@@ -12,18 +12,18 @@ const LogoMarquee = () => {
   return (
     <div className="marquee">
       <div className="logo-slide">
-        <img src={woesum} alt="React Logo 1" />
-        <img src={seretide} alt="React Logo 2" />
-        <img src={markyb} alt="React Logo 3" />
-        <img src={yunglean} alt="React Logo 1" />
+        <img className="woesum-logo" src={woesum} alt="React Logo 1" />
+        <img className="seretide-logo" src={seretide} alt="React Logo 2" />
+        <img className="marky-b-logo" src={markyb} alt="React Logo 3" />
+        <img className="yung-lean-logo" src={yunglean} alt="React Logo 1" />
         <img src={evian} alt="React Logo 2" />
         <img src={dark0} alt="React Logo 3" />
       </div>
       <div className="logo-slide">
-        <img src={woesum} alt="React Logo 1" />
-        <img src={seretide} alt="React Logo 2" />
-        <img src={markyb} alt="React Logo 3" />
-        <img src={yunglean} alt="React Logo 1" />
+        <img className="woesum-logo" src={woesum} alt="React Logo 1" />
+        <img className="seretide-logo" src={seretide} alt="React Logo 2" />
+        <img className="marky-b-logo" src={markyb} alt="React Logo 3" />
+        <img className="yung-lean-logo" src={yunglean} alt="React Logo 1" />
         <img src={evian} alt="React Logo 2" />
         <img src={dark0} alt="React Logo 3" />
       </div>
