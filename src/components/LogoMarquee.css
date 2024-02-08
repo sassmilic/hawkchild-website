@@ -1,12 +1,12 @@
 .marquee {
     position: fixed;
     display: flex;
-    width: 73.3%;
+    width: 73.35%;
     gap: 2rem;
-    margin-top: 52.5vh;
+    margin-top: 50vh;
     overflow: hidden;
-    padding: 4.9vh 0;
-    background: rgba(255, 255, 255, 0.6);
+    padding: 4.4vh 0;
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     z-index: 3;
@@ -48,7 +48,7 @@
   display: inline-block;
   height: 9vh;
   padding: 0 50px;
-  filter: invert(20%);
+  filter: invert(30%);
 }
 
 @keyframes slide {
