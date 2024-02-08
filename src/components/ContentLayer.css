@@ -18,8 +18,8 @@
 }
 
 .content-layer2 {
-  margin-right: -10vw;
-  width: 28vw;
+  margin-right: -50vw;
+  width: 50vw;
   gap: 50vh;
   translateY: -100%;
   z-index: 2;
@@ -27,6 +27,7 @@
 }
 
 .content-layer3 {
+  margin-left: 20vw;
   width: 24.1vw;
   gap: 30vh;
 }

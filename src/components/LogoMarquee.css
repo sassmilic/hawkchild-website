@@ -1,0 +1,32 @@
+.marquee {
+    position: fixed;
+    margin-right: 26.5vw;
+    margin-top: 52.5vh;
+    overflow: hidden;
+    padding: 7.9vh;
+      background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 3;
+}
+
+.logo-slide {
+    display: flex;
+    justify-content: space-between;
+    white-space: nowrap;
+    animation: 8s slide infinite linear;
+}
+
+.logo-slide img {
+  height: 9vh;
+  margin: 0 50px;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-215%);
+  }
+}

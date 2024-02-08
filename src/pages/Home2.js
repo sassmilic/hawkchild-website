@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoMarquee from '../components/LogoMarquee'
 import ContentLayer from '../components/ContentLayer'
 import './Home2.css';
 
@@ -23,9 +24,7 @@ function Home2() {
 
   return (
     <div className="home-container">
-      <div className="marquee">
-        Marquee Content
-      </div>
+      <LogoMarquee />
       <div className="title-svg">
         <img src={HawkchildText} alt="HAWKCHILD DIY"/>
       </div>
