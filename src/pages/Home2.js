@@ -1,6 +1,6 @@
 import React from 'react';
-import LogoMarquee from '../components/LogoMarquee'
-import ContentLayer from '../components/ContentLayer'
+import TitleAndMarquee from '../components/TitleAndMarquee/TitleAndMarquee';
+import ContentLayer from '../components/ContentLayer';
 import './Home2.css';
 
 import HawkchildText from './../assets/hawkchild_diy.svg';
@@ -24,10 +24,9 @@ function Home2() {
 
   return (
     <div className="home-container">
-      <div className="title-svg">
-        <img src={HawkchildText} alt="HAWKCHILD DIY"/>
+      <div className="center-vertically">
+        <TitleAndMarquee />
       </div>
-      <LogoMarquee />
       <div className="content-container">
           <div className="layers-container-1">
             <ContentLayer images={images1} ref={layer1Ref} className="content-layer1" speed={0.5} opposite={true} />

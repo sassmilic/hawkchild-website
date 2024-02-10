@@ -6,6 +6,7 @@
   --gap-as-ratio-of-width: 0.00882352941;
   --letter-width-as-ratio-of-width: 0.112;
   --letter-height-as-ratio-of-width: 0.1294;
+  --line-width-ratio: 0.0262795664;
   --light-blue-accent: #b0d0ef;
 }
 
@@ -17,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Use 100% of the viewport height */
-
+  background-color: white;
 }
 
 .content-wrap {
@@ -25,6 +26,7 @@ body {
   display: flex; 
   min-height: calc(100vw * var(--height-as-ratio-of-width)); /* Must at least fit the title svg */
   overflow-y: auto;
+  background-color: white;
 }
 
 h2 {

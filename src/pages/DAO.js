@@ -7,7 +7,7 @@ const AboutPage = () => {
     return (
         <div className="about-page-container">
             <div className="about-page-text-wrap">
-                <div className="title-container">
+                <div className="dao-page-title-container">
                     <h1>About</h1>
                     <GetHsTKKYButton />
                 </div>

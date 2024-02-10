@@ -1,12 +1,12 @@
 import React from 'react';
 import './LogoMarquee.css'; // Make sure the path matches where your CSS file is located
 
-import woesum from "../assets/artist-logos/woesum.png";
-import seretide from "../assets/artist-logos/seretide.png";
-import markyb from "../assets/artist-logos/marky-b.png";
-import yunglean from "../assets/artist-logos/yung-lean.png";
-import evian from "../assets/artist-logos/evian-christ.png";
-import dark0 from "../assets/artist-logos/dark0.png";
+import woesum from "../../assets/artist-logos/woesum.png";
+import seretide from "../../assets/artist-logos/seretide.png";
+import markyb from "../../assets/artist-logos/marky-b.png";
+import yunglean from "../../assets/artist-logos/yung-lean.png";
+import evian from "../../assets/artist-logos/evian-christ.png";
+import dark0 from "../../assets/artist-logos/dark0.png";
 
 const LogoMarquee = () => {
   return (

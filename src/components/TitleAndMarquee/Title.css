@@ -1,0 +1,29 @@
+.title-and-marquee-container {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: calc(100vw * var(--line-width-ratio));
+    z-index: 2;
+  background-blend-mode: difference;
+  mix-blend-mode: difference;
+}
+
+.title-and-marquee-container .title-text {
+  width: 100%;
+  background-blend-mode: difference;
+  mix-blend-mode: difference;
+}
+
+.diy-and-marquee {
+  display: flex;
+}
+
+#hawkchild-svg {
+  width: 100%;
+}
+
+#diy-svg {
+  flex: 0 0 26.74%;
+  filter: invert(100%);
+}

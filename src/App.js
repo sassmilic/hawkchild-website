@@ -8,6 +8,7 @@ import Collage from './pages/Collage';
 import DAOPage from './pages/DAO';
 import Events from './pages/Events';
 import ContactPage from './pages/Contact';
+import TestPage from './pages/TestPage';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import FooterMain from './components/FooterMain';
@@ -45,6 +46,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/events" element={<Events />} />
             <Route path="/collage" element={<Collage />} />
+            <Route path="/TestPage" element={<TestPage />} />
           </Routes>
         </div>
         {renderFooter()}

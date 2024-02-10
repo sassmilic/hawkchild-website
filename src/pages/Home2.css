@@ -1,18 +1,5 @@
 .home-container {
   width: 100%;
-  background-color: white;
-}
-
-.title-svg {
-    position: fixed;
-    top: calc(50vh - 0.85*var(--vertical-midpoint-as-ratio-of-width) * 100vw);
-    width: 100%;
-    z-index: 99;
-    mix-blend-mode: difference;
-}
-
-.title-svg img {
-  width: 100%;
 }
 
 .content-container {
@@ -23,12 +10,21 @@
   margin-right: calc(100vw * var(--margin-as-ratio-of-width));
 }
 
+.center-vertically {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  height: 95vh; 
+}
+
+
 .layers-container-1 {
   overflow-y: hidden;
   width: 100%;
   display: flex;
   gap: calc(100vw * var(--gap-as-ratio-of-width));
   align-items: flex-start;
+  z-index: 3;
 }
 
 .layers-container-2 {
