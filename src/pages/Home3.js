@@ -1,5 +1,5 @@
 import React from 'react';
-import TitleAndMarquee from '../components/TitleAndMarquee/TitleAndMarquee';
+import LogoMarquee from '../components/TitleAndMarquee/LogoMarquee';
 import ContentLayer from '../components/ContentLayer';
 import './Home3.css';
 
@@ -71,6 +71,9 @@ function Home2() {
         </div>
         <div className="title-text child-svg">
             <img src={ChildText} alt="CHILD"/>
+        </div>
+        <div className="marquee-container">
+            <LogoMarquee />
         </div>
     </div>
     </>

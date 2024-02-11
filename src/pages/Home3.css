@@ -76,7 +76,7 @@
 
 .right-half-column {
   float: right;
-  width: 26.75%;
+  width: 23.7%;
   right: 0;
 }
 
@@ -91,7 +91,14 @@
   position: absolute;
   width: 43.7vw;  /* TODO: make programmatic/exact */
   height: auto;
-  top: 0;
+  top: 50vh;
+}
+
+.marquee-container {
+  position: fixed;
+  top: calc(30vh + 100vw * var(--letter-height-as-ratio-of-width) + 100vw * var(--line-width-ratio));
+  width: 67.3vw; /* TODO */
+  height: calc(100vw * var(--letter-height-as-ratio-of-width));
 }
 
 

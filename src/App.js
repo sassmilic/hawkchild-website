@@ -41,17 +41,14 @@ function App() {
       UNDER CONSTRUCTION
     </div>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home3 />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/DAO' element={<DAOPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/events" element={<Events />} />
-            <Route path="/collage" element={<Collage />} />
-            <Route path="/TestPage" element={<TestPage />} />
-            <Route path="/home3" element={<Home3 />} />
           </Routes>
         </div>
-        {/*renderFooter()*/}
+        {renderFooter()}
       </>
     );
   };

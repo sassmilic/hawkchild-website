@@ -1,5 +1,6 @@
 .marquee {
     flex: 1;
+    height: 100%;
     display: flex;
     gap: 2rem;
     overflow: hidden;
@@ -46,7 +47,7 @@
 .logo-slide img {
   height: calc(69vh * var(--letter-height-as-ratio-of-width));
   display: inline-block;
-  filter: invert(30%);
+  opacity: 60%;
 }
 
 @keyframes slide {
