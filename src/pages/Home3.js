@@ -9,7 +9,7 @@ import ChildText from '../assets/title_text_child.svg';
 
 
 function Home2() {
-    const layer1Ref = React.useRef(null);
+  const layer1Ref = React.useRef(null);
   const layer2Ref = React.useRef(null);
   const layer3Ref = React.useRef(null);
 
@@ -41,17 +41,34 @@ function Home2() {
     */}
   return (
     <>
+    {/* hacky duplicate title solution
+    <div className="title-text hawk-svg dupe">
+        <img src={HawkText} alt="HAWK"/>
+    </div>
+    <div className="title-text child-svg dupe">
+        <img src={ChildText} alt="CHILD"/>
+    </div>
+    <div className="title-text diy-svg dupe">
+        <img src={DiyText} alt="DIY"/>
+    </div>
+    */}
     <div className="background-noise"></div>
     <div className="home-container3">
         <div className="title-text diy-svg">
             <img src={DiyText} alt="DIY"/>
         </div>
-        <div class="right-half-column"></div>
+        <div class="right-half-column">
+            <ContentLayer images={images3} ref={layer3Ref} className="content-layer3" speed={1.5} opposite={true} />
+        </div>
         <div className="title-text hawk-svg">
             <img src={HawkText} alt="HAWK"/>
         </div>
-        <div class="left-full-column"></div>
-        <div class="right-column"></div>
+        <div class="left-full-column">
+            <ContentLayer images={images1} ref={layer1Ref} className="content-layer1" speed={0.5} opposite={true} />
+        </div>
+        <div class="right-column">
+            <ContentLayer images={images2} ref={layer2Ref} className="content-layer2" speed={2} opposite={false}/>
+        </div>
         <div className="title-text child-svg">
             <img src={ChildText} alt="CHILD"/>
         </div>

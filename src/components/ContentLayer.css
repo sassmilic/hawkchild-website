@@ -18,7 +18,6 @@
 .content-layer2 {
   gap: 100vh;
   /*translateY: -100%;*/
-  mix-blend-mode: difference;
 }
 
 .content-layer3 {
