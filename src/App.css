@@ -1,12 +1,12 @@
 :root {
-  --navbar-height: 2.55em;
+  --navbar-height: 2.95em;
   --title-aspect-ratio: 0.16;
   --diy-ratio: 0.29;
   --vertical-midpoint-as-ratio-of-width: 0.141;
   --margin-as-ratio-of-width: 0.05534736966;
   --gap-as-ratio-of-width: 0.00882352941;
   --letter-width-as-ratio-of-width: 0.112;
-  --letter-height-as-ratio-of-width: 0.1294;
+  --letter-height-as-ratio-of-width: 0.126;
   --line-width-ratio: 0.0262795664;
   --light-blue-accent: #b0d0ef;
 }
@@ -23,9 +23,11 @@ body {
 }
 
 .content-wrap {
+  position: relative;
   width: 100%;
   display: flex; 
   min-height: calc(100vw * var(--height-as-ratio-of-width)); /* Must at least fit the title svg */
+  min-height: 100vh; 
   overflow-y: auto;
   background-color: white;
 }

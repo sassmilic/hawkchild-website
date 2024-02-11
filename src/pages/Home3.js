@@ -3,7 +3,10 @@ import TitleAndMarquee from '../components/TitleAndMarquee/TitleAndMarquee';
 import ContentLayer from '../components/ContentLayer';
 import './Home3.css';
 
-import HawkchildText from './../assets/hawkchild_diy.svg';
+import DiyText from '../assets/title_text_diy.svg';
+import HawkText from '../assets/title_text_hawk.svg';
+import ChildText from '../assets/title_text_child.svg';
+
 
 function Home2() {
     const layer1Ref = React.useRef(null);
@@ -37,10 +40,23 @@ function Home2() {
     </div>
     */}
   return (
+    <>
+    <div className="background-noise"></div>
     <div className="home-container3">
-      <div className="background-noise">
-      </div>
+        <div className="title-text diy-svg">
+            <img src={DiyText} alt="DIY"/>
+        </div>
+        <div class="right-half-column"></div>
+        <div className="title-text hawk-svg">
+            <img src={HawkText} alt="HAWK"/>
+        </div>
+        <div class="left-full-column"></div>
+        <div class="right-column"></div>
+        <div className="title-text child-svg">
+            <img src={ChildText} alt="CHILD"/>
+        </div>
     </div>
+    </>
   );
 };
 

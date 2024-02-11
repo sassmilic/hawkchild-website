@@ -1,12 +1,8 @@
-.home-container3 {
-  width: 100%;
-}
-
 .background-noise {
-    position: fixed;
-    top: 0;
-    height: 100vh;
+  position: fixed;
+  height: 100vh;
     width: calc(100vw * ( 1 - 2 * var(--margin-as-ratio-of-width)));
+    left: 0;
     margin-left: calc(100vw * var(--margin-as-ratio-of-width));
     margin-right: calc(100vw * var(--margin-as-ratio-of-width));
     background: 
@@ -15,6 +11,58 @@
         repeating-conic-gradient(#F2F2F2 0 0.0001%, #fff 0 0.0002%)
         40% 40% / 200vw 200vh;
    animation: noise .2s infinite alternate;
+   z-index: 0;
+}
+
+.home-container3 {
+    /* TODO: top margin to account for navbar??? */
+  width: 100%;
+  margin-left: calc(100vw * var(--margin-as-ratio-of-width));
+  margin-right: calc(100vw * var(--margin-as-ratio-of-width));
+  background-color: black;
+  z-index: 1;
+  /*
+  background-color: black;
+  mix-blend-mode: difference;
+  background-blend-mode: difference;
+  opacity: 100%;
+  */
+}
+
+.title-text {
+  position: fixed;
+  top: 30vh; /* TODO: figure out better way to do this */
+  filter: invert(50%);
+}
+
+.diy-svg {
+  position: fixed;
+  top: calc(30vh + 100vw * var(--letter-height-as-ratio-of-width) + 100vw * var(--line-width-ratio));
+  width: 26.6%;
+  right: 0;
+  filter: invert(60%);
+}
+
+.diy-svg img {
+  width: 100%;
+}
+
+.title-text.hawk-svg,
+.title-text.child-svg {
+  width: calc(50vw - 100vw * var(--gap-as-ratio-of-width));
+}
+
+.title-text.hawk-svg {
+  left: 0;
+}
+
+.title-text.child-svg {
+  right: 0;
+}
+
+.title-text.hawk-svg img,
+.title-text.child-svg img {
+  width: 100%;
 }
 
 @keyframes noise {
