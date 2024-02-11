@@ -24,7 +24,6 @@
   display: flex;
   gap: calc(100vw * var(--gap-as-ratio-of-width));
   align-items: flex-start;
-  z-index: 3;
 }
 
 .layers-container-2 {

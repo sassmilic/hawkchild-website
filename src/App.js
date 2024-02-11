@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import './reset.css';
 import './App.css';
 import Home from './pages/Home2';
+import Home3 from './pages/Home3';
 import AboutPage from './pages/About';
 import Collage from './pages/Collage';
 import DAOPage from './pages/DAO';
@@ -47,9 +48,10 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/collage" element={<Collage />} />
             <Route path="/TestPage" element={<TestPage />} />
+            <Route path="/home3" element={<Home3 />} />
           </Routes>
         </div>
-        {renderFooter()}
+        {/*renderFooter()*/}
       </>
     );
   };

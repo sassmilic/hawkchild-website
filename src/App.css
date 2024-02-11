@@ -1,4 +1,5 @@
 :root {
+  --navbar-height: 2.55em;
   --title-aspect-ratio: 0.16;
   --diy-ratio: 0.29;
   --vertical-midpoint-as-ratio-of-width: 0.141;

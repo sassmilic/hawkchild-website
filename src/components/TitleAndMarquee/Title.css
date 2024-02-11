@@ -1,26 +1,33 @@
 .title-and-marquee-container {
-    position: fixed;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: calc(100vw * var(--line-width-ratio));
-    z-index: 2;
-  background-blend-mode: difference;
-  mix-blend-mode: difference;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: calc(100vw * var(--line-width-ratio));
+  background-color: red;
+}
+
+.hawkchild-text {
+  display: flex;
+  gap: calc(100vw * var(--gap-as-ratio-of-width));
 }
 
 .title-and-marquee-container .title-text {
   width: 100%;
-  background-blend-mode: difference;
-  mix-blend-mode: difference;
 }
 
 .diy-and-marquee {
   display: flex;
 }
 
-#hawkchild-svg {
+#hawk-svg {
   width: 100%;
+  filter: invert(100%);
+}
+
+#child-svg {
+  width: 100%;
+  filter: invert(100%);
 }
 
 #diy-svg {
