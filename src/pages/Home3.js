@@ -1,47 +1,98 @@
-import React from 'react';
-import LogoMarquee from '../components/TitleAndMarquee/LogoMarquee';
-import ContentLayer from '../components/ContentLayer';
-import './Home3.css';
+import React, { useEffect, useRef } from "react";
+import LogoMarquee from "../components/TitleAndMarquee/LogoMarquee";
+import ContentLayer from "../components/ContentLayer";
+import "./Home3.css";
 
-import DiyText from '../assets/title_text_diy.svg';
-import HawkText from '../assets/title_text_hawk.svg';
-import ChildText from '../assets/title_text_child.svg';
+import DiyText from "../assets/title_text_diy.svg";
+import HawkText from "../assets/title_text_hawk.svg";
+import ChildText from "../assets/title_text_child.svg";
 
-
-function Home2() {
-  const layer1Ref = React.useRef(null);
-  const layer2Ref = React.useRef(null);
-  const layer3Ref = React.useRef(null);
-
- function importAll(r) {
+function importAll(r) {
   let images = {};
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  r.keys().map((item) => {
+    images[item.replace("./", "")] = r(item);
+  });
   return images;
 }
 
-    const images1 = importAll(require.context('../assets/collage/posters', false, /\.(png|jpe?g|svg|mp4)$/));
-    const images2 = importAll(require.context('../assets/collage/layer2', false, /\.(png|jpe?g|svg|mp4)$/));
-    const images3 = importAll(require.context('../assets/collage/videos', false, /\.(png|jpe?g|svg|mp4)$/));
+function Home2() {
+   const requestID = useRef(null);  // for animation frame requests
 
-    {/*
-    <div className="home-container">
-      <div className="center-vertically">
-        <TitleAndMarquee />
-      </div>
-      <div className="content-container">
-          <div className="layers-container-1">
-            <ContentLayer images={images1} ref={layer1Ref} className="content-layer1" speed={0.5} opposite={true} />
-            <ContentLayer images={images2} ref={layer2Ref} className="content-layer2" speed={2} opposite={false}/>
-          </div>
-          <div className="layers-container-2">
-            <ContentLayer images={images3} ref={layer3Ref} className="content-layer3" speed={1.5} opposite={true} />
-          </div>
-      </div>
-    </div>
-    */}
+  const columns = new Map([
+    [1, { ref: useRef(null), speed: 0.5, opposite: false }],
+    [2, { ref: useRef(null), speed: 1, opposite: false }],
+    [3, { ref: useRef(null), speed: 3, opposite: true }],
+  ]);
+
+  const setPositionInitially = (ref) => {
+    if (!ref.current) return;
+    const elementHeight = ref.current.offsetHeight;
+    const initialOffset = -elementHeight;
+    ref.current.style.transform = `translateY(${initialOffset}px)`;
+  };
+
+
+  /* TODO: fix bug when opposite scrolling AND speed=1 */
+  const handleScroll = () => {
+    if (requestID.current) cancelAnimationFrame(requestID.current);
+
+    requestID.current = requestAnimationFrame(() => {
+        columns.forEach((column) => {
+          if (column.ref.current) {
+            let totalOffset = 0;
+            if (column.speed === 1) {
+              totalOffset = 0;
+            } else if (column.opposite) {
+              const elementHeight = column.ref.current.offsetHeight;
+              const initialOffset = -elementHeight;
+              totalOffset = initialOffset + window.scrollY * column.speed;
+            } else {
+              totalOffset = window.scrollY * column.speed;
+            }
+            column.ref.current.style.transform = `translateY(${totalOffset}px)`;
+          }
+        });
+    });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    columns.forEach((column) => {
+      if (column.opposite) {
+        setPositionInitially(column.ref);
+      }
+    });
+    return () => {
+        window.removeEventListener("scroll", handleScroll);
+        if (requestID.current) cancelAnimationFrame(requestID.current);
+    };
+  }, []);
+
+  const images1 = importAll(
+    require.context(
+      "../assets/collage/posters",
+      false,
+      /\.(png|jpe?g|svg|mp4)$/,
+    ),
+  );
+  const images2 = importAll(
+    require.context(
+      "../assets/collage/layer2",
+      false,
+      /\.(png|jpe?g|svg|mp4)$/,
+    ),
+  );
+  const images3 = importAll(
+    require.context(
+      "../assets/collage/videos",
+      false,
+      /\.(png|jpe?g|svg|mp4)$/,
+    ),
+  );
+
   return (
     <>
-    {/* hacky duplicate title solution
+      {/* hacky duplicate title solution
     <div className="title-text hawk-svg dupe">
         <img src={HawkText} alt="HAWK"/>
     </div>
@@ -52,32 +103,32 @@ function Home2() {
         <img src={DiyText} alt="DIY"/>
     </div>
     */}
-    <div className="background-noise"></div>
-    <div className="home-container3">
+      <div className="background-noise"></div>
+      <div className="home-container3">
         <div className="title-text diy-svg">
-            <img src={DiyText} alt="DIY"/>
+          <img src={DiyText} alt="DIY" />
         </div>
-        <div class="right-half-column">
-            <ContentLayer images={images3} ref={layer3Ref} className="content-layer3" speed={1.5} opposite={true} />
+        <div ref={columns.get(3).ref} className="column right-half-column">
+          <ContentLayer images={images3} className="content-layer3" />
         </div>
         <div className="title-text hawk-svg">
-            <img src={HawkText} alt="HAWK"/>
+          <img src={HawkText} alt="HAWK" />
         </div>
-        <div class="left-full-column">
-            <ContentLayer images={images1} ref={layer1Ref} className="content-layer1" speed={0.5} opposite={true} />
+        <div ref={columns.get(1).ref} className="column left-full-column">
+          <ContentLayer images={images1} className="content-layer1" />
         </div>
-        <div class="right-column">
-            <ContentLayer images={images2} ref={layer2Ref} className="content-layer2" speed={2} opposite={false}/>
+        <div ref={columns.get(2).ref} className="column right-column">
+          <ContentLayer images={images2} className="content-layer2" />
         </div>
         <div className="title-text child-svg">
-            <img src={ChildText} alt="CHILD"/>
+          <img src={ChildText} alt="CHILD" />
         </div>
         <div className="marquee-container">
-            <LogoMarquee />
+          <LogoMarquee />
         </div>
-    </div>
+      </div>
     </>
   );
-};
+}
 
 export default Home2;

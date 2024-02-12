@@ -4,23 +4,21 @@
   /* Base styles for all layers */
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .content-layer img {
   height: auto;
 }
 
-.content-layer1 {
+.content-layer {
   gap: 100vh;
+}
+
+.content-layer1 {
   transition: transform 1s ease-out;
 }
 
 .content-layer2 {
-  gap: 100vh;
-  /*translateY: -100%;*/
-}
-
-.content-layer3 {
-  gap: 100vh;
 }
 
