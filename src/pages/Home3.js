@@ -20,8 +20,8 @@ function Home2() {
 
   const columns = new Map([
     [1, { ref: useRef(null), speed: 0.5, opposite: false }],
-    [2, { ref: useRef(null), speed: 1, opposite: false }],
-    [3, { ref: useRef(null), speed: 3, opposite: true }],
+    [2, { ref: useRef(null), speed: 3, opposite: false }],
+    [3, { ref: useRef(null), speed: 2, opposite: true }],
   ]);
 
   const setPositionInitially = (ref) => {
@@ -35,21 +35,24 @@ function Home2() {
   /* TODO: fix bug when opposite scrolling AND speed=1 */
   const handleScroll = () => {
     if (requestID.current) cancelAnimationFrame(requestID.current);
-
+    console.log("window.scrollY:", window.scrollY);
     requestID.current = requestAnimationFrame(() => {
-        columns.forEach((column) => {
-          if (column.ref.current) {
+        columns.forEach((col) => {
+          if (col.ref.current) {
             let totalOffset = 0;
-            if (column.speed === 1) {
-              totalOffset = 0;
-            } else if (column.opposite) {
-              const elementHeight = column.ref.current.offsetHeight;
-              const initialOffset = -elementHeight;
-              totalOffset = initialOffset + window.scrollY * column.speed;
+            if (col.opposite) {
+              const height = col.ref.current.offsetHeight;
+              /* 
+               * Note: The 2x multiplier is required to "switch" in other direction
+               *       Consider when `col.speed` is 1 and `opposite` is True.
+               */
+              totalOffset = 2 * col.speed * window.scrollY - height;
+            } else if (col.speed === 1) {
+                totalOffset = 0;
             } else {
-              totalOffset = window.scrollY * column.speed;
+              totalOffset = -window.scrollY * col.speed;
             }
-            column.ref.current.style.transform = `translateY(${totalOffset}px)`;
+            col.ref.current.style.transform = `translateY(${totalOffset}px)`;
           }
         });
     });
@@ -57,9 +60,10 @@ function Home2() {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    columns.forEach((column) => {
-      if (column.opposite) {
-        setPositionInitially(column.ref);
+    columns.forEach((col) => {
+      // initially offset all columns scrolling in opposite direction
+      if (col.speed < 0) {
+        setPositionInitially(col.ref);
       }
     });
     return () => {
