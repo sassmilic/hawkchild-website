@@ -19,9 +19,9 @@ function Home2() {
    const requestID = useRef(null);  // for animation frame requests
 
   const columns = new Map([
-    [1, { ref: useRef(null), speed: 0.5, opposite: false }],
-    [2, { ref: useRef(null), speed: 3, opposite: false }],
-    [3, { ref: useRef(null), speed: 2, opposite: true }],
+    [1, { ref: useRef(null), speed: 1 }],
+    [2, { ref: useRef(null), speed: 1.5 }],
+    [3, { ref: useRef(null), speed: -2.0 }],
   ]);
 
   const setPositionInitially = (ref) => {
@@ -40,13 +40,13 @@ function Home2() {
         columns.forEach((col) => {
           if (col.ref.current) {
             let totalOffset = 0;
-            if (col.opposite) {
+            if (col.speed <= 0) {
               const height = col.ref.current.offsetHeight;
               /* 
                * Note: The 2x multiplier is required to "switch" in other direction
-               *       Consider when `col.speed` is 1 and `opposite` is True.
+               *       Consider when `col.speed` is -1.
                */
-              totalOffset = 2 * col.speed * window.scrollY - height;
+              totalOffset = 2 * -col.speed * window.scrollY - height;
             } else if (col.speed === 1) {
                 totalOffset = 0;
             } else {
