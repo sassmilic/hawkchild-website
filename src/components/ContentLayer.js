@@ -2,10 +2,18 @@ import React from 'react';
 import './ContentLayer.css';
 
 const ContentLayer = ({ images, speed, className, opposite }) => {
+  // Determine the sort order based on the `opposite` prop
+  const sortOrder = (a, b) => {
+    const comparison = a[0].localeCompare(b[0], undefined, {numeric: true, sensitivity: 'base'});
+    return opposite ? -comparison : comparison; // Reverse the order if `opposite` is true
+  };
+
+  // Sort entries alphanumerically and reverse if `opposite` is true
+  const sortedImages = Object.entries(images).sort(sortOrder);
 
   return (
     <div className={`content-layer ${className}`}>
-      {Object.entries(images).map(([key, value], index) => {
+      {sortedImages.map(([key, value], index) => {
         const isVideo = key.endsWith('.mp4');
         return isVideo ? (
           <video key={index} src={value} alt={`content ${index}`} loop autoPlay muted />

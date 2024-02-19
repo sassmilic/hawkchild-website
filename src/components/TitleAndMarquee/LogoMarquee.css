@@ -7,7 +7,11 @@
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
+    mix-blend-mode: difference;
+    background-blend-mode: difference;
     z-index: 100;
+      box-shadow: 0px 0px 1px 0px black;
+
 }
 
 
@@ -46,7 +50,7 @@
 .logo-slide img {
   height: calc(0.25 * 100vw * var(--letter-height-as-ratio-of-width));
   display: inline-block;
-  opacity: 60%;
+  opacity: 100%;
 }
 
 @keyframes slide {
