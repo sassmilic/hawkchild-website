@@ -21,7 +21,7 @@ function Home2() {
   const columns = new Map([
     [1, { ref: useRef(null), speed: 1 }],
     [2, { ref: useRef(null), speed: 1.5 }],
-    [3, { ref: useRef(null), speed: -2.0 }],
+    [3, { ref: useRef(null), speed: -1.5 }],
   ]);
 
   const setPositionInitially = (ref) => {
@@ -58,6 +58,8 @@ function Home2() {
     });
   };
 
+
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     columns.forEach((col) => {
@@ -76,23 +78,28 @@ function Home2() {
     require.context(
       "../assets/collage/posters",
       false,
-      /\.(png|jpe?g|svg|mp4)$/,
+      /\.(png|jpe?g|svg|mp4|gif)$/,
     ),
   );
   const images2 = importAll(
     require.context(
       "../assets/collage/layer2",
       false,
-      /\.(png|jpe?g|svg|mp4)$/,
+      /\.(png|jpe?g|svg|mp4|gif)$/,
     ),
   );
   const images3 = importAll(
     require.context(
       "../assets/collage/videos",
       false,
-      /\.(png|jpe?g|svg|mp4)$/,
+      /\.(png|jpe?g|svg|mp4|gif)$/,
     ),
   );
+
+  const idMap = {
+    '1-2.jpg': 'evian-passport',
+    '11.mp4': "oli-xl-doss-video-poster"
+};
 
   return (
     <>
@@ -112,9 +119,11 @@ function Home2() {
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
         </div>
+        {/*
         <div ref={columns.get(3).ref} className="column right-half-column">
           <ContentLayer images={images3} className="content-layer3" />
         </div>
+        */}
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
@@ -122,7 +131,7 @@ function Home2() {
           <ContentLayer images={images1} className="content-layer1" />
         </div>
         <div ref={columns.get(2).ref} className="column right-column">
-          <ContentLayer images={images2} className="content-layer2" />
+          <ContentLayer images={images2} className="content-layer2" idMap={idMap} />
         </div>
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />

@@ -8,14 +8,14 @@
   align-items: center;
 }
 
-.content-layer img {
+.content-layer img,video {
   width: 99%;
   height: auto;
-  box-shadow: 1px 1px 5px 0px black;
+  box-shadow: 1px 2px 7px 0px black;
 }
 
 .content-layer {
-  gap: 100vh;
+  gap: 75vh;
 }
 
 .content-layer1 {
@@ -29,3 +29,10 @@
   gap: 50vh;
 }
 
+#evian-passport {
+  width: 50%;
+}
+
+#oli-xl-doss-video-poster {
+  filter: invert(100%);
+}
