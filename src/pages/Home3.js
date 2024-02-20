@@ -105,15 +105,17 @@ function Home2() {
 
   return (
     <>
-      {/* hacky duplicate title solution
-    <div className="title-text hawk-svg dupe">
+    {/*
+    <div className="container">
+    <div className="dupe hawk-svg">
         <img src={HawkText} alt="HAWK"/>
     </div>
-    <div className="title-text child-svg dupe">
+    <div className="dupe child-svg">
         <img src={ChildText} alt="CHILD"/>
     </div>
-    <div className="title-text diy-svg dupe">
+    <div className="dupe diy-svg">
         <img src={DiyText} alt="DIY"/>
+    </div>
     </div>
     */}
       <div className="background-noise"></div>

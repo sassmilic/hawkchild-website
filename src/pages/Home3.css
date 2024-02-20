@@ -15,6 +15,14 @@
    z-index: 0;
 }
 
+.left-margin {
+  position: fixed;
+  height: 100vh;
+  width: calc(100vw * var(--margin-as-ratio-of-width));
+  background-color: red;
+  z-index: 1;
+}
+
 @keyframes noise {
   100% {background-position: 50% 0, 60% 50%}
 }
@@ -23,8 +31,6 @@
   position: relative;
   overflow-y: hidden;
   width: 100%;
-  margin-left: calc(100vw * var(--margin-as-ratio-of-width));
-  margin-right: calc(100vw * var(--margin-as-ratio-of-width));
   z-index: 1;
   background-color: white;
   opacity: 95%;
@@ -71,6 +77,7 @@
 
 .right-half-column {
   float: right;
+  margin-right: calc(100vw * var(--margin-as-ratio-of-width));
   width: 23.8%;
   right: 0;
 }
@@ -78,13 +85,14 @@
 .right-column {
   position: absolute;
   top: 0;
-  margin-left: 44.6vw; /* TODO: make programmatic/exact */
-  width: 49.5%;
+  margin-left: 50.15vw; /* TODO: make programmatic/exact */
+  margin-right: calc(100vw * var(--margin-as-ratio-of-width));
   background-blend-mode: difference;
   mix-blend-mode: difference;
 }
 
 .left-full-column {
+  margin-left: calc(100vw * var(--margin-as-ratio-of-width));
   width: 43.7vw;  /* TODO: make programmatic/exact */
   height: auto;
   margin-top: 50vh;
@@ -103,3 +111,41 @@
   justify-content: center;
   height: 95vh; 
 }
+
+.dupe {
+  position: fixed;
+  top: 30vh; /* TODO: figure out better way to do this */
+  z-index: 1;
+}
+
+.dupe.diy-svg {
+  position: fixed;
+  top: calc(30vh + 100vw * var(--letter-height-as-ratio-of-width) + 100vw * var(--line-width-ratio));
+  width: 26.65%;
+  right: 0;
+}
+
+.dupe.diy-svg img {
+  width: 100%;
+}
+
+.dupe.hawk-svg,
+.dupe.child-svg {
+  width: calc(50vw - 100vw * var(--gap-as-ratio-of-width));
+}
+
+.dupe.hawk-svg {
+  position: fixed;
+  left: 0;
+}
+
+
+.dupe.child-svg {
+  right: 0;
+}
+
+.dupe.hawk-svg img,
+.dupe.child-svg img {
+  width: 100%;
+}
+
