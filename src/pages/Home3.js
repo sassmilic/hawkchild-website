@@ -98,7 +98,9 @@ function Home2() {
 
   const idMap = {
     '1-2.jpg': 'evian-passport',
-    '11.mp4': "oli-xl-doss-video-poster"
+    '11.mp4': 'oli-xl-doss-video-poster',
+    '21.mp4': 'tp-decade-video-poster',
+    '24.mp4': 'taleb-video-poster'
 };
 
   return (
@@ -119,11 +121,9 @@ function Home2() {
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
         </div>
-        {/*
         <div ref={columns.get(3).ref} className="column right-half-column">
           <ContentLayer images={images3} className="content-layer3" />
         </div>
-        */}
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>

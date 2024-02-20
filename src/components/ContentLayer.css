@@ -9,20 +9,21 @@
 }
 
 .content-layer img,video {
-  width: 99%;
-  height: auto;
-  box-shadow: 1px 2px 7px 0px black;
+  width: 100%;
 }
 
 .content-layer {
   gap: 75vh;
 }
 
-.content-layer1 {
-  transition: transform 1s ease-out;
+.content-layer1 img {
+  width: 99%;
+  height: auto;
+  box-shadow: 1px 2px 7px 0px black;
 }
 
 .content-layer2 {
+
 }
 
 .content-layer3 {
@@ -34,5 +35,13 @@
 }
 
 #oli-xl-doss-video-poster {
+  filter: invert(100%);
+}
+
+#tp-decade-video-poster {
+  filter: invert(100%);
+}
+
+#taleb-video-poster {
   filter: invert(100%);
 }
