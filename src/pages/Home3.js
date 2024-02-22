@@ -20,7 +20,7 @@ function Home2() {
 
   const columns = new Map([
     [1, { ref: useRef(null), speed: 1 }],
-    [2, { ref: useRef(null), speed: 1.5 }],
+    [2, { ref: useRef(null), speed: 1.5}],
     [3, { ref: useRef(null), speed: -1.5 }],
   ]);
 
@@ -74,27 +74,44 @@ function Home2() {
     };
   }, []);
 
+  // Import high-resolution images/gifs/videos
   const images1 = importAll(
-    require.context(
-      "../assets/collage/posters",
-      false,
-      /\.(png|jpe?g|svg|mp4|gif)$/,
-    ),
+    require.context("../assets/collage/posters", false, /\.(png|jpe?g|svg|mp4|gif)$/)
   );
   const images2 = importAll(
-    require.context(
-      "../assets/collage/layer2",
-      false,
-      /\.(png|jpe?g|svg|mp4|gif)$/,
-    ),
+    require.context("../assets/collage/layer2", false, /\.(png|jpe?g|svg|mp4|gif)$/)
   );
   const images3 = importAll(
-    require.context(
-      "../assets/collage/videos",
-      false,
-      /\.(png|jpe?g|svg|mp4|gif)$/,
-    ),
+    require.context("../assets/collage/videos", false, /\.(png|jpe?g|svg|mp4|gif)$/)
   );
+  // Import compressed images/gifs/videos
+  const cmpImages1 = importAll(
+    require.context("../assets/collage/posters/compressed", false, /\.(png|jpe?g|svg)$/)
+  );
+  const cmpImages2 = importAll(
+    require.context("../assets/collage/layer2/compressed", false, /\.(png|jpe?g|svg)$/)
+  );
+  const cmpImages3 = importAll(
+    require.context("../assets/collage/videos/compressed", false, /\.(png|jpe?g|svg)$/)
+  );
+
+  function mergeImages(highResImages, compressedImages) {
+      const merged = {};
+      Object.keys(highResImages).forEach(key => {
+        merged[key] = {
+          full: highResImages[key],
+          compressed: compressedImages[key] || highResImages[key], // Fallback to high-res if compressed version is missing
+        };
+      });
+      return merged;
+    }
+
+  // Merge high-resolution and compressed images
+const imgs1 = mergeImages(images1, cmpImages1);
+// Merge high-resolution and compressed images
+const imgs2 = mergeImages(images2, cmpImages2);
+// Merge high-resolution and compressed images
+const imgs3 = mergeImages(images3, cmpImages3);
 
   const idMap = {
     '1-2.jpg': 'evian-passport',
@@ -105,35 +122,22 @@ function Home2() {
 
   return (
     <>
-    {/*
-    <div className="container">
-    <div className="dupe hawk-svg">
-        <img src={HawkText} alt="HAWK"/>
-    </div>
-    <div className="dupe child-svg">
-        <img src={ChildText} alt="CHILD"/>
-    </div>
-    <div className="dupe diy-svg">
-        <img src={DiyText} alt="DIY"/>
-    </div>
-    </div>
-    */}
       <div className="background-noise"></div>
       <div className="home-container3">
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
         </div>
         <div ref={columns.get(3).ref} className="column right-half-column">
-          <ContentLayer images={images3} className="content-layer3" />
+          <ContentLayer images={imgs3} className="content-layer3" />
         </div>
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
         <div ref={columns.get(1).ref} className="column left-full-column">
-          <ContentLayer images={images1} className="content-layer1" />
+          <ContentLayer images={imgs1} className="content-layer1" />
         </div>
         <div ref={columns.get(2).ref} className="column right-column">
-          <ContentLayer images={images2} className="content-layer2" idMap={idMap} />
+          <ContentLayer images={imgs2} className="content-layer2" idMap={idMap} />
         </div>
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />

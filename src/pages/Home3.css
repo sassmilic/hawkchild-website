@@ -78,7 +78,7 @@
 .right-half-column {
   float: right;
   margin-right: calc(100vw * var(--margin-as-ratio-of-width));
-  width: 23.8%;
+  width: 21.2%;
   right: 0;
 }
 
