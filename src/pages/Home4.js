@@ -117,28 +117,36 @@ const imgs3 = mergeImages(images3, cmpImages3);
   return (
     <>
       <div className="background-noise"></div>
-      <div className="home-container3">
+      <div className="viewport">
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
         </div>
         <div ref={columns.get(3).ref} className="column right-half-column">
-          <ContentLayer images={imgs3} className="content-layer3" />
+            {/*
+            <ContentLayer images={imgs3} className="content-layer3" />
+            */}
         </div>
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
         <div ref={columns.get(1).ref} className="column left-full-column">
+        {/*
           <ContentLayer images={imgs1} className="content-layer1" />
+        */}
         </div>
         <div ref={columns.get(2).ref} className="column right-column">
+        {/*
           <ContentLayer images={imgs2} className="content-layer2" idMap={idMap} />
+        */}
         </div>
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
         </div>
+        {/*
         <div className="marquee-container">
           <LogoMarquee />
         </div>
+        */}
       </div>
     </>
   );

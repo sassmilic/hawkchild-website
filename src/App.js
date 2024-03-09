@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import './reset.css';
 import './App.css';
 import Home3 from './pages/Home3';
+import Home4 from './pages/Home4';
 import AboutPage from './pages/About';
 import DAOPage from './pages/DAO';
 import Events from './pages/Events';
@@ -38,14 +39,14 @@ function App() {
       UNDER CONSTRUCTION
     </div>
           <Routes>
-            <Route path='/' element={<Home3 />} />
+            <Route path='/' element={<Home4 />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/DAO' element={<DAOPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/events" element={<Events />} />
           </Routes>
         </div>
-        {renderFooter()}
+        {/*renderFooter()*/}
       </>
     );
   };
