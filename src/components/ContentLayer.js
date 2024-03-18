@@ -1,102 +1,137 @@
-import React, { Component } from 'react';
-import './ContentLayer.css';
+import React, { useState, useRef, useEffect } from "react";
+import "./ContentLayer.css";
 
-class ContentLayer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = setInitialState(props.rowHeight, props.rowWidth);
-    this.columnElement = React.createRef();
-  }
+const setInitialState = ({ rowHeight, images }) => {
+  // NOTE: Everything in terms of pixels.
+  const tol = 1; // tolerance
+  const viewportHeight = window.innerHeight;
+  const totalHeight = images.length * (rowHeight / 100) * window.innerWidth;
+  const toleranceHeight = tol * (rowHeight / 100) * window.innerWidth; // TODO: parameterize tolerance
+  const bufferHeight = viewportHeight + 2 * toleranceHeight;
+  const bufferedItems = Math.floor(viewportHeight / rowHeight) + 2 * tol;
+  const itemsAbove = 0;
+  const topPaddingHeight = itemsAbove * rowHeight;
+  const bottomPaddingHeight = totalHeight - bufferHeight - topPaddingHeight;
+  const initialPosition = topPaddingHeight + toleranceHeight; // TODO: incorrect; should be 0
 
-  setInitialState = ({ rowHeight, rowWidth }) => {
-    // height of visible viewport (vh)
-    const viewportHeight = 100;
-    // total height of rendered and virtualized items (vw)
-    const totalHeight = this.props.images.length * rowHeight;
-    // single outlet height (there is outlet on top and bottom) (vw)
-    const toleranceHeight = 1 * rowHeight; // Additional items rendered but invisible to user
-    // all rendered rows height, visible rows + invisible outlets
-    const bufferHeight = viewportHeight + 2 * toleranceHeight;
-    // number of items to be rendered (pcs)
-    const bufferedItems = viewportHeight / rowHeight + 2 * 1; // TODO: check if this works
-    // how many items will be virtualized above (pcs)
-    const itemsAbove = 0;
-    // initial height of the top padding element
-    const topPaddingHeight = itemsAbove * rowHeight;
-    // initial height of the bottom padding element
-    const bottomPaddingHeight = totalHeight - bufferHeight - topPaddingHeight;
-    // initial scroll position
-    const initialPosition = topPaddingHeight + toleranceHeight;
+  return {
+    topPaddingHeight,
+    bottomPaddingHeight,
+    initialPosition, // TODO: smells fishy
+    data: [],
+  };
+};
 
-    return {
-      viewportHeight,
-      totalHeight,
-      toleranceHeight,
-      bufferHeight,
-      bufferedItems,
-      topPaddingHeight,
-      bottomPaddingHeight,
-      initialPosition,
-      data: []
-    };
+function ContentLayer(props) {
+  const { className, images, idMap, rowHeight, speed, scrollPosition, viewportSize } =
+    props;
+
+  const sortOrder = (a, b) => {
+    const comparison = a[0].localeCompare(b[0], undefined, {
+      numeric: true,
+      sensitivity: "base",
+    });
+    return speed < 0 ? -comparison : comparison;
   };
 
-  getData = (offset, limit) => {
-    return this.props.images.slice(offset, offset + limit);
+  const sortedImages = Object.entries(images).sort(sortOrder);
+
+  const [state, setState] = useState(() =>
+    setInitialState({ rowHeight, images }),
+  );
+
+  const getData = (offset, limit) => {
+    console.log("offset:", offset, "limit:", limit);
+    console.log(sortedImages.slice(offset, offset + limit));
+    return sortedImages.slice(offset, offset + limit);
   };
 
-  rowTemplate = (item, index) => {
-    const { key, value } = item;
-    const isVideo = key.endsWith('.mp4');
-    const specificId = this.props.idMap && this.props.idMap[key] ? this.props.idMap[key] : `element-${index}`;
+  const rowTemplate = (item, index) => {
+    const filename = item[0];
+    const files = item[1];
+    const isVideo = filename.endsWith(".mp4");
+    const specificId = idMap && idMap[filename] ? idMap[key] : `element-${index}`;
     return (
       <div className="item" key={index}>
         {isVideo ? (
-          <video key={index} id={specificId} src={value.full} alt={`content ${index}`} loop autoPlay muted />
+          <video
+            key={filename}
+            id={specificId}
+            src={files.full}
+            alt={`content ${index}`}
+            loop
+            autoPlay
+            muted
+          />
         ) : (
-          <img key={index} id={specificId} src={value.full} alt={`content ${index}`} />
+          <img
+            key={filename}
+            id={specificId}
+            src={files.full}
+            alt={`content ${index}`}
+          />
         )}
       </div>
     );
   };
 
-  sortOrder = (a, b) => {
-    const comparison = a[0].localeCompare(b[0], undefined, { numeric: true, sensitivity: 'base' });
-    return this.props.speed < 0 ? -comparison : comparison;
+  const runScroller = ({ target: { scrollTop } }) => {
+    const { rowHeight } = state;
+    const index = Math.floor((scrollPosition - state.toleranceHeight) / rowHeight);
+    const data = getData(index, 2); // TODO: compute exact value, not just 2
+    console.log(data);
+    const topPaddingHeight = Math.max(index * rowHeight, 0);
+    const bottomPaddingHeight = Math.max(
+      state.totalHeight - topPaddingHeight - data.length * rowHeight,
+      0,
+    );
+
+    setState((prevState) => ({
+      ...prevState,
+      topPaddingHeight,
+      bottomPaddingHeight,
+      data,
+    }));
   };
 
-    runScroller = ({ target: { scrollTop } }) => {
-      const { totalHeight, toleranceHeight, bufferedItems } = this.state
-      const index = Math.floor((scrollTop - toleranceHeight) / itemHeight)
-      const data = this.props.get(index, bufferedItems)
-      const topPaddingHeight = Math.max((index - minIndex) * itemHeight, 0)
-      const bottomPaddingHeight = Math.max(totalHeight - topPaddingHeight - data.length * itemHeight, 0)
+  const calculatePaddingHeights = () => {
+    const tol = 1; // tolerance
+    const viewportHeight = window.innerHeight;
+    const totalHeight = images.length * (rowHeight / 100) * window.innerWidth;
+    const toleranceHeight = tol * (rowHeight / 100) * window.innerWidth; // TODO: parameterize tolerance
+    const bufferHeight = viewportHeight + 2 * toleranceHeight;
+    const bufferedItems = Math.floor(viewportHeight / rowHeight) + 2 * tol;
+    const itemsAbove = 0;
+    const topPaddingHeight = itemsAbove * rowHeight;
+    const bottomPaddingHeight = totalHeight - bufferHeight - topPaddingHeight;
+    const initialPosition = topPaddingHeight + toleranceHeight; // TODO: incorrect; should be 0
 
-      this.setState({
-        topPaddingHeight,
-        bottomPaddingHeight,
-        data
-      })
-    }
+    const topHeight = `${scrollPosition * 0.5}px`; // Example calculation
+    const bottomHeight = `${viewportSize.height * 0.1}px`; // Example calculation
+    return { topHeight, bottomHeight };
+  };
 
-  render() {
-    const { className } = this.props;
-    const { topPaddingHeight, bottomPaddingHeight, data } = this.state;
-    const sortedImages = Object.entries(this.props.images).sort(this.sortOrder);
+  useEffect(() => {
+    const { topHeight, bottomHeight } = calculatePaddingHeights();
+    const index = Math.floor((scrollPosition - state.toleranceHeight) / rowHeight);
+    // data also potentially changes
+    const data = getData(0, 2); // TODO: compute exact value, not just 2
+    console.log(data);
+    setState((prevState) => ({
+      ...prevState,
+      data: data,
+      topPaddingHeight: topHeight,
+      bottomPaddingHeight: bottomHeight,
+    }));
+  }, [scrollPosition, viewportSize]);
 
-    return (
-      <div
-        className={`content-layer ${className}`}
-        ref={this.columnElement}
-        onScroll={this.runScroller}
-      >
-        <div style={{ height: topPaddingHeight }}></div>
-        {data.map((item, index) => this.rowTemplate(item, index))}
-        <div style={{ height: bottomPaddingHeight }}></div>
-      </div>
-    );
-  }
+  return (
+    <div className={`content-layer ${className}`}>
+      <div style={{ height: state.topPaddingHeight }}></div>
+      {state.data.map((item, index) => rowTemplate(item, index))}
+      <div style={{ height: state.bottomPaddingHeight }}></div>
+    </div>
+  );
 }
 
 export default ContentLayer;
-

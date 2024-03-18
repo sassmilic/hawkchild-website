@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import './reset.css';
 import './App.css';
-import Home3 from './pages/Home3';
 import Home4 from './pages/Home4';
 import AboutPage from './pages/About';
 import DAOPage from './pages/DAO';
