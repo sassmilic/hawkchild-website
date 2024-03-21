@@ -35,7 +35,14 @@
   z-index: 1;
   background-color: white;
   opacity: 95%;
-  overflow-anchor: none;
+  overflow-anchor: none; /* CRITICAL: must be disabled to allow virtual scrolling */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge, and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .title-text {
