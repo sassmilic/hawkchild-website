@@ -29,12 +29,13 @@
 
 .viewport {
   position: relative;
-  overflow-y: auto;
+  overflow-y: scroll;
   width: 100%;
   height: 100vh;
   z-index: 1;
   background-color: white;
   opacity: 95%;
+  overflow-anchor: none;
 }
 
 .title-text {
@@ -43,6 +44,8 @@
   filter: invert(100%);
   background-blend-mode: difference;
   mix-blend-mode: difference;
+  /* ensure pointer event passes through to elements underneath */
+  pointer-events: none;
 }
 
 .title-text.diy-svg {
@@ -96,7 +99,7 @@
   margin-left: calc(100vw * var(--margin-as-ratio-of-width));
   width: 43.7vw;  /* TODO: make programmatic/exact */
   height: auto;
-  margin-top: 50vh;
+  /*margin-top: 50vh*/;
 }
 
 .marquee-container {

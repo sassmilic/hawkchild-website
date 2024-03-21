@@ -1,19 +1,10 @@
 .content-layer {
   width: 100%;
   overflow: hidden;
-  /* Base styles for all layers */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
 }
 
 .content-layer img,video {
   width: 100%;
-}
-
-.content-layer {
-  gap: 75vh;
 }
 
 .content-layer1 img {
@@ -27,7 +18,6 @@
 }
 
 .content-layer3 {
-  gap: 50vh;
 }
 
 #evian-passport {

@@ -7,20 +7,36 @@ import DiyText from "../assets/title_text_diy.svg";
 import HawkText from "../assets/title_text_hawk.svg";
 import ChildText from "../assets/title_text_child.svg";
 
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
 function Home2() {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollTop, setScrollTop] = useState(0);
   const [viewportSize, setViewportSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
   const viewportRef = useRef(null);
 
+  let lastScrollTop = 0;
+
   useEffect(() => {
-    // Define the scroll event handler
+
     const handleScroll = () => {
-      if (viewportRef.current) {
-        setScrollPosition(viewportRef.current.scrollTop);
-      }
+        window.requestAnimationFrame(() => {
+            if (viewportRef.current) {
+                setScrollTop(viewportRef.current.scrollTop);
+            }
+        });
     };
 
     // Define the resize event handler
@@ -29,6 +45,7 @@ function Home2() {
         width: window.innerWidth,
         height: window.innerHeight,
       });
+        // NOTE: So that dynamic resizes don't trigger resize event: set `viewport` height ahead of time
     };
 
     // Add scroll event listener if the viewport is available
@@ -48,6 +65,13 @@ function Home2() {
       window.removeEventListener("resize", handleResize);
     };
   }, []); // The dependencies array is empty because we only want to run this effect once on mount.
+
+  useEffect(() => {
+  if (viewportRef.current) {
+    console.log("Viewport Height:", viewportRef.current.offsetHeight, "pixels");
+  }
+}, []);
+
 
   const columns = new Map([
     [1, { ref: useRef(null), speed: 0.5 }],
@@ -140,6 +164,7 @@ function Home2() {
     "24.mp4": "taleb-video-poster",
   };
 
+
   return (
     <>
       <div className="background-noise"></div>
@@ -162,7 +187,8 @@ function Home2() {
             idMap={idMap}
             rowHeight={75} // 75vw
             speed={columns.get(1).speed}
-            scrollPosition={scrollPosition}
+            tolerance={1}
+            scrollTop={scrollTop}
             viewportSize={viewportSize}
           />
         </div>
@@ -174,11 +200,9 @@ function Home2() {
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
         </div>
-        {/*
         <div className="marquee-container">
           <LogoMarquee />
         </div>
-        */}
       </div>
     </>
   );
