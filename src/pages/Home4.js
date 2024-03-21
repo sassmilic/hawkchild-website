@@ -58,8 +58,8 @@ function Home2() {
     window.addEventListener("resize", handleResize);
 
         // Assuming you want to scroll every 1000 milliseconds (1 second)
-    const interval = 1; // Interval in milliseconds
-    const scrollIncrement = 1; // How many pixels to scroll each interval
+    const interval = 10; // Interval in milliseconds
+    const scrollIncrement = 2; // How many pixels to scroll each interval
 
     const scrollInterval = setInterval(() => {
       if (viewportRef.current) {
