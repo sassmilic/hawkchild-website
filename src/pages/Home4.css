@@ -1,7 +1,7 @@
 .background-noise {
   position: fixed;
   height: 100vh;
-  width: calc(100vw - 215vw * var(--margin-as-ratio-of-width)); /* TODO: why isn't it exact ??*/
+  width: calc(100vw - 200vw * var(--margin-as-ratio-of-width)); /* TODO: why isn't it exact ??*/
   left: 0;
   margin-left: calc(100vw * var(--margin-as-ratio-of-width));
   margin-right: calc(100vw * var(--margin-as-ratio-of-width));
