@@ -198,9 +198,10 @@ function Home2() {
         <div ref={columns.get(1).ref} className="column left-full-column">
           <ContentLayer
             className="content-layer1"
-            images={imgs1}
+            images={images1}
             idMap={idMap}
             rowHeight={75} // 75vw
+            multiple={5}
             speed={columns.get(1).speed}
             tolerance={1}
             scrollTop={scrollTop}

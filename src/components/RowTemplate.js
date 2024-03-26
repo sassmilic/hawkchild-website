@@ -1,37 +1,18 @@
-import React from 'react';
-
-// Preload images
-const preloadImage = (src) => {
-  const img = new Image();
-  img.src = src;
-};
-
-// Preload videos
-const preloadVideo = (src) => {
-  const video = document.createElement('video');
-  video.src = src;
-  video.load();
-};
+import React from "react";
 
 const rowTemplate = (item, index, rowHeight, idMap) => {
   const filename = item[0];
-  const files = item[1];
+  const file = item[1];
   const isVideo = filename.endsWith(".mp4");
-  const specificId = idMap && idMap[filename] ? idMap[filename] : `element-${index}`; // Fixed key to filename
-  // Call the preload function for images and videos
-  if (isVideo) {
-    preloadVideo(files.full);
-  } else {
-    preloadImage(files.full);
-  }
-
-    return (
-    <div className="row" key={index} style={{ height: `${rowHeight}px`}}>
+  const specificId =
+    idMap && idMap[filename] ? idMap[filename] : `element-${index}`; // Fixed key to filename
+  return (
+    <div className="row" key={index} style={{ height: `${rowHeight}px` }}>
       {isVideo ? (
         <video
           key={filename}
           id={specificId}
-          src={files.full}
+          src={file}
           alt={`content ${index}`}
           loop
           autoPlay
@@ -41,8 +22,9 @@ const rowTemplate = (item, index, rowHeight, idMap) => {
         <img
           key={filename}
           id={specificId}
-          src={files.full}
+          src={file}
           alt={`content ${index}`}
+          loading="eager"
         />
       )}
     </div>
@@ -50,4 +32,3 @@ const rowTemplate = (item, index, rowHeight, idMap) => {
 };
 
 export default rowTemplate;
-
