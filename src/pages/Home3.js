@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import LogoMarquee from "../components/TitleAndMarquee/LogoMarquee";
 import ContentLayer from "../components/ContentLayer";
+import ContentMarquee from "../components/ContentMarquee";
 import "./Home4.css";
 
 import DiyText from "../assets/title_text_diy.svg";
@@ -128,7 +129,7 @@ const imgs3 = mergeImages(images3, cmpImages3);
           <img src={HawkText} alt="HAWK" />
         </div>
         <div ref={columns.get(1).ref} className="column left-full-column">
-          <ContentLayer images={imgs1} className="content-layer1" />
+            {/*<ContentLayer images={imgs1} className="content-layer1" />*/}
         </div>
         <div ref={columns.get(2).ref} className="column right-column">
           <ContentLayer images={imgs2} className="content-layer2" idMap={idMap} />

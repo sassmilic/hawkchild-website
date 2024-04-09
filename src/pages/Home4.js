@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import LogoMarquee from "../components/TitleAndMarquee/LogoMarquee";
 import ContentLayer from "../components/ContentLayer";
+import ContentMarquee from "../components/ContentMarquee"
 import "./Home4.css";
 
 import DiyText from "../assets/title_text_diy.svg";
@@ -20,6 +21,7 @@ function debounce(func, wait) {
 }
 
 function Home2() {
+  /*
   const [scrollTop, setScrollTop] = useState(0);
   const [viewportSize, setViewportSize] = useState({
     width: window.innerWidth,
@@ -48,11 +50,10 @@ function Home2() {
         // NOTE: So that dynamic resizes don't trigger resize event: set `viewport` height ahead of time
     };
 
-    // Add scroll event listener if the viewport is available
     const viewport = viewportRef.current;
-    if (viewport) {
-      viewport.addEventListener("scroll", handleScroll);
-    }
+if (viewport) {
+  viewport.addEventListener("wheel", handleScroll, { passive: true });
+}
 
     // Add resize event listener
     window.addEventListener("resize", handleResize);
@@ -87,7 +88,7 @@ function Home2() {
   }
 }, []);
 
-
+  */
   const columns = new Map([
     [1, { ref: useRef(null), speed: 0.5 }],
     [2, { ref: useRef(null), speed: 1 }],
@@ -109,6 +110,7 @@ function Home2() {
     return images;
   }
 
+  /*
   // Import high-resolution images/gifs/videos
   const images1 = importAll(
     require.context(
@@ -153,6 +155,7 @@ function Home2() {
       /\.(png|jpe?g|svg)$/,
     ),
   );
+  */
 
   function mergeImages(highResImages, compressedImages) {
     const merged = {};
@@ -165,12 +168,14 @@ function Home2() {
     return merged;
   }
 
+  /*
   // Merge high-resolution and compressed images
   const imgs1 = mergeImages(images1, cmpImages1);
   // Merge high-resolution and compressed images
   const imgs2 = mergeImages(images2, cmpImages2);
   // Merge high-resolution and compressed images
   const imgs3 = mergeImages(images3, cmpImages3);
+  */
 
   const idMap = {
     "1-2.jpg": "evian-passport",
@@ -179,39 +184,36 @@ function Home2() {
     "24.mp4": "taleb-video-poster",
   };
 
+  const images1 = importAll(require.context('../assets/collage/posters', false, /\.(png|jpe?g|svg)$/));
+  const imagesArray1 = Object.values(images1).map(src => ({ src }));
+  const images2 = importAll(require.context('../assets/collage/layer2', false, /\.(png|jpe?g|svg)$/));
+  const imagesArray2 = Object.values(images2).map(src => ({ src }));
+  const images3 = importAll(require.context('../assets/collage/videos', false, /\.(gif|mp4)$/));
+  const imagesArray3 = Object.values(images3).map(src => ({ src }));
+
+  console.log(imagesArray1);
+  console.log(imagesArray2);
+  console.log(imagesArray3);
 
   return (
     <>
       <div className="background-noise"></div>
-      <div className="viewport" ref={viewportRef}>
+      {/*<div className="viewport" ref={viewportRef}>*/}
+      <div className="viewport">
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
         </div>
         <div ref={columns.get(3).ref} className="column right-half-column">
-          {/*
-            <ContentLayer images={imgs3} className="content-layer3" />
-            */}
+            <ContentMarquee media={imagesArray3} speed="90s" />
         </div>
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
         <div ref={columns.get(1).ref} className="column left-full-column">
-          <ContentLayer
-            className="content-layer1"
-            images={images1}
-            idMap={idMap}
-            rowHeight={75} // 75vw
-            multiple={5}
-            speed={columns.get(1).speed}
-            tolerance={1}
-            scrollTop={scrollTop}
-            viewportSize={viewportSize}
-          />
+            <ContentMarquee media={imagesArray1} speed="90s" />
         </div>
         <div ref={columns.get(2).ref} className="column right-column">
-          {/*
-          <ContentLayer images={imgs2} className="content-layer2" idMap={idMap} />
-        */}
+            <ContentMarquee media={imagesArray2} speed="120s" />
         </div>
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />

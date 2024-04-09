@@ -1,0 +1,18 @@
+.content-marquee {
+  overflow: hidden;
+  position: relative;
+  animation-name: marqueeUpDown;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes marqueeUpDown {
+  0% {
+    transform: translateY(50vw);
+  }
+  100% {
+    transform: translateY(calc(-100% + 75vw));
+  }
+}
+

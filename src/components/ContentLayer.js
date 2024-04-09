@@ -11,7 +11,7 @@ function modularSlice(array, i, j) {
     } else {
         const n = array.length;
         //return array.slice(0, j).concat(array.slice(i, n))
-        return array.slice(i, n).concat(array.slice(0, j))
+        return array.slice(i, n).concat(array.slice(0, j));
     }
 }
 
