@@ -34,7 +34,7 @@ const LazyMedia = ({ renderMedia, containerHeight = "75vw" }) => {
   return (
     <div
       ref={containerRef}
-      style={{ height: containerHeight, width: "100%" }}
+      style={{ height: containerHeight }}
     ></div>
   );
 };

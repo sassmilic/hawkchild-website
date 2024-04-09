@@ -112,6 +112,10 @@
   /*margin-top: 50vh*/;
 }
 
+.left-full-column img {
+    box-shadow: 3px 3px 5px rgb(0 0 0 / 50%);
+}
+
 .marquee-container {
   position: fixed;
   top: calc(30vh + 100vw * var(--letter-height-as-ratio-of-width) + 100vw * var(--line-width-ratio));

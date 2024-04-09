@@ -8,7 +8,6 @@ const LazyVideo = ({ src, alt }) => (
     video.setAttribute('controls', '');
     video.muted = true; // Mute the video to allow autoplay
 video.autoplay = true; // Set autoplay attribute to true
-    video.style.width = '100%';
     video.style.height = 'auto';
     return video;
   }} />

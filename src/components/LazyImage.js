@@ -6,7 +6,7 @@ const LazyImage = ({ src, alt }) => (
     const img = document.createElement('img');
     img.src = src;
     img.alt = alt;
-    img.style.width = '100%';
+    img.style.width = '99%';
     img.style.height = 'auto';
     return img;
   }} />
