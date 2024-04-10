@@ -112,7 +112,7 @@
   /*margin-top: 50vh*/;
 }
 
-.left-full-column img {
+.left-full-column img, .right-half-column video {
     box-shadow: 3px 3px 5px rgb(0 0 0 / 50%);
 }
 
