@@ -156,11 +156,11 @@ function Home2() {
       '/media/edited-images/subcity.jpeg',
       '/media/edited-images/pizza.jpeg',
       '/media/edited-images/scarves.jpeg',
-      '/media/edited-images/tp-team.png',
       '/media/edited-images/dark0-etal.jpg',
       '/media/edited-images/yunglean-news.jpg',
       '/media/edited-images/dg.jpg',
       '/media/edited-images/kamixlo.jpg',
+      '/media/edited-images/tp-team.png',
   ]
 
   return (
