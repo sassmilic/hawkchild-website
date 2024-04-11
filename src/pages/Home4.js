@@ -168,6 +168,9 @@ function Home2() {
       <div className="background-noise"></div>
       {/*<div className="viewport" ref={viewportRef}>*/}
       <div className="viewport">
+        <div className="footer-logo2">
+            <img src="/logo2.png" />
+        </div>
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
         </div>
@@ -190,9 +193,6 @@ function Home2() {
         </div>
         <div className="marquee-container">
           <LogoMarquee />
-        </div>
-        <div className="footer-logo2">
-            <img src="/logo2.png" />
         </div>
       </div>
     </>
