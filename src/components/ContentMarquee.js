@@ -3,21 +3,23 @@ import './ContentMarquee.css';
 import LazyImage from './LazyImage';
 import LazyVideo from './LazyVideo';
 
-const ContentMarquee = ({ media, speed = 'normal' }) => {
-    console.log("MEDIA");
-    console.log(media);
-  const renderMedia = (mediaItem, index) => {
-    const isVideo = mediaItem.src.endsWith('.mp4');
+const ContentMarquee = ({ mediaPaths, speed = 'normal', direction = 'up' }) => {
+  const renderMedia = (mediaPath, index) => {
+    const isVideo = mediaPath.endsWith('.mp4');
+    const position = direction === 'down' ? 'bottom' : 'top';
     return isVideo ? (
-      <LazyVideo key={index} src={mediaItem.src} alt={`Video ${index}`} />
+      <LazyVideo key={index} src={mediaPath} alt={`Video ${index}`} />
     ) : (
-      <LazyImage key={index} src={mediaItem.src} alt={`Image ${index}`} />
+      <LazyImage key={index} src={mediaPath} alt={`Image ${index}`} position={position} />
     );
   };
 
+  const directionClass = direction === 'up' ? 'animate-up' : 'animate-down';
+
   return (
-    <div className="content-marquee" style={{ animationDuration: speed }}>
-      {media.map(renderMedia)}
+
+    <div className={`content-marquee ${directionClass}`} style={{ animationDuration: speed }}>
+      {(direction === 'down' ? [...mediaPaths].reverse() : mediaPaths).map(renderMedia)}
     </div>
   );
 };

@@ -169,3 +169,10 @@
   width: 100%;
 }
 
+.footer-logo2 {
+  position: fixed;
+  margin-left: calc(12% + 100vw * var(--margin-as-ratio-of-width));
+  width: 20%;
+  bottom: 2%;
+}
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import LazyMedia from './LazyMedia';
 
-const LazyImage = ({ src, alt }) => (
+const LazyImage = ({ src, alt, position = "top" }) => (
   <LazyMedia renderMedia={() => {
     const img = document.createElement('img');
     img.src = src;
@@ -9,7 +9,7 @@ const LazyImage = ({ src, alt }) => (
     img.style.width = '99%';
     img.style.height = 'auto';
     return img;
-  }} />
+  }} position={position} />
 );
 
 export default LazyImage;

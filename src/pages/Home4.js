@@ -21,74 +21,6 @@ function debounce(func, wait) {
 }
 
 function Home2() {
-  /*
-  const [scrollTop, setScrollTop] = useState(0);
-  const [viewportSize, setViewportSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
-  const viewportRef = useRef(null);
-
-  let lastScrollTop = 0;
-
-  useEffect(() => {
-
-    const handleScroll = () => {
-        window.requestAnimationFrame(() => {
-            if (viewportRef.current) {
-                setScrollTop(viewportRef.current.scrollTop);
-            }
-        });
-    };
-
-    // Define the resize event handler
-    const handleResize = () => {
-      setViewportSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-        // NOTE: So that dynamic resizes don't trigger resize event: set `viewport` height ahead of time
-    };
-
-    const viewport = viewportRef.current;
-if (viewport) {
-  viewport.addEventListener("wheel", handleScroll, { passive: true });
-}
-
-    // Add resize event listener
-    window.addEventListener("resize", handleResize);
-
-        // Assuming you want to scroll every 1000 milliseconds (1 second)
-    const interval = 10; // Interval in milliseconds
-    const scrollIncrement = 2; // How many pixels to scroll each interval
-
-    const scrollInterval = setInterval(() => {
-      if (viewportRef.current) {
-        viewportRef.current.scrollTop += scrollIncrement;
-      }
-    }, interval);
-
-    // Cleanup function to clear the interval
-    return () => {
-      clearInterval(scrollInterval);
-    };
-
-    // Return the cleanup function
-    return () => {
-      if (viewport) {
-        viewport.removeEventListener("scroll", handleScroll);
-      }
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []); // The dependencies array is empty because we only want to run this effect once on mount.
-
-  useEffect(() => {
-  if (viewportRef.current) {
-    console.log("Viewport Height:", viewportRef.current.offsetHeight, "pixels");
-  }
-}, []);
-
-  */
   const columns = new Map([
     [1, { ref: useRef(null), speed: 0.5 }],
     [2, { ref: useRef(null), speed: 1 }],
@@ -191,9 +123,45 @@ if (viewport) {
   const images3 = importAll(require.context('../assets/collage/videos', false, /\.(gif|mp4)$/));
   const imagesArray3 = Object.values(images3).map(src => ({ src }));
 
-  console.log(imagesArray1);
-  console.log(imagesArray2);
-  console.log(imagesArray3);
+  const posters = [
+      '/media/hi-res/posters/poster_evian-christ_2024.jpeg',
+      '/media/hi-res/posters/poster_markyb-seretide_2024.jpeg',
+      '/media/hi-res/posters/poster_skyh1-woesum_2024.jpeg',
+      '/media/hi-res/posters/poster_affxworks-clouds_2023.jpeg',
+      '/media/hi-res/posters/poster_dark0-femi_2022.jpeg',
+      '/media/hi-res/posters/poster_doss-olixl_2022.jpeg',
+      '/media/hi-res/posters/poster_casualgabberz-cloudz_2022.jpeg',
+      '/media/hi-res/posters/poster_malibu-mechatok_2022.jpeg',
+      '/media/hi-res/posters/poster_fundraiser_2021.jpeg',
+      '/media/hi-res/posters/poster_tp10_2019.jpeg',
+      '/media/hi-res/posters/poster_nassim_2018.jpeg',
+      '/media/hi-res/posters/poster_tp6_2017.jpeg',
+      '/media/hi-res/posters/poster_dark0_2017.jpeg',
+      '/media/hi-res/posters/poster_yunglean_2016.jpeg',
+      '/media/hi-res/posters/poster_dg_2016.png',
+      '/media/hi-res/posters/poster_kamixlo-mssingno_2016.jpeg',
+      '/media/hi-res/posters/poster_yunglean_2014.jpeg'
+  ];
+
+  const pics = [
+      '/media/edited-images/evian.gif',
+      '/media/edited-images/sooakxa.png',
+      '/media/edited-images/kamixlo-woesum.jpg',
+      '/media/edited-images/strobes.jpg',
+      '/media/edited-images/dark0-dog.jpg',
+      '/media/edited-images/doss-crowd.jpg',
+      '/media/edited-images/cg-leigh.jpg',
+      '/media/edited-images/malibu-mechatok.jpg',
+      '/media/edited-images/guy.jpg',
+      '/media/edited-images/subcity.jpeg',
+      '/media/edited-images/pizza.jpeg',
+      '/media/edited-images/scarves.jpeg',
+      '/media/edited-images/tp-team.png',
+      '/media/edited-images/dark0-etal.jpg',
+      '/media/edited-images/yunglean-news.jpg',
+      '/media/edited-images/dg.jpg',
+      '/media/edited-images/kamixlo.jpg',
+  ]
 
   return (
     <>
@@ -204,22 +172,27 @@ if (viewport) {
           <img src={DiyText} alt="DIY" />
         </div>
         <div ref={columns.get(3).ref} className="column right-half-column">
-            <ContentMarquee media={imagesArray3} speed="90s" />
+            {/*<ContentMarquee media={imagesArray3} speed="90s" />*/}
         </div>
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
         <div ref={columns.get(1).ref} className="column left-full-column">
-            <ContentMarquee media={imagesArray1} speed="90s" />
+            {/*<ContentMarquee media={imagesArray1} speed="90s" />*/}
+            <ContentMarquee mediaPaths={posters} speed="120s" />
         </div>
         <div ref={columns.get(2).ref} className="column right-column">
-            <ContentMarquee media={imagesArray2} speed="120s" />
+            {/*<ContentMarquee media={imagesArray2} speed="120s" />*/}
+            <ContentMarquee mediaPaths={pics} direction="down" speed="120s" />
         </div>
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
         </div>
         <div className="marquee-container">
           <LogoMarquee />
+        </div>
+        <div className="footer-logo2">
+            <img src="/logo2.png" />
         </div>
       </div>
     </>

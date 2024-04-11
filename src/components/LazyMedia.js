@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const LazyMedia = ({ renderMedia, containerHeight = "75vw" }) => {
+const LazyMedia = ({ renderMedia, containerHeight = "75vw", position = "top" }) => {
   const containerRef = useRef();
 
   useEffect(() => {
@@ -8,9 +8,15 @@ const LazyMedia = ({ renderMedia, containerHeight = "75vw" }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Create and append the image only if it's not already there
+            // Create and append the media only if it's not already there
             if (!entry.target.hasChildNodes()) {
-              entry.target.appendChild(renderMedia());
+              const mediaElement = renderMedia();
+              // Adjust the append method based on the position
+              if (position === "top") {
+                entry.target.insertBefore(mediaElement, entry.target.firstChild);
+              } else { // default to "bottom"
+                entry.target.appendChild(mediaElement);
+              }
             }
           } else {
             while (entry.target.firstChild) {
@@ -19,24 +25,26 @@ const LazyMedia = ({ renderMedia, containerHeight = "75vw" }) => {
           }
         });
       },
-      { rootMargin: "50px" },
+      { rootMargin: "50px" }
     );
 
     if (containerRef.current) {
       observer.observe(containerRef.current);
     }
 
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+    return () => observer.disconnect();
+  }, [position]); // Include position in the dependency array
 
-  return (
-    <div
-      ref={containerRef}
-      style={{ height: containerHeight }}
-    ></div>
-  );
+  // Adjust the container style to use flex and justify content based on the position
+  const containerStyle = {
+    height: containerHeight,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: position === 'top' ? 'flex-start' : 'flex-end'
+  };
+
+  return <div ref={containerRef} style={containerStyle}></div>;
 };
 
 export default LazyMedia;
+
