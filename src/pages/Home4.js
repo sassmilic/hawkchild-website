@@ -69,6 +69,7 @@ function Home2() {
       '/media/gifs/5.gif',
       '/media/gifs/6.gif',
       '/media/gifs/15.gif',
+      '/media/gifs/12.gif', //**
       '/media/gifs/7.gif',
       '/media/gifs/8.gif',
       '/media/gifs/9.gif',
@@ -77,18 +78,37 @@ function Home2() {
       '/media/gifs/12.gif', //**
       '/media/gifs/13.gif', //**
       '/media/gifs/14.gif',
+      '/media/gifs/16.gif',
+      '/media/gifs/17.gif',
+      '/media/gifs/18.gif',
+      '/media/gifs/19.gif',
+      '/media/gifs/20.gif',
+      '/media/gifs/21.gif',
+      '/media/gifs/22.gif',
+      '/media/gifs/1.gif',
+      '/media/gifs/4.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/3.gif',
+      '/media/gifs/5.gif',
+      '/media/gifs/6.gif',
+      '/media/gifs/15.gif',
+      '/media/gifs/12.gif', //**
+      '/media/gifs/7.gif',
+      '/media/gifs/8.gif',
+      '/media/gifs/9.gif',
+      '/media/gifs/10.gif',
+      '/media/gifs/11.gif',
+      '/media/gifs/12.gif', //**
+      '/media/gifs/13.gif', //**
+      '/media/gifs/14.gif',
+      '/media/gifs/16.gif',
+      '/media/gifs/17.gif',
+      '/media/gifs/18.gif',
+      '/media/gifs/19.gif',
+      '/media/gifs/20.gif',
+      '/media/gifs/21.gif',
+      '/media/gifs/22.gif',
 
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
-      '/media/gifs/2.gif',
   ]
 
 
@@ -97,22 +117,21 @@ function Home2() {
       <div className="background-noise"></div>
       {/*<div className="viewport" ref={viewportRef}>*/}
       <div className="viewport">
-        <div className="footer-logo2">
-            <img src="/logo2.png" />
-        </div>
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
-        </div>
-        <div className="column right-half-column">
-            {/* twice as fast so twice as many images */}
-            <ContentMarquee mediaPaths={gifs} containerHeight="50vw" speed="100s" />
-
         </div>
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
+        <div className="column right-half-column">
+            {/* twice as fast so twice as many images */}
+            <ContentMarquee mediaPaths={gifs} containerHeight="50vw" speed="180s" />
+        </div>
         <div className="column left-full-column">
             <ContentMarquee mediaPaths={posters} speed="180s" />
+        </div>
+        <div className="footer-logo2">
+            <img src="/logo3.png" />
         </div>
         <div className="column right-column">
             <ContentMarquee mediaPaths={pics} direction="down" speed="180s" />
@@ -120,10 +139,10 @@ function Home2() {
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
         </div>
+        <div className="bottom-blur">
+        </div>
         <div className="marquee-container">
           <LogoMarquee />
-        </div>
-        <div className="bottom-blur">
         </div>
       </div>
     </>
