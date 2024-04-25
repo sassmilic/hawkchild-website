@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 
-const LazyMedia = ({ renderMedia, containerHeight = "75vw", position = "top" }) => {
+const LazyMedia = ({ renderMedia, containerHeight, position = "top" }) => {
   const containerRef = useRef();
 
   useEffect(() => {

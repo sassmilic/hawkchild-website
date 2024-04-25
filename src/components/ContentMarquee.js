@@ -3,14 +3,14 @@ import './ContentMarquee.css';
 import LazyImage from './LazyImage';
 import LazyVideo from './LazyVideo';
 
-const ContentMarquee = ({ mediaPaths, speed = 'normal', direction = 'up' }) => {
+const ContentMarquee = ({ mediaPaths, containerHeight = "75vw", speed = 'normal', direction = 'up' }) => {
   const renderMedia = (mediaPath, index) => {
     const isVideo = mediaPath.endsWith('.mp4');
     const position = direction === 'down' ? 'bottom' : 'top';
     return isVideo ? (
-      <LazyVideo key={index} src={mediaPath} alt={`Video ${index}`} />
+      <LazyVideo containerHeight={containerHeight} key={index} src={mediaPath} alt={`Video ${index}`} />
     ) : (
-      <LazyImage key={index} src={mediaPath} alt={`Image ${index}`} position={position} />
+      <LazyImage containerHeight={containerHeight} key={index} src={mediaPath} alt={`Image ${index}`} position={position} />
     );
   };
 

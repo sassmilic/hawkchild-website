@@ -8,120 +8,16 @@ import DiyText from "../assets/title_text_diy.svg";
 import HawkText from "../assets/title_text_hawk.svg";
 import ChildText from "../assets/title_text_child.svg";
 
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
 function Home2() {
-  const columns = new Map([
-    [1, { ref: useRef(null), speed: 0.5 }],
-    [2, { ref: useRef(null), speed: 1 }],
-    [3, { ref: useRef(null), speed: -1 }],
-  ]);
-
-  const setPositionInitially = (ref) => {
-    if (!ref.current) return;
-    const elementHeight = ref.current.offsetHeight;
-    const initialOffset = -elementHeight;
-    ref.current.style.transform = `translateY(${initialOffset}px)`;
-  };
-
-  function importAll(r) {
-    let images = {};
-    r.keys().map((item) => {
-      images[item.replace("./", "")] = r(item);
-    });
-    return images;
-  }
 
   /*
-  // Import high-resolution images/gifs/videos
-  const images1 = importAll(
-    require.context(
-      "../assets/collage/posters",
-      false,
-      /\.(png|jpe?g|svg|mp4|gif)$/,
-    ),
-  );
-  const images2 = importAll(
-    require.context(
-      "../assets/collage/layer2",
-      false,
-      /\.(png|jpe?g|svg|mp4|gif)$/,
-    ),
-  );
-  const images3 = importAll(
-    require.context(
-      "../assets/collage/videos",
-      false,
-      /\.(png|jpe?g|svg|mp4|gif)$/,
-    ),
-  );
-  // Import compressed images/gifs/videos
-  const cmpImages1 = importAll(
-    require.context(
-      "../assets/collage/posters/compressed",
-      false,
-      /\.(png|jpe?g|svg)$/,
-    ),
-  );
-  const cmpImages2 = importAll(
-    require.context(
-      "../assets/collage/layer2/compressed",
-      false,
-      /\.(png|jpe?g|svg)$/,
-    ),
-  );
-  const cmpImages3 = importAll(
-    require.context(
-      "../assets/collage/videos/compressed",
-      false,
-      /\.(png|jpe?g|svg)$/,
-    ),
-  );
-  */
-
-  function mergeImages(highResImages, compressedImages) {
-    const merged = {};
-    Object.keys(highResImages).forEach((key) => {
-      merged[key] = {
-        full: highResImages[key],
-        compressed: compressedImages[key] || highResImages[key], // Fallback to high-res if compressed version is missing
-      };
-    });
-    return merged;
-  }
-
-  /*
-  // Merge high-resolution and compressed images
-  const imgs1 = mergeImages(images1, cmpImages1);
-  // Merge high-resolution and compressed images
-  const imgs2 = mergeImages(images2, cmpImages2);
-  // Merge high-resolution and compressed images
-  const imgs3 = mergeImages(images3, cmpImages3);
-  */
-
   const idMap = {
     "1-2.jpg": "evian-passport",
     "11.mp4": "oli-xl-doss-video-poster",
     "21.mp4": "tp-decade-video-poster",
     "24.mp4": "taleb-video-poster",
   };
-
-  const images1 = importAll(require.context('../assets/collage/posters', false, /\.(png|jpe?g|svg)$/));
-  const imagesArray1 = Object.values(images1).map(src => ({ src }));
-  const images2 = importAll(require.context('../assets/collage/layer2', false, /\.(png|jpe?g|svg)$/));
-  const imagesArray2 = Object.values(images2).map(src => ({ src }));
-  const images3 = importAll(require.context('../assets/collage/videos', false, /\.(gif|mp4)$/));
-  const imagesArray3 = Object.values(images3).map(src => ({ src }));
+  */
 
   const posters = [
       '/media/hi-res/posters/poster_evian-christ_2024.jpeg',
@@ -140,7 +36,8 @@ function Home2() {
       '/media/hi-res/posters/poster_yunglean_2016.jpeg',
       '/media/hi-res/posters/poster_dg_2016.png',
       '/media/hi-res/posters/poster_kamixlo-mssingno_2016.jpeg',
-      '/media/hi-res/posters/poster_yunglean_2014.jpeg'
+      '/media/hi-res/posters/poster_yunglean_2014.jpeg',
+      '/media/hi-res/posters/poster_yunglean_2014.jpeg',
   ];
 
   const pics = [
@@ -161,7 +58,39 @@ function Home2() {
       '/media/edited-images/dg.jpg',
       '/media/edited-images/kamixlo.jpg',
       '/media/edited-images/tp-team.png',
+      '/media/edited-images/tp-team.png',
   ]
+
+  const gifs = [
+      '/media/gifs/1.gif',
+      '/media/gifs/4.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/3.gif',
+      '/media/gifs/5.gif',
+      '/media/gifs/6.gif',
+      '/media/gifs/15.gif',
+      '/media/gifs/7.gif',
+      '/media/gifs/8.gif',
+      '/media/gifs/9.gif',
+      '/media/gifs/10.gif',
+      '/media/gifs/11.gif',
+      '/media/gifs/12.gif', //**
+      '/media/gifs/13.gif', //**
+      '/media/gifs/14.gif',
+
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+      '/media/gifs/2.gif',
+  ]
+
 
   return (
     <>
@@ -174,25 +103,27 @@ function Home2() {
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
         </div>
-        <div ref={columns.get(3).ref} className="column right-half-column">
-            {/*<ContentMarquee media={imagesArray3} speed="90s" />*/}
+        <div className="column right-half-column">
+            {/* twice as fast so twice as many images */}
+            <ContentMarquee mediaPaths={gifs} containerHeight="50vw" speed="100s" />
+
         </div>
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
-        <div ref={columns.get(1).ref} className="column left-full-column">
-            {/*<ContentMarquee media={imagesArray1} speed="90s" />*/}
-            <ContentMarquee mediaPaths={posters} speed="120s" />
+        <div className="column left-full-column">
+            <ContentMarquee mediaPaths={posters} speed="180s" />
         </div>
-        <div ref={columns.get(2).ref} className="column right-column">
-            {/*<ContentMarquee media={imagesArray2} speed="120s" />*/}
-            <ContentMarquee mediaPaths={pics} direction="down" speed="120s" />
+        <div className="column right-column">
+            <ContentMarquee mediaPaths={pics} direction="down" speed="180s" />
         </div>
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
         </div>
         <div className="marquee-container">
           <LogoMarquee />
+        </div>
+        <div className="bottom-blur">
         </div>
       </div>
     </>
