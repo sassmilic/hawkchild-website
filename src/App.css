@@ -62,3 +62,25 @@ h2 {
     scrollbar-color: black #e7f0fa; /* thumb and track color */
 }
 
+.mobile-notice {
+  display: none; /* Default to not displayed */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-size: 42px; /* Large enough to be readable on mobile */
+  z-index: 1000;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .mobile-notice {
+    display: block; /* Show only on mobile screens */
+  }
+  .content-wrap {
+    display: none;
+  }
+}
+

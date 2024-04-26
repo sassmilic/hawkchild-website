@@ -115,7 +115,6 @@ function Home2() {
   return (
     <>
       <div className="background-noise"></div>
-      {/*<div className="viewport" ref={viewportRef}>*/}
       <div className="viewport">
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
@@ -130,16 +129,18 @@ function Home2() {
         <div className="column left-full-column">
             <ContentMarquee mediaPaths={posters} speed="180s" />
         </div>
-        <div className="footer-logo2">
-            <img src="/logo3.png" />
-        </div>
         <div className="column right-column">
             <ContentMarquee mediaPaths={pics} direction="down" speed="180s" />
         </div>
+        <div className="simple-footer">
+        </div>
+      {/*
+        <div className="footer-logo2">
+            <img src="/logo2.png" />
+        </div>
+        */}
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
-        </div>
-        <div className="bottom-blur">
         </div>
         <div className="marquee-container">
           <LogoMarquee />
