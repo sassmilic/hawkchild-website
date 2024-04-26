@@ -46,7 +46,7 @@ img {
   height: 100vh;
   z-index: 1;
   background-color: white;
-  opacity: 90%;
+  opacity: 95%;
   overflow-anchor: none; /* CRITICAL: must be disabled to allow virtual scrolling */
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
@@ -210,11 +210,45 @@ img {
 }
 
 .simple-footer {
+      display: flex;          /* Enables flexbox layout */
+    align-items: stretch;   /* Aligns children to stretch vertically */
+  gap: 0.4%;
   position: fixed;
   bottom: 0;
   margin-left: calc(100vw * var(--margin-as-ratio-of-width));
   margin-right: calc(100vw * var(--margin-as-ratio-of-width));
   width: 89%;
   background-color: black;
-  height: 4vh;
+  opacity: 90%;
+  height: calc(100vw * var(--line-width-ratio));
+}
+
+.footer-item {
+        display: flex;
+    align-items: center;    /* Centers the image vertically */
+    justify-content: center;/* Centers the image horizontally */
+    filter: invert(100%);
+    opacity: 90%;
+}
+
+.footer-item img {
+  height: 50%;
+}
+
+#item-a {
+    flex: 0 1 auto;         /* Does not grow, shrinks as needed, based on content */
+    justify-content: flex-start; /* Aligns the image to the left */
+  margin-left: 0.7%;
+}
+
+#item-b {
+    flex: 1 1 auto;         /* Grows and shrinks as needed, takes available space */
+  align-items: flex-start;
+  margin-top: 0.7%;
+}
+
+#item-c {
+    flex: 0 1 auto;         /* Does not grow, shrinks as needed, based on content */
+    justify-content: flex-end; /* Aligns the image to the right */
+  margin-right: 0.7%;
 }

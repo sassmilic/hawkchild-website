@@ -130,12 +130,16 @@ function Home2() {
             <ContentMarquee mediaPaths={pics} direction="down" speed="180s" />
         </div>
         <div className="simple-footer">
+            <div class="footer-item" id="item-a">
+                <img src="/upside-down-logo-text/diy.png" alt="DIY"/>
+            </div>
+            <div class="footer-item" id="item-b">
+                <img src="/upside-down-logo-text/underscore.png" alt="underscore" style={{width: '100%', height: '15%'}}/>
+            </div>
+            <div class="footer-item" id="item-c">
+                <img src="/upside-down-logo-text/hawkchild.png" alt="HAWKCHILD"/>
+            </div>
         </div>
-      {/*
-        <div className="footer-logo2">
-            <img src="/logo2.png" />
-        </div>
-        */}
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
         </div>
