@@ -116,9 +116,6 @@ function Home2() {
     <>
       <div className="background-noise"></div>
       <div className="viewport">
-        <div className="title-text diy-svg">
-          <img src={DiyText} alt="DIY" />
-        </div>
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
@@ -141,6 +138,9 @@ function Home2() {
         */}
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
+        </div>
+        <div className="title-text diy-svg">
+          <img src={DiyText} alt="DIY" />
         </div>
         <div className="marquee-container">
           <LogoMarquee />
