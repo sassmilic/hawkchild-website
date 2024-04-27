@@ -12,8 +12,12 @@
 }
 
 body {
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  font-size: 14px;
+  font-family: "Baskervville", serif;
+  font-size: 28px;
+}
+
+h1 {
+  font-family: "Major Mono Display", monospace;
 }
 
 .site-container {

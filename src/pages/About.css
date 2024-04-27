@@ -1,3 +1,8 @@
+h1 {
+    text-transform: lowercase;
+    font-size: 100px;
+}
+
 .about-page-container {
     margin: 5em calc(100% * var(--margin-as-ratio-of-width));
     display: flex;
@@ -6,6 +11,15 @@
 
 .about-page-text-wrap {
     width: 100%;
+}
+
+.about-page-text-wrap {
+  /* To center the content of this wrapper */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+  height: 100%; /* Take full height of the parent container */
 }
 
 .about-page-text-wrap p {
