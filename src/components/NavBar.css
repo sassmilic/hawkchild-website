@@ -10,7 +10,6 @@
     gap: calc(100vw * var(--gap-as-ratio-of-width));
 
     background-color: rgba(255, 255, 255, 0.9);
-    border-bottom: 1px solid var(--light-blue-accent); 
     z-index: 5;
 }
 

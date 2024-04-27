@@ -3,7 +3,7 @@ import './ContentMarquee.css';
 import LazyImage from './LazyImage';
 import LazyVideo from './LazyVideo';
 
-const ContentMarquee = ({ mediaPaths, containerHeight = "75vw", speed = 'normal', direction = 'up' }) => {
+const ContentMarquee = ({ mediaPaths, containerHeight = "75vw", speed, direction = 'up' }) => {
   const renderMedia = (mediaPath, index) => {
     const isVideo = mediaPath.endsWith('.mp4');
     const position = direction === 'down' ? 'bottom' : 'top';

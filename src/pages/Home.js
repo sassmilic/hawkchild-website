@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import LogoMarquee from "../components/TitleAndMarquee/LogoMarquee";
 import ContentLayer from "../components/ContentLayer";
 import ContentMarquee from "../components/ContentMarquee"
-import "./Home4.css";
+import "./Home.css";
 
 import DiyText from "../assets/title_text_diy.svg";
 import HawkText from "../assets/title_text_hawk.svg";
 import ChildText from "../assets/title_text_child.svg";
 
-function Home2() {
+function Home() {
 
   /*
   const idMap = {
@@ -18,6 +18,8 @@ function Home2() {
     "24.mp4": "taleb-video-poster",
   };
   */
+
+  const MARQUEE_SPEED = "180s";
 
   const posters = [
       '/media/hi-res/posters/poster_evian-christ_2024.jpeg',
@@ -120,23 +122,22 @@ function Home2() {
           <img src={HawkText} alt="HAWK" />
         </div>
         <div className="column right-half-column">
-            {/* twice as fast so twice as many images */}
-            <ContentMarquee mediaPaths={gifs} containerHeight="50vw" speed="180s" />
+            <ContentMarquee mediaPaths={gifs} containerHeight="50vw" speed={MARQUEE_SPEED} />
         </div>
         <div className="column left-full-column">
-            <ContentMarquee mediaPaths={posters} speed="180s" />
+            <ContentMarquee mediaPaths={posters} speed={MARQUEE_SPEED} />
         </div>
         <div className="column right-column">
-            <ContentMarquee mediaPaths={pics} direction="down" speed="180s" />
+            <ContentMarquee mediaPaths={pics} direction="down" speed={MARQUEE_SPEED} />
         </div>
         <div className="simple-footer">
-            <div class="footer-item" id="item-a">
+            <div className="footer-item" id="item-a">
                 <img src="/upside-down-logo-text/diy.png" alt="DIY"/>
             </div>
-            <div class="footer-item" id="item-b">
+            <div className="footer-item" id="item-b">
                 <img src="/upside-down-logo-text/underscore.png" alt="underscore" style={{width: '100%', height: '15%'}}/>
             </div>
-            <div class="footer-item" id="item-c">
+            <div className="footer-item" id="item-c">
                 <img src="/upside-down-logo-text/hawkchild.png" alt="HAWKCHILD"/>
             </div>
         </div>
@@ -154,4 +155,4 @@ function Home2() {
   );
 }
 
-export default Home2;
+export default Home;
