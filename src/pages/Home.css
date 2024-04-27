@@ -164,11 +164,11 @@ img {
 }
 
 .footer-item {
-        display: flex;
-    align-items: center; 
-    justify-content: center;
-    filter: invert(100%);
-    opacity: 90%;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  filter: invert(100%);
+  opacity: 90%;
 }
 
 .footer-item img {
@@ -180,11 +180,13 @@ img {
   flex: 0 1 auto; 
   justify-content: flex-start; /* left align */
   margin-left: 0.7%;
+  height: 100%;
+  width: auto;
 }
 
 #item-b {
-    /* Grows and shrinks as needed, takes available space */
-    flex: 1 1 auto;    
+  /* Grows and shrinks as needed, takes available space */
+  flex: 1 1 auto;    
   align-items: flex-start;
   margin-top: 0.7%;
 }
@@ -192,6 +194,8 @@ img {
 #item-c {
   /* Does not grow, shrinks as needed, based on content */
   flex: 0 1 auto; 
-    justify-content: flex-end; /* right-aligned */
+  justify-content: flex-end; /* right-aligned */
   margin-right: 0.7%;
+  height: 100%;
+  width: auto;
 }
