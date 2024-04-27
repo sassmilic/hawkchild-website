@@ -1,0 +1,37 @@
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "left right"
+    ". socialLinks"
+    "logos rights"
+    "bottom bottom";
+  gap: 20px; 
+  padding: 20px;
+}
+
+.footer-left {
+    grid-area: left;
+}
+
+.footer-right {
+  grid-area: right;
+}
+
+.footer-social-links {
+  grid-area: socialLinks;
+}
+
+.footer-logos { 
+  grid-area: logos;
+}
+
+.footer-rights { 
+  grid-area: rights;
+}
+
+.footer-logo-text {
+  grid-area: bottom;
+}
+

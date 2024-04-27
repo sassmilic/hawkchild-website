@@ -16,8 +16,13 @@ body {
   font-size: 28px;
 }
 
-h1 {
+h1, h2 {
   font-family: "Major Mono Display", monospace;
+  text-transform: lowercase;  
+}
+
+h2 {
+    font-size: 2em;
 }
 
 .site-container {
@@ -62,25 +67,18 @@ h2 {
     scrollbar-color: black #e7f0fa; /* thumb and track color */
 }
 
-.mobile-notice {
-  display: none; /* Default to not displayed */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: red;
-  font-size: 42px; /* Large enough to be readable on mobile */
-  z-index: 1000;
-  width: 100%;
-  text-align: center;
+.mobile-warning {
+  display: none; /* Hidden by default */
+  color: red; /* Red text color */
+  text-align: center; /* Center the text */
+  padding: 10px; /* Add some padding */
+  font-size: 100px; /* Set a font-size */
 }
 
-@media (max-width: 768px) {
-  .mobile-notice {
+/* Media query for mobile screens, typically less than 768px */
+@media screen and (max-width: 767px) {
+  .mobile-warning {
     display: block; /* Show only on mobile screens */
-  }
-  .content-wrap {
-    display: none;
   }
 }
 

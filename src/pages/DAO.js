@@ -5,8 +5,8 @@ import GetHsTKKYButton from '../components/GetHsTKKYButton.js';
 
 const AboutPage = () => {
     return (
-        <div className="about-page-container">
-            <div className="about-page-text-wrap">
+        <div className="dao-page-container">
+            <div className="dao-page-text-wrap">
                 <div className="dao-page-title-container">
                     <h1>About</h1>
                     <GetHsTKKYButton />

@@ -3,18 +3,20 @@
   margin: 5em calc(100% * var(--margin-as-ratio-of-width));
   margin-left: 25%;
   height: 100%;      /* Set the height of the div */
-}
-
-.contact-page-container h1 {
   text-align: center;
 }
 
+.contact-page-text-wrap {
+  margin-top: 1em;
+}
+
+/*
 .contact-page-text-wrap {
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 0 1em;
-  background-image: url('../assets/pfp.jpeg'); /* Path to your image */
+  background-image: url('../assets/pfp.jpeg'); 
   background-repeat: repeat;
   background-color: rgba(255,255,255,0.8);
   background-blend-mode: lighten;
@@ -25,3 +27,4 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
+*/

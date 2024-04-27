@@ -47,11 +47,12 @@ const Events = () => {
 
     return (
         <div className="event-page-container">
-            <h1>Upcoming Events</h1>
+            <h1>Events</h1>
+            <h2>Upcoming</h2>
             <div className="spreadsheet-container">
                 <Table data={upcomingTableData} onSort={(key) => onSort(key, true)} sortConfig={upcomingSortConfig} />
             </div>
-            <h1>Past Events</h1>
+            <h2>Past</h2>
             <div className="spreadsheet-container">
                 <Table data={pastTableData} onSort={(key) => onSort(key, false)} sortConfig={pastSortConfig} />
             </div>

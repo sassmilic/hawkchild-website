@@ -1,20 +1,35 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 import './reset.css';
 import './App.css';
 import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-import FooterMain from './components/FooterMain';
+import Footer2 from './components/Footer2';
+
+const MobileWarning = () => {
+  return (
+    <div className="mobile-warning">
+      Not optimized for mobile
+    </div>
+  );
+};
+
+/* don't show footer on home page */
+const ShowFooter = () => {
+  const location = useLocation();
+  return location.pathname === '/' ? null : <Footer2 />;
+};
 
 function App() {
   return (
     <Router>
       <div className="site-container">
         <NavBar />
+        <MobileWarning />
         <main>
             <AppRoutes />
         </main>
+        <ShowFooter />
       </div>
     </Router>
   );

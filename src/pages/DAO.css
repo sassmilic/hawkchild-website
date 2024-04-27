@@ -1,4 +1,4 @@
-.about-page-container {
+.dao-page-container {
     /*margin: 5em calc(100% * var(--margin-as-ratio-of-width));*/
     display: flex;
     flex-direction: column;
@@ -12,24 +12,24 @@
   align-items: center;
 }
 
-.about-page-container p {
+.dao-page-container p {
   color: black;
 }
 
-.about-page-container br {
+.dao-page-container br {
   margin-bottom: 1em;
 }
 
-.about-page-text-wrap {
+.dao-page-text-wrap {
     width: 100%;
 }
 
-.about-page-text-wrap p {
+.dao-page-text-wrap p {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
-.about-page-container h2 {
+.dao-page-container h2 {
   font-size: 3em;
   font-style: italic;
 }
