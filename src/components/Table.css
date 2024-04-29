@@ -1,7 +1,8 @@
 table {
   width: 100%; 
   border-collapse: collapse; /* Collapse borders so that they don't double up */
-  font-family: 'Cutive Mono', monospace;
+      font-family: 'SourceCodePro', monospace;
+      font-weight: 300;
 }
 
 th, td {

@@ -1,4 +1,5 @@
 .footer-container {
+    margin: 0 calc(100vw * var(--margin-as-ratio-of-width));
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
@@ -9,6 +10,43 @@
     "bottom bottom";
   gap: 20px; 
   padding: 20px;
+  background-color: black;
+  color: #E6E6E6;
+}
+
+.footer-left {
+  margin-left: 1em;
+  margin-bottom: 5em;
+}
+
+.footer-container a {
+  font-family: 'SourceCodePro', monospace;
+  color: white;
+  color: lightgrey;
+  color: #E6E6E6;
+  text-decoration-thickness: 1px;
+}
+
+.footer-container a:hover {
+    color: var(--light-blue-accent); /* Darker shade on hover, adjust as needed */
+}
+
+.footer-container h2 a {
+  text-decoration-thickness: 2px;
+}
+
+.footer-container li {
+  text-transform: lowercase;
+  font-size: 1em;  /* Sets the size of the text */
+  padding: 8px 0;  /* Adds padding above and below each item */
+  margin-bottom: 5px;  /* Adds a small margin below each item */
+      list-style-type: none; /* Removes default bullet points */
+    padding-left: 0px; /* Removes default padding */
+  margin-left: -1em;
+}
+
+.footer-container li::before {
+    content: "→ ";
 }
 
 .footer-left {
@@ -21,17 +59,75 @@
 
 .footer-social-links {
   grid-area: socialLinks;
+  margin-right: 1em;
+}
+
+.footer-social-links ul {
+    display: flex;        /* Turns flexbox on for this unordered list */
+    justify-content: flex-end; /* Aligns the flex items (list items) to the right */
+    list-style-type: none; /* Removes default list bullet points */
+    padding: 0;           /* Removes default padding */
+}
+
+.footer-social-links li {
+    margin-left: 1em; /* Adds space between the links */
+}
+
+
+.footer-social-links li::before {
+    content: "";
+}
+
+.footer-social-links img {
+    width: 3em; /* Width of icons */
+    height: auto; /* Height of icons */
+  filter: invert(0.9);
+}
+
+.footer-social-links a:hover img {
+    fill: #555; /* SVG color on hover */
+    filter: invert(0.5);
+}
+
+.footer-logos,
+.footer-rights {
+    align-self: end; /* Aligns these elements to the bottom of their grid area */
 }
 
 .footer-logos { 
   grid-area: logos;
+    display: flex; /* Sets the display to flex which lays out children in a row by default */
+    gap: 20px; /* Optional: adds space between the images */
+  align-items: center;
+}
+
+.footer-logos img {
+  margin-left: 1em;
+  height: 3.5em;
+  width: auto;
+  filter: invert(0.8);
+}
+
+.glasgow-logo {
+  margin-bottom: 0.5em;
 }
 
 .footer-rights { 
   grid-area: rights;
+  text-align: right;
+  font-size: 2em;
 }
 
 .footer-logo-text {
   grid-area: bottom;
 }
 
+.footer-logo-text {
+  align-self: end;
+  margin-top: 1em;
+}
+
+.footer-logo-text .simple-footer {
+ width: 100%;
+ margin: 0;
+}

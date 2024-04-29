@@ -3,6 +3,9 @@ import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 import './reset.css';
 import './App.css';
+import './assets/fonts/charter_regular.woff2';
+import './assets/fonts/SourceCodePro-Regular.ttf.woff2';
+import './assets/fonts/SourceCodePro-Light.ttf.woff2';
 import NavBar from './components/NavBar';
 import Footer2 from './components/Footer2';
 

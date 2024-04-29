@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import LogoMarquee from "../components/TitleAndMarquee/LogoMarquee";
 import ContentLayer from "../components/ContentLayer";
 import ContentMarquee from "../components/ContentMarquee"
+import SimpleFooter from '../components/SimpleFooter'; 
 import "./Home.css";
 
 import DiyText from "../assets/title_text_diy.svg";
@@ -130,17 +131,7 @@ function Home() {
         <div className="column right-column">
             <ContentMarquee mediaPaths={pics} direction="down" speed={MARQUEE_SPEED} />
         </div>
-        <div className="simple-footer">
-            <div className="footer-item" id="item-a">
-                <img src="/upside-down-logo-text/diy.png" alt="DIY"/>
-            </div>
-            <div className="footer-item" id="item-b">
-                <img src="/upside-down-logo-text/underscore.png" alt="underscore" style={{width: '100%', height: '15%'}}/>
-            </div>
-            <div className="footer-item" id="item-c">
-                <img src="/upside-down-logo-text/hawkchild.png" alt="HAWKCHILD"/>
-            </div>
-        </div>
+        <SimpleFooter />
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
         </div>
