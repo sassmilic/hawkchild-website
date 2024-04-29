@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer-container">
       <div className="footer-left">
           <div className="footer-back-button">
-            <h2><a href="/">BACK TO HOME ←</a></h2>
+            <h2><a href="/">BACK TO HOME</a> ←</h2>
           </div>
           <div className="footer-sitemap">
             <h2>Sitemap</h2>

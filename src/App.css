@@ -105,8 +105,19 @@ main {
 
 /* Media query for mobile screens, typically less than 768px */
 @media screen and (max-width: 767px) {
-  .mobile-warning {
-    display: block; /* Show only on mobile screens */
-  }
+    body {
+      font-family: "Charter", serif;
+      font-size: 24px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'SourceCodePro', monospace;
+      text-transform: lowercase;  
+    }
+
+    h2 {
+        font-size: 2.5em;
+        font-weight: 300;
+    }
 }
 

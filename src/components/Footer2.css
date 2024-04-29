@@ -131,3 +131,43 @@
  width: 100%;
  margin: 0;
 }
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Makes the grid have one column */
+        grid-template-areas:
+            "left"
+            "right"
+            "socialLinks"
+            "logos"
+            "rights"
+            "bottom";
+          gap: 0px; 
+          padding: 0.5em 2em;
+    }
+    .footer-left {
+      margin-left: 0;
+      margin-bottom: 0;
+    }
+    .footer-container h2 {
+        font-size: 2em;
+        margin-top: 0.5em;
+    }
+    .footer-social-links {
+      display: none;
+    }
+    .footer-logos {
+      margin: 3em 0;
+      justify-content: space-between;
+    }
+    .footer-logos img {
+      margin-left: 0;
+      height: 3em;
+      width: auto;
+      filter: invert(0.8);
+    }
+    .footer-rights { 
+      text-align: center;
+      font-size: 1.5em;
+    }
+}
