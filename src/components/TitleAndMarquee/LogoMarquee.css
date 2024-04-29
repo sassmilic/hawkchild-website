@@ -4,12 +4,11 @@
     display: flex;
     gap: 7rem;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.5);
+    background-color: black;
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);
     mix-blend-mode: difference;
-    background-blend-mode: difference;
-    z-index: 100;
       box-shadow: 0px 0px 1px 0px black;
 
 }
@@ -51,6 +50,9 @@
   height: calc(0.25 * 100vw * var(--letter-height-as-ratio-of-width));
   display: inline-block;
   opacity: 100%;
+  filter: invert(1);
+    mix-blend-mode: difference;
+    mix-blend-mode: hard-light;
 }
 
 @keyframes slide {

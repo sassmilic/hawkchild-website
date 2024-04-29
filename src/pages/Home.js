@@ -128,6 +128,9 @@ function Home() {
         <div className="column left-full-column">
             <ContentMarquee mediaPaths={posters} speed={MARQUEE_SPEED} />
         </div>
+        <div className="marquee-container">
+          <LogoMarquee />
+        </div>
         <div className="column right-column">
             <ContentMarquee mediaPaths={pics} direction="down" speed={MARQUEE_SPEED} />
         </div>
@@ -137,9 +140,6 @@ function Home() {
         </div>
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
-        </div>
-        <div className="marquee-container">
-          <LogoMarquee />
         </div>
       </div>
     </>
