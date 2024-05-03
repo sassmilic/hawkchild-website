@@ -24,41 +24,16 @@ const ShowFooter = () => {
 };
 
 function App() {
-  const footerRef = useRef(null);
-  const [navOpacity, setNavOpacity] = useState(1);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (footerRef.current) {
-        const footerPos = footerRef.current.getBoundingClientRect().top;
-        console.log(footerPos);
-        const screenHeight = window.innerHeight;
-        const triggerHeight = screenHeight - 100; // Example: 100px from the bottom of the viewport
-
-        if (footerPos <= triggerHeight) {
-          setNavOpacity(0.5); // Change opacity when footer is 100px from bottom
-        } else {
-          setNavOpacity(1); // Reset opacity when not at trigger point
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   return (
     <Router>
       <div className="site-container">
-        <NavBar opacity={navOpacity} />
+        <NavBar />
         <MobileWarning />
         <main>
           <AppRoutes />
         </main>
-        <Footer2 ref={footerRef} />
+        <ShowFooter />
       </div>
     </Router>
   );
