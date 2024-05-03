@@ -28,6 +28,7 @@ img {
 .viewport {
   position: absolute;
   top: calc(var(--navbar-height));
+  top: 4%;
   right: 0;
   height: calc(100vh - var(--navbar-height));
   max-height: calc(100vh - var(--navbar-height));

@@ -16,10 +16,10 @@
 
 @keyframes marqueeUp {
   0% {
-    transform: translateY(75vw);
+    transform: translateY(25vw);
   }
   100% {
-    transform: translateY(calc(-100% + 75vw));
+    transform: translateY(calc(-100% + 25vw));
   }
 }
 
