@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types"; // Import PropTypes
 
 const LazyMedia = ({ renderMedia, containerHeight, position = "top" }) => {
   const containerRef = useRef();
@@ -13,8 +14,12 @@ const LazyMedia = ({ renderMedia, containerHeight, position = "top" }) => {
               const mediaElement = renderMedia();
               // Adjust the append method based on the position
               if (position === "top") {
-                entry.target.insertBefore(mediaElement, entry.target.firstChild);
-              } else { // default to "bottom"
+                entry.target.insertBefore(
+                  mediaElement,
+                  entry.target.firstChild,
+                );
+              } else {
+                // default to "bottom"
                 entry.target.appendChild(mediaElement);
               }
             }
@@ -25,7 +30,7 @@ const LazyMedia = ({ renderMedia, containerHeight, position = "top" }) => {
           }
         });
       },
-      { rootMargin: "50px" }
+      { rootMargin: "50px" },
     );
 
     if (containerRef.current) {
@@ -38,13 +43,19 @@ const LazyMedia = ({ renderMedia, containerHeight, position = "top" }) => {
   // Adjust the container style to use flex and justify content based on the position
   const containerStyle = {
     height: containerHeight,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: position === 'top' ? 'flex-start' : 'flex-end'
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: position === "top" ? "flex-start" : "flex-end",
   };
 
   return <div ref={containerRef} style={containerStyle}></div>;
 };
 
-export default LazyMedia;
+// Define PropTypes
+LazyMedia.propTypes = {
+  renderMedia: PropTypes.func.isRequired,
+  containerHeight: PropTypes.string.isRequired,
+  position: PropTypes.oneOf(["top", "bottom"]),
+};
 
+export default LazyMedia;

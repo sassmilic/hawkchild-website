@@ -1,5 +1,5 @@
-import React from 'react';
-import './LogoMarquee.css'; // Make sure the path matches where your CSS file is located
+import React from "react";
+import "./LogoMarquee.css"; // Make sure the path matches where your CSS file is located
 
 import woesum from "../../assets/artist-logos/woesum.png";
 import seretide from "../../assets/artist-logos/seretide.png";
@@ -56,4 +56,3 @@ const LogoMarquee = () => {
 };
 
 export default LogoMarquee;
-

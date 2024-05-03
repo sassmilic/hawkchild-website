@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./NavBar.css";
 
 const NavBar = ({ opacity }) => {
@@ -20,6 +21,10 @@ const NavBar = ({ opacity }) => {
       </div>
     </nav>
   );
-}
+};
+
+NavBar.propTypes = {
+  opacity: PropTypes.number.isRequired,
+};
 
 export default NavBar;

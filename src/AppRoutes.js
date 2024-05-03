@@ -1,10 +1,10 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Events from './pages/Events';
-import DaoPage from './pages/DAO';
-import Contact from './pages/Contact';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Events from "./pages/Events";
+import DaoPage from "./pages/DAO";
+import Contact from "./pages/Contact";
 
 const AppRoutes = () => {
   return (
@@ -19,4 +19,3 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-

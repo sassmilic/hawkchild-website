@@ -1,8 +1,8 @@
-import React, { forwardRef } from "react";
-import "./Footer2.css"; // Make sure this is the path to your CSS file
+import React from "react";
+import "./Footer2.css";
 import SimpleFooter from "../components/SimpleFooter";
 
-const Footer = forwardRef((props, ref) => {
+const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-back-button">
@@ -75,12 +75,12 @@ const Footer = forwardRef((props, ref) => {
       </div>
       */}
       <div className="footer-logos">
-      <img className="footer-logo" src="/logo4.png" alt="HCD Logo" />
-      <img
-        className="footer-logo glasgow-logo"
-        src="/city-of-glasgow.png"
-        alt="Glasgow Logo"
-      />
+        <img className="footer-logo" src="/logo4.png" alt="HCD Logo" />
+        <img
+          className="footer-logo glasgow-logo"
+          src="/city-of-glasgow.png"
+          alt="Glasgow Logo"
+        />
       </div>
       <div className="footer-rights">
         <h4>©2024</h4>
@@ -91,6 +91,6 @@ const Footer = forwardRef((props, ref) => {
       </div>
     </footer>
   );
-});
+};
 
 export default Footer;
