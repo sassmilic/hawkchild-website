@@ -17,6 +17,7 @@
 
 .footer-container a {
   font-family: 'SourceCodePro', monospace;
+  font-weight: 300;
   color: white;
   color: black;
   text-decoration-thickness: 1px;
@@ -59,7 +60,8 @@
 
 .footer-container li {
   text-transform: lowercase;
-  font-size: 0.75em;  /* Sets the size of the text */
+  font-size: 0.75em;
+  font-weight: 300;
   padding: 0px 0;  /* Adds padding above and below each item */
   list-style-type: none; /* Removes default bullet points */
     padding-left: 0px; /* Removes default padding */
@@ -77,9 +79,6 @@
 }
 */
 
-.footer-container .footer-back-button a {
-    font-family: "Charter", serif;
-}
 
 .footer-social-links {
     display: flex;        /* Turns flexbox on for this unordered list */
