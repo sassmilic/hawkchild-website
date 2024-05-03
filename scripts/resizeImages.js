@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const imagesDirectory = './src/assets/media'; // Directory containing images
+const logosDirectory = './src/assets/artist-logos';
+const validExtensions = ['.png', '.jpg', '.jpeg', '.gif'];
 const outputDirectory = './public/media'; // Directory to output resized images
 
 // Ensure the output directory exists
@@ -16,6 +18,26 @@ const sizes = [
   { width: 1024 / 2, suffix: 'medium' },
   { width: 1200 / 2, suffix: 'large' }
 ];
+
+console.log('Resizing logos');
+const files = fs.readdirSync(logosDirectory);
+for (const file of files) {
+    console.log(file);
+    const filePath = path.join(logosDirectory, file);
+    const extension = path.extname(file);
+    if (validExtensions.includes(extension)) {
+        const filenameWithoutExt = path.basename(file, extension);
+        const outputFilePath = path.join(logosDirectory, `${filenameWithoutExt}.webp`);
+
+        if (!fs.existsSync(outputFilePath)) {
+            const resizeCommand = `convert "${filePath}" -resize x100 "${outputFilePath}"`;
+            execSync(resizeCommand);
+            console.log(`Resized ${file} to a height of 100 pixels and saved as WebP.`);
+        } else {
+            console.log(`Skipped resizing ${file}, output file already exists.`);
+        }
+    }
+}
 
 fs.readdirSync(imagesDirectory).forEach(file => {
   const filePath = path.join(imagesDirectory, file);

@@ -1,20 +1,20 @@
 import React from "react";
 import "./LogoMarquee.css"; // Make sure the path matches where your CSS file is located
 
-import woesum from "../assets/artist-logos/woesum.png";
-import seretide from "../assets/artist-logos/seretide.png";
-import markyb from "../assets/artist-logos/marky-b.png";
-import yunglean from "../assets/artist-logos/yung-lean.png";
-import evian from "../assets/artist-logos/evian-christ.png";
-import dark0 from "../assets/artist-logos/dark0.png";
-import malibu from "../assets/artist-logos/malibu.png";
-import kamixlo from "../assets/artist-logos/kamixlo.png";
-import casualGabberz from "../assets/artist-logos/casual-gabberz.png";
-import clouds from "../assets/artist-logos/clouds.png";
-import femi from "../assets/artist-logos/femi.png";
-import oliXl from "../assets/artist-logos/oli-xl.png";
-import doss from "../assets/artist-logos/doss.png";
-import mechatok from "../assets/artist-logos/mechatok.png";
+import woesum from "../assets/artist-logos/woesum.webp";
+import seretide from "../assets/artist-logos/seretide.webp";
+import markyb from "../assets/artist-logos/marky-b.webp";
+import yunglean from "../assets/artist-logos/yung-lean.webp";
+import evian from "../assets/artist-logos/evian-christ.webp";
+import dark0 from "../assets/artist-logos/dark0.webp";
+import malibu from "../assets/artist-logos/malibu.webp";
+import kamixlo from "../assets/artist-logos/kamixlo.webp";
+import casualGabberz from "../assets/artist-logos/casual-gabberz.webp";
+import clouds from "../assets/artist-logos/clouds.webp";
+import femi from "../assets/artist-logos/femi.webp";
+import oliXl from "../assets/artist-logos/oli-xl.webp";
+import doss from "../assets/artist-logos/doss.webp";
+import mechatok from "../assets/artist-logos/mechatok.webp";
 
 const LogoMarquee = () => {
   return (
