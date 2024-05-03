@@ -49,7 +49,7 @@ body {
 
 h1, h2, h3 {
   font-family: 'SourceCodePro', monospace;
-  text-transform: lowercase;  
+  font-family: "Charter", serif;
 }
 
 h2 {

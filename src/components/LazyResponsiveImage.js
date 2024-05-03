@@ -2,21 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import LazyMedia from "./LazyMedia";
 
-const LazyResponsiveImage = ({
-  containerHeight,
-  src,
-  alt,
-  position = "top",
-}) => {
+const LazyResponsiveImage = ({ containerHeight, src, position = "top" }) => {
   // Assume src is something like 'path/to/image.jpg'
-  const extension = src.substring(src.lastIndexOf("."), src.length); // e.g., '.jpg'
+  //const extension = src.substring(src.lastIndexOf("."), src.length); // e.g., '.jpg'
   const base = src.substring(0, src.lastIndexOf(".")); // e.g., 'path/to/image'
 
   const srcSet = `
-    ${base}_xsmall${extension} 480w,
-    ${base}_small${extension} 768w,
-    ${base}_medium${extension} 1024w,
-    ${base}_large${extension} 1200w,
+    ${base}_xsmall.webp 480w,
+    ${base}_small.webp 768w,
+    ${base}_medium.webp 1024w,
+    ${base}_large.webp 1200w,
     ${src} 1200w`; // Include original as the highest resolution
 
   return (
@@ -26,7 +21,7 @@ const LazyResponsiveImage = ({
         img.src = src; // Fallback src
         img.srcset = srcSet.trim();
         img.sizes = "100%";
-        img.alt = alt;
+        img.alt = base;
         return img;
       }}
       containerHeight={containerHeight}

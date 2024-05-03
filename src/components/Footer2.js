@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-back-button">
-        <h4>Back to Home</h4>
+        <h4>back to home</h4>
         <ul>
           <li>
             <a href="/">←</a>
@@ -14,7 +14,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="footer-sitemap">
-        <h4>Sitemap</h4>
+        <h4>sitemap</h4>
         <ul>
           <li>
             <a href="/about">About</a>
@@ -31,7 +31,7 @@ const Footer = () => {
         </ul>
       </div>
       <div className="footer-socials">
-        <h4>Socials</h4>
+        <h4>socials</h4>
         <ul>
           <li>
             <a href="//twitter.com">Twitter</a>
@@ -49,7 +49,7 @@ const Footer = () => {
       </div>
       <div className="footer-credits">
         <h4>
-          Development &<br />
+          development &<br />
           design
         </h4>
         <ul>
@@ -84,7 +84,7 @@ const Footer = () => {
       </div>
       <div className="footer-rights">
         <h4>©2024</h4>
-        <h4>All rights reserved.</h4>
+        <h4>all rights reserved</h4>
       </div>
       <div className="footer-logo-text">
         <SimpleFooter />

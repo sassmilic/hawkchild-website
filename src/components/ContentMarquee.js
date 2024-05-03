@@ -1,8 +1,7 @@
 import React from "react";
 import "./ContentMarquee.css";
 //import LazyImage from "./LazyImage"; // Remove unused import
-import LazyResponsiveImage from "./LazyImage"; // Import LazyResponsiveImage instead
-import LazyVideo from "./LazyVideo";
+import LazyResponsiveImage from "./LazyResponsiveImage"; // Import LazyResponsiveImage instead
 import PropTypes from "prop-types"; // Import PropTypes
 
 const ContentMarquee = ({
@@ -12,21 +11,12 @@ const ContentMarquee = ({
   direction = "up",
 }) => {
   const renderMedia = (mediaPath, index) => {
-    const isVideo = mediaPath.endsWith(".mp4");
     const position = direction === "down" ? "bottom" : "top";
-    return isVideo ? (
-      <LazyVideo
-        containerHeight={containerHeight}
-        key={index}
-        src={mediaPath}
-        alt={`Video ${index}`}
-      />
-    ) : (
+    return (
       <LazyResponsiveImage
         containerHeight={containerHeight}
         key={index}
         src={mediaPath}
-        alt={`Image ${index}`}
         position={position}
       />
     );
