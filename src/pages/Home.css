@@ -143,6 +143,9 @@ img {
 
 .viewport .simple-footer {
   position: fixed;
+  margin-top: 1em;
+  height: 30px;
+  margin-bottom: 5px;
   filter: invert(1);
 }
 
