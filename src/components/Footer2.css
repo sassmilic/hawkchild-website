@@ -1,29 +1,24 @@
 .footer-container {
-    margin: 0 calc(100vw * var(--margin-as-ratio-of-width));
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  grid-template-areas: 
-    "left right"
-    ". socialLinks"
-    "logos rights"
-    "bottom bottom";
-  gap: 20px; 
-  padding: 20px;
-  background-color: black;
-  color: #E6E6E6;
+  margin: 0 calc(100vw * var(--margin-as-ratio-of-width));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(100vw * var(--gap-as-ratio-of-width));
+  padding: 0px;
+  background-color: white;
+  color: black;
+  border-top: 1px solid;
+  margin-top: 3em;
 }
 
-.footer-left {
-  margin-left: 1em;
-  margin-bottom: 5em;
+.footer-container h4 {
+  font-size: 0.75em;
 }
 
 .footer-container a {
   font-family: 'SourceCodePro', monospace;
   color: white;
-  color: lightgrey;
-  color: #E6E6E6;
+  color: black;
   text-decoration-thickness: 1px;
 }
 
@@ -31,57 +26,73 @@
     color: var(--light-blue-accent); /* Darker shade on hover, adjust as needed */
 }
 
+.footer-back-button, .footer-sitemap, .footer-socials, .footer-credits, .footer-rights {
+  display: flex;
+  gap: calc(100vw * var(--gap-as-ratio-of-width));
+  width: 100%;
+}
+
+.footer-back-button h4, .footer-sitemap h4, .footer-socials h4, .footer-credits h4, .footer-rights h4{
+  width: 50%;
+  text-align: right;
+}
+
+.footer-back-button ul, .footer-sitemap ul, .footer-socials ul, .footer-credits ul, .footer-rights ul{
+  width: 50%;
+}
+
+.footer-back-button {
+  margin-top: 1em;
+}
+
+.footer-credits h4 br::after {
+  content: "";
+  display: block;
+  margin-top: -10px; /* Adjust this value as needed */
+}
+
+
 .footer-container h2 a {
   text-decoration-thickness: 2px;
 }
 
+
 .footer-container li {
   text-transform: lowercase;
-  font-size: 1em;  /* Sets the size of the text */
-  padding: 8px 0;  /* Adds padding above and below each item */
-  margin-bottom: 5px;  /* Adds a small margin below each item */
-      list-style-type: none; /* Removes default bullet points */
+  font-size: 0.75em;  /* Sets the size of the text */
+  padding: 0px 0;  /* Adds padding above and below each item */
+  list-style-type: none; /* Removes default bullet points */
     padding-left: 0px; /* Removes default padding */
-  margin-left: -1em;
+  margin-left: -2em;
 }
 
+
+/*
 .footer-container li::before {
     content: "→ ";
 }
 
-.footer-left {
-    grid-area: left;
+.footer-container .footer-back-button li::before {
+  content: "";
 }
+*/
 
-.footer-right {
-  grid-area: right;
+.footer-container .footer-back-button a {
+    font-family: "Charter", serif;
 }
 
 .footer-social-links {
-  grid-area: socialLinks;
-  margin-right: 1em;
-}
-
-.footer-social-links ul {
     display: flex;        /* Turns flexbox on for this unordered list */
-    justify-content: flex-end; /* Aligns the flex items (list items) to the right */
-    list-style-type: none; /* Removes default list bullet points */
-    padding: 0;           /* Removes default padding */
-}
-
-.footer-social-links li {
-    margin-left: 1em; /* Adds space between the links */
-}
-
-
-.footer-social-links li::before {
-    content: "";
+    justify-content: center;
+    align-items: center;
+  gap: calc(100vw * var(--gap-as-ratio-of-width));
+  margin: 0.5em 0;
 }
 
 .footer-social-links img {
-    width: 3em; /* Width of icons */
+    width: 2em; /* Width of icons */
     height: auto; /* Height of icons */
-  filter: invert(0.9);
+  filter: invert(0.1);
 }
 
 .footer-social-links a:hover img {
@@ -89,33 +100,26 @@
     filter: invert(0.5);
 }
 
-.footer-logos,
-.footer-rights {
-    align-self: end; /* Aligns these elements to the bottom of their grid area */
-}
-
-.footer-logos { 
-  grid-area: logos;
+.footer-logos {
+    width: 15em;
     display: flex; /* Sets the display to flex which lays out children in a row by default */
-    gap: 20px; /* Optional: adds space between the images */
+  gap: calc(100vw * var(--gap-as-ratio-of-width));
   align-items: center;
+  margin-top: 2.5em;
+  margin-bottom: 3em;
 }
 
-.footer-logos img {
-  margin-left: 1em;
-  height: 3.5em;
-  width: auto;
-  filter: invert(0.8);
+.footer-logo {
+  width: 50%;
+  filter: invert(0.3);
 }
 
 .glasgow-logo {
   margin-bottom: 0.5em;
 }
 
-.footer-rights { 
-  grid-area: rights;
-  text-align: right;
-  font-size: 2em;
+.footer-rights h4:nth-of-type(2) {
+    text-align: left;
 }
 
 .footer-logo-text {
@@ -123,51 +127,14 @@
 }
 
 .footer-logo-text {
-  align-self: end;
-  margin-top: 1em;
+    width: 100%;
 }
 
 .footer-logo-text .simple-footer {
- width: 100%;
- margin: 0;
-}
-
-@media (max-width: 768px) {
-    .footer-container {
-        grid-template-columns: 1fr; /* Makes the grid have one column */
-        grid-template-areas:
-            "left"
-            "right"
-            "socialLinks"
-            "logos"
-            "rights"
-            "bottom";
-          gap: 0px; 
-          padding: 0.5em 2em;
-    }
-    .footer-left {
-      margin-left: 0;
-      margin-bottom: 0;
-    }
-    .footer-container h2 {
-        font-size: 2em;
-        margin-top: 0.5em;
-    }
-    .footer-social-links {
-      display: none;
-    }
-    .footer-logos {
-      margin: 3em 0;
-      justify-content: space-between;
-    }
-    .footer-logos img {
-      margin-left: 0;
-      height: 3em;
-      width: auto;
-      filter: invert(0.8);
-    }
-    .footer-rights { 
-      text-align: center;
-      font-size: 1.5em;
-    }
+  margin-top: 1em;
+  height: 30px;
+  margin-left: 0;
+  margin-bottom: 5px;
+  width: 100%;
+  filter: invert(1);
 }
