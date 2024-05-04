@@ -20,7 +20,6 @@ const AboutPage = () => {
           driving force for independent music and art on a larger scale.
         </p>
       </div>
-      <div className="strategic-partners-container"></div>
     </div>
   );
 };

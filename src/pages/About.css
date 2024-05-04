@@ -6,9 +6,16 @@ h1 {
 .about-page-container {
     width: 100%;
     margin-top: 5em;
+    margin-bottom: 2em;
     display: flex;
     flex-direction: column;
     color: black;
+}
+
+@media screen and (max-width: 767px) {
+  .about-page-container {
+    margin-bottom: 0em;
+  }
 }
 
 .design {
@@ -35,3 +42,4 @@ h1 {
   margin-top: 2em;
   color: black;
 }
+

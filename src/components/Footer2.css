@@ -15,6 +15,15 @@
   font-size: 0.75em;
 }
 
+@media screen and (max-width: 767px) {
+  .footer-container a {
+    font-size: 1.3em;
+  }
+  .footer-container h4 {
+    font-size: 1em;
+  }
+}
+
 .footer-container a {
   font-family: 'SourceCodePro', monospace;
   font-weight: 300;
@@ -109,6 +118,12 @@
   margin-bottom: 2em;
 }
 
+@media screen and (max-width: 767px) {
+  .footer-logos {
+    width: 18em;
+  }
+}
+
 .footer-logo {
   width: 50%;
   filter: invert(0.3);
@@ -144,3 +159,10 @@
   width: 100%;
   filter: invert(1);
 }
+
+@media screen and (max-width: 767px) {
+  .footer-logo-text .simple-footer {
+    margin-top: 2em;
+  }
+}
+
