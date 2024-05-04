@@ -5,25 +5,15 @@
   text-align: center;
 }
 
+@media screen and (max-width: 767px) {
+  .contact-page-container {
+    margin-top: 3em;
+    margin-bottom: 0em;
+  }
+}
+
+
 .contact-page-text-wrap {
   margin-top: 1em;
 }
 
-/*
-.contact-page-text-wrap {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  padding: 0 1em;
-  background-image: url('../assets/pfp.jpeg'); 
-  background-repeat: repeat;
-  background-color: rgba(255,255,255,0.8);
-  background-blend-mode: lighten;
-}
-
-.contact-page-text-wrap div {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-*/
