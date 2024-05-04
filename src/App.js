@@ -9,10 +9,6 @@ import "./assets/fonts/SourceCodePro-Light.ttf.woff2";
 import NavBar from "./components/NavBar";
 import Footer2 from "./components/Footer2";
 
-const MobileWarning = () => {
-  return <div className="mobile-warning">Not optimized for mobile</div>;
-};
-
 /* don't show footer on home page */
 const ShowFooter = () => {
   const location = useLocation();
@@ -24,7 +20,6 @@ function App() {
     <Router>
       <div className="site-container">
         <NavBar />
-        <MobileWarning />
         <main>
           <AppRoutes />
         </main>

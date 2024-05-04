@@ -1,0 +1,165 @@
+.background-noise {
+  position: relative;
+  overflow: hidden;
+  height: calc(100vh - var(--navbar-height));
+  width: 100%;
+  background: 
+    repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%)
+      60% 60% / 200vw 200vh,
+    repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%)
+      40% 40% / 200vw 200vh;
+   background-blend-mode: difference;
+   animation: noise .2s infinite alternate;
+}
+@keyframes noise {
+  100% {background-position: 50% 0, 60% 50%}
+}
+
+@media (max-width: 768px) {
+    .background-noise {
+        display: none; /* hides the background noise on small screens */
+    }
+}
+
+img {
+  width: 100%;
+}
+
+.viewport {
+  position: absolute;
+  top: calc(var(--navbar-height));
+  top: 4%;
+  right: 0;
+  height: calc(100vh - var(--navbar-height));
+  max-height: calc(100vh - var(--navbar-height));
+  overflow: hidden;
+  width: 100%;
+  background-color: white;
+  opacity: 95%;
+}
+
+/* ==========================================================================
+ * HAWKCHILD DIY Title Text
+ * ==========================================================================
+ * Handles styling for the HAWKCHILD DIY title text
+ * 
+ * Notes:
+ * - "HAWK", "CHILD", and "DIY" are seperate SVGs. This is to enable different
+ *   z-indices for each of them.
+ * ========================================================================== */
+
+.viewport-portrait .title-text {
+  position: fixed;
+  filter: invert(100%);
+  background-blend-mode: difference;
+  mix-blend-mode: difference;
+  /* ensure pointer event passes through to elements underneath */
+  pointer-events: none;
+}
+
+.viewport-portrait .title-text.hawk-svg,
+.viewport-portrait .title-text.child-svg {
+  width: 100%; 
+}
+
+.viewport-portrait .title-text.hawk-svg {
+  top: calc(50vh - 250vw * var(--letter-height-as-ratio-of-width));
+}
+
+.viewport-portrait .title-text.child-svg {
+  top: calc(50vh + 50vw * var(--letter-height-as-ratio-of-width));
+}
+
+.viewport-portrait .title-text.diy-svg {
+  top: calc(50vh + 100vw * var(--letter-height-as-ratio-of-width));
+  top: calc(50vh);
+  top: calc(50vh + 320vw * var(--letter-height-as-ratio-of-width));
+  right: 0;
+  width: 21.5%;
+}
+
+.title-text.hawk-svg {
+  left: 0;
+}
+
+.title-text.child-svg {
+  right: 0;
+}
+
+/* ==========================================================================
+ * Content Columns
+ * ==========================================================================
+ * Handles styling for the columns with "scrolling" images/gifs
+ * 
+ * Notes:
+ * - ...
+ * ========================================================================== */
+
+.left-full-column {
+  margin-left: calc(100vw * var(--margin-as-ratio-of-width));
+  width: calc(50vw - 100vw * var(--margin-as-ratio-of-width) - 50vw * var(--gap-as-ratio-of-width) - 0.2vw);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.left-full-column img {
+  border: 5px solid black;
+}
+
+.viewport-portrait .right-column {
+  position: absolute;
+  top: 0;
+  margin-left: calc(50vw + 50vw * var(--gap-as-ratio-of-width) + 0.2vw);
+  margin-left: 0; 
+  width: 60%;
+  background-blend-mode: difference;
+  mix-blend-mode: difference;
+}
+
+.right-column img {
+  border: 1px solid var(--light-blue-accent);
+}
+
+.right-half-column {
+  float: right;
+  margin-right: calc(100vw * var(--margin-as-ratio-of-width));
+  width: 21.2vw;
+  background-color: black;
+  opacity: 90%;
+}
+
+.right-half-column img {
+  box-shadow: 15px 15px 5px black;
+}
+
+/* ==========================================================================
+ * Logo Marquee
+ * ==========================================================================
+ * Handles styling for the scrolling logo marquee
+ * 
+ * Notes:
+ * - ...
+ * ========================================================================== */
+
+.viewport-portrait .marquee-container {
+  position: fixed;
+  right: 0;
+  /* `top` is same as "DIY" svg */
+  top: calc(45.5vh);
+  height: calc(100vw * var(--letter-height-as-ratio-of-width) + 1px);
+  height: calc(100vw * var(--letter-height-as-ratio-of-width) + 1px);
+  /* ensure pointer event passes through to elements underneath */
+  pointer-events: none;
+  filter: invert(1);
+}
+
+.viewport-portrait .simple-footer {
+  position: fixed;
+  margin-top: 1em;
+  height: 30px;
+  margin-bottom: 5px;
+  filter: invert(1);
+}
+
+@media (max-width: 768px) {
+}
