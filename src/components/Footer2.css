@@ -16,11 +16,14 @@
 }
 
 @media screen and (max-width: 767px) {
-  .footer-container a {
-    font-size: 1.3em;
-  }
   .footer-container h4 {
     font-size: 1em;
+  }
+ .footer-container ul {
+    margin-top: 0.1em;
+  }
+ .footer-container a {
+    font-size: 1.3em;
   }
 }
 
@@ -38,6 +41,7 @@
 
 .footer-back-button, .footer-sitemap, .footer-socials, .footer-credits, .footer-rights {
   display: flex;
+  align-items: center;
   gap: calc(100vw * var(--gap-as-ratio-of-width));
   width: 100%;
 }
@@ -48,6 +52,11 @@
 }
 
 .footer-back-button ul, .footer-sitemap ul, .footer-socials ul, .footer-credits ul {
+  width: 50%;
+}
+
+.footer-sitemap ul, .footer-socials ul {
+  border-left: 1px solid black;
   width: 50%;
 }
 
@@ -73,7 +82,7 @@
   font-weight: 300;
   padding: 0px 0;  /* Adds padding above and below each item */
   list-style-type: none; /* Removes default bullet points */
-    padding-left: 0px; /* Removes default padding */
+    padding-left: 10px; /* Removes default padding */
   margin-left: -2em;
 }
 
@@ -118,15 +127,18 @@
   margin-bottom: 2em;
 }
 
+.footer-logo {
+  width: 50%;
+  filter: invert(0.3);
+}
+
 @media screen and (max-width: 767px) {
   .footer-logos {
     width: 18em;
   }
-}
-
-.footer-logo {
-  width: 50%;
-  filter: invert(0.3);
+  .footer-logo {
+    filter: invert(0.1);
+  }
 }
 
 .glasgow-logo {

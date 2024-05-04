@@ -5,6 +5,17 @@
   flex-direction: column;
 }
 
+@media screen and (max-width: 767px) {
+  .event-page-container {
+    margin-top: 3em;
+  }
+  .event-page-container h2 {
+    font-size: 28px;
+    font-weight: 100;
+  }
+}
+
+
 .event-page-container h1 {
   text-align: center;
 }
@@ -17,13 +28,6 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-}
-
-.buttons button {
-  margin-right: 1em;
-  font-size: 2em;
-  font-weight: 100;
-  text-align: left;
 }
 
 .button-selected {

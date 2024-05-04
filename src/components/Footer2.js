@@ -23,7 +23,7 @@ const Footer = () => {
             <a href="/events">Events</a>
           </li>
           <li>
-            <a href="/dao">Discord</a>
+            <a href="/dao">$hsTKKYTKKY</a>
           </li>
           <li>
             <a href="/contact">Contact</a>
@@ -41,6 +41,9 @@ const Footer = () => {
           </li>
           <li>
             <a href="//soundcloud.com">SoundCloud</a>
+          </li>
+          <li>
+            <a href="//discord.com">Discord</a>
           </li>
           <li>
             <a href="//facebook.com">Facebook</a>
