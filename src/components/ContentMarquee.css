@@ -12,6 +12,8 @@
 }
 
 .content-marquee .regular-img {
+      border: 1px solid var(--light-blue-accent);
+  filter: invert(1);
 }
 
 .animate-up {
