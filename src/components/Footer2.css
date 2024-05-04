@@ -132,11 +132,8 @@
 }
 
 .footer-logo-text {
-  grid-area: bottom;
-}
-
-.footer-logo-text {
     width: 100%;
+    margin-top: 0.5em;
 }
 
 .footer-logo-text .simple-footer {
