@@ -8,6 +8,10 @@
   animation-direction: alternate;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  gap: 50vh;
+}
+
+.content-marquee .regular-img {
 }
 
 .animate-up {

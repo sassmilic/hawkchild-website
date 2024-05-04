@@ -30,7 +30,10 @@ const LazyMedia = ({ renderMedia, containerHeight, position = "top" }) => {
           }
         });
       },
-      { rootMargin: "50px" },
+      {
+        rootMargin: "0px",
+        threshold: 0.01, // Triggers as soon as 1% of the target is visible
+      },
     );
 
     if (containerRef.current) {

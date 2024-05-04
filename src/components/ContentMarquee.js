@@ -8,17 +8,30 @@ const ContentMarquee = ({
   containerHeight = "75vw",
   speed,
   direction = "up",
+  lazy = true,
 }) => {
   const renderMedia = (mediaPath, index) => {
     const position = direction === "down" ? "bottom" : "top";
-    return (
-      <LazyResponsiveImage
-        containerHeight={containerHeight}
-        key={index}
-        src={mediaPath}
-        position={position}
-      />
-    );
+    if (lazy) {
+      return (
+        <LazyResponsiveImage
+          containerHeight={containerHeight}
+          key={index}
+          src={mediaPath}
+          position={position}
+        />
+      );
+    } else {
+      const base = mediaPath.substring(0, mediaPath.lastIndexOf(".")); // e.g., 'path/to/image'
+      return (
+        <img
+          className="regular-img"
+          key={index}
+          src={`${base}_xsmall.webp`}
+          alt="" // Consider providing an 'alt' attribute for accessibility
+        />
+      );
+    }
   };
 
   const directionClass = `animate-${direction}`;
@@ -45,6 +58,7 @@ ContentMarquee.propTypes = {
   containerHeight: PropTypes.string,
   speed: PropTypes.string.isRequired,
   direction: PropTypes.oneOf(["up", "down", "left", "right"]),
+  lazy: PropTypes.bool,
 };
 
 export default ContentMarquee;

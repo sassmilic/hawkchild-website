@@ -22,7 +22,7 @@
 }
 
 img {
-  width: 100%;
+  height: auto;
 }
 
 .viewport-portrait {
@@ -92,6 +92,11 @@ img {
  * Notes:
  * - ...
  * ========================================================================== */
+
+.viewport-portrait .right-col {
+  width: 50%;
+  margin-left: 25%;
+}
 
 .left-full-column {
   margin-left: calc(100vw * var(--margin-as-ratio-of-width));
