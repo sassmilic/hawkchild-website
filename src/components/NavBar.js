@@ -13,7 +13,10 @@ const NavBar = ({ opacity }) => {
         <div className="empty"></div>
         <button onClick={() => navigate("/events")}>events</button>
         <div className="empty"></div>
-        <button onClick={() => navigate("/DAO")}>$hstkkytkky</button>
+        <button onClick={() => navigate("/DAO")}>
+          <span className="hidden-on-mobile">$hstkkytkky</span>
+          <span className="visible-on-mobile">$</span>
+        </button>
       </div>
       <div className="right">
         <div className="empty"></div>

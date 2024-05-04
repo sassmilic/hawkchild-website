@@ -51,3 +51,16 @@ button:hover {
     text-decoration-color: black;
 }
 
+
+.visible-on-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hidden-on-mobile {
+    display: none;
+  }
+  .visible-on-mobile {
+    display: inline;
+  }
+}
