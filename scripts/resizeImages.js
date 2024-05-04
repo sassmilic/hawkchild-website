@@ -30,9 +30,9 @@ for (const file of files) {
         const outputFilePath = path.join(logosDirectory, `${filenameWithoutExt}.webp`);
 
         if (!fs.existsSync(outputFilePath)) {
-            const resizeCommand = `convert "${filePath}" -resize x100 "${outputFilePath}"`;
+            const resizeCommand = `convert "${filePath}" -resize x50 "${outputFilePath}"`;
             execSync(resizeCommand);
-            console.log(`Resized ${file} to a height of 100 pixels and saved as WebP.`);
+            console.log(`Resized ${file} to a height of 50 pixels and saved as WebP.`);
         } else {
             console.log(`Skipped resizing ${file}, output file already exists.`);
         }

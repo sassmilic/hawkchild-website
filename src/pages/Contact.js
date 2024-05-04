@@ -1,10 +1,11 @@
 import React from "react";
 import "./Contact.css";
+import DecorativeHeader from "../components/DecorativeHeader";
 
 const ContactPage = () => {
   return (
     <div className="contact-page-container">
-      <h1>Contact</h1>
+      <DecorativeHeader text="contact" />
       <div className="contact-page-text-wrap">hashim@hawkchild.com</div>
     </div>
   );

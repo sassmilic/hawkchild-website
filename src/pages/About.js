@@ -1,11 +1,12 @@
 import React from "react";
 import "./About.css";
+import DecorativeHeader from "../components/DecorativeHeader";
 
 const AboutPage = () => {
   return (
     <div className="about-page-container">
       <div className="about-page-text-wrap">
-        <h1>About</h1>
+        <DecorativeHeader text="About" />
         <p>
           Hawkchild DIY was formed by Hashim Ali at the young age of 15 in his
           bedroom in the Pollokshields area of Glasgow. Driven by a passion for

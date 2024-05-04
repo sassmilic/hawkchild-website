@@ -11,6 +11,12 @@ h1 {
     color: black;
 }
 
+.design {
+  width: 15%;
+  margin-top: -1em;
+  opacity: 0.9;
+}
+
 .about-page-text-wrap {
     width: 100%;
 }
@@ -26,6 +32,6 @@ h1 {
 }
 
 .about-page-text-wrap p {
-  margin-top: 1em;
+  margin-top: 2em;
   color: black;
 }

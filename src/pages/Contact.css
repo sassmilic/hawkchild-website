@@ -1,7 +1,6 @@
 .contact-page-container {
-  width: 50%;        /* Set the width of the div */
   margin: 5em calc(100% * var(--margin-as-ratio-of-width));
-  margin-left: 25%;
+  margin: 5em 0;
   height: 100%;      /* Set the height of the div */
   text-align: center;
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DecorativeHeader from "../components/DecorativeHeader";
 import Table from "./../components/Table";
 import "./Events.css";
 
@@ -62,7 +63,7 @@ const Events = () => {
 
   return (
     <div className="event-page-container">
-      <h1>events</h1>
+      <DecorativeHeader text="events" />
       <h2>upcoming</h2>
       <div className="spreadsheet-container">
         <Table
