@@ -96,6 +96,7 @@ img {
 .viewport-portrait .right-col {
   width: 50%;
   margin-left: 25%;
+  filter: invert(1);
 }
 
 .left-full-column {
