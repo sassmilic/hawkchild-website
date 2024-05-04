@@ -1,8 +1,7 @@
 import React from "react";
 import "./ContentMarquee.css";
-//import LazyImage from "./LazyImage"; // Remove unused import
-import LazyResponsiveImage from "./LazyResponsiveImage"; // Import LazyResponsiveImage instead
-import PropTypes from "prop-types"; // Import PropTypes
+import LazyResponsiveImage from "./LazyResponsiveImage";
+import PropTypes from "prop-types";
 
 const ContentMarquee = ({
   mediaPaths,
@@ -22,12 +21,16 @@ const ContentMarquee = ({
     );
   };
 
-  const directionClass = direction === "up" ? "animate-up" : "animate-down";
+  const directionClass = `animate-${direction}`;
+  const isHorizontal = direction === "left" || direction === "right";
 
   return (
     <div
       className={`content-marquee ${directionClass}`}
-      style={{ animationDuration: speed }}
+      style={{
+        animationDuration: speed,
+        flexDirection: isHorizontal ? "row" : "column",
+      }}
     >
       {(direction === "down" ? [...mediaPaths].reverse() : mediaPaths).map(
         renderMedia,
@@ -41,7 +44,7 @@ ContentMarquee.propTypes = {
   mediaPaths: PropTypes.array.isRequired,
   containerHeight: PropTypes.string,
   speed: PropTypes.string.isRequired,
-  direction: PropTypes.oneOf(["up", "down"]),
+  direction: PropTypes.oneOf(["up", "down", "left", "right"]),
 };
 
 export default ContentMarquee;

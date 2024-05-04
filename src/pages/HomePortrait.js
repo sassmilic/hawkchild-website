@@ -128,13 +128,12 @@ function Home() {
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
-        <div className="column right-column">
-          <ContentMarquee
-            mediaPaths={pics}
-            direction="down"
-            speed={MARQUEE_SPEED}
-          />
-        </div>
+        <ContentMarquee
+          mediaPaths={pics}
+          containerHeight="200vw"
+          direction="up"
+          speed={MARQUEE_SPEED}
+        />
         <SimpleFooter />
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />

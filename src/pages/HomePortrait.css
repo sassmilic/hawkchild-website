@@ -25,7 +25,7 @@ img {
   width: 100%;
 }
 
-.viewport {
+.viewport-portrait {
   position: absolute;
   top: calc(var(--navbar-height));
   top: 4%;
@@ -71,9 +71,7 @@ img {
 }
 
 .viewport-portrait .title-text.diy-svg {
-  top: calc(50vh + 100vw * var(--letter-height-as-ratio-of-width));
-  top: calc(50vh);
-  top: calc(50vh + 320vw * var(--letter-height-as-ratio-of-width));
+  top: calc(50vh + 270vw * var(--letter-height-as-ratio-of-width));
   right: 0;
   width: 21.5%;
 }
@@ -109,9 +107,7 @@ img {
 .viewport-portrait .right-column {
   position: absolute;
   top: 0;
-  margin-left: calc(50vw + 50vw * var(--gap-as-ratio-of-width) + 0.2vw);
-  margin-left: 0; 
-  width: 60%;
+  width: 100vw;
   background-blend-mode: difference;
   mix-blend-mode: difference;
 }
@@ -145,9 +141,9 @@ img {
   position: fixed;
   right: 0;
   /* `top` is same as "DIY" svg */
-  top: calc(45.5vh);
-  height: calc(100vw * var(--letter-height-as-ratio-of-width) + 1px);
-  height: calc(100vw * var(--letter-height-as-ratio-of-width) + 1px);
+  top: calc(46vh);
+  height: calc(100vw * var(--letter-height-as-ratio-of-width) - 10px);
+  height: calc(100vw * var(--letter-height-as-ratio-of-width) - 20px);
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;
   filter: invert(1);
