@@ -44,7 +44,7 @@
   width: auto;
   display: inline-block;
   margin: 50px;
-  border: 20px solid black;
+  border: 5px solid black;
 }
 
 @keyframes slide-right {
