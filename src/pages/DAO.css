@@ -2,8 +2,6 @@
     /*margin: 5em calc(100% * var(--margin-as-ratio-of-width));*/
     display: flex;
     flex-direction: column;
-    width: 50%;
-    margin-left: 23.7%;
 }
 
 .dao-page-title-container {
@@ -34,39 +32,16 @@
   font-style: italic;
 }
 
-.strategic-partners-container {
-  margin-top: 3em;
-  width: 60%;
+@media screen and (max-width: 767px) {
+  .dao-page-title-container {
+    margin-top: 1em;
+    flex-direction: column;
+  }
+  .dao-page-title-container h1 {
+    font-size: 2em;
+  }
+  .dao-page-container h2 {
+    font-size: 2em;
+  }
 }
 
-.logo-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1em 5em;
-}
-
-.logo-container img {
-  width: 15em;
-  height: auto;
-}
-
-#evian-christ-logo {
-  height: 3.6em;
-}
-
-#yung-lean-logo {
-  height: 7.5em;
-  margin-top: 0em;
-}
-
-#marky-b-logo {
-  height: 2.75em;
-  margin-top: -0.25em;
-}
-
-#seretide-logo {
-  height: 2em;
-  margin-top: 0em;
-}

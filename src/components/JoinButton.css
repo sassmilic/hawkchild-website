@@ -1,6 +1,6 @@
 .join-button {
-  width: 50%;
-  margin-left: 25%;
+  width: 25%;
+  margin-left: 37.5%;
   background: black;
   border: none;
   border-radius: 20px;
@@ -24,3 +24,10 @@
   transform: translateY(2px);
 }
 
+@media screen and (max-width: 767px) {
+  .join-button {
+    width: 100%;
+    margin-left: 0;
+    font-size: 2em; 
+  }
+}

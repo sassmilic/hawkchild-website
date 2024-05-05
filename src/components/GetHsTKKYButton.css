@@ -3,8 +3,9 @@
   background: white;
   border: none;
   border-radius: 20px;
+  margin: 0.5em;
   color: black;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 400;
   padding: 20px 20px; /* Adjust padding to match the size of your button */
   text-transform: uppercase;
@@ -22,3 +23,8 @@
   box-shadow: 0 0 15px 5px #b0d0ef;
 }
 
+@media screen and (max-width: 767px) {
+  .get-hsTKKYTKKY-button {
+      width: 80vw;
+  }  
+}

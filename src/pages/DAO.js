@@ -8,7 +8,7 @@ const AboutPage = () => {
     <div className="dao-page-container">
       <div className="dao-page-text-wrap">
         <div className="dao-page-title-container">
-          <h1>About</h1>
+          <h1>About the DAO</h1>
           <GetHsTKKYButton />
         </div>
         <p>
@@ -26,12 +26,12 @@ const AboutPage = () => {
         </p>
         <h2>$hsTKKYTKKY</h2>
         <p>
-          <i>$hsTKKYTKKY</i> is a cryptocurrency that&apos;s tied to the
-          HAWKCHILD DAO. Having our own token enables us to incentivize
-          community participation and generate value collectively. All members
-          hold <i>$hsTKKYTKKY</i>, ensuring a mutual commitment to our projects
-          and to each other. When we all contribute to the success of the
-          group&apos;s initiatives, we all benefit.
+          $hsTKKYTKKY is a cryptocurrency that&apos;s tied to the HAWKCHILD DAO.
+          Having our own token enables us to incentivize community participation
+          and generate value collectively. All members hold $hsTKKYTKKY,
+          ensuring a mutual commitment to our projects and to each other. When
+          we all contribute to the success of the group&apos;s initiatives, we
+          all benefit.
         </p>
         <h2>Our Vision</h2>
         <p>
