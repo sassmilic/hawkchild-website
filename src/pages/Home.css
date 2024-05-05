@@ -48,7 +48,7 @@ img {
  *   z-indices for each of them.
  * ========================================================================== */
 
-.title-text {
+.viewport .title-text {
   position: fixed;
   top: calc(50vh - 100vw * var(--letter-height-as-ratio-of-width) - 100vw * 0.5 * var(--line-width-ratio));
   filter: invert(100%);
@@ -63,7 +63,7 @@ img {
   width: calc(49.4vw); /* TODO: CHECK !!! */
 }
 
-.title-text.diy-svg {
+.viewport .title-text.diy-svg {
   top: calc(50vh + 100vw * 0.5 * var(--line-width-ratio));
   right: 0;
   width: 26.65%;

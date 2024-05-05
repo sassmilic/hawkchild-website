@@ -50,6 +50,8 @@ img {
   position: fixed;
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;
+  filter: invert(1);
+  mix-blend-mode: difference;
 }
 
 .viewport-portrait .title-text.hawk-svg,
@@ -68,9 +70,9 @@ img {
 }
 
 .viewport-portrait .title-text.diy-svg {
-  top: calc(50lvh + 300vw * var(--letter-height-as-ratio-of-width));
+  top: calc(100vh - 220vw * var(--letter-height-as-ratio-of-width));
   right: 0;
-  width: 41.9%;
+  width: calc(42vw);
 }
 
 .title-text.hawk-svg {
