@@ -126,7 +126,6 @@ function Home() {
       </Helmet>
       <div className="background-noise"></div>
       <div className="viewport-portrait">
-        <img className="top-video" src="/media/23_xsmall.webp" />
         <div className="marquee-container">
           <LogoMarquee />
         </div>
@@ -139,6 +138,7 @@ function Home() {
             lazy={false}
           />
         </div>
+        <img className="top-video" src="/media/23_xsmall.webp" />
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>

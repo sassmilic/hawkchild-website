@@ -48,7 +48,6 @@ img {
 
 .viewport-portrait .title-text {
   position: fixed;
-  filter: invert(100%);
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;
 }
@@ -56,17 +55,16 @@ img {
 .viewport-portrait .title-text.hawk-svg,
 .viewport-portrait .title-text.child-svg {
   width: 100%; 
-  mix-blend-mode: normal;
-  filter: invert(0);
 }
 
 .viewport-portrait .title-text.hawk-svg {
   top: calc(50lvh - 250vw * var(--letter-height-as-ratio-of-width));
+  mix-blend-mode: normal;
+  filter: invert(0);
 }
 
 .viewport-portrait .title-text.child-svg {
   top: calc(50lvh + 50vw * var(--letter-height-as-ratio-of-width));
-  background-blend-mode: difference;
 }
 
 .viewport-portrait .title-text.diy-svg {
@@ -159,12 +157,19 @@ img {
 .viewport-portrait .marquee-container {
   position: fixed;
   right: 0;
-  /* `top` is same as "DIY" svg */
   top: calc(50lvh - 46.5vw * var(--letter-height-as-ratio-of-width));
   height: calc(96.5vw * var(--letter-height-as-ratio-of-width));
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;
+  opacity: 100%;
+  backdrop-filter: blur(100px);
+}
+
+.viewport-portrait .marquee-container .marquee {
   filter: invert(1);
+  background-blend-mode: normal;
+  mix-blend-mode: normal;
+  backdrop-filter: blur(100px);
   opacity: 100%;
 }
 
@@ -177,7 +182,7 @@ img {
 @media (max-width: 768px) {
   .top-video {
       position: absolute;
-      bottom: calc(50vh + 225vw * var(--letter-height-as-ratio-of-width));
+      bottom: calc(50vh + 200vw * var(--letter-height-as-ratio-of-width));
       bottom: 50%;
       opacity: 50%;
       z-index: 0;
