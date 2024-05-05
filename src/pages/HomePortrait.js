@@ -127,8 +127,8 @@ function Home() {
       <div className="background-noise"></div>
       <div className="viewport-portrait">
         <img className="top-video" src="/media/23_xsmall.webp" />
-        <div className="title-text hawk-svg">
-          <img src={HawkText} alt="HAWK" />
+        <div className="marquee-container">
+          <LogoMarquee />
         </div>
         <div className="column right-col">
           <ContentMarquee
@@ -139,6 +139,9 @@ function Home() {
             lazy={false}
           />
         </div>
+        <div className="title-text hawk-svg">
+          <img src={HawkText} alt="HAWK" />
+        </div>
         <div className="poster-marquee-container">
           <PosterMarquee />
         </div>
@@ -146,9 +149,6 @@ function Home() {
         <SimpleFooter />
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />
-        </div>
-        <div className="marquee-container">
-          <LogoMarquee />
         </div>
         <div className="title-text diy-svg">
           <img src={DiyText} alt="DIY" />
