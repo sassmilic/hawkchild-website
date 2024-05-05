@@ -5,15 +5,42 @@
   text-align: center;
 }
 
+.contact-page-text-wrap {
+  margin-top: 1em;
+  font-size: 2em;
+}
+
+.contact-social-links {
+    display: flex;        /* Turns flexbox on for this unordered list */
+    justify-content: center;
+    align-items: center;
+  gap: calc(100vw * var(--gap-as-ratio-of-width));
+  margin: 0.5em 0;
+}
+
+.contact-social-links img {
+    width: 3em; /* Width of icons */
+    height: auto; /* Height of icons */
+  filter: invert(0.1);
+}
+
+.contact-social-links a:hover img {
+    fill: #555; /* SVG color on hover */
+    filter: invert(0.5);
+}
+
 @media screen and (max-width: 767px) {
   .contact-page-container {
     margin-top: 3em;
     margin-bottom: 5em;
   }
+  .contact-page-text-wrap {
+    margin-top: 1em;
+    font-size: 1.5em;
+  }
+  .contact-social-links {
+    justify-content: space-between;
+  }
 }
 
-
-.contact-page-text-wrap {
-  margin-top: 1em;
-}
 

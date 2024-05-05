@@ -1,12 +1,15 @@
 import React from "react";
 import "./About.css";
-import DecorativeHeader from "../components/DecorativeHeader";
+//import DecorativeHeader from "../components/DecorativeHeader";
+import decor from "../assets/decor-optimized.svg";
 
 const AboutPage = () => {
   return (
     <div className="about-page-container">
       <div className="about-page-text-wrap">
-        <DecorativeHeader text="About" />
+        <img className="decor decor-top" src={decor} />
+        <h1>About</h1>
+        <img className="decor decor-bottom" src={decor} />
         <p>
           Hawkchild DIY was formed by Hashim Ali at the young age of 15 in his
           bedroom in the Pollokshields area of Glasgow. Driven by a passion for

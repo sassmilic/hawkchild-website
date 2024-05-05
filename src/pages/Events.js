@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import DecorativeHeader from "../components/DecorativeHeader";
+//import DecorativeHeader from "../components/DecorativeHeader";
 import Table from "./../components/Table";
 import "./Events.css";
+import decor from "../assets/decor-optimized.svg";
 
 let data = require("./../data/eventData.json");
 
@@ -63,7 +64,9 @@ const Events = () => {
 
   return (
     <div className="event-page-container">
-      <DecorativeHeader text="events" />
+      <img className="decor decor-top" src={decor} />
+      <h1>Events</h1>
+      <img className="decor decor-bottom" src={decor} />
       <h2>upcoming</h2>
       <div className="spreadsheet-container">
         <Table
