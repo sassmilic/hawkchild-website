@@ -69,9 +69,9 @@ img {
 }
 
 .viewport-portrait .title-text.diy-svg {
-  top: calc(50lvh + 270vw * var(--letter-height-as-ratio-of-width));
+  top: calc(50lvh + 277vw * var(--letter-height-as-ratio-of-width));
   right: 0;
-  width: 21.5%;
+  width: 41.9%;
 }
 
 .title-text.hawk-svg {
