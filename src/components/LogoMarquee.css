@@ -109,6 +109,10 @@
 @media screen and (max-width: 767px) {
     .marquee {
         gap: 5rem;
+        mix-blend-mode: normal;
+    }
+    .marquee img {
+        mix-blend-mode: normal;
     }
     .logo-slide {
         gap: 5rem;

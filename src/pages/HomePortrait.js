@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import ContentMarquee from "../components/ContentMarquee";
 import LogoMarquee from "../components/LogoMarquee";
+import PosterMarquee from "../components/PosterMarquee";
 import SimpleFooter from "../components/SimpleFooter";
 import "./HomePortrait.css";
 
@@ -125,6 +126,7 @@ function Home() {
       </Helmet>
       <div className="background-noise"></div>
       <div className="viewport-portrait">
+        <img className="top-video" src="/media/23_xsmall.webp" />
         <div className="title-text hawk-svg">
           <img src={HawkText} alt="HAWK" />
         </div>
@@ -137,6 +139,10 @@ function Home() {
             lazy={false}
           />
         </div>
+        <div className="poster-marquee-container">
+          <PosterMarquee />
+        </div>
+        <img className="bottom-video" src="/media/13_xsmall.webp" />
         <SimpleFooter />
         <div className="title-text child-svg">
           <img src={ChildText} alt="CHILD" />

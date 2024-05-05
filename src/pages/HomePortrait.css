@@ -83,6 +83,21 @@ img {
 }
 
 /* ==========================================================================
+ * Poster Marquee
+ * ==========================================================================
+ * Handles styling for the scrolling poster marquee
+ * 
+ * Notes:
+ * - ...
+ * ========================================================================== */
+
+.poster-marquee-container {
+  height: calc(50vh - 299vw * var(--letter-height-as-ratio-of-width));
+  position: absolute;
+  top: 0;
+}
+
+/* ==========================================================================
  * Content Columns
  * ==========================================================================
  * Handles styling for the columns with "scrolling" images/gifs
@@ -148,18 +163,30 @@ img {
   height: calc(96.5vw * var(--letter-height-as-ratio-of-width));
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;
-  mix-blend-mode: difference;
   filter: invert(1);
-  opacity: 90%;
+  opacity: 100%;
 }
 
 .viewport-portrait .simple-footer {
   position: fixed;
-  margin-top: 1em;
-  height: 30px;
-  margin-bottom: 5px;
+  bottom: 0;
   filter: invert(1);
 }
 
 @media (max-width: 768px) {
+  .top-video {
+      position: absolute;
+      bottom: calc(50vh + 225vw * var(--letter-height-as-ratio-of-width));
+      bottom: 50%;
+      z-index: 0;
+  }
+  .bottom-video {
+      position: absolute;
+      top: calc(50vh + 270vw * var(--letter-height-as-ratio-of-width));
+      bottom: 0;
+      z-index: 0;
+      mix-blend-mode: difference;
+      filter: invert(1);
+  }
 }
+
