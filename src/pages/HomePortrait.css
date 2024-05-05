@@ -56,6 +56,8 @@ img {
 .viewport-portrait .title-text.hawk-svg,
 .viewport-portrait .title-text.child-svg {
   width: 100%; 
+  mix-blend-mode: normal;
+  filter: invert(0);
 }
 
 .viewport-portrait .title-text.hawk-svg {
@@ -64,7 +66,6 @@ img {
 
 .viewport-portrait .title-text.child-svg {
   top: calc(50lvh + 50vw * var(--letter-height-as-ratio-of-width));
-  filter: invert(1);
   background-blend-mode: difference;
 }
 
@@ -178,6 +179,7 @@ img {
       position: absolute;
       bottom: calc(50vh + 225vw * var(--letter-height-as-ratio-of-width));
       bottom: 50%;
+      opacity: 50%;
       z-index: 0;
   }
   .bottom-video {
@@ -186,6 +188,7 @@ img {
       bottom: 0;
       z-index: 0;
       mix-blend-mode: difference;
+      opacity: 50%;
       filter: invert(1);
   }
 }
