@@ -13,23 +13,6 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <div className="footer-sitemap">
-        <h4>sitemap</h4>
-        <ul>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/events">Events</a>
-          </li>
-          <li>
-            <a href="/dao">$hsTKKYTKKY</a>
-          </li>
-          <li>
-            <a href="/contact">Contact</a>
-          </li>
-        </ul>
-      </div>
       <div className="footer-socials">
         <h4>socials</h4>
         <ul>
@@ -47,6 +30,23 @@ const Footer = () => {
           </li>
           <li>
             <a href="//facebook.com">Facebook</a>
+          </li>
+        </ul>
+      </div>
+      <div className="footer-sitemap">
+        <h4>sitemap</h4>
+        <ul>
+          <li>
+            <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="/events">Events</a>
+          </li>
+          <li>
+            <a href="/dao">$hsTKKYTKKY</a>
+          </li>
+          <li>
+            <a href="/contact">Contact</a>
           </li>
         </ul>
       </div>
