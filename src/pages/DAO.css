@@ -1,5 +1,6 @@
 .dao-page-container {
     /*margin: 5em calc(100% * var(--margin-as-ratio-of-width));*/
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
 }

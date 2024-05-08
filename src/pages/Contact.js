@@ -1,18 +1,17 @@
 import React from "react";
 import "./Contact.css";
-//import DecorativeHeader from "../components/DecorativeHeader";
-import decor from "../assets/decor-optimized.svg";
 
 const ContactPage = () => {
   return (
     <div className="contact-page-container">
-      <img className="decor decor-top" src={decor} />
       <h1>Contact</h1>
-      <img className="decor decor-bottom" src={decor} />
       <br />
       <div className="contact-page-text-wrap">
         hashim@hawkchild.com
         <div className="contact-social-links">
+          <a href="https://ra.co/promoters/67650 ">
+            <img src="/icons/ra.png" alt="Resident Advisor" />
+          </a>
           <a href="//twitter.com">
             <img src="/icons/x.png" alt="Twitter" />
           </a>

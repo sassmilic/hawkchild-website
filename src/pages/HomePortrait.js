@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import ContentMarquee from "../components/ContentMarquee";
-import LogoMarquee from "../components/LogoMarquee";
+//import LogoMarquee from "../components/LogoMarquee";
 import PosterMarquee from "../components/PosterMarquee";
 import SimpleFooter from "../components/SimpleFooter";
 import "./HomePortrait.css";
@@ -126,9 +126,7 @@ function Home() {
       </Helmet>
       <div className="background-noise"></div>
       <div className="viewport-portrait">
-        <div className="marquee-container">
-          <LogoMarquee />
-        </div>
+        <div className="marquee-container">{/*<LogoMarquee />*/}</div>
         <div className="column right-col">
           <ContentMarquee
             mediaPaths={pics}

@@ -135,10 +135,12 @@ img {
   position: fixed;
   /* `top` is same as "DIY" svg */
   top: calc(50vh + 100vw * 0.5 * var(--line-width-ratio));
+  width: 100vw;
   right: 26.7vw;
   height: calc(100vw * var(--letter-height-as-ratio-of-width) + 1px);
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;
+  background-color: white;
 }
 
 .viewport .simple-footer {

@@ -17,6 +17,9 @@ const Footer = () => {
         <h4>socials</h4>
         <ul>
           <li>
+            <a href="https://ra.co/promoters/67650">Resident Advisor</a>
+          </li>
+          <li>
             <a href="//twitter.com">Twitter</a>
           </li>
           <li>
@@ -78,12 +81,7 @@ const Footer = () => {
       </div>
       */}
       <div className="footer-logos">
-        <img className="footer-logo" src="/logo4.png" alt="HCD Logo" />
-        <img
-          className="footer-logo glasgow-logo"
-          src="/city-of-glasgow.png"
-          alt="Glasgow Logo"
-        />
+        <img className="footer-logo" src="/logo3.png" alt="HCD Logo" />
       </div>
       <div className="footer-rights">
         <h4>©2024</h4>

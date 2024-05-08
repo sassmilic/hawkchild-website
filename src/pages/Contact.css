@@ -1,12 +1,13 @@
 .contact-page-container {
-  margin: 5em calc(100% * var(--margin-as-ratio-of-width));
-  margin: 5em 0;
+  margin-top: 1em;
   height: 100%;      /* Set the height of the div */
   text-align: center;
+  h1 {
+    text-align: center;
+  }
 }
 
 .contact-page-text-wrap {
-  margin-top: 1em;
   font-size: 2em;
 }
 
@@ -15,18 +16,20 @@
     justify-content: center;
     align-items: center;
   gap: calc(100vw * var(--gap-as-ratio-of-width));
-  margin: 0.5em 0;
+  margin: 1em 0;
 }
 
 .contact-social-links img {
-    width: 3em; /* Width of icons */
+    width: 2em; /* Width of icons */
     height: auto; /* Height of icons */
-  filter: invert(0.1);
+  filter: invert(1);
+  background-color: white;
+  border: solid 2px white;
 }
 
-.contact-social-links a:hover img {
-    fill: #555; /* SVG color on hover */
-    filter: invert(0.5);
+.contact-social-links img:hover {
+    filter: none; /* Remove filter effect */
+    background-color: var(--accent-color); /* Set background color to accent color */
 }
 
 @media screen and (max-width: 767px) {

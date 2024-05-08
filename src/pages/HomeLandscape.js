@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import LogoMarquee from "../components/LogoMarquee";
+//import LogoMarquee from "../components/LogoMarquee";
 import ContentMarquee from "../components/ContentMarquee";
 import SimpleFooter from "../components/SimpleFooter";
 import "./Home.css";
@@ -44,7 +44,7 @@ function Home() {
 
   const pics = [
     "/media/evian.gif",
-    "/media/sooakxa.png",
+    "/media/markyb.png",
     "/media/kamixlo-woesum.jpg",
     "/media/strobes.jpg",
     "/media/dark0-dog.jpg",
@@ -134,9 +134,7 @@ function Home() {
         <div className="column left-full-column">
           <ContentMarquee mediaPaths={posters} speed={MARQUEE_SPEED} />
         </div>
-        <div className="marquee-container">
-          <LogoMarquee />
-        </div>
+        <div className="marquee-container">{/*<LogoMarquee />*/}</div>
         <div className="column right-column">
           <ContentMarquee
             mediaPaths={pics}
