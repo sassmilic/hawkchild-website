@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
+import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
+//import { ReactLenis } from "@studio-freight/react-lenis";
 import { Helmet } from "react-helmet";
-//import LogoMarquee from "../components/LogoMarquee";
 import ContentMarquee from "../components/ContentMarquee";
 import SimpleFooter from "../components/SimpleFooter";
 import "./Home.css";
@@ -10,16 +11,18 @@ import HawkText from "../assets/title_text_hawk.svg";
 import ChildText from "../assets/title_text_child.svg";
 
 function Home() {
-  /*
-  const idMap = {
-    "1-2.jpg": "evian-passport",
-    "11.mp4": "oli-xl-doss-video-poster",
-    "21.mp4": "tp-decade-video-poster",
-    "24.mp4": "taleb-video-poster",
-  };
-  */
+  const leftContainerRef = useRef(null);
+  const rightContainerMediaRef = useRef(null);
 
-  const MARQUEE_SPEED = "180s";
+  useLenis(({ scroll }) => {
+    console.log("scroll", scroll);
+    const rightContainer = rightContainerMediaRef.current;
+
+    if (rightContainer) {
+      rightContainer.style.transform = `translateY(calc(-100% + 100vh + ${2 * scroll}px)`;
+      return;
+    }
+  });
 
   const posters = [
     "/media/poster_evian-christ_2024.jpeg",
@@ -63,6 +66,7 @@ function Home() {
     "/media/tp-team.png",
   ];
 
+  /*
   const gifs = [
     "/media/4.gif",
     "/media/1.gif",
@@ -111,45 +115,59 @@ function Home() {
     "/media/21.gif",
     "/media/22.gif",
   ];
+  */
 
   return (
     <>
-      <Helmet>
-        <link rel="preload" href={DiyText} as="image" type="image/svg+xml" />
-        <link rel="preload" href={HawkText} as="image" type="image/svg+xml" />
-        <link rel="preload" href={ChildText} as="image" type="image/svg+xml" />
-      </Helmet>
-      <div className="background-noise"></div>
-      <div className="viewport">
-        <div className="title-text hawk-svg">
-          <img src={HawkText} alt="HAWK" />
-        </div>
-        <div className="column right-half-column">
-          <ContentMarquee
-            mediaPaths={gifs}
-            containerHeight="50vw"
-            speed={MARQUEE_SPEED}
+      <ReactLenis options={{ lerp: 0.1 }} root>
+        <Helmet>
+          <link rel="preload" href={DiyText} as="image" type="image/svg+xml" />
+          <link rel="preload" href={HawkText} as="image" type="image/svg+xml" />
+          <link
+            rel="preload"
+            href={ChildText}
+            as="image"
+            type="image/svg+xml"
           />
+        </Helmet>
+        <div className="background-noise"></div>
+        <div className="viewport">
+          <div
+            className="left-container"
+            ref={leftContainerRef}
+            style={{ backgroundColor: "white" }}
+          >
+            <div className="title-text hawk-svg">
+              <img src={HawkText} alt="HAWK" />
+            </div>
+            <ContentMarquee mediaPaths={posters} />
+          </div>
+          <div className="right-container" style={{ backgroundColor: "white" }}>
+            <div
+              ref={rightContainerMediaRef}
+              className="right-container-media"
+              style={{ height: "100%" }}
+            >
+              {/*
+              <div className="column right-half-column">
+                <ContentMarquee mediaPaths={gifs} containerHeight="50vw" />
+              </div>
+              */}
+              <div className="column right-column">
+                <ContentMarquee mediaPaths={pics} direction="down" />
+              </div>
+            </div>
+            <div className="title-text child-svg">
+              <img src={ChildText} alt="CHILD" />
+            </div>
+            <div className="title-text diy-svg">
+              <img src={DiyText} alt="DIY" />
+            </div>
+          </div>
+          <div className="marquee-container">{/*<LogoMarquee />*/}</div>
+          <SimpleFooter />
         </div>
-        <div className="column left-full-column">
-          <ContentMarquee mediaPaths={posters} speed={MARQUEE_SPEED} />
-        </div>
-        <div className="marquee-container">{/*<LogoMarquee />*/}</div>
-        <div className="column right-column">
-          <ContentMarquee
-            mediaPaths={pics}
-            direction="down"
-            speed={MARQUEE_SPEED}
-          />
-        </div>
-        <SimpleFooter />
-        <div className="title-text child-svg">
-          <img src={ChildText} alt="CHILD" />
-        </div>
-        <div className="title-text diy-svg">
-          <img src={DiyText} alt="DIY" />
-        </div>
-      </div>
+      </ReactLenis>
     </>
   );
 }

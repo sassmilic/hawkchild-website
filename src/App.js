@@ -1,4 +1,6 @@
-import React, { useEffect } from "react";
+import { LocomotiveScrollProvider } from "react-locomotive-scroll";
+import React from "react";
+import { useRef } from "react";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import AppRoutes from "./AppRoutes";
 import "./reset.css";
@@ -10,6 +12,7 @@ import NavBar from "./components/NavBar";
 import Footer2 from "./components/Footer2";
 
 /* ensure each new page is viewed from the start */
+/*
 function ScrollToTop() {
   const location = useLocation();
   useEffect(() => {
@@ -17,6 +20,7 @@ function ScrollToTop() {
   }, [location]);
   return null;
 }
+*/
 
 /* don't show footer on home page */
 const ShowFooter = () => {
@@ -25,18 +29,22 @@ const ShowFooter = () => {
 };
 
 function App() {
+  const ref = useRef(null);
+
+  const options = {};
+
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="site-container">
-        <NavBar />
-        <main>
-          <AppRoutes />
-        </main>
-        <ShowFooter />
+    <LocomotiveScrollProvider options={options} containerRef={ref}>
+      <div data-scroll-container className="site-container" ref={ref}>
+        <Router>
+          <NavBar />
+          <main>
+            <AppRoutes />
+          </main>
+          <ShowFooter />
+        </Router>
       </div>
-    </Router>
+    </LocomotiveScrollProvider>
   );
 }
-
 export default App;

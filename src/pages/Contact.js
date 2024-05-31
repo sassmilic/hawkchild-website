@@ -9,8 +9,8 @@ const ContactPage = () => {
       <div className="contact-page-text-wrap">
         hashim@hawkchild.com
         <div className="contact-social-links">
-          <a href="https://ra.co/promoters/67650 ">
-            <img src="/icons/ra.png" alt="Resident Advisor" />
+          <a href="https://ra.co/promoters/67650">
+            <img id="ra-logo" src="/icons/ra.png" alt="Resident Advisor" />
           </a>
           <a href="//twitter.com">
             <img src="/icons/x.png" alt="Twitter" />

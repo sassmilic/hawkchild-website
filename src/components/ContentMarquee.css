@@ -3,7 +3,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
   position: relative;
   animation-direction: alternate;
   animation-timing-function: linear;
@@ -17,19 +16,19 @@
 }
 
 .animate-up {
-  animation-name: marqueeUp;
+  /*animation-name: marqueeUp;*/
 }
 
 .animate-down {
-  animation-name: marqueeDown;
+  /*animation-name: marqueeDown;*/
 }
 
 .animate-left {
-  animation-name: marqueeLeft;
+  /*animation-name: marqueeLeft;*/
 }
 
 .animate-right {
-  animation-name: marqueeRight;
+  /*animation-name: marqueeRight;*/
 }
 
 @keyframes marqueeUp {

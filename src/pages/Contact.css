@@ -20,16 +20,19 @@
 }
 
 .contact-social-links img {
-    width: 2em; /* Width of icons */
-    height: auto; /* Height of icons */
+  width: 2em; /* Width of icons */
+  height: auto; /* Height of icons */
   filter: invert(1);
   background-color: white;
   border: solid 2px white;
 }
 
 .contact-social-links img:hover {
-    filter: none; /* Remove filter effect */
-    background-color: var(--accent-color); /* Set background color to accent color */
+  filter: none; /* Remove filter effect */
+  background-color: var(--accent-color); /* Set background color to accent color */
+}
+
+#ra-logo {
 }
 
 @media screen and (max-width: 767px) {

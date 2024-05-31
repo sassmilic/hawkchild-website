@@ -1,13 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import PropTypes from "prop-types";
 import "./NavBar.css";
 
-const NavBar = ({ opacity }) => {
+const NavBar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav style={{ opacity }} className="navbar">
+    <nav className="navbar">
       <div className="left">
         <button onClick={() => navigate("/about")}>about</button>
         <div className="empty"></div>
@@ -24,10 +23,6 @@ const NavBar = ({ opacity }) => {
       </div>
     </nav>
   );
-};
-
-NavBar.propTypes = {
-  opacity: PropTypes.number.isRequired,
 };
 
 export default NavBar;
