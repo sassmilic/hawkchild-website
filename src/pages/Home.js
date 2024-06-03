@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import HomePortrait from "./HomePortrait";
+//import HomePortrait from "./HomePortrait";
 import HomeLandscape from "./HomeLandscape";
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
     };
   }, []);
 
-  return <>{isLandscape ? <HomeLandscape /> : <HomePortrait />}</>;
+  return <>{isLandscape ? <HomeLandscape /> : <HomeLandscape />}</>;
 };
 
 export default Home;
