@@ -22,12 +22,12 @@ const ContentMarquee = ({
         />
       );
     } else {
-      const base = mediaPath.substring(0, mediaPath.lastIndexOf(".")); // e.g., 'path/to/image'
+      const base = mediaPath.substring(0, mediaPath.lastIndexOf("."));
       return (
         <img
           className="regular-img"
           key={index}
-          src={`${base}_xsmall.webp`}
+          src={`${base}_large.webp`}
           alt="" // Consider providing an 'alt' attribute for accessibility
         />
       );

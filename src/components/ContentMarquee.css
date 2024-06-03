@@ -10,6 +10,23 @@
   gap: 50vh;
 }
 
+.content-marquee img {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 50%;
+}
+
+@keyframes appear{
+  from{
+      opacity: 0;
+      scale: 0.9;
+  }
+  to{
+      opacity: 1;
+      scale: 1;
+  }
+}
+
 .content-marquee .regular-img {
       border: 1px solid var(--light-blue-accent);
   filter: invert(1);
