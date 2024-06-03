@@ -23,7 +23,17 @@ const LazyMedia = ({ renderMedia, containerHeight, position = "top" }) => {
                 entry.target.appendChild(mediaElement);
               }
             }
+
+            // Add the "active" class to all img elements
+            entry.target.querySelectorAll("img").forEach((img) => {
+              img.classList.add("active");
+            });
           } else {
+            // Remove the "active" class from all img elements
+            entry.target.querySelectorAll("img").forEach((img) => {
+              img.classList.remove("active");
+            });
+
             while (entry.target.firstChild) {
               entry.target.removeChild(entry.target.firstChild);
             }

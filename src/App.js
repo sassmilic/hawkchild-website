@@ -1,4 +1,3 @@
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import React from "react";
 import { useRef } from "react";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
@@ -25,26 +24,22 @@ function ScrollToTop() {
 /* don't show footer on home page */
 const ShowFooter = () => {
   const location = useLocation();
-  return location.pathname === "/" ? null : <Footer2 />;
+  return location.pathname === "/" ? <Footer2 /> : <Footer2 />;
 };
 
 function App() {
   const ref = useRef(null);
 
-  const options = {};
-
   return (
-    <LocomotiveScrollProvider options={options} containerRef={ref}>
-      <div data-scroll-container className="site-container" ref={ref}>
-        <Router>
-          <NavBar />
-          <main>
-            <AppRoutes />
-          </main>
-          <ShowFooter />
-        </Router>
-      </div>
-    </LocomotiveScrollProvider>
+    <div className="site-container" ref={ref}>
+      <Router>
+        <NavBar />
+        <main>
+          <AppRoutes />
+        </main>
+        <ShowFooter />
+      </Router>
+    </div>
   );
 }
 export default App;

@@ -3,7 +3,7 @@ import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 //import { ReactLenis } from "@studio-freight/react-lenis";
 import { Helmet } from "react-helmet";
 import ContentMarquee from "../components/ContentMarquee";
-import SimpleFooter from "../components/SimpleFooter";
+//import SimpleFooter from "../components/SimpleFooter";
 import "./Home.css";
 
 import DiyText from "../assets/title_text_diy.svg";
@@ -119,7 +119,7 @@ function Home() {
 
   return (
     <>
-      <ReactLenis options={{ lerp: 0.1 }} root>
+      <ReactLenis options={{ lerp: 0.02 }} root>
         <Helmet>
           <link rel="preload" href={DiyText} as="image" type="image/svg+xml" />
           <link rel="preload" href={HawkText} as="image" type="image/svg+xml" />
@@ -130,6 +130,85 @@ function Home() {
             type="image/svg+xml"
           />
         </Helmet>
+
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <filter id="pixelate1" x="0" y="0">
+            <feImage
+              xlinkHref="data:image/svg+xml;base64,...base64encodedSVG..."
+              result="img"
+            />
+
+            <feFlood x="0" y="0" height="10" width="10" />
+            <feComposite width="20" height="20" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="10" />
+          </filter>
+          <filter id="pixelate2" x="0" y="0">
+            <feFlood x="0" y="0" height="8" width="8" />
+            <feComposite width="16" height="16" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="8" />
+          </filter>
+          <filter id="pixelate3" x="0" y="0">
+            <feFlood x="0" y="0" height="6" width="6" />
+            <feComposite width="12" height="12" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="6" />
+          </filter>
+          <filter id="pixelate4" x="0" y="0">
+            <feFlood x="0" y="0" height="5" width="5" />
+            <feComposite width="10" height="10" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="5" />
+          </filter>
+          <filter id="pixelate5" x="0" y="0">
+            <feFlood x="0" y="0" height="4" width="4" />
+            <feComposite width="8" height="8" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="4" />
+          </filter>
+          <filter id="pixelate6" x="0" y="0">
+            <feFlood x="0" y="0" height="3" width="3" />
+            <feComposite width="6" height="6" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="3" />
+          </filter>
+          <filter id="pixelate7" x="0" y="0">
+            <feFlood x="0" y="0" height="2" width="2" />
+            <feComposite width="4" height="4" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="2" />
+          </filter>
+          <filter id="pixelate8" x="0" y="0">
+            <feFlood x="0" y="0" height="1.5" width="1.5" />
+            <feComposite width="3" height="3" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="1.5" />
+          </filter>
+          <filter id="pixelate9" x="0" y="0">
+            <feFlood x="0" y="0" height="1" width="1" />
+            <feComposite width="2" height="2" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="1" />
+          </filter>
+          <filter id="pixelate10" x="0" y="0">
+            <feFlood x="0" y="0" height="0.5" width="0.5" />
+            <feComposite width="1" height="1" />
+            <feTile result="a" />
+            <feComposite in="SourceGraphic" in2="a" operator="in" />
+            <feMorphology operator="dilate" radius="0.5" />
+          </filter>
+        </svg>
+
         <div className="background-noise"></div>
         <div className="viewport">
           <div
@@ -165,7 +244,7 @@ function Home() {
             </div>
           </div>
           <div className="marquee-container">{/*<LogoMarquee />*/}</div>
-          <SimpleFooter />
+          {/*<SimpleFooter />*/}
         </div>
       </ReactLenis>
     </>
