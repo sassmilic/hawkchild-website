@@ -53,6 +53,11 @@ img {
     flex: 1;
 }
 
+.right-container {
+    display: flex;
+    align-items: flex-start;
+}
+
 .right-container-media {
   transform: translateY(-100% + 100vh);
 }
@@ -125,6 +130,7 @@ img {
 
 .right-half-column {
   float: right;
+  width: 50%;
   background-color: black;
   opacity: 90%;
 }

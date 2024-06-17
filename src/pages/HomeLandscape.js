@@ -119,7 +119,14 @@ function Home() {
 
   return (
     <>
-      <ReactLenis options={{ lerp: 0.02 }} root>
+      <ReactLenis
+        options={{
+          lerp: 0.1,
+          duration: 1.5,
+          smoothTouch: true,
+        }}
+        root
+      >
         <Helmet>
           <link rel="preload" href={DiyText} as="image" type="image/svg+xml" />
           <link rel="preload" href={HawkText} as="image" type="image/svg+xml" />
@@ -227,15 +234,15 @@ function Home() {
               className="right-container-media"
               style={{ height: "100%" }}
             >
-              {/*
-              <div className="column right-half-column">
-                <ContentMarquee mediaPaths={gifs} containerHeight="50vw" />
-              </div>
-              */}
               <div className="column right-column">
                 <ContentMarquee mediaPaths={pics} direction="down" />
               </div>
             </div>
+            {/*
+            <div className="column right-half-column">
+              <ContentMarquee mediaPaths={gifs} containerHeight="50vw" />
+            </div>
+            */}
             <div className="title-text child-svg">
               <img src={ChildText} alt="CHILD" />
             </div>
