@@ -1,13 +1,51 @@
 import React, { useEffect, useRef, useState } from "react";
 import WaveSurfer from "wavesurfer.js";
+// eslint-disable-next-line no-unused-vars
+import Hover from "wavesurfer.js/dist/plugins/hover.esm.js";
 import playIcon from "./assets/icons/play.svg";
 import pauseIcon from "./assets/icons/pause.svg";
 import volumeIcon from "./assets/icons/volume.svg";
-import "./SoundCloudPlayer.css"; // Make sure to create and import this CSS file
+import "./SoundCloudPlayer2.css"; // Make sure to create and import this CSS file
+
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+
+// Define the waveform gradient
+const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height * 1.35);
+gradient.addColorStop(0, "#656666"); // Top color
+gradient.addColorStop((canvas.height * 0.7) / canvas.height, "#656666"); // Top color
+gradient.addColorStop((canvas.height * 0.7 + 1) / canvas.height, "#ffffff"); // White line
+gradient.addColorStop((canvas.height * 0.7 + 2) / canvas.height, "#ffffff"); // White line
+gradient.addColorStop((canvas.height * 0.7 + 3) / canvas.height, "#B1B1B1"); // Bottom color
+gradient.addColorStop(1, "#B1B1B1"); // Bottom color
+
+// Define the progress gradient
+const progressGradient = ctx.createLinearGradient(
+  0,
+  0,
+  0,
+  canvas.height * 1.35,
+);
+progressGradient.addColorStop(0, "#EE772F"); // Top color
+progressGradient.addColorStop((canvas.height * 0.7) / canvas.height, "#EB4926"); // Top color
+progressGradient.addColorStop(
+  (canvas.height * 0.7 + 1) / canvas.height,
+  "#ffffff",
+); // White line
+progressGradient.addColorStop(
+  (canvas.height * 0.7 + 2) / canvas.height,
+  "#ffffff",
+); // White line
+progressGradient.addColorStop(
+  (canvas.height * 0.7 + 3) / canvas.height,
+  "#F6B094",
+); // Bottom color
+progressGradient.addColorStop(1, "#F6B094"); // Bottom color
 
 const SoundCloudPlayer = () => {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
+  const hoverRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("00:00:00");
   const [totalDuration, setTotalDuration] = useState("00:00:00");
@@ -22,11 +60,8 @@ const SoundCloudPlayer = () => {
     console.log("Initializing WaveSurfer...");
     wavesurfer.current = WaveSurfer.create({
       container: waveformRef.current,
-      waveColor: "#D9DCFF",
-      progressColor: "#4353FF",
-      height: 100,
-      responsive: true,
-      normalize: true,
+      waveColor: gradient,
+      progressColor: progressGradient,
       barWidth: 2,
     });
 
@@ -51,6 +86,11 @@ const SoundCloudPlayer = () => {
 
     wavesurfer.current.on("interaction", () => {
       setCurrentTime(formatTime(wavesurfer.current.getCurrentTime()));
+    });
+
+    wavesurfer.current.on("pointermove", (e) => {
+      console.log("firing hover event");
+      hoverRef.style.width = `${e.offsetX}px`;
     });
 
     return () => {
@@ -92,11 +132,14 @@ const SoundCloudPlayer = () => {
             alt="Play Button"
           />
         </button>
-
         <div className="sc-player-body">
           <p className="sc-track-title">Hawkchild DIY - Spring 2024 Mix.mp3</p>
           {isLoading && <p>Loading waveform...</p>}
-          <div id="waveform" className="sc-waveform" ref={waveformRef}></div>
+          <div id="waveform" className="sc-waveform" ref={waveformRef}>
+            <div id="time">{currentTime}</div>
+            <div id="duration">{totalDuration}</div>
+            <div id="hover" ref={hoverRef}></div>
+          </div>
           <div className="sc-controls">
             <div className="sc-volume">
               <img className="sc-volume-icon" src={volumeIcon} alt="Volume" />
@@ -109,12 +152,6 @@ const SoundCloudPlayer = () => {
                 value={volume}
                 onChange={handleVolumeChange}
               />
-            </div>
-
-            <div className="sc-timecode">
-              <span id="sc-current-time">{currentTime}</span>
-              <span>/</span>
-              <span id="sc-total-duration">{totalDuration}</span>
             </div>
           </div>
         </div>

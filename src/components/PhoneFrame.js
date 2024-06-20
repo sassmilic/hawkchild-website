@@ -53,7 +53,13 @@ const PhoneFrame = () => {
     <div className="phone-frame">
       <div className="video-container">
         <div className="video-wrapper">
-          <video ref={videoRef} controls />
+          <video
+            ref={videoRef}
+            muted
+            controls
+            controlsList="nodownload nofullscreen noremoteplayback"
+            disablePictureInPicture
+          ></video>
         </div>
         <button
           className="arrow arrow-left"
