@@ -4,6 +4,7 @@ import Lenis from "@studio-freight/lenis";
 import { Helmet } from "react-helmet";
 import ImageGrid from "../components/ImageGrid/ImageGrid";
 import PhoneFrame from "../components/PhoneFrame";
+import SoundCloudPlayer from "../components/SoundCloudPlayer/SoundCloudPlayer";
 import "./Home.css";
 
 import DiyText from "../assets/title_text_diy.svg";
@@ -131,7 +132,9 @@ function Home() {
         </div>
       </div>
       <PhoneFrame videoUrl="https://www.w3schools.com/html/mov_bbb.mp4" />
-      <div className="marquee-container">{/*<LogoMarquee />*/}</div>
+      <div className="marquee-container">
+        <SoundCloudPlayer />
+      </div>
       {/*<SimpleFooter />*/}
     </>
   );

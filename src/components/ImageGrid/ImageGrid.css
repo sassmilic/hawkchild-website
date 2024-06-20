@@ -28,7 +28,7 @@ canvas {
 	width: 100%;
 	display: grid;
 	position: relative;
-	margin: 10vh auto 50vh;
+	margin: 100vh auto 50vh;
 	padding: 0 3rem;
 	grid-row-gap: 3rem;
 }
@@ -69,12 +69,13 @@ canvas {
 
 .grid__item-caption h3 {
 	font-weight: bold;
-	font-size: inherit;
+	font-size: 14px;
 	margin: 0;
 	color: var(--color-title);
 }
 
 .grid__item-caption span {
+	font-size: 14px;
 	font-weight: bold;
 	color: var(--color-year);
 }
