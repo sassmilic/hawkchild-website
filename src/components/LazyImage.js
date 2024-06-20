@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import LazyMedia from "./LazyMedia";
 import Image from "next/image";
 
-const LazyImage = ({ containerHeight, src, alt, position = "top", placeholder = "blur", blurDataURL }) => (
+const LazyImage = ({
+  containerHeight,
+  src,
+  alt,
+  position = "top",
+  placeholder = "blur",
+}) => (
   <LazyMedia
     renderMedia={() => (
       <Image
@@ -25,8 +31,6 @@ LazyImage.propTypes = {
   alt: PropTypes.string.isRequired,
   position: PropTypes.oneOf(["top", "bottom"]),
   placeholder: PropTypes.oneOf(["blur", "empty"]),
-  blurDataURL: PropTypes.string,
 };
 
 export default LazyImage;
-
