@@ -29,8 +29,8 @@ canvas {
 	display: grid;
 	position: relative;
 	margin: 100vh auto 50vh;
-	padding: 0 3rem;
-	grid-row-gap: 3rem;
+	padding: 0 0rem;
+	grid-row-gap: 1rem;
 }
 
 .grid__item {
@@ -81,16 +81,14 @@ canvas {
 }
 
 @media screen and (min-width: 53em) {
-	.card-wrap {
-		grid-template-columns: repeat(2,300px);
-	}
-	.grid {
-		gap: 3vw;
-		grid-template-columns: repeat(10,1fr);
-		grid-auto-rows: auto;
-	}
-	.grid__item {
-    grid-column: var(--c) / span var(--s);
-    grid-row: var(--r);
-  }
+    .grid {
+        grid-template-columns: 
+        7.1vw 15.6vw 14.1vw 11.4vw 11.6vw 11.0vw 4.3vw 4.2vw 8.5vw 8.5vw 3.7vw;
+        grid-auto-rows: auto;
+    }
+    .grid__item {
+        grid-column: var(--c) / span var(--s);
+        grid-row: var(--r);
+    }
 }
+

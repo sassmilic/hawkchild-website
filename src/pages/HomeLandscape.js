@@ -78,13 +78,13 @@ function Home() {
         <CustomCursor />
         <div className="background-noise"></div>
         <div className="viewport">
-          <div className="title-text hawk-svg">
-            <img src={HawkText} alt="HAWK" />
-          </div>
           <div className="title-text diy-svg">
             <img src={DiyText} alt="DIY" />
           </div>
           <ImageGrid />
+          <div className="title-text hawk-svg">
+            <img src={HawkText} alt="HAWK" />
+          </div>
           <div className="title-text child-svg">
             <img src={ChildText} alt="CHILD" />
           </div>

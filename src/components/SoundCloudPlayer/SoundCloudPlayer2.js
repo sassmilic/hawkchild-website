@@ -10,24 +10,33 @@ import "./SoundCloudPlayer2.css"; // Make sure to create and import this CSS fil
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 
-// Define the waveform gradient
-const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height * 1.35);
-gradient.addColorStop(0, "#656666"); // Top color
-gradient.addColorStop((canvas.height * 0.7) / canvas.height, "#656666"); // Top color
-gradient.addColorStop((canvas.height * 0.7 + 1) / canvas.height, "#ffffff"); // White line
-gradient.addColorStop((canvas.height * 0.7 + 2) / canvas.height, "#ffffff"); // White line
-gradient.addColorStop((canvas.height * 0.7 + 3) / canvas.height, "#B1B1B1"); // Bottom color
-gradient.addColorStop(1, "#B1B1B1"); // Bottom color
+// Define the waveform ctx.fillStyle
+ctx.fillStyle = ctx.createLinearGradient(0, 0, 0, canvas.height * 1.35);
+ctx.fillStyle.addColorStop(0, "#747575"); // Top color
+ctx.fillStyle.addColorStop((canvas.height * 0.7) / canvas.height, "#838484"); // Top color
+ctx.fillStyle.addColorStop(
+  (canvas.height * 0.7 + 1) / canvas.height,
+  "#ffffff",
+); // White line
+ctx.fillStyle.addColorStop(
+  (canvas.height * 0.7 + 2) / canvas.height,
+  "#ffffff",
+); // White line
+ctx.fillStyle.addColorStop(
+  (canvas.height * 0.7 + 3) / canvas.height,
+  "#B1B1B1",
+); // Bottom color
+ctx.fillStyle.addColorStop(1, "#B1B1B1"); // Bottom color
 
-// Define the progress gradient
+// Define the progress ctx.fillStyle
 const progressGradient = ctx.createLinearGradient(
   0,
   0,
   0,
   canvas.height * 1.35,
 );
-progressGradient.addColorStop(0, "orange"); // Top color
-progressGradient.addColorStop((canvas.height * 0.7) / canvas.height, "yellow"); // Top color
+progressGradient.addColorStop(0, "black"); // Top color
+progressGradient.addColorStop((canvas.height * 0.7) / canvas.height, "black"); // Top color
 progressGradient.addColorStop(
   (canvas.height * 0.7 + 1) / canvas.height,
   "#ffffff",
@@ -38,9 +47,9 @@ progressGradient.addColorStop(
 ); // White line
 progressGradient.addColorStop(
   (canvas.height * 0.7 + 3) / canvas.height,
-  "#F6B094",
+  "#434343",
 ); // Bottom color
-progressGradient.addColorStop(1, "#F6B094"); // Bottom color
+progressGradient.addColorStop(1, "black"); // Bottom color
 
 const SoundCloudPlayer = () => {
   const waveformRef = useRef(null);
@@ -61,15 +70,15 @@ const SoundCloudPlayer = () => {
     console.log("Initializing WaveSurfer...");
     wavesurfer.current = WaveSurfer.create({
       container: waveformRef.current,
-      waveColor: gradient,
+      waveColor: ctx.fillStyle,
       progressColor: progressGradient,
       barWidth: 2,
       plugins: [
         HoverPlugin.create({
-          lineColor: "#ff0000",
+          lineColor: "blue",
           lineWidth: 1,
-          labelBackground: "#000",
-          labelColor: "#fff",
+          labelBackground: "#fff",
+          labelColor: "#000",
           labelSize: "11px",
         }),
       ],

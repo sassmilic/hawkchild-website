@@ -5,7 +5,7 @@ import Scene from "../Scene";
 
 import dog from "../dog.jpeg";
 
-import reemfields1 from "./imgs/reemfields_1.jpg";
+//import reemfields1 from "./imgs/reemfields_1.jpg";
 import reemfields2 from "./imgs/reemfields_2.jpg";
 import reemfields3 from "./imgs/reemfields_3.jpg";
 import evian from "./imgs/evian.mp4";
@@ -18,7 +18,7 @@ function ImageGrid() {
     <>
       <Scene />
       <div className="grid">
-        <figure className="grid__item" style={{ "--r": 1, "--c": 1, "--s": 4 }}>
+        <figure className="grid__item" style={{ "--r": 1, "--c": 1, "--s": 5 }}>
           <div className="grid__item-img">
             <EmergingImage url={reemfields2} className="grid__item-img-inner" />
           </div>
@@ -28,7 +28,7 @@ function ImageGrid() {
         </figure>
         <figure className="grid__item" style={{ "--r": 2, "--c": 5, "--s": 3 }}>
           <div className="grid__item-img">
-            <EmergingImage url={reemfields1} className="grid__item-img-inner" />
+            <EmergingImage url={evian} className="grid__item-img-inner" />
           </div>
           <figcaption className="grid__item-caption">
             <h3>Lorem ipsum dolor sit amet</h3> <span>2023</span>
@@ -36,7 +36,7 @@ function ImageGrid() {
         </figure>
         <figure className="grid__item" style={{ "--r": 3, "--c": 3, "--s": 3 }}>
           <div className="grid__item-img">
-            <EmergingImage url={evian} className="grid__item-img-inner" />
+            <EmergingImage url={reemfields3} className="grid__item-img-inner" />
           </div>
           <figcaption className="grid__item-caption">
             <h3>Lorem ipsum dolor sit amet</h3> <span>2023</span>
@@ -44,13 +44,13 @@ function ImageGrid() {
         </figure>
         <figure className="grid__item" style={{ "--r": 4, "--c": 1, "--s": 2 }}>
           <div className="grid__item-img">
-            <EmergingImage url={reemfields3} className="grid__item-img-inner" />
+            <EmergingImage url={logo} className="grid__item-img-inner" />
           </div>
           <figcaption className="grid__item-caption">
             <h3>Lorem ipsum dolor sit amet</h3> <span>2023</span>
           </figcaption>
         </figure>
-        <figure className="grid__item" style={{ "--r": 5, "--c": 3, "--s": 9 }}>
+        <figure className="grid__item" style={{ "--r": 5, "--c": 3, "--s": 7 }}>
           <div className="grid__item-img">
             <EmergingImage url={crowd1} className="grid__item-img-inner" />
           </div>
