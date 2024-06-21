@@ -5,14 +5,13 @@ import pauseIcon from "./assets/icons/pause.svg";
 import volumeIcon from "./assets/icons/volume.svg";
 import "./SoundCloudPlayer.css"; // Make sure to create and import this CSS file
 
-const SoundCloudPlayer = () => {
+const SoundCloudPlayer = ({}) => {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState("00:00:00");
   const [totalDuration, setTotalDuration] = useState("00:00:00");
   const [volume, setVolume] = useState(50);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (wavesurfer.current) {
@@ -37,12 +36,15 @@ const SoundCloudPlayer = () => {
     wavesurfer.current.on("ready", () => {
       console.log("WaveSurfer is ready");
       setTotalDuration(formatTime(wavesurfer.current.getDuration()));
-      //setIsLoading(true); // Set loading to false when waveform is ready
     });
 
-    wavesurfer.current.on("redraw", () => {
-      console.log("WaveSurfer waveform is ready");
-      setIsLoading(false); // Set loading to false when waveform is ready
+    wavesurfer.current.on("loading", (progress) => {
+      const estimatedProgress = progress * (1 / loadingTimeFactor);
+      console.log(`Loading progress: ${estimatedProgress}%`);
+      setLoadingProgress(estimatedProgress);
+      if (progress === 100) {
+        setIsLoading(false); // Set loading to false when waveform is fully loaded
+      }
     });
 
     wavesurfer.current.on("audioprocess", () => {
@@ -95,7 +97,6 @@ const SoundCloudPlayer = () => {
 
         <div className="sc-player-body">
           <p className="sc-track-title">Hawkchild DIY - Spring 2024 Mix.mp3</p>
-          {isLoading && <p>Loading waveform...</p>}
           <div id="waveform" className="sc-waveform" ref={waveformRef}></div>
           <div className="sc-controls">
             <div className="sc-volume">

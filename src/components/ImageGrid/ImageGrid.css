@@ -48,7 +48,6 @@ canvas {
 	height: auto;
 	aspect-ratio: var(--img-ratio);
 	aspect-ratio: 1;
-    opacity: 90%;
     box-shadow: -1px -1px 3px 1px darkblue;
 }
 
@@ -85,7 +84,7 @@ canvas {
 @media screen and (min-width: 53em) {
     .grid {
         grid-template-columns: 
-        7.1vw 15.6vw 14.1vw 11.4vw 11.6vw 11.0vw 4.3vw 4.2vw 8.5vw 8.5vw 3.7vw;
+        5.5% 14.4% 16.5% 13.2% 13.2% 13.2% 4.8% 11.5% 8%;
         grid-auto-rows: auto;
     }
     .grid__item {

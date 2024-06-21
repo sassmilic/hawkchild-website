@@ -60,7 +60,6 @@ const SoundCloudPlayer = () => {
   const [totalDuration, setTotalDuration] = useState("00:00:00");
   const [volume, setVolume] = useState(50);
   const [previousVolume, setPreviousVolume] = useState(50);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (wavesurfer.current) {
@@ -91,13 +90,17 @@ const SoundCloudPlayer = () => {
     wavesurfer.current.on("ready", () => {
       console.log("WaveSurfer is ready");
       setTotalDuration(formatTime(wavesurfer.current.getDuration()));
-      //setIsLoading(true); // Set loading to false when waveform is ready
     });
 
-    wavesurfer.current.on("redraw", () => {
-      console.log("WaveSurfer waveform is ready");
-      setIsLoading(false); // Set loading to false when waveform is ready
+    /*
+    wavesurfer.current.on("loading", (progress) => {
+      console.log(`Loading progress: ${progress}%`);
+      setLoadingProgress(progress);
+      if (progress === 100) {
+        setIsLoading(false); // Set loading to false when waveform is fully loaded
+      }
     });
+    */
 
     wavesurfer.current.on("audioprocess", () => {
       setCurrentTime(formatTime(wavesurfer.current.getCurrentTime()));
@@ -191,7 +194,6 @@ const SoundCloudPlayer = () => {
           </div>
         </div>
         <div className="sc-bottom-row">
-          {isLoading && <p>Loading waveform...</p>}
           <div id="waveform" className="sc-waveform" ref={waveformRef}>
             <div id="time">{currentTime}</div>
             <div id="duration">{totalDuration}</div>

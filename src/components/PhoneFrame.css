@@ -26,10 +26,11 @@
   border-radius: 0vw;
   position: relative;
   mix-blend-mode: difference;
+  background-color: black;
 }
 
 .video-wrapper {
-  height: 100%;
+  height: 90%;
   position: relative;
   box-shadow: 10px 10px 10px 5px rgba(0, 0, 0, 0.7); /* Add black blurry border */
   border-radius: 0vw;
@@ -53,6 +54,33 @@ video::-webkit-media-controls-download-button {
 /* Hide the volume control in non-WebKit browsers */
 video::--media-controls-volume-slider {
   display: none !important;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vw;
+  background-color: black;
+}
+
+.control-button {
+  font-size: 2rem;
+  margin: 0 1vw;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.control-button img {
+  height: 30px;
+  filter: invert(1);
+}
+
+.control-button:disabled {
+  color: grey;
+  cursor: not-allowed;
 }
 
 /*
