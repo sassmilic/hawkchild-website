@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import WaveSurfer from "wavesurfer.js";
-// eslint-disable-next-line no-unused-vars
-import Hover from "wavesurfer.js/dist/plugins/hover.esm.js";
-import playIcon from "./assets/icons/play.svg";
-import pauseIcon from "./assets/icons/pause.svg";
-import volumeIcon from "./assets/icons/volume.svg";
+import HoverPlugin from "wavesurfer.js/dist/plugins/hover";
+import playIcon from "./assets/icons/play.png";
+import pauseIcon from "./assets/icons/pause.png";
+import volumeIcon from "./assets/icons/volume.png";
+import muteIcon from "./assets/icons/mute.png";
 import "./SoundCloudPlayer2.css"; // Make sure to create and import this CSS file
 
 const canvas = document.createElement("canvas");
@@ -26,8 +26,8 @@ const progressGradient = ctx.createLinearGradient(
   0,
   canvas.height * 1.35,
 );
-progressGradient.addColorStop(0, "#EE772F"); // Top color
-progressGradient.addColorStop((canvas.height * 0.7) / canvas.height, "#EB4926"); // Top color
+progressGradient.addColorStop(0, "orange"); // Top color
+progressGradient.addColorStop((canvas.height * 0.7) / canvas.height, "yellow"); // Top color
 progressGradient.addColorStop(
   (canvas.height * 0.7 + 1) / canvas.height,
   "#ffffff",
@@ -50,6 +50,7 @@ const SoundCloudPlayer = () => {
   const [currentTime, setCurrentTime] = useState("00:00:00");
   const [totalDuration, setTotalDuration] = useState("00:00:00");
   const [volume, setVolume] = useState(50);
+  const [previousVolume, setPreviousVolume] = useState(50);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -63,6 +64,15 @@ const SoundCloudPlayer = () => {
       waveColor: gradient,
       progressColor: progressGradient,
       barWidth: 2,
+      plugins: [
+        HoverPlugin.create({
+          lineColor: "#ff0000",
+          lineWidth: 1,
+          labelBackground: "#000",
+          labelColor: "#fff",
+          labelSize: "11px",
+        }),
+      ],
     });
 
     const audioPath = `/Spring-2024-Mix.mp3`;
@@ -85,12 +95,8 @@ const SoundCloudPlayer = () => {
     });
 
     wavesurfer.current.on("interaction", () => {
+      console.log("firing interaction event");
       setCurrentTime(formatTime(wavesurfer.current.getCurrentTime()));
-    });
-
-    wavesurfer.current.on("pointermove", (e) => {
-      console.log("firing hover event");
-      hoverRef.style.width = `${e.offsetX}px`;
     });
 
     return () => {
@@ -111,38 +117,58 @@ const SoundCloudPlayer = () => {
   };
 
   const handlePlayPause = () => {
-    console.log("PLAY/PAUSE");
     wavesurfer.current.playPause();
     setIsPlaying(!isPlaying);
   };
 
   const handleVolumeChange = (event) => {
     const newVolume = event.target.value;
+    console.log("volume", volume);
     setVolume(newVolume);
     wavesurfer.current.setVolume(newVolume / 100);
+  };
+
+  const toggleMute = () => {
+    if (volume <= 1) {
+      // If currently muted, restore the previous volume
+      setVolume(previousVolume);
+      if (wavesurfer.current) {
+        wavesurfer.current.volume = previousVolume;
+      }
+    } else {
+      setPreviousVolume(volume);
+      setVolume(1);
+      if (wavesurfer.current) {
+        wavesurfer.current.volume = 0;
+      }
+    }
   };
 
   return (
     <div className="sc-player-container">
       <div className="sc-audio-player">
-        <button className="sc-play-button" onClick={handlePlayPause}>
-          <img
-            className="sc-play-button-icon"
-            src={isPlaying ? pauseIcon : playIcon}
-            alt="Play Button"
-          />
-        </button>
-        <div className="sc-player-body">
-          <p className="sc-track-title">Hawkchild DIY - Spring 2024 Mix.mp3</p>
-          {isLoading && <p>Loading waveform...</p>}
-          <div id="waveform" className="sc-waveform" ref={waveformRef}>
-            <div id="time">{currentTime}</div>
-            <div id="duration">{totalDuration}</div>
-            <div id="hover" ref={hoverRef}></div>
+        <div className="sc-top-row">
+          <button className="sc-play-button" onClick={handlePlayPause}>
+            <img
+              className="sc-play-button-icon"
+              src={isPlaying ? pauseIcon : playIcon}
+              alt="Play Button"
+            />
+          </button>
+          <div className="sc-song-info">
+            <p className="sc-track-title">
+              Hawkchild DIY - Spring 2024 Mix.mp3
+            </p>
           </div>
           <div className="sc-controls">
             <div className="sc-volume">
-              <img className="sc-volume-icon" src={volumeIcon} alt="Volume" />
+              <button onClick={toggleMute}>
+                <img
+                  className="sc-volume-icon"
+                  src={volume <= 1 ? muteIcon : volumeIcon}
+                  alt="Volume"
+                />
+              </button>
               <input
                 className="sc-volume-slider"
                 type="range"
@@ -153,6 +179,14 @@ const SoundCloudPlayer = () => {
                 onChange={handleVolumeChange}
               />
             </div>
+          </div>
+        </div>
+        <div className="sc-bottom-row">
+          {isLoading && <p>Loading waveform...</p>}
+          <div id="waveform" className="sc-waveform" ref={waveformRef}>
+            <div id="time">{currentTime}</div>
+            <div id="duration">{totalDuration}</div>
+            <div id="hover" ref={hoverRef}></div>
           </div>
         </div>
       </div>

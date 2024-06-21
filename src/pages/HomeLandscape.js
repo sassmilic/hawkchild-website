@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { addEffect } from "@react-three/fiber";
 import Lenis from "@studio-freight/lenis";
 import { Helmet } from "react-helmet";
+import CustomCursor from "../components/CustomCursor";
 import ImageGrid from "../components/ImageGrid/ImageGrid";
 import PhoneFrame from "../components/PhoneFrame";
 import SoundCloudPlayer from "../components/SoundCloudPlayer/SoundCloudPlayer2";
@@ -24,11 +25,20 @@ function Home() {
         cursorRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       }
     };
+
     const handleMouseEnter = () => {
       setIsHidden(true);
     };
 
     const handleMouseLeave = () => {
+      setIsHidden(false);
+    };
+
+    const handleElementMouseEnter = () => {
+      setIsHidden(true);
+    };
+
+    const handleElementMouseLeave = () => {
       setIsHidden(false);
     };
 
@@ -40,12 +50,19 @@ function Home() {
       button.addEventListener("mouseleave", handleMouseLeave);
     });
 
+    const elementsWithNoCustomScroll =
+      document.querySelectorAll(".no-custom-scroll");
+    elementsWithNoCustomScroll.forEach((element) => {
+      element.addEventListener("mouseenter", handleElementMouseEnter);
+      element.addEventListener("mouseleave", handleElementMouseLeave);
+    });
+
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
 
-      buttons.forEach((button) => {
-        button.removeEventListener("mouseenter", handleMouseEnter);
-        button.removeEventListener("mouseleave", handleMouseLeave);
+      elementsWithNoCustomScroll.forEach((element) => {
+        element.removeEventListener("mouseenter", handleElementMouseEnter);
+        element.removeEventListener("mouseleave", handleElementMouseLeave);
       });
     };
   }, [isHidden]);
@@ -58,13 +75,7 @@ function Home() {
         <link rel="preload" href={ChildText} as="image" type="image/svg+xml" />
       </Helmet>
       <div className="home-container">
-        {!isHidden && (
-          <div ref={cursorRef} id="custom-cursor">
-            <span className="arrows">↑</span>
-            <span className="scroll-text">SCROLL</span>
-            <span className="arrows">↓</span>
-          </div>
-        )}
+        <CustomCursor />
         <div className="background-noise"></div>
         <div className="viewport">
           <div className="title-text hawk-svg">
@@ -79,7 +90,7 @@ function Home() {
           </div>
         </div>
         <PhoneFrame videoUrl="https://www.w3schools.com/html/mov_bbb.mp4" />
-        <div className="marquee-container">
+        <div className="marquee-container no-custom-scroll">
           <SoundCloudPlayer />
         </div>
       </div>

@@ -1,10 +1,8 @@
 /* Main styles */
 :root {
-  --primary-color: rgb(24, 24, 24);
-  --primary-background-color: rgb(221, 221, 221);
   --secondary-color: rgb(75, 75, 75);
   --secondary-background-color: rgb(255, 255, 255);
-  --highlight-color: rgb(255, 85, 1);
+  --highlight-color: black;
   --box-shadow-color: rgb(201, 201, 201);
   --disabled-button-color: rgb(175, 175, 175);
   --border-radius: 1rem;
@@ -15,10 +13,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 1rem;
 }
 
 /* Audio player */
@@ -26,39 +21,67 @@
   position: absolute;
   width: 100%;
   display: flex;
-  background-color: var(--secondary-background-color);
+  flex-direction: column;
+  display: flex;
+}
+
+.sc-top-row, .sc-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.sc-song-info {
+  flex-grow: 1;
+  text-align: left;
 }
 
 /* Play button */
 .sc-play-button {
-  min-width: 10rem;
-  min-height: 10rem;
+  min-width: 3rem;
+  min-height: 3rem;
 
   /* Reset default button styles */
   border: none;
   background-color: transparent;
   outline: none;
   cursor: pointer;
+
+  display: grid;
+  place-items: center;
+}
+
+.sc-play-button img {
+  width: 1.5em;
 }
 
 /* Main player body, which includes title, waveform, volume and timecode */
+/*
 .sc-player-body {
   width: 100%;
   padding: 0 1rem;
 }
+*/
 
 /* Audio track title */
 .sc-track-title {
   width: 100%;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.sc-track-artist {
+  width: 100%;
+  font-size: 20px;
   font-weight: 300;
 }
 
 /* Main waveform */
 .sc-waveform {
   width: 100%;
-  min-height: 8rem;
+  min-height: 5rem;
   padding: 0.5rem 0;
-  mix-blend-mode: difference;
 }
 
 /* Controls include volume mute/unmute, volume slider and timecode */
@@ -78,6 +101,8 @@
   align-items: center;
 }
 .sc-volume-icon {
+  height: 1.5em;
+  width: auto;
   cursor: pointer;
 }
 .sc-volume-slider {
@@ -157,22 +182,6 @@
       cursor: pointer;
       position: relative;
     }
-    #hover {
-      position: absolute;
-      left: 0;
-      top: 0;
-      z-index: 10;
-      pointer-events: none;
-      height: 100%;
-      width: 0;
-      mix-blend-mode: overlay;
-      background: rgba(255, 255, 255, 0.5);
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
-    #waveform:hover #hover {
-      opacity: 1;
-    }
     #time,
     #duration {
       position: absolute;
@@ -181,9 +190,9 @@
       margin-top: -1px;
       transform: translateY(-50%);
       font-size: 16px;
-      background: rgba(0, 0, 0, 0.75);
+      background: rgba(255, 255, 255, 0.6);
       padding: 2px;
-      color: #ddd;
+      color: rgba(0, 0, 0, 0.9);
     }
     #time {
       left: 0;

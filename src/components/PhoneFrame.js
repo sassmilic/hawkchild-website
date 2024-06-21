@@ -52,7 +52,7 @@ const PhoneFrame = () => {
   return (
     <div className="phone-frame">
       <div className="video-container">
-        <div className="video-wrapper">
+        <div className="video-wrapper no-custom-scroll">
           <video
             ref={videoRef}
             muted
