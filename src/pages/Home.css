@@ -112,6 +112,8 @@ img {
   filter: invert(100%);
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;
+  background-blend-mode: difference;
+  mix-blend-mode: difference;
 }
 
 .title-text.hawk-svg,
@@ -121,8 +123,6 @@ img {
 
 .title-text.child-svg,
 .title-text.diy-svg { 
-  background-blend-mode: difference;
-  mix-blend-mode: difference;
 }
 
 .viewport .title-text.diy-svg {
@@ -133,7 +133,6 @@ img {
 
 .title-text.hawk-svg {
   left: 0;
-  filter: invert(0%);
 }
 
 .title-text.child-svg {

@@ -47,7 +47,9 @@ canvas {
 	width: 100%;
 	height: auto;
 	aspect-ratio: var(--img-ratio);
+	aspect-ratio: 1;
     opacity: 90%;
+    box-shadow: -1px -1px 3px 1px darkblue;
 }
 
 .grid__item-img-inner {
