@@ -1,5 +1,7 @@
 import React from "react";
 import { useRef } from "react";
+import Lenis from "@studio-freight/lenis";
+import { addEffect } from "@react-three/fiber";
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import AppRoutes from "./AppRoutes";
 import "./reset.css";
@@ -26,6 +28,9 @@ const ShowFooter = () => {
   const location = useLocation();
   return location.pathname === "/" ? <Footer2 /> : <Footer2 />;
 };
+
+const lenis = new Lenis();
+addEffect((t) => lenis.raf(t));
 
 function App() {
   const ref = useRef(null);

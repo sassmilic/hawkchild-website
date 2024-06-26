@@ -1,5 +1,7 @@
 .home-container {
-    /*min-width: 1000px; TODO!!! */
+  width: 100%;
+  margin-left: calc(100vw * var(--margin-as-ratio-of-width));
+  margin-right: calc(100vw * var(--margin-as-ratio-of-width));
 }
 
 body.no-scroll {

@@ -1,6 +1,4 @@
 import React from "react";
-import { addEffect } from "@react-three/fiber";
-import Lenis from "@studio-freight/lenis";
 import CustomCursor from "../components/CustomCursor";
 import ImageGrid from "../components/ImageGrid/ImageGrid";
 import PhoneFrame from "../components/PhoneFrame";
@@ -10,9 +8,6 @@ import "./Home.css";
 import DiyText from "../assets/title_text_diy.svg";
 import HawkText from "../assets/title_text_hawk.svg";
 import ChildText from "../assets/title_text_child.svg";
-
-const lenis = new Lenis();
-addEffect((t) => lenis.raf(t));
 
 function Home() {
   return (

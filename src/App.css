@@ -67,9 +67,9 @@ h2 {
 
 main {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column;
   margin-left: calc(100vw * var(--margin-as-ratio-of-width));
-  margin-right: calc(100vw * var(--margin-as-ratio-of-width));
+  margin-right: calc(100vw * var(--margin-as-ratio-of-width)); */
   flex-grow: 1; /* Expands to take up any remaining space */
 }
 
