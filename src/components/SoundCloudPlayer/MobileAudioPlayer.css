@@ -1,0 +1,73 @@
+.audio-player-container {
+  position: fixed;
+  height: 100px;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 90%;
+}
+
+.audio-play-button {
+  background-color: white;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+.audio-play-button:active {
+  background-color: #e04c00;
+}
+
+.audio-play-button-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.audio-now-playing {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  gap: 0.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.audio-marquee::before {
+  content: "";
+  width: 0.5em;
+  height: 1em;
+  background: linear-gradient(to right, white, transparent);
+  position: absolute; /* Position it absolutely */
+  z-index: 1;
+}
+
+.audio-marquee {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+.audio-marquee span {
+  will-change: transform;
+  transform: translateX(0);
+  white-space: nowrap;
+  animation: marquee 24s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

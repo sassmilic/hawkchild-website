@@ -1,5 +1,6 @@
 import React from "react";
 import ImageGridMobile from "../components/ImageGrid/ImageGridMobile";
+import AudioPlayer from "../components/SoundCloudPlayer/MobileAudioPlayer";
 import "./HomeMobile.css";
 
 import DiyText from "../assets/title_text_diy.svg";
@@ -21,6 +22,7 @@ function Home() {
           <div className="title-text-mobile child-svg">
             <img src={ChildText} alt="CHILD" />
           </div>
+          <AudioPlayer />
         </div>
       </div>
       {/*<SimpleFooter />*/}
