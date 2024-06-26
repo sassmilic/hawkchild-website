@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react";
-//import HomePortrait from "./HomePortrait";
-import HomeLandscape from "./HomeLandscape";
+import HomeMobile from "./HomeMobile";
+import HomeDesktop from "./HomeDesktop";
 
 const Home = () => {
-  const [isLandscape, setIsLandscape] = useState(
-    window.matchMedia("(orientation: landscape)").matches,
+  const [isMobile, setIsMobile] = useState(
+    /Mobi|Android/i.test(navigator.userAgent),
   );
 
   useEffect(() => {
-    const handleOrientationChange = (e) => {
-      setIsLandscape(e.matches);
+    const handleResize = () => {
+      setIsMobile(/Mobi|Android/i.test(navigator.userAgent));
     };
 
-    const mql = window.matchMedia("(orientation: landscape)");
-    mql.addEventListener("change", handleOrientationChange);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      mql.removeEventListener("change", handleOrientationChange);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  return <>{isLandscape ? <HomeLandscape /> : <HomeLandscape />}</>;
+  return <>{isMobile ? <HomeMobile /> : <HomeDesktop />}</>;
 };
 
 export default Home;
