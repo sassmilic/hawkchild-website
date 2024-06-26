@@ -5,16 +5,16 @@
 }
 
 .title-text-mobile {
-  position: fixed;
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;
   filter: invert(1);
+  mix-blend-mode: difference;
 }
 
- .title-text-mobile.hawk-svg,
- .title-text-mobile.child-svg {
-  mix-blend-mode: difference;
-  width: 90%; 
+.title-text-mobile.hawk-svg,
+.title-text-mobile.child-svg {
+  position: fixed;
+  width: 90%;
 }
 
 .title-text-mobile.hawk-svg {
@@ -25,11 +25,35 @@
   top: calc(50lvh - 50vw * var(--letter-height-as-ratio-of-width));
 }
 
-.title-text-mobile.diy-svg {
+.play-and-diy {
   top: calc(50lvh + 170vw * var(--letter-height-as-ratio-of-width));
-  right: 5%;
-  width: calc(49lvw);
-  filter: invert(0);
+  position: fixed;
+  display: flex;
+  mix-blend-mode: difference;
 }
 
+.title-text-mobile.diy-svg {
+  width: calc(49lvw);
+}
 
+.audio-play-button {
+  flex: 1;
+  width: 40lvw;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  height: 23.3lvw;
+  padding: 0;
+  margin: 0;
+}
+
+.audio-play-button:active {
+  background-color: white;
+}
+
+.audio-play-button-icon {
+  height: 100%;
+  width: auto;
+  filter: invert(1);
+}

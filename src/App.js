@@ -26,7 +26,7 @@ function ScrollToTop() {
 /* don't show footer on home page */
 const ShowFooter = () => {
   const location = useLocation();
-  return location.pathname === "/" ? <Footer2 /> : <Footer2 />;
+  return location.pathname === "/" ? <div></div> : <Footer2 />;
 };
 
 const lenis = new Lenis();
