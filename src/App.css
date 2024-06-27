@@ -9,6 +9,8 @@
   --letter-height-as-ratio-of-width: 0.126;
   --line-width-ratio: 0.0262795664;
   --light-blue-accent: #b0d0ef;
+  --mobile-navbar-width: 15lvw;
+  --desktop-navbar-height: 3em;
 }
 
 /*
@@ -22,216 +24,82 @@
 */
 
 @font-face {
-  font-family: 'Charter';
-  src: url('./assets/fonts/charter_regular.woff2') format('woff2');
+  font-family: "SourceCodePro";
+  src: url("./assets/fonts/SourceCodePro-Regular.ttf.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'SourceCodePro';
-  src: url('./assets/fonts/SourceCodePro-Regular.ttf.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SourceCodePro';
-  src: url('./assets/fonts/SourceCodePro-Light.ttf.woff2') format('woff2');
+  font-family: "SourceCodePro";
+  src: url("./assets/fonts/SourceCodePro-Light.ttf.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
 body {
-  font-family: 'SourceCodePro', monospace;
+  font-family: "SourceCodePro", monospace;
   font-size: 28px;
   font-weight: 300;
 }
 
 h1 {
-    text-transform: uppercase;
-    font-size: 100px;
+  text-transform: uppercase;
+  font-size: 100px;
 }
 
 h2 {
-    font-size: 2.5em;
-    font-weight: 300;
+  font-size: 2.5em;
+  font-weight: 300;
 }
 
 .site-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; 
   background-color: white;
 }
 
 main {
-  display: flex;
-  /* flex-direction: column;
-  margin-left: calc(100vw * var(--margin-as-ratio-of-width));
-  margin-right: calc(100vw * var(--margin-as-ratio-of-width)); */
-  flex-grow: 1; /* Expands to take up any remaining space */
+  margin-top: calc(var(--desktop-navbar-height));
+}
+
+.site-container.mobile main {
+  margin-top: 0;
+}
+
+.site-container.mobile.menu-open main {
+  margin-left: calc(var(--mobile-navbar-width));
 }
 
 /* scrollbar stuff */
 
 /* For WebKit browsers */
 ::-webkit-scrollbar {
-    width: 15px; /* width of the entire scrollbar */
+  width: 15px; /* width of the entire scrollbar */
 }
 ::-webkit-scrollbar-track {
-    background: #e7f0fa; /* color of the tracking area */
+  background: #e7f0fa; /* color of the tracking area */
 }
 ::-webkit-scrollbar-thumb {
-    background: black; /* color of the scroll thumb */
+  background: black; /* color of the scroll thumb */
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* color of the scroll thumb on hover */
+  background: #555; /* color of the scroll thumb on hover */
 }
 
 /* For Firefox */
 * {
-    scrollbar-width: auto; /* "auto" or "thin" */
-    scrollbar-color: black #e7f0fa; /* thumb and track color */
-}
-
-.mobile-warning {
-  display: none; /* Hidden by default */
-  color: red; /* Red text color */
-  text-align: center; /* Center the text */
-  padding: 10px; /* Add some padding */
-  font-size: 100px; /* Set a font-size */
-}
-
-.absolute {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: black;
-  z-index: 1;
-}
-
-.loader-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  transition: "all 0.25s ease-in-out";
-  background-color: #191919;
-  color: #dbd8d6;
-  h1 {
-    font-size: 1.5vw;
-    text-transform: uppercase;
-    font-family: "Bai Jamjuree", sans-serif;
-    font-weight: 600;
-  }
-  h2 {
-    font-size: 1.5vw;
-
-    text-transform: uppercase;
-    font-family: "Bodoni Moda", serif;
-    font-style: italic;
-    margin-top: 10px;
-  }
+  scrollbar-width: auto; /* "auto" or "thin" */
+  scrollbar-color: black #e7f0fa; /* thumb and track color */
 }
 
 /* Media query for mobile screens, typically less than 768px */
 @media screen and (max-width: 767px) {
-    body {
-      font-family: "Charter", serif;
-      font-size: 18px;
-    }
-    h1 {
-      font-size: 60px;
-    }
-    h2 {
-      font-size: 40px;
-    }
-
-}
-
-html.has-scroll-smooth {
-  overflow: hidden; 
-}
-
-html.has-scroll-dragging {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none; 
-}
-
-.has-scroll-smooth body {
-  overflow: hidden; 
-}
-
-.has-scroll-smooth [data-scroll-container] {
-  min-height: 100vh; 
-}
-
-[data-scroll-direction="horizontal"] [data-scroll-container] {
-  height: 100vh;
-  display: inline-block;
-  white-space: nowrap; 
-}
-
-[data-scroll-direction="horizontal"] [data-scroll-section] {
-  display: inline-block;
-  vertical-align: top;
-  white-space: nowrap;
-  height: 100%; 
-}
-
-.c-scrollbar {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 11px;
-  height: 100%;
-  transform-origin: center right;
-  transition: transform 0.3s, opacity 0.3s;
-  opacity: 0; 
-}
-
-  .c-scrollbar:hover {
-    transform: scaleX(1.45); 
-}
-
-  .c-scrollbar:hover, .has-scroll-scrolling .c-scrollbar, .has-scroll-dragging .c-scrollbar {
-    opacity: 1; 
-}
-
-[data-scroll-direction="horizontal"] .c-scrollbar {
-    width: 100%;
-    height: 10px;
-    top: auto;
-    bottom: 0;
-    transform: scaleY(1); 
-}
-
-[data-scroll-direction="horizontal"] .c-scrollbar:hover {
-      transform: scaleY(1.3); 
-}
-
-.c-scrollbar_thumb {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: black;
-  opacity: 0.5;
-  width: 7px;
-  border-radius: 10px;
-  margin: 2px;
-  cursor: -webkit-grab;
-  cursor: grab; 
-}
-  .has-scroll-dragging .c-scrollbar_thumb {
-    cursor: -webkit-grabbing;
-    cursor: grabbing; 
-}
-  [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
-    right: auto;
-    bottom: 0; 
+  body {
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 60px;
+  }
+  h2 {
+    font-size: 40px;
+  }
 }

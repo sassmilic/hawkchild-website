@@ -1,12 +1,9 @@
 .audio-player-container {
-  position: fixed;
-  height: 50px;
-  top: 35lvw;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: rgb(255, 255, 255, 0.9);
-  width: 90%;
+  width: 100%;
   font-family: "SourceCodePro", monospace;
 }
 

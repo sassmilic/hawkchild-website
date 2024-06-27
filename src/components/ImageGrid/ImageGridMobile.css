@@ -25,11 +25,9 @@ canvas {
 }
 
 .grid-mobile {
-  width: calc(100% + 200vw * var(--margin-as-ratio-of-width));
-  margin-top: 0vh;
+  width: 100%;
+  margin-top: 80lvh;
   margin-bottom: 100vh;
-  margin-left: calc(-100vw * var(--margin-as-ratio-of-width));
-  margin-right: calc(-100vw * var(--margin-as-ratio-of-width));
   display: grid;
   position: relative;
   grid-row-gap: 25lvw;

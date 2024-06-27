@@ -1,0 +1,69 @@
+.mobile-navbar {
+  position: fixed;
+  top: 0;
+  width: calc(var(--mobile-navbar-width));
+  background-color: black;
+  /* display: flex;
+  align-items: center; */
+  z-index: 1000;
+}
+
+.menu-button {
+  top: 0;
+  left: 0;
+  width: calc(var(--mobile-navbar-width));
+  height: calc(var(--mobile-navbar-width));
+  font-size: 24px;
+}
+
+.menu-button img {
+  width: 100%;
+  height: auto;
+  filter: invert(1);
+  background-blend-mode: difference;
+}
+
+.nav-menu {
+  margin-top: calc(-1 * var(--mobile-navbar-width) - 20px);
+  display: none;
+}
+
+.nav-menu ul,
+.nav-menu li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.nav-menu ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border: 1px dashed;
+  -webkit-writing-mode: horizontal-tb;
+  writing-mode: vertical-lr;
+}
+
+.nav-menu ul li {
+  color: white;
+  border: 1px solid;
+  padding: 10px;
+  transform: rotate(180deg);
+  font-weight: 400;
+}
+
+.nav-menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-menu ul li a:hover {
+}
+
+/* Show the nav menu when .show-menu class is added */
+.show-menu .nav-menu {
+  display: block;
+}

@@ -9,16 +9,16 @@ import ChildText from "../assets/title_text_child.svg";
 
 import playIcon from "../components/SoundCloudPlayer/assets/icons/mute.png";
 import pauseIcon from "../components/SoundCloudPlayer/assets/icons/volume.png";
-import SimpleFooter from "../components/SimpleFooter";
 
 function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <>
-      <div className="home-container-mobile">
-        <div className="viewport">
-          <ImageGridMobile />
+      <div className="home-container mobile">
+        <ImageGridMobile />
+        <div className="title-container mobile">
+          <AudioPlayer isPlaying={isPlaying} />
           <div className="title-text-mobile hawk-svg">
             <img src={HawkText} alt="HAWK" />
           </div>
@@ -40,13 +40,13 @@ function Home() {
               <img src={DiyText} alt="DIY" />
             </div>
           </div>
-          <AudioPlayer isPlaying={isPlaying} />
+          <div className="pulsing-text">
+            <p>scroll ↓</p>
+          </div>
         </div>
-        <div className="pulsing-text">scroll ↓</div>
-        <div className="footer-logos">
+        {/* <div className="footer-logos">
           <img className="footer-logo" src="/logo3.png" alt="HCD Logo" />
-        </div>
-        <SimpleFooter />
+        </div> */}
       </div>
     </>
   );
