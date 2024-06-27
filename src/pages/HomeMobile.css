@@ -85,3 +85,14 @@
   filter: invert(1);
   width: 46%;
 }
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logos img {
+  width: 40%;
+  margin-bottom: 15%;
+}

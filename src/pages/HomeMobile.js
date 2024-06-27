@@ -44,9 +44,9 @@ function Home() {
             <p>scroll ↓</p>
           </div>
         </div>
-        {/* <div className="footer-logos">
+        <div className="footer-logos">
           <img className="footer-logo" src="/logo3.png" alt="HCD Logo" />
-        </div> */}
+        </div>
       </div>
     </>
   );

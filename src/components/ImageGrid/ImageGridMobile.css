@@ -25,9 +25,10 @@ canvas {
 }
 
 .grid-mobile {
-  width: 100%;
   margin-top: 80lvh;
   margin-bottom: 100vh;
+  margin-left: 10.5%;
+  margin-right: 10.5%;
   display: grid;
   position: relative;
   grid-row-gap: 25lvw;
@@ -35,6 +36,7 @@ canvas {
 
 .grid__item {
   position: relative;
+  place-items: center;
   margin: 0;
   opacity: 90%;
 }
@@ -43,12 +45,11 @@ canvas {
   position: relative;
   overflow: hidden;
   display: grid;
-  place-items: center;
   width: 100%;
   height: auto;
   aspect-ratio: var(--img-ratio);
   aspect-ratio: 1;
-  box-shadow: -1px -1px 3px 1px darkblue;
+  /* box-shadow: -1px -1px 3px 1px darkblue; */
 }
 
 .grid__item-img-inner {
