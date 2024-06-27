@@ -1,5 +1,6 @@
 .home-container.mobile {
   width: 100lvw;
+  height: 100%;
   float: left;
   margin: 0;
   background-color: white;
@@ -11,7 +12,8 @@
 
 .title-container.mobile {
   position: fixed;
-  width: 100%;
+  width: 80%;
+  margin-left: 10%;
   top: 50lvh;
   transform: translateY(-50%);
   display: flex;
@@ -24,6 +26,7 @@
 
 .main-menu-open .home-container.mobile .title-container.mobile {
   width: calc(100lvw - var(--mobile-navbar-width));
+  margin-left: 0;
 }
 
 .pulsing-text {

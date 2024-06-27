@@ -27,18 +27,18 @@ canvas {
 .grid-mobile {
   margin-top: 80lvh;
   margin-bottom: 100vh;
-  margin-left: 10.5%;
-  margin-right: 10.5%;
+  /* margin-left: 10.5%;
+  margin-right: 10.5%; */
   display: grid;
   position: relative;
-  grid-row-gap: 25lvw;
+  grid-row-gap: 15%;
 }
 
 .grid__item {
   position: relative;
   place-items: center;
   margin: 0;
-  opacity: 90%;
+  opacity: 100%;
 }
 
 .grid__item-img {
