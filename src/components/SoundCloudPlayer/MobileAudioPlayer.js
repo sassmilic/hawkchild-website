@@ -20,8 +20,8 @@ const AudioPlayer = ({ isPlaying }) => {
           NOW PLAYING:
         </p>
         <div className={`audio-marquee ${isPlaying ? "playing" : ""}`}>
-          <span>Hawkchild DIY - Spring 2024 Mix.mp3&nbsp;</span>
-          <span>Hawkchild DIY - Spring 2024 Mix.mp3&nbsp;</span>
+          <span>Spring 2024 Mix.mp3 - Hawkchild DIY&nbsp;</span>
+          <span>Spring 2024 Mix.mp3 - Hawkchild DIY&nbsp;</span>
         </div>
       </div>
       <audio autoPlay ref={audioRef} src={music} />

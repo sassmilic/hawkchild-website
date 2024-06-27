@@ -4,6 +4,22 @@
   margin-right: calc(100vw * var(--margin-as-ratio-of-width));
 }
 
+.pulsing-text {
+  font-size: 1em; /* Adjust as needed */
+  animation: pulse 2s infinite;
+}
+
+/* Define the keyframes for the pulse animation */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    opacity: 0; /* Fully transparent */
+  }
+}
+
 .title-text-mobile {
   /* ensure pointer event passes through to elements underneath */
   pointer-events: none;

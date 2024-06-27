@@ -42,6 +42,7 @@ function Home() {
           </div>
           <AudioPlayer isPlaying={isPlaying} />
         </div>
+        <div className="pulsing-text">scroll ↓</div>
         <div className="footer-logos">
           <img className="footer-logo" src="/logo3.png" alt="HCD Logo" />
         </div>
