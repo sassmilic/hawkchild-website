@@ -1,14 +1,10 @@
 .home-container.mobile {
-  width: 100lvw;
-  height: 100%;
-  float: left;
   margin: 0;
-  background-color: white;
 }
 
-.main-menu-open .home-container.mobile {
+/* .main-menu-open .home-container.mobile {
   width: calc(100lvw - var(--mobile-navbar-width));
-}
+} */
 
 .title-container.mobile {
   position: fixed;
@@ -24,10 +20,10 @@
   mix-blend-mode: difference;
 }
 
-.main-menu-open .home-container.mobile .title-container.mobile {
+/* .main-menu-open .home-container.mobile .title-container.mobile {
   width: calc(100lvw - var(--mobile-navbar-width));
   margin-left: 0;
-}
+} */
 
 .pulsing-text {
   width: 100%;

@@ -28,7 +28,7 @@ function ImageGrid() {
           </div>
         </figure>
         <figure className="grid__item" style={{ "--r": 2, "--c": 5, "--s": 3 }}>
-          <div className="grid__item-img">
+          <div className="gr squreid__item-img">
             <EmergingImage url={reemfields3} className="grid__item-img-inner" />
           </div>
         </figure>

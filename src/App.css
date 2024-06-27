@@ -9,7 +9,7 @@
   --letter-height-as-ratio-of-width: 0.126;
   --line-width-ratio: 0.0262795664;
   --light-blue-accent: #b0d0ef;
-  --mobile-navbar-width: 15lvw;
+  --mobile-navbar-width: 10lvw;
   --desktop-navbar-height: 3em;
 }
 
@@ -58,16 +58,13 @@ h2 {
 }
 
 main {
-  margin-top: calc(var(--desktop-navbar-height));
+  position: absolute;
+  background-color: white;
 }
 
-.site-container.mobile main {
-  margin-top: 0;
-}
-
-.site-container.mobile.menu-open main {
+/* .site-container.mobile.menu-open main {
   margin-left: calc(var(--mobile-navbar-width));
-}
+} */
 
 /* scrollbar stuff */
 
