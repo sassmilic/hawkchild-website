@@ -19,7 +19,7 @@ function Home() {
       <div className="home-container mobile">
         <ImageGridMobile />
         <div className="title-container mobile">
-          <AudioPlayer isPlaying={isPlaying} />
+          <AudioPlayer isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
           <div className="title-text-mobile hawk-svg">
             <img src={HawkText} alt="HAWK" />
           </div>
