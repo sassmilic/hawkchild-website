@@ -1,7 +1,7 @@
-body {
+/* body {
   scroll-behavior: smooth;
 }
-
+ */
 canvas {
   touch-action: none;
   /* animation: fade-in 1.5s ease 0.5s forwards; */
@@ -26,12 +26,10 @@ canvas {
 
 .grid-mobile {
   margin-top: 80lvh;
-  padding-bottom: 200vh;
-  /* margin-left: 10.5%;
-  margin-right: 10.5%; */
-  display: grid;
-  position: relative;
-  grid-row-gap: 15%;
+  margin-bottom: 200vh;
+  display: flex;
+  flex-direction: column;
+  gap: 50vh;
 }
 
 .grid__item {

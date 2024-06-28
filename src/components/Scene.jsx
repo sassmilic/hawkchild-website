@@ -13,7 +13,7 @@ export default function Scene() {
           width: "100%",
           height: "100%",
           pointerEvents: "none",
-          backgroundColor: "white",
+          // backgroundColor: "white",
           // paddingBottom: "100lvh",
         }}
         eventSource={document.body}

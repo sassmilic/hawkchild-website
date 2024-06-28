@@ -32,13 +32,13 @@ function App() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const lenis = new Lenis();
-    const effect = addEffect((t) => lenis.raf(t));
-    return () => {
-      effect();
-    };
-  }, []);
+  // useEffect(() => {
+  //   const lenis = new Lenis();
+  //   const effect = addEffect((t) => lenis.raf(t));
+  //   return () => {
+  //     effect();
+  //   };
+  // }, []);
 
   useEffect(() => {
     const handleResize = () => {
