@@ -6,10 +6,12 @@ const AudioPlayer = ({ isPlaying, setIsPlaying }) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    if (isPlaying) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
     }
   }, [isPlaying]);
 
