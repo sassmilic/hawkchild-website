@@ -3,6 +3,7 @@
   align-items: stretch;
   gap: 5px;
   bottom: 0;
+  width: 100%;
   /* width: calc(100vw - 200vw * var(--margin-as-ratio-of-width)); */
   background-color: black;
   opacity: 90%;
@@ -11,9 +12,6 @@
 
 @media screen and (max-width: 767px) {
   .simple-footer {
-    width: calc(100vw);
-    margin-left: calc(-100vw * var(--margin-as-ratio-of-width));
-    margin-right: calc(-100vw * var(--margin-as-ratio-of-width));
   }
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ImageGridMobile from "../components/ImageGrid/ImageGridMobile";
 import AudioPlayer from "../components/SoundCloudPlayer/MobileAudioPlayer";
 import PulsingText from "../components/PulsingText/PulsingText";
+import SimpleFooter from "../components/SimpleFooter";
 import "./HomeMobile.css";
 
 import DiyText from "../assets/title_text_diy.svg";
@@ -46,6 +47,7 @@ function Home() {
         <div className="footer-logos">
           <img className="footer-logo" src="/logo3.png" alt="HCD Logo" />
         </div>
+        <SimpleFooter />
       </div>
     </>
   );

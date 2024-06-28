@@ -1,6 +1,7 @@
 import React from "react";
 import "./MobileNavBar.css";
 import menuIcon from "./assets/menu.png"; // Ensure the path is correct
+import closeIcon from "./assets/close.png"; // Ensure the path is correct
 
 const MobileNavBar = ({ menuOpen, setMenuOpen }) => {
   const toggleMenu = () => {
@@ -10,7 +11,7 @@ const MobileNavBar = ({ menuOpen, setMenuOpen }) => {
   return (
     <div className={`mobile-navbar ${menuOpen ? "show-menu" : ""}`}>
       <button className="menu-button" onClick={toggleMenu}>
-        <img src={menuIcon} alt="Menu" />
+        <img src={menuOpen ? closeIcon : menuIcon} alt="Menu" />
       </button>
       <nav className="nav-menu">
         <ul>
