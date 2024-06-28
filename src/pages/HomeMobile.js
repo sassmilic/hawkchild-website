@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ImageGridMobile from "../components/ImageGrid/ImageGridMobile";
 import AudioPlayer from "../components/SoundCloudPlayer/MobileAudioPlayer";
+import PulsingText from "../components/PulsingText/PulsingText";
 import "./HomeMobile.css";
 
 import DiyText from "../assets/title_text_diy.svg";
@@ -40,9 +41,7 @@ function Home() {
               <img src={DiyText} alt="DIY" />
             </div>
           </div>
-          <div className="pulsing-text">
-            <p>scroll ↓</p>
-          </div>
+          <PulsingText />
         </div>
         <div className="footer-logos">
           <img className="footer-logo" src="/logo3.png" alt="HCD Logo" />

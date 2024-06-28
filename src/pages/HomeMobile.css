@@ -30,7 +30,7 @@
   margin-left: 0;
 } */
 
-.pulsing-text {
+/* .pulsing-text {
   width: 100%;
   text-align: center;
   font-size: 1em; /* Adjust as needed */
@@ -52,7 +52,7 @@
   50% {
     opacity: 0; /* Fully transparent */
   }
-}
+} */
 
 .title-text-mobile {
   /* ensure pointer event passes through to elements underneath */
