@@ -4,11 +4,11 @@
   margin-top: 2.5vw;
   height: 95%;
   border: 1.6vw white solid;
-  border-radius: 3vw;
-  border-radius: 1vw;
+  /* border-radius: 3vw; */
+  /* border-radius: 1vw; */
   padding: 2vw 0.2vw;
   box-shadow: -1px -1px 3px 1px yellow;
-  background: #F6F6F6;
+  background: #f6f6f6;
   position: fixed;
   top: 0;
   right: 0;
@@ -24,6 +24,8 @@
   height: 100%;
   overflow: hidden;
   border-radius: 0vw;
+  /* border: 0.5vw black solid; */
+  box-shadow: -1px -1px 10px 2px darkblue;
   position: relative;
   mix-blend-mode: difference;
   background-color: black;
@@ -60,7 +62,7 @@ video::--media-controls-volume-slider {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 1vw;
+  margin-top: 2vw;
   background-color: black;
 }
 
